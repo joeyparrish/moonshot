@@ -11,6 +11,9 @@ The story creation year is 2020.
 [Configuration]
 Include the Standard Rules by Graham Nelson.
 Include Basic Screen Effects by Emily Short.
+Include Concepts by Joey Parrish.
+Include Strangers by Joey Parrish.
+Include Better Asking by Joey Parrish.
 Release along with an interpreter.
 
 
@@ -24,87 +27,37 @@ When play begins:
     accept, one we are unwilling to postpone...'
 
     -- U.S. President John Fitzgerald Kennedy";
-  leave space;
+  say paragraph break;
+  say paragraph break;
   center "[italic type]MoonShot[roman type]";
   center "Story by Joey & Charity Parrish";
   center "Copyright (C) 2020";
-  leave space.
-
-
-[General Tools]
-To leave space:
   say paragraph break;
   say paragraph break.
 
-["Asking" natively matches exact phrases, rather than things.  "Quizzing",
-defined here, is a workaround for that which matches things, so that you can
-use looser phrasing.  For example, if "worm" is a thing in the room, "quizzing"
-would let the player write "ask Doctor about the worm" or "about worm", etc.
-without the code listing all of those alternatives.  The same is true of
-"informing", defined here as a workaround for the same effect on the built-in
-"tell" action.]
 
-Quizzing it about is an action applying to two things.  Understand "ask
-[someone] about [something]" and "quiz [someone] about [something]" as quizzing
-it about.
 
-Check quizzing it about:
-  say "[The noun] shrugs unhelpfully."
-
-Informing it about is an action applying to two things.  Understand "tell
-[someone] about [something]" and "inform [someone] about [something]" as
-informing it about.
-
-Check informing it about:
-  say "'That's interesting,' [the noun] says, stifling a yawn."
-
-[The "talk to" action will let us offer suggestions to the player about things
-to "ask" about.]
-
-Talking to is an action applying to one visible thing.  Understand "talk to
-[someone]" or "converse with [someone]" as talking to.
-
-[Here we define "concept" as a kind of thing you can refer to anywhere and ask
-people about.  But you can't look at them in unless we write rules for
-individual concepts to be examined.]
-
-A concept is a kind of backdrop.  Instead of examining a concept, say "You
-can't see any such thing."
+Chapter 1
 
 The weather is a concept.  The weather is everywhere.  [We can talk about it or
 ask about it in any room.]
 Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
-[Here we define an unknown person.  They have a name, but we don't know it
-right away.  Once we know it, that is how they will be referred to.  This lets
-us give people alternate descriptions before and after they have been
-introduced to us somehow.]
-
-A stranger is a kind of person.  A stranger can be known or unknown.  A
-stranger has some text called the real name.
-
-Rule for printing the name of a stranger (called Bob) while Bob is known:
-  say "[real name]".
-Every turn, if a stranger (called Bob) is known, now Bob is proper-named.
-
-
-
-Chapter 1
 
 NASA headquarters is a room.
 
-NASA engineering department is east of NASA headquarters.
 
+NASA engineering department is east of NASA headquarters.
 
 In NASA engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".
 
-Understand "ginger", "nerd", "man", and "Rick" as the engineer.
-
 The description of the engineer is "He is tall and thin, with slicked-back
 ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket
-protector and a name badge."
+protector and a name badge.  What a nerd!"
+
+Understand "ginger", "nerd", "man", and "Rick" as the engineer.
 
 The engineer is wearing a name badge.  The description of the name badge is "It
 says 'Rick' at the top.  The bottom says 'Apollo Systems Technician, Launch
@@ -137,4 +90,3 @@ The command module is a concept in the engineering department.
 
 Instead of quizzing the engineer about the command module:
   say "[The noun] doesn't seem to know what that is."
-

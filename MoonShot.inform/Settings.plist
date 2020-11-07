@@ -23,7 +23,7 @@ com/DTDs/PropertyList-1.0.dtd">
         <key>IFOutputSettings</key>
         <dict>
                 <key>IFSettingCreateBlorb</key>
-		<true/>
+		<false/>
                 <key>IFSettingZCodeVersion</key>
                 <integer>256</integer>
         </dict>

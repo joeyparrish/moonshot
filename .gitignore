@@ -1,5 +1,6 @@
-*.materials
 *.sw*
 *.dbg
+Release.blurb
+Release/
 Build/
 Index/
