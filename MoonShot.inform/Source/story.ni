@@ -87,6 +87,12 @@ Instead of taking the phone:
     phone plugged back in.";
   now the secretary is mad.
 
+Instead of saying sorry while the player is in the waiting room:
+	if the secretary is mad:
+		say "She doesn't look ready to forgive you.";
+	otherwise:
+		say "What is there to apologize for?"
+
 The description of the secretary is "[if the secretary is mad]She glares at you
 and says 'Keep your eyes to yourself, you nut job.'[otherwise][The noun] is a
 youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed
