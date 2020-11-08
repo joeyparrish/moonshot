@@ -4,7 +4,8 @@
 [Bibliographic Information]
 The story genre is "Comedy".
 The release number is 1.
-The story description is "A NASA intern in the 1960s scrambles to make Apollo 11 a success."
+The story description is "A NASA intern in the 1960s scrambles to make Apollo 11
+  a success."
 The story creation year is 2020.
 
 
@@ -25,41 +26,43 @@ The display banner rule is not listed in the startup rulebook.
 [I don't like how Emily Short's "pause the game" rule clears the screen after
 continuing.  Here's my own definition built on some of hers.]
 To pause:
-  say "[paragraph break]Please press SPACE to continue[line break]";
-  wait for the SPACE key;
-  say line break;
+	say "[paragraph break]Please press SPACE to continue[line break]";
+	wait for the SPACE key;
+	say line break;
 
 When play begins:
-  center "'We choose to go to the moon in this decade...
-    because that goal will serve to organize and measure the best of our
-    energies and skills, because that challenge is one that we are willing to
-    accept, one we are unwilling to postpone...'
+	center "'We choose to go to the moon in this decade...
+	  because that goal will serve to organize and measure the best of our
+	  energies and skills, because that challenge is one that we are willing
+	  to accept, one we are unwilling to postpone...'
 
-    -- U.S. President John Fitzgerald Kennedy";
-  say paragraph break;
-  say paragraph break;
-  center "[italic type]MoonShot[roman type]";
-  center "Story by Joey & Charity Parrish";
-  center "Copyright (C) 2020";
-  pause;
-  say paragraph break;
-  say paragraph break;
-  say "NASA, 1969.";
-  say line break;
-  say "You did it!  You finally landed an internship at NASA, the National
-    Aeronautics and Space ... Association?  Agency?  Authority?  You're not
-    really sure what the last A stands for, but it's only your first day.
-    You're pretty certain you'll figure it out soon enough.";
-  pause;
-  say "After a whirlwind tour of NASA headquarters, which you are sure you've
-    already [italic type]completely[roman type] forgotten, you are ushered into
-    the office of your new boss: the director of NASA's Apollo program.  They
-    say that we're ready to send [italic type]man to the moon[roman type].  You
-    can scarely believe it!  It's like something out of science fiction.
-    Nervously, you wait to be called into the inner office.";
-  pause;
-  say "[italic type](If you have never played interactive fiction before, you
-    can type 'help' to get some basic instruction.)[roman type][line break]"
+	  -- U.S. President John Fitzgerald Kennedy";
+	say paragraph break;
+	say paragraph break;
+	center "[italic type]MoonShot[roman type]";
+	center "Story by Joey & Charity Parrish";
+	center "Copyright (C) 2020";
+	pause;
+	say paragraph break;
+	say paragraph break;
+	say "NASA, 1969.";
+	say line break;
+	say "You did it!  You finally landed an internship at NASA, the National
+	  Aeronautics and Space ... Association?  Agency?  Authority?  You're
+	  not really sure what the last A stands for, but it's only your first
+	  day.  You're pretty certain you'll figure it out soon enough.";
+	pause;
+	say "After a whirlwind tour of NASA headquarters, which you are sure
+	  you've already [italic type]completely[roman type] forgotten, you are
+	  ushered into the office of your new boss: the director of NASA's
+	  Apollo program.  You heard recently that we're ready to send
+	  [italic type]man to the moon[roman type].  You can scarely believe it!
+	  It's like something out of science fiction.  Nervously, you wait to be
+	  called into the inner office.";
+	pause;
+	say "[italic type](If you have never played interactive fiction before,
+	  you can type 'help' to get some basic instruction.)[roman type]";
+	say line break;
 
 
 
@@ -82,10 +85,10 @@ the secretary is happy.  Understand "Donna" as the secretary.
 The desk is scenery in the waiting room.  On the desk is a phone.
 
 Instead of taking the phone:
-  say "[The secretary] stands up quickly and snatches it back from you.  'What
-    is the matter with you?' she yells.  It takes her a minute or so to get the
-    phone plugged back in.";
-  now the secretary is mad.
+	say "[The secretary] stands up quickly and snatches it back from you.
+	  'What is the matter with you?' she yells.  It takes her a minute or so
+	  to get the phone plugged back in.";
+	now the secretary is mad.
 
 Instead of saying sorry while the player is in the waiting room:
 	if the secretary is mad:
@@ -99,7 +102,7 @@ youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed
 glasses.  She notices you looking and smiles."
 
 Instead of talking to the secretary:
-  say "Perhaps you could ask [the noun] about the weather, or her name."
+	say "Perhaps you could ask [the noun] about the weather, or her name."
 
 Name is a concept in the waiting room.
 Instead of quizzing the secretary about name:
@@ -139,27 +142,27 @@ Enablement Yroup.'  ... Huh.  Must be a typo."
 After examining the name badge, now the engineer is known.
 
 Rule for writing a paragraph about the engineer:
-  if the engineer is unknown, say "An engineer is standing around by the coffee
-    pot, doing nothing.";
-  otherwise say "Rick is still here, still doing nothing.";
+	if the engineer is unknown, say "An engineer is standing around by the
+	  coffee pot, doing nothing.";
+	otherwise say "Rick is still here, still doing nothing.";
 
 Instead of talking to the engineer:
-  say "Perhaps you could ask [the noun] about the weather, the command module,
-  or himself."
+	say "Perhaps you could ask [the noun] about the weather, the command
+	  module, or himself."
 
 Instead of quizzing the engineer about the weather:
-  say "[The noun] glances up at the ceiling for a moment before replying,
-  'Maybe a bit cloudy, but we should still be clear for launch.  Besides, we're
-  never gonna give this up.'"
+	say "[The noun] glances up at the ceiling for a moment before replying,
+	  'Maybe a bit cloudy, but we should still be clear for launch.
+	  Besides, we're never gonna give this up.'"
 
 Understand "himself" as the engineer.
 Instead of quizzing the engineer about the engineer:
-  say "[The noun] looks a bit embarrassed by the question, maybe even
-  flattered.  He looks at his feet for a moment before replying, 'Well...  We're
-  no strangers to love.'  Then he raises his eyes and gives you a look that
-  makes you... distinctly uncomfortable."
+	say "[The noun] looks a bit embarrassed by the question, maybe even
+	  flattered.  He looks at his feet for a moment before replying,
+	  'Well...  We're no strangers to love.'  Then he raises his eyes and
+	  gives you a look that makes you... distinctly uncomfortable."
 
 The command module is a concept in the engineering department.
 
 Instead of quizzing the engineer about the command module:
-  say "[The noun] doesn't seem to know what that is."
+	say "[The noun] doesn't seem to know what that is."

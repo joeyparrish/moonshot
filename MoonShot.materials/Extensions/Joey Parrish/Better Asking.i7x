@@ -5,14 +5,14 @@ Quizzing it about is an action applying to two things.  Understand "ask
 it about.
 
 Check quizzing it about:
-  say "[The noun] shrugs unhelpfully."
+	say "[The noun] shrugs unhelpfully."
 
 Informing it about is an action applying to two things.  Understand "tell
 [someone] about [something]" and "inform [someone] about [something]" as
 informing it about.
 
 Check informing it about:
-  say "'That's interesting,' [the noun] says, stifling a yawn."
+	say "'That's interesting,' [the noun] says, stifling a yawn."
 
 Talking to is an action applying to one visible thing.  Understand "talk to
 [someone]" or "converse with [someone]" as talking to.
@@ -42,7 +42,7 @@ For example:
 	The kitchen is a room.  In the kitchen is a man called Bob.
 	
 	Instead of quizzing Bob about the weather:
-	  say "[The noun] says 'Beautiful day, isn't it?'"
+		say "[The noun] says 'Beautiful day, isn't it?'"
 
 The same is true of "informing", defined here as a workaround for the same
 effect on the built-in "tell" action.
@@ -51,4 +51,4 @@ The "talk to" action will let us offer suggestions to the player about things
 to "ask" about.  For example:
 
 	Instead of talking to Bob:
-	  say "Perhaps you could ask [the noun] about the weather."
+		say "Perhaps you could ask [the noun] about the weather."

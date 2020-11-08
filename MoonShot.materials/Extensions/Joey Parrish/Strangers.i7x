@@ -4,7 +4,7 @@ A stranger is a kind of person.  A stranger can be known or unknown.  A
 stranger has some text called the real name.
 
 Rule for printing the name of a stranger (called Bob) while Bob is known:
-  say "[real name]".
+	say "[real name]".
 Every turn, if a stranger (called Bob) is known, now Bob is proper-named.
 [This last rule eliminates articles before the person's name.]
 
@@ -30,6 +30,10 @@ refer to them for the rest of the game.  For example:
 You can also write other conditions based on a stranger's known/unknown status:
 
 	Rule for writing a paragraph about the tall man:
-	  if the tall man is unknown, say "An extremely tall man is standing
-            here, trying his best not to hit his head on anything.";
-          otherwise say "Robert is still lurking about, looking uncomfortable."
+		if the tall man is unknown:
+			say "An extremely tall man is standing here, trying his
+			  best not to hit his head on anything.";
+		otherwise:
+			say "Robert is still lurking about, looking
+			  uncomfortable."
+

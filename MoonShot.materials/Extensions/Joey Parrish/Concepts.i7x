@@ -31,4 +31,4 @@ Finally, characters can discuss concepts in conversation.
 	Include Better Asking by Joey Parrish.
 	
 	Instead of quizzing Bob about the weather:
-	  say "[The noun] says 'Beautiful day, isn't it?'"
+		say "[The noun] says 'Beautiful day, isn't it?'"

@@ -9,10 +9,10 @@ A drink has a volume called amount.
 doesn't do anything by default.]
 
 Instead of drinking a thing:
-  say "You can't drink that."
+	say "You can't drink that."
 
 Instead of drinking a thing containing a drink (called the potion):
-  try drinking the potion.
+	try drinking the potion.
 
 Instead of drinking a drink (called the potion):
 	decrease the amount of the potion by 500 ml;
@@ -24,9 +24,9 @@ Instead of drinking a drink (called the potion):
 
 [If you try to "take" a drink, rather than its container...]
 Instead of taking a drink (called the potion):
-  say "Most of it slips through your fingers, but you manage to get some of it
-    to stain your pockets, too.";
-  now the potion is nowhere.
+	say "Most of it slips through your fingers, but you manage to get some of it
+	  to stain your pockets, too.";
+	now the potion is nowhere.
 
 Drinks ends here.
 
