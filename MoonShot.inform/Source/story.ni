@@ -65,15 +65,41 @@ When play begins:
 Chapter 1
 
 The weather is a concept.  The weather is everywhere.  [We can talk about it or
-ask about it in any room.]
+ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
 
-NASA headquarters is a room.  "What a room!"
+NASA director's waiting room is a room.  "The tiny waiting room barely has
+enough room for you, the secretary, and her desk."
+
+In the waiting room is a stranger called the secretary.  The real name of the
+secretary is "Donna".  The secretary can be happy or mad.  When play begins, now
+the secretary is happy.  Understand "Donna" as the secretary.
+
+The desk is scenery in the waiting room.  On the desk is a phone.
+
+Instead of taking the phone:
+  say "[The secretary] stands up quickly and snatches it back from you.  'What
+    is the matter with you?' she yells.  It takes her a minute or so to get the
+    phone plugged back in.";
+  now the secretary is mad.
+
+The description of the secretary is "[if the secretary is mad]She glares at you
+and says 'Keep your eyes to yourself, you nut job.'[otherwise][The noun] is a
+youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed
+glasses.  She notices you looking and smiles."
+
+Name is a concept in the waiting room.
+Instead of quizzing the secretary about name:
+	if the secretary is mad:
+		say "She harrumphs at you and continues to scowl.";
+	otherwise:
+		say "'It's donna.  Nice to meet you!'";
+		now the secretary is known.
 
 
-NASA engineering department is east of NASA headquarters.  "Another room?!"
+NASA engineering department is east of the waiting room.  "Another room?!"
 
 In NASA engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".
