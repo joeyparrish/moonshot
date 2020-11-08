@@ -12,6 +12,7 @@ The story creation year is 2020.
 Include the Standard Rules by Graham Nelson.
 Include Basic Screen Effects by Emily Short.
 Include Concepts by Joey Parrish.
+Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Asking by Joey Parrish.
 Include Help by Joey Parrish.
@@ -56,7 +57,12 @@ NASA engineering department is east of NASA headquarters.  "Another room?!"
 In NASA engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".
 
-In NASA engineering department is a container called coffee-pot.  There is coffee in the coffee-pot.  The printed name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as coffee-pot.
+In NASA engineering department is a container called coffee-pot.  The printed
+name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
+coffee-pot.
+
+The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee
+is 1000 ml.
 
 The description of the engineer is "He is tall and thin, with slicked-back
 ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket
