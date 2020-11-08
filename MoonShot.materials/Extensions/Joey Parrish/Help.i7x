@@ -15,6 +15,7 @@ Carry out helping:
     parentheses):";
   say "[line break][italic type]";
   say "  look (l)[line break]";
+  say "  look at thing/person[line break]";
   say "  examine (x) thing/person[line break]";
   say "  take thing[line break]";
   say "  talk to so-and-so[line break]";
@@ -32,7 +33,7 @@ Carry out helping:
   say "There are many other things you can do, so just try things out and see.
     You can also visit http://www.microheaven.com/ifguide/step3.html for more
     info.";
-  say "[line break]";
+  say line break;
   say "Enjoy!".
 
 Help ends here.
