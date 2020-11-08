@@ -22,6 +22,12 @@ Release along with an interpreter.
 [Startup]
 The display banner rule is not listed in the startup rulebook.
 
+[I don't like how Emily Short's "pause the game" rule clears the screen after
+continuing.  Here's my own definition built on some of hers.]
+To pause:
+  say "[paragraph break]Please press SPACE to continue[line break]";
+  wait for the SPACE key.
+
 When play begins:
   center "'We choose to go to the moon in this decade...
     because that goal will serve to organize and measure the best of our
@@ -34,10 +40,25 @@ When play begins:
   center "[italic type]MoonShot[roman type]";
   center "Story by Joey & Charity Parrish";
   center "Copyright (C) 2020";
+  pause;
   say paragraph break;
   say paragraph break;
-  say "If you have never played interactive fiction before, you can type 'help'
-    to get some basic instruction."
+  say "NASA, 1969.";
+  say line break;
+  say "You did it!  You finally landed an internship at NASA, the National
+    Aeronautics and Space ... Association?  Agency?  Authority?  You're not
+    really sure what the last A stands for, but it's only your first day.
+    You're pretty certain you'll figure it out soon enough.";
+  pause;
+  say "After a whirlwind tour of NASA headquarters, which you are sure you've
+    already [italic type]completely[roman type] forgotten, you are ushered into
+    the office of your new boss: the director of NASA's Apollo program.  They
+    say that we're ready to send [italic type]man to the moon[roman type].  You
+    can scarely believe it!  It's like something out of science fiction.
+    Nervously, you wait to be called into the inner office.";
+  pause;
+  say "[italic type](If you have never played interactive fiction before, you
+    can type 'help' to get some basic instruction.)[roman type]"
 
 
 
