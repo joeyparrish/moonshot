@@ -26,7 +26,8 @@ The display banner rule is not listed in the startup rulebook.
 continuing.  Here's my own definition built on some of hers.]
 To pause:
   say "[paragraph break]Please press SPACE to continue[line break]";
-  wait for the SPACE key.
+  wait for the SPACE key;
+  say line break;
 
 When play begins:
   center "'We choose to go to the moon in this decade...
@@ -58,7 +59,7 @@ When play begins:
     Nervously, you wait to be called into the inner office.";
   pause;
   say "[italic type](If you have never played interactive fiction before, you
-    can type 'help' to get some basic instruction.)[roman type]"
+    can type 'help' to get some basic instruction.)[roman type][line break]"
 
 
 
