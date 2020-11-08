@@ -48,13 +48,15 @@ Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
 
-NASA headquarters is a room.
+NASA headquarters is a room.  "What a room!"
 
 
-NASA engineering department is east of NASA headquarters.
+NASA engineering department is east of NASA headquarters.  "Another room?!"
 
 In NASA engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".
+
+In NASA engineering department is a container called coffee-pot.  There is coffee in the coffee-pot.  The printed name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as coffee-pot.
 
 The description of the engineer is "He is tall and thin, with slicked-back
 ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket
