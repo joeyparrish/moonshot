@@ -14,6 +14,7 @@ Include Basic Screen Effects by Emily Short.
 Include Concepts by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Asking by Joey Parrish.
+Include Help by Joey Parrish.
 Release along with an interpreter.
 
 
@@ -33,7 +34,9 @@ When play begins:
   center "Story by Joey & Charity Parrish";
   center "Copyright (C) 2020";
   say paragraph break;
-  say paragraph break.
+  say paragraph break;
+  say "If you have never played interactive fiction before, you can type 'help'
+    to get some basic instruction."
 
 
 
