@@ -71,6 +71,7 @@ Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
 
+
 NASA director's waiting room is a room.  "The tiny waiting room barely has
 enough room for you, the secretary, and her desk."
 
@@ -91,6 +92,9 @@ and says 'Keep your eyes to yourself, you nut job.'[otherwise][The noun] is a
 youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed
 glasses.  She notices you looking and smiles."
 
+Instead of talking to the secretary:
+  say "Perhaps you could ask [the noun] about the weather, or her name."
+
 Name is a concept in the waiting room.
 Instead of quizzing the secretary about name:
 	if the secretary is mad:
@@ -98,6 +102,10 @@ Instead of quizzing the secretary about name:
 	otherwise:
 		say "'It's donna.  Nice to meet you!'";
 		now the secretary is known.
+
+Instead of quizzing the secretary about the weather:
+	say "'Oh, it's lovely this time of year, don't you think?'"
+
 
 
 NASA engineering department is east of the waiting room.  "Another room?!"
