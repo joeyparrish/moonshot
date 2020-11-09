@@ -97,6 +97,8 @@ Instead of taking the phone:
 	  to get the phone plugged back in.";
 	now the secretary is mad.
 
+[By default, only "sorry" triggers this action.]
+Understand "say sorry" as saying sorry.
 Instead of saying sorry while the player is in the waiting room:
 	if the secretary is mad:
 		say "She doesn't look ready to forgive you.";
@@ -111,16 +113,24 @@ glasses.  She notices you looking and smiles."
 Instead of talking to the secretary:
 	say "Perhaps you could ask [the noun] about the weather, or her name."
 
-Name is a concept in the waiting room.
 Instead of quizzing the secretary about name:
-	if the secretary is mad:
-		say "She harrumphs at you and continues to scowl.";
-	otherwise:
-		say "'It's donna.  Nice to meet you!'";
-		now the secretary is known.
+	say "'It's Donna.  Nice to meet you!'";
+	now the secretary is known.
+
+Understand "herself" as the secretary.
+Instead of quizzing the secretary about the secretary:
+	say "'I'm Donna.', she says.  'Nice to meet you!  The director
+	  will be with you shortly.'";
+	now the secretary is known.
 
 Instead of quizzing the secretary about the weather:
 	say "'Oh, it's lovely this time of year, don't you think?'"
+
+Instead of talking to the secretary while the secretary is mad:
+	say "She doesn't look like she wants to talk to you."
+
+Instead of quizzing the secretary about anything while the secretary is mad:
+	say "She harrumphs at you and continues to scowl."
 
 
 
@@ -157,6 +167,9 @@ Instead of talking to the engineer:
 	say "Perhaps you could ask [the noun] about the weather, the command
 	  module, or himself."
 
+Instead of quizzing the engineer about name:
+	say "The engineer taps his name badge and says, 'Can't you read?'"
+
 Instead of quizzing the engineer about the weather:
 	say "[The noun] glances up at the ceiling for a moment before replying,
 	  'Maybe a bit cloudy, but we should still be clear for launch.
@@ -172,4 +185,5 @@ Instead of quizzing the engineer about the engineer:
 The command module is a concept in the engineering department.
 
 Instead of quizzing the engineer about the command module:
-	say "[The noun] doesn't seem to know what that is."
+	say "[The noun] doesn't seem to know what that is.  That's...
+	  concerning."
