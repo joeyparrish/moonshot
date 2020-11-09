@@ -66,13 +66,16 @@ When play begins:
 
 
 
-Chapter 1
-
 The weather is a concept.  The weather is everywhere.  [We can talk about it or
 ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
+Name is a concept.  Name is everywhere.
+
+
+
+Chapter 1
 
 
 NASA director's waiting room is a room.  "The tiny waiting room barely has
@@ -82,7 +85,11 @@ In the waiting room is a stranger called the secretary.  The real name of the
 secretary is "Donna".  The secretary can be happy or mad.  When play begins, now
 the secretary is happy.  Understand "Donna" as the secretary.
 
-The desk is scenery in the waiting room.  On the desk is a phone.
+The desk is scenery in the waiting room.  "A simple teak desk with a light
+stain, and unusually spartan."
+
+A phone is on the desk.  The description of the phone is "A black rotary
+telephone.  It looks brand new."
 
 Instead of taking the phone:
 	say "[The secretary] stands up quickly and snatches it back from you.
