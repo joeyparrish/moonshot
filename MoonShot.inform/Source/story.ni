@@ -16,6 +16,7 @@ Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Asking by Joey Parrish.
+Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Release along with an interpreter.
 
@@ -152,6 +153,20 @@ Instead of talking to the secretary while the secretary is mad:
 Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
+
+[WORK IN PROGRESS: This is the structure of a checklist for the player to keep
+track of what they have done and what they still need to do.  There's also a
+dummy override here on dropping the list that shows how items get checked and
+unchecked.  We'll use some other trigger when we get to the real thing.]
+Foo is a checklist-item.  The printed name of foo is "Get foo dog statue".
+Bar is a checklist-item.  The printed name of bar is "Get blueprints for the
+moon-pub". Bar is checked.
+There is a checklist in the waiting room.
+The items of the checklist are {foo, bar}.
+Instead of dropping the checklist:
+	say "What just happened?";
+	now bar is unchecked;
+	now foo is checked.
 
 
 NASA engineering department is east of the waiting room.  "Another room?!"
