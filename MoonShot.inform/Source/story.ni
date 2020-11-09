@@ -73,6 +73,21 @@ building?"
 
 Name is a concept.  Name is everywhere.
 
+[The built-in default for asking someone about an unknown thing is "There is no
+reply."  We'd prefer a different default for topics we haven't coded
+explicitly.  Sadly, this has to be repeated for both the built-in "asking" (for
+arbitrary text) and for "quizzing" (for objects/people).]
+[TODO: Try to figure out how to dedup this text?]
+
+Instead of quizzing someone (called person) about:
+	say "'[one of]Oh, I don't know anything about that[or]Let's talk about
+	  something else[or]I'm not sure what to say about that[purely at
+	  random],' says [the person]."
+Instead of asking someone (called person) about:
+	say "'[one of]Oh, I don't know anything about that[or]Let's talk about
+	  something else[or]I'm not sure what to say about that[purely at
+	  random],' says [the person]."
+
 
 
 Chapter 1
@@ -83,7 +98,8 @@ enough room for you, the secretary, and her desk."
 
 In the waiting room is a stranger called the secretary.  The real name of the
 secretary is "Donna".  The secretary can be happy or mad.  When play begins, now
-the secretary is happy.  Understand "Donna" as the secretary.
+the secretary is happy.  Understand "Donna", "her", "herself", and "woman" as
+the secretary.
 
 The desk is scenery in the waiting room.  "A simple teak desk with a light
 stain, and unusually spartan."
@@ -117,9 +133,8 @@ Instead of quizzing the secretary about name:
 	say "'It's Donna.  Nice to meet you!'";
 	now the secretary is known.
 
-Understand "herself" as the secretary.
 Instead of quizzing the secretary about the secretary:
-	say "'I'm Donna.', she says.  'Nice to meet you!  The director
+	say "'I'm Donna,' she says.  'Nice to meet you!  The director
 	  will be with you shortly.'";
 	now the secretary is known.
 
@@ -150,7 +165,8 @@ The description of the engineer is "He is tall and thin, with slicked-back
 ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket
 protector and a name badge.  What a nerd!"
 
-Understand "ginger", "nerd", "man", and "Rick" as the engineer.
+Understand "ginger", "nerd", "man", "him", "himself", and "Rick" as the
+engineer.
 
 The engineer is wearing a name badge.  The description of the name badge is "It
 says 'Rick' at the top.  The bottom says 'Apollo Systems Technician, Launch
@@ -175,7 +191,6 @@ Instead of quizzing the engineer about the weather:
 	  'Maybe a bit cloudy, but we should still be clear for launch.
 	  Besides, we're never gonna give this up.'"
 
-Understand "himself" as the engineer.
 Instead of quizzing the engineer about the engineer:
 	say "[The noun] looks a bit embarrassed by the question, maybe even
 	  flattered.  He looks at his feet for a moment before replying,
