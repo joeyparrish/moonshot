@@ -31,12 +31,17 @@ To pause:
 	say line break;
 
 When play begins:
-	center "'We choose to go to the moon in this decade...
-	  because that goal will serve to organize and measure the best of our
-	  energies and skills, because that challenge is one that we are willing
-	  to accept, one we are unwilling to postpone...'
-
-	  -- U.S. President John Fitzgerald Kennedy";
+	[This quote could have been done as a single command, but it looks
+	 better this way than it does if we allow the "center" command to do
+	 the line wrapping (which it doesn't really do so well).]
+	center "'We choose to go to the moon in this decade...";
+	center "because that goal will serve to organize and";
+	center "measure the best of our energies and skills,";
+	center "because that challenge is one that we are";
+	center "willing to accept, one we are unwilling";
+	center "to postpone...'";
+	center "[line break]";
+	center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	say paragraph break;
 	center "[italic type]MoonShot[roman type]";
