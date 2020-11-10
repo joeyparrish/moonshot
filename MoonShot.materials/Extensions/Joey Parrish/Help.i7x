@@ -19,6 +19,7 @@ Carry out helping:
 	say "  look at thing/person[line break]";
 	say "  examine (x) thing/person[line break]";
 	say "  take thing[line break]";
+	say "  inventory (i)[line break]";
 	say "  talk to so-and-so[line break]";
 	say "  ask so-and-so about thing[line break]";
 	say "  east (e)[line break]";
