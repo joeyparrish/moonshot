@@ -97,6 +97,14 @@ Instead of asking someone (called person) about:
 [By default, only "sorry" triggers this action.]
 Understand "say sorry" as saying sorry.
 
+[By default, we don't get to see what people are carrying.  This changes that.]
+After examining a person (called Bob):
+	if Bob does not have nothing:
+		say "[The Bob] is carrying [run paragraph on]";
+		list the contents of Bob, as a sentence, using the definite
+		  article, giving inventory information;
+		say "."
+
 
 
 Chapter 1
