@@ -174,8 +174,14 @@ The items of the checklist are {get-blueprints}.
 NASA engineering department is east of the waiting room.  "Another room?!"
 
 In NASA engineering department is a stranger called the engineer.  The real
-name of the engineer is "Rick".  The engineer is carrying blueprints.
-The engineer can be sad.  When play begins, now the engineer is not sad.
+name of the engineer is "Rick".  The engineer can be sad.  When play begins, now
+the engineer is not sad.
+
+The engineer is carrying the blueprints.  The description of the blueprints is
+"The blueprints, which are distinctly white, say '[bold type]Apollo 11 Command
+Module[roman type]' on the top.  [if the player has the blueprints]They are
+looking a little worse for wear, to say the least.[otherwise]The drawing of the
+command module is surprisingly lifelike."
 
 In NASA engineering department is a container called coffee-pot.  The printed
 name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
