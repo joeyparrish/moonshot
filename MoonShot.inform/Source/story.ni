@@ -94,6 +94,9 @@ Instead of asking someone (called person) about:
 	  something else[or]I'm not sure what to say about that[purely at
 	  random],' says [the person]."
 
+[By default, only "sorry" triggers this action.]
+Understand "say sorry" as saying sorry.
+
 
 
 Chapter 1
@@ -103,8 +106,8 @@ NASA director's waiting room is a room.  "The tiny waiting room barely has
 enough room for you, the secretary, and her desk."
 
 In the waiting room is a stranger called the secretary.  The real name of the
-secretary is "Donna".  The secretary can be happy or mad.  When play begins, now
-the secretary is happy.  Understand "Donna", "her", "herself", and "woman" as
+secretary is "Donna".  The secretary can be mad.  When play begins, now the
+secretary is not mad.  Understand "Donna", "her", "herself", and "woman" as
 the secretary.
 
 The desk is scenery in the waiting room.  "A simple teak desk with a light
@@ -119,8 +122,6 @@ Instead of taking the phone:
 	  to get the phone plugged back in.";
 	now the secretary is mad.
 
-[By default, only "sorry" triggers this action.]
-Understand "say sorry" as saying sorry.
 Instead of saying sorry while the player is in the waiting room:
 	if the secretary is mad:
 		say "She doesn't look ready to forgive you.";
@@ -173,6 +174,7 @@ NASA engineering department is east of the waiting room.  "Another room?!"
 
 In NASA engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".
+The engineer can be sad.  When play begins, now the engineer is not sad.
 
 In NASA engineering department is a container called coffee-pot.  The printed
 name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
@@ -181,9 +183,19 @@ coffee-pot.
 The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee
 is 1000 ml.
 
-The description of the engineer is "He is tall and thin, with slicked-back
-ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket
-protector and a name badge.  What a nerd!"
+The description of the engineer is "[if the engineer is not sad]He is tall and
+thin, with slicked-back ginger hair and a short-sleeved shirt and tie.  He is
+wearing a pocket protector and a name badge.  What a nerd![otherwise][The noun]
+is just about the saddest thing you've ever seen.  His hair is a mess, and he
+appears to have been wiping his tears on his tie."
+
+Instead of saying sorry while the player is in the engineering department:
+	if the engineer is sad:
+		say "He sniffs a little, then says 'Um, yeah, okay.  Apology
+		  accepted.'";
+		now the engineer is not sad;
+	otherwise:
+		say "What is there to apologize for?"
 
 Understand "ginger", "nerd", "man", "him", "himself", and "Rick" as the
 engineer.
