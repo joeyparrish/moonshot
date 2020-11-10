@@ -1,21 +1,12 @@
 Version 1 of Better Asking by Joey Parrish begins here.
 
+
 Quizzing it about is an action applying to two things.  Understand "ask
 [someone] about [something]" and "quiz [someone] about [something]" as quizzing
 it about.
 
 Check quizzing it about:
 	say "[The noun] shrugs unhelpfully."
-
-Informing it about is an action applying to two things.  Understand "tell
-[someone] about [something]" and "inform [someone] about [something]" as
-informing it about.
-
-Check informing it about:
-	say "'That's interesting,' [the noun] says, stifling a yawn."
-
-Talking to is an action applying to one visible thing.  Understand "talk to
-[someone]" or "converse with [someone]" as talking to.
 
 [This adds the ability to say "ask about [something]" without specifying a
 specific person to ask.  It will ask the first person found in the room with
@@ -31,6 +22,35 @@ Check quizzing generally:
 	otherwise:
 		let arbitrary-person be entry 1 of occupants;
 		try quizzing arbitrary-person about the noun.
+
+
+Informing it about is an action applying to two things.  Understand "tell
+[someone] about [something]" and "inform [someone] about [something]" as
+informing it about.
+
+Check informing it about:
+	say "'That's interesting,' [the noun] says, stifling a yawn."
+
+[This adds the ability to say "tell about [something]" without specifying a
+specific person to tell.  It will tell the first person found in the room with
+you.]
+Informing generally is an action applying to one thing.  Understand "tell about
+[something]" as informing generally.
+
+Check informing generally:
+	let occupants be the list of people in the location;
+	remove yourself from occupants;
+	if occupants is empty:
+		say "There's nobody here to tell.";
+	otherwise:
+		let arbitrary-person be entry 1 of occupants;
+		try informing arbitrary-person about the noun.
+
+
+
+Talking to is an action applying to one visible thing.  Understand "talk to
+[someone]" or "converse with [someone]" as talking to.
+
 
 Better Asking ends here.
 
