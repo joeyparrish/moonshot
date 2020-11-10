@@ -183,6 +183,9 @@ Module[roman type]' on the top.  [if the player has the blueprints]They are
 looking a little worse for wear, to say the least.[otherwise]The drawing of the
 command module is surprisingly lifelike."
 
+The blueprints can be discussed.  [Only when you've asked about them can you
+take them.]
+
 In NASA engineering department is a container called coffee-pot.  The printed
 name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
 coffee-pot.
@@ -250,17 +253,28 @@ The whiteprints is a concept in the engineering department.
 Instead of quizzing the engineer about the whiteprints:
 	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.'
 	  His laughter quickly devolves into snorts.";
+	now the blueprints are discussed;
 	now the printed name of get-blueprints is "Get command module drawings
 	  formerly known as blueprints".
 
+[If the player tries "take whiteprints", it should behave the same as above,
+when asking about "whiteprints".]
+Instead of taking the whiteprints:
+	try quizzing the engineer about the whiteprints.
+
 Instead of taking the blueprints:
-	say "[The engineer] says, 'Here you go.'  He hands you a large roll of
-	  white paper which is not even slightly blue.  You cram the 3-foot roll
-	  of paper into your pocket, taking no care whatsoever to keep it neat
-	  or undamaged.  [The engineer] appears to be crying.";
-	now the engineer is sad;
-	now the player has the blueprints;
-	now get-blueprints is checked.
+	if the blueprints are discussed:
+		say "[The engineer] says, 'Here you go.'  He hands you a large
+		  roll of white paper which is not even slightly blue.  You cram
+		  the 3-foot roll of paper into your pocket, taking no care
+		  whatsoever to keep it neat or undamaged.  [The engineer]
+		  appears to be crying.";
+		now the engineer is sad;
+		now the player has the blueprints;
+		now get-blueprints is checked;
+	otherwise:
+		say "Taken aback, [the engineer] says, 'Hold on, there!  You
+		  don't know the first thing about these.'"
 
 Instead of talking to the engineer while the engineer is sad:
 	say "He doesn't look like he wants to talk, though he might be convinced
