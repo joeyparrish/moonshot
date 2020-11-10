@@ -17,6 +17,21 @@ Check informing it about:
 Talking to is an action applying to one visible thing.  Understand "talk to
 [someone]" or "converse with [someone]" as talking to.
 
+[This adds the ability to say "ask about [something]" without specifying a
+specific person to ask.  It will ask the first person found in the room with
+you.]
+Quizzing generally is an action applying to one thing.  Understand "ask about
+[something]" as quizzing generally.
+
+Check quizzing generally:
+	let occupants be the list of people in the location;
+	remove yourself from occupants;
+	if occupants is empty:
+		say "There's nobody here to ask.";
+	otherwise:
+		let arbitrary-person be entry 1 of occupants;
+		try quizzing arbitrary-person about the noun.
+
 Better Asking ends here.
 
 ---- Documentation ----
@@ -30,7 +45,10 @@ defined here, is a workaround for that which matches things, so that you can
 use looser phrasing.  For example, if "worm" is a thing, "quizzing" would let
 the player write "ask Doctor about the worm" or "ask Doctor about worm", etc.
 without the code listing all of those alternatives.  With native "asking", you
-would have to define the exact textual phrase the player could ask about.
+would have to define the exact textual phrase the player could ask about.  This
+also allows you to "ask about the worm" without specifying that you're asking
+"the Doctor".  If you aren't specific, the first character in the room with you
+is the one you're asking.
 
 For example:
 
