@@ -155,25 +155,18 @@ Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
 
-[WORK IN PROGRESS: This is the structure of a checklist for the player to keep
-track of what they have done and what they still need to do.  There's also a
-dummy override here on dropping the list that shows how items get checked and
-unchecked.  We'll use some other trigger when we get to the real thing.]
-Foo is a checklist-item.  The printed name of foo is "Get foo dog statue".
-Bar is a checklist-item.  The printed name of bar is "Get blueprints for the
-moon-pub". Bar is checked.
+Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
+command module blueprints".
+[TODO: Move the checklist somewhere else.  Maybe the director gives them to
+you?]
 There is a checklist in the waiting room.
-The items of the checklist are {foo, bar}.
-Instead of dropping the checklist:
-	say "What just happened?";
-	now bar is unchecked;
-	now foo is checked.
+The items of the checklist are {get-blueprints}.
 
 
 NASA engineering department is east of the waiting room.  "Another room?!"
 
 In NASA engineering department is a stranger called the engineer.  The real
-name of the engineer is "Rick".
+name of the engineer is "Rick".  The engineer is carrying blueprints.
 The engineer can be sad.  When play begins, now the engineer is not sad.
 
 In NASA engineering department is a container called coffee-pot.  The printed
@@ -208,12 +201,13 @@ After examining the name badge, now the engineer is known.
 
 Rule for writing a paragraph about the engineer:
 	if the engineer is unknown, say "An engineer is standing around by the
-	  coffee pot, doing nothing.";
-	otherwise say "Rick is still here, still doing nothing.";
+	  coffee pot, [if the engineer is sad]crying.[otherwise]doing nothing.";
+	otherwise say "Rick is still here, still [if the engineer is
+	  sad]crying.[otherwise]doing nothing.";
 
 Instead of talking to the engineer:
 	say "Perhaps you could ask [the noun] about the weather, the command
-	  module, or himself."
+	  module blueprints, or himself."
 
 Instead of quizzing the engineer about name:
 	say "The engineer taps his name badge and says, 'Can't you read?'"
@@ -229,8 +223,34 @@ Instead of quizzing the engineer about the engineer:
 	  'Well...  We're no strangers to love.'  Then he raises his eyes and
 	  gives you a look that makes you... distinctly uncomfortable."
 
-The command module is a concept in the engineering department.
+Instead of quizzing the engineer about the blueprints:
+	say "[The noun] looks both smug and offended at once.
+	  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The
+	  cyanotype [italic type]blueprint[roman type] began to be supplanted by
+	  [italic type]diazo prints[roman type], also known as [italic
+	  type]whiteprints[roman type].'";
+	now the printed name of get-blueprints is "Get command module
+	  whiteprints".
 
-Instead of quizzing the engineer about the command module:
-	say "[The noun] doesn't seem to know what that is.  That's...
-	  concerning."
+The whiteprints is a concept in the engineering department.
+Instead of quizzing the engineer about the whiteprints:
+	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.'
+	  His laughter quickly devolves into snorts.";
+	now the printed name of get-blueprints is "Get command module drawings
+	  formerly known as blueprints".
+
+Instead of taking the blueprints:
+	say "[The engineer] says, 'Here you go.'  He hands you a large roll of
+	  white paper which is not even slightly blue.  You cram the 3-foot roll
+	  of paper into your pocket, taking no care whatsoever to keep it neat
+	  or undamaged.  [The engineer] appears to be crying.";
+	now the engineer is sad;
+	now the player has the blueprints;
+	now get-blueprints is checked.
+
+Instead of talking to the engineer while the engineer is sad:
+	say "He doesn't look like he wants to talk, though he might be convinced
+	  to sing."
+
+Instead of quizzing the engineer about anything while the engineer is sad:
+	say "He is too busy weeping."
