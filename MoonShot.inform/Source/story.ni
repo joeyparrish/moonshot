@@ -176,11 +176,13 @@ covered in whirring desk gadgets that roll chrome metal balls back and forth
 endlessly on balanced tracks, and bobblehead dolls."
 
 There is a checklist on the director's desk.  The description of the checklist
-is "A checklist is on the desk, scribbled out in childish print."
+is "The checklist is [if the checklist is on the director's desk]laying on the
+desk, [end if]scribbled out in childish print."
 
-Instead of taking the checklist:
+Instead of taking the checklist (called X):
 	say "[The Director] looks relieved and drawls, 'Oh, thank you, wasn't
 	  sure how I was gonna get all that done!'";
+	now the player has X;
 	now the director is relaxed.
 
 The description of the director is "[if the director is relaxed]He gazes
