@@ -12,6 +12,7 @@ The story creation year is 2020.
 [Configuration]
 Include the Standard Rules by Graham Nelson.
 Include Basic Screen Effects by Emily Short.
+Include Punctuation Removal by Emily Short.
 Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
@@ -19,6 +20,11 @@ Include Better Asking by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Release along with an interpreter.
+
+After reading a command:
+	Resolve punctuated titles.
+[This is so that things like "examine Mr. Furtwangler" are understood.
+Otherwise, the period ends the player's command command.]
 
 
 [Startup]
@@ -194,9 +200,8 @@ director's office is "NASA Director's Office".
 In the director's office is a stranger called the director.  The real name
 of the director is "Mr. Furtwangler".  The director can be agitated or relaxed.
 When play begins, now the director is agitated.  Understand "director", "dirk",
-"mr furtwangler", "furtwangler", "boss", "him", "himself", and "man" as the
-director.
-[TODO: Get it to recognize "mr. furtwangler" with a dot, too.]
+"mr furtwangler", "mister furtwangler", "furtwangler", "boss", "him", "himself",
+and "man" as the director.
 
 The director's desk is scenery in the director's office.  "An expansive desk
 covered in whirring desk gadgets that roll chrome metal balls back and forth
