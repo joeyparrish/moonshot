@@ -77,6 +77,9 @@ ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
+[You can ask anyone about their name.  It's only polite.]
+Name is a concept.  Name is everywhere.
+
 NASA is a concept.  NASA is everywhere.
 Understand "second a" and "second a in NASA" as NASA.
 
@@ -85,8 +88,6 @@ Apollo is a concept.  Apollo is everywhere.
 Understand "Apollo 11", "Appollo", "Appolo", "Appollo 11", and "Appolo 11" as
 Apollo.
 
-[You can ask anyone about their name.  It's only polite.]
-Name is a concept.  Name is everywhere.
 
 [The built-in default for asking someone about an unknown thing is "There is no
 reply."  We'd prefer a different default for topics we haven't coded
@@ -187,8 +188,10 @@ director's office is "NASA Director's Office".
 
 In the director's office is a stranger called the director.  The real name
 of the director is "Mr. Furtwangler".  The director can be agitated or relaxed.
-When play begins, now the director is agitated.  Understand "director", "him",
-"himself", and "man" as the director.
+When play begins, now the director is agitated.  Understand "director", "dirk",
+"mr furtwangler", "furtwangler", "boss", "him", "himself", and "man" as the
+director.
+[TODO: Get it to recognize "mr. furtwangler" with a dot, too.]
 
 The director's desk is scenery in the director's office.  "An expansive desk
 covered in whirring desk gadgets that roll chrome metal balls back and forth
