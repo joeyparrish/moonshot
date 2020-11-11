@@ -280,5 +280,17 @@ Instead of talking to the engineer while the engineer is sad:
 	say "He doesn't look like he wants to talk, though he might be convinced
 	  to sing."
 
+Asking it to sing is an action applying to one thing.  Understand "ask
+[someone] to sing" and "convince [someone] to sing" as asking it to sing.
+
+Check asking it to sing:
+	say "[The noun] [one of]looks at you like you're crazy[or]looks
+	  flattered, but politely declines[or]presents you with a contract
+	  containing a long list of specific candies that must be present in
+	  [their] dressing room[purely at random]."
+
+Instead of asking the engineer to sing:
+	say "'No.  Why would you even ask me that?'"
+
 Instead of quizzing the engineer about anything while the engineer is sad:
 	say "He is too busy weeping."
