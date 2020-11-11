@@ -104,13 +104,8 @@ The rocket is a concept.  The rocket is everywhere.
 reply."  We'd prefer a different default for topics we haven't coded
 explicitly.  Sadly, this has to be repeated for both the built-in "asking" (for
 arbitrary text) and for "quizzing" (for objects/people).]
-[TODO: Try to figure out how to dedup this text?]
 
 Instead of quizzing someone (called person) about:
-	say "'[one of]Oh, I don't know anything about that[or]Let's talk about
-	  something else[or]I'm not sure what to say about that[purely at
-	  random],' says [the person]."
-Instead of asking someone (called person) about:
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about
 	  something else[or]I'm not sure what to say about that[purely at
 	  random],' says [the person]."
