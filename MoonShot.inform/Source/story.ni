@@ -13,6 +13,7 @@ The story creation year is 2020.
 Include the Standard Rules by Graham Nelson.
 Include Basic Screen Effects by Emily Short.
 Include Punctuation Removal by Emily Short.
+Include Exit Lister by Gavin Lambert.
 Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
@@ -121,6 +122,14 @@ After examining a person (called Bob):
 		  article, giving inventory information;
 		say "."
 
+[By default, we don't seem to get a description of what rooms are adjacent to
+the current room, and in what direction.  This is something I'm used to seeing
+in IF, and I'd like to avoid writing it explicitly in every room.  Including the
+"Exit Lister" extension solves that.  But it needs a little configuration for
+this game.  We want to always tell the user what the names of nearby rooms are,
+even if we have not yet been to them.  For this, we use:]
+A room memory rule: rule succeeds.
+
 
 
 Chapter 1
@@ -228,8 +237,6 @@ places to one another.  But in context of this room, we'd like "go in" to send
 you into the director's office.]
 Instead of going inside while in the waiting room:
 	try going north.
-
-[TODO: Add descriptions of what rooms are where.  Is there a built-in for that?]
 
 
 
