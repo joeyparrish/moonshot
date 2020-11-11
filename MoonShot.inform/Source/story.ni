@@ -176,7 +176,7 @@ Instead of quizzing the secretary about anything while the secretary is mad:
 
 [TODO: Ask the secretary about NASA, Apollo]
 
-[TODO: Ask the secretary about the director (which isn't working yet.  FIXME!)]
+[TODO: Ask the secretary about the director]
 [TODO: How does the player get called into the director's office?]
 [TODO: Add descriptions of what rooms are where.  Is there a built-in for that?]
 
@@ -242,13 +242,8 @@ Instead of quizzing the director about NASA:
 
 [TODO: Ask the director about Apollo]
 
-[FIXME: This doesn't work, possibly because the other person is in another room.
-This needs work, because player would probably very naturally want to ask
-characters about other characters.
-
-Instead of quizzing the director about a person:
+Instead of quizzing the director about anybody:
 	say "He stares blankly for a second, then suddenly says, 'Who?'"
-]
 
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
@@ -298,11 +293,15 @@ Instead of saying sorry while the player is in the engineering department:
 Understand "ginger", "nerd", "man", "him", "himself", and "Rick" as the
 engineer.
 
-The engineer is wearing a name badge.  The description of the name badge is "It
-says 'Rick' at the top.  The bottom says 'Apollo Systems Technician, Launch
-Enablement Yroup.'  ... Huh.  Must be a typo."
+The engineer is wearing a name-badge.  The printed name of the name-badge is
+"name badge".  Understand "badge" and "name badge" as name-badge.  [To
+disambiguate with the "name" concept.]
 
-After examining the name badge, now the engineer is known.
+The description of the name-badge is "It says 'Rick' at the top.  The bottom
+says 'Apollo Systems Technician, Launch Enablement Yroup.'  ... Huh.  Must be a
+typo."
+
+After examining the name-badge, now the engineer is known.
 
 Rule for writing a paragraph about the engineer:
 	if the engineer is unknown, say "An engineer is standing around by the
