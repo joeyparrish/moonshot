@@ -265,7 +265,8 @@ desk, [end if]scribbled out in childish print."
 
 Instead of taking the checklist (called X):
 	say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't
-	  sure how I was gonna get all that done!'";
+	  sure how I was gonna get all that done!'  (Hint: You can examine the
+	  checklist to see the details)";
 	now the player has X;
 	now the director is relaxed.
 
@@ -300,15 +301,32 @@ Instead of quizzing the director about the internship:
 
 Instead of quizzing the director about NASA:
 	say "The director looks surprised by your question.  'NASA?  Well, of
-	  course, everyone knows it's the National Aeronautics and Space ...
+	  course, everyone knows about the National Aeronautics and Space...
 	  uhh... It's about space.  That's the important bit.  [bold
 	  type]LOTS[roman type] of space out there.'"
-[TODO: Write the NASA abbreviation gag for the director.]
+[TODO: Rewrite the NASA abbreviation gag for the director?]
 
 [TODO: Ask the director about Apollo]
 
 Instead of quizzing the director about anybody:
 	say "He stares blankly for a second, then suddenly says, 'Who?'"
+
+[Keep the player from leaving without the checklist.]
+Instead of going from the director's office:
+	if the checklist is carried by the player:
+		continue the activity;
+	otherwise:
+		say "'Hang on!' says [the director].  'You're gonna need this!'.
+		  He indicates the checklist[if the checklist is on the
+		  director's desk] laying on his desk[end if].  'Get all of that
+		  done, ASAP.'"
+[FIXME: If the player takes the checklist, leaves, drops it, and returns, they
+will be trapped!]
+[TODO: Should the player be able to take the checklist without some conversation
+with the director?  Perhaps the director should open a conversation when the
+player enters for the first time?]
+
+
 
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
