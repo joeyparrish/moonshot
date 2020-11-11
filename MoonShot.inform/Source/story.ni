@@ -290,7 +290,7 @@ Check asking it to sing:
 	  [their] dressing room[purely at random]."
 
 Instead of asking the engineer to sing:
-	say "'No.  Why would you even ask me that?'"
+	say "'No!' [the noun] says.  'Why would you even ask me that?'"
 
 Instead of quizzing the engineer about anything while the engineer is sad:
 	say "He is too busy weeping."
