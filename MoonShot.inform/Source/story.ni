@@ -116,7 +116,7 @@ enough room for you, the secretary, and her desk."
 In the waiting room is a stranger called the secretary.  The real name of the
 secretary is "Donna".  The secretary can be mad.  When play begins, now the
 secretary is not mad.  Understand "Donna", "her", "herself", and "woman" as
-the secretary.
+the secretary.  The secretary is female.
 
 The desk is scenery in the waiting room.  "A simple teak desk with a light
 stain, and unusually spartan."
@@ -175,7 +175,7 @@ NASA engineering department is east of the waiting room.  "Another room?!"
 
 In NASA engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".  The engineer can be sad.  When play begins, now
-the engineer is not sad.
+the engineer is not sad.  The engineer is male.
 
 The engineer is carrying the blueprints.  The description of the blueprints is
 "The blueprints, which are distinctly white, say '[bold type]Apollo 11 Command
