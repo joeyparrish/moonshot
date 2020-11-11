@@ -366,6 +366,14 @@ Instead of taking the blueprints:
 		say "Taken aback, [the engineer] says, 'Hold on, there!  You
 		  don't know the first thing about these.'"
 
+Persuasion rule for asking the engineer to try giving the blueprints to the
+  player:
+	persuasion succeeds.
+
+Instead of the engineer giving the blueprints to the player:
+	try taking the blueprints;
+	rule succeeds.
+
 [TODO: Ask the engineer about NASA & Apollo]
 
 Instead of talking to the engineer while the engineer is sad:

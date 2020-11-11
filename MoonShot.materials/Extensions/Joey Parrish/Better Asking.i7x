@@ -25,6 +25,21 @@ Check quizzing generally:
 		let arbitrary-person be entry 1 of occupants;
 		try quizzing arbitrary-person about the noun.
 
+[This adds the ability to say "ask for thingy" without specifying a specific
+person to ask.  It will ask the first person found in the room with you.]
+Begging generally is an action applying to one thing.  Understand "ask for
+[anything]" as begging generally.
+
+Check begging generally:
+	let occupants be the list of people in the location;
+	remove yourself from occupants;
+	if occupants is empty:
+		say "There's nobody here to ask.";
+	otherwise:
+		let arbitrary-person be entry 1 of occupants;
+		try asking arbitrary-person for the noun.
+
+
 
 Informing it about is an action applying to two things.  Understand "tell
 [someone] about [anything]" and "inform [someone] about [anything]" as
