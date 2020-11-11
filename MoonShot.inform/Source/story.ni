@@ -162,6 +162,12 @@ Instead of talking to the secretary while the secretary is mad:
 Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
+NASA Director's Office is north of the waiting room.
+
+In the NASA Director's Office is a stranger called the Director.  The real name of the
+Director is "Mr. Furtwangler".  The Director can be manic or apathetic.  When play begins, now
+the Director is manic.  Understand "Director", "him", "himself", and "man" as
+the Director.
 
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
