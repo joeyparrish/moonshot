@@ -274,7 +274,9 @@ name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
 coffee-pot.
 
 The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee
-is 1000 ml.
+is 1000 ml.  The indefinite article is "some".
+[Accept a few misspellings of coffee.]
+Understand "cofee", "coffe", "cafe", and "cofe" as coffee.
 
 The description of the engineer is "[if the engineer is not sad]He is tall and
 thin, with slicked-back ginger hair and a short-sleeved shirt and tie.  He is
