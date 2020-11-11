@@ -118,10 +118,10 @@ secretary is "Donna".  The secretary can be mad.  When play begins, now the
 secretary is not mad.  Understand "Donna", "her", "herself", and "woman" as
 the secretary.  The secretary is female.
 
-The desk is scenery in the waiting room.  "A simple teak desk with a light
+The secretary's desk is scenery in the waiting room.  "A simple teak desk with a light
 stain, and unusually spartan."
 
-A phone is on the desk.  The description of the phone is "A black rotary
+A phone is on the secretary's desk.  The description of the phone is "A black rotary
 telephone.  It looks brand new."
 
 Instead of taking the phone:
@@ -162,19 +162,45 @@ Instead of talking to the secretary while the secretary is mad:
 Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
+
+
 NASA Director's Office is north of the waiting room.
 
 In the NASA Director's Office is a stranger called the Director.  The real name of the
-Director is "Mr. Furtwangler".  The Director can be manic or apathetic.  When play begins, now
-the Director is manic.  Understand "Director", "him", "himself", and "man" as
+Director is "Mr. Furtwangler".  The Director can be agitated or relaxed.  When play begins, now
+the Director is agitated.  Understand "Director", "him", "himself", and "man" as
 the Director.
+
+The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks and bobblehead dolls."
+
+There is a checklist on the director's desk.  The description of the checklist is "A checklist is on the desk, scribbled out in childish print."
+
+Instead of taking the checklist:
+	say "[The Director] looks relieved and drawls, Oh, thank you, wasn't sure how I was gonna get all that done!";
+	now the director is relaxed.
+
+The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, Do you think Johnny Cash is his real name?[otherwise][The noun] is a
+man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
+
+Instead of talking to the director:
+	say "Perhaps you could ask [the director] about the internship, what the second A in NASA stands for, the Apollo 11 project, or his name."
+
+Instead of quizzing the director about name:
+	try quizzing the director about the director.
+
+Instead of quizzing the Director about the Director:
+	say "'Furtwangler.  Dirk Furtwangler.  Boy am I glad you're here!'";
+	now the Director is known.
+
+The internship is a concept in the director's office.
+Instead of quizzing the director about the internship:
+	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'"
 
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
-[TODO: Move the checklist somewhere else.  Maybe the director gives them to
-you?]
-There is a checklist in the waiting room.
 The items of the checklist are {get-blueprints}.
+
+
 
 
 NASA engineering department is east of the waiting room.  "Another room?!"
