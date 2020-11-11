@@ -341,7 +341,8 @@ Instead of quizzing the engineer about the blueprints:
 The whiteprints is a concept in the engineering department.
 Instead of quizzing the engineer about the whiteprints:
 	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.'
-	  His laughter quickly devolves into snorts.";
+	  His laughter quickly devolves into snorts.  Wiping his eyes, he adds,
+	  'It's okay.  Go ahead and take them if you need them so badly.'";
 	now the blueprints are discussed;
 	now the printed name of get-blueprints is "Get command module drawings
 	  formerly known as blueprints".
@@ -365,6 +366,8 @@ Instead of taking the blueprints:
 		say "Taken aback, [the engineer] says, 'Hold on, there!  You
 		  don't know the first thing about these.'"
 
+[TODO: Ask the engineer about NASA & Apollo]
+
 Instead of talking to the engineer while the engineer is sad:
 	say "He doesn't look like he wants to talk, though he might be convinced
 	  to sing."
@@ -383,5 +386,3 @@ Instead of asking the engineer to sing:
 
 Instead of quizzing the engineer about anything while the engineer is sad:
 	say "He is too busy weeping."
-
-[TODO: Ask the engineer about NASA & Apollo]
