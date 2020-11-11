@@ -185,8 +185,49 @@ Instead of quizzing the secretary about anything while the secretary is mad:
 
 [TODO: Ask the secretary about NASA, Apollo]
 
-[TODO: Ask the secretary about the director]
-[TODO: How does the player get called into the director's office?]
+When play begins:
+	secretary warns in 0 turns from now;
+	director yells in 5 turns from now.
+
+Yourself can be told-to-wait.
+At the time when secretary warns:
+	if yourself has not been told-to-wait:
+		say "[The secretary] catches your attention and says, 'The
+		  director will be with you shortly.  Please make yourself
+		  comfortable while you wait.'";
+	now yourself is told-to-wait.
+
+Before waiting in the waiting room:
+	say "[one of]You sit awkwardly, wondering when this whole thing is
+	  supposed to get started.[or]Maybe there's something you can do, or
+	  something you should be talking about while you wait?[or]The waiting
+	  is the hardest part, isn't it?[purely at random]".
+
+At the time when director yells:
+	say "A booming voice comes from the director's office: 'Donna!  Where
+	  the hell is that kid?  They're late!'";
+	say "[The secretary] looks embarrassed and says quietly, 'You'd better
+	  head on in.  He hates tardiness.'";
+	now the director is ready.
+
+Instead of quizzing the secretary about the director:
+	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely
+	  on top of every aspect of this project.  I don't know how he does
+	  it!'"
+
+Instead of going to the director's office while the director is not ready:
+	say "[The secretary] jumps up and runs for the door, stopping you in
+	  your tracks.  'You can't go in there!  Just wait, please, and the
+	  director will be with you as soon as he is ready.'";
+	if yourself is told-to-wait:
+		[If the player has been told at least once before, they are
+		perhaps having trouble with this waiting thing, so offer a
+		hint.]
+		say "[line break](Hint: You can explore the room, talk to [the
+		  secretary], examine things, or just type 'wait' to wait
+		  patiently.)";
+	now yourself is told-to-wait.
+
 [TODO: Add descriptions of what rooms are where.  Is there a built-in for that?]
 
 
@@ -196,10 +237,15 @@ The director's office is north of the waiting room.  The printed name of the
 director's office is "NASA Director's Office".
 
 In the director's office is a stranger called the director.  The real name
-of the director is "Mr. Furtwangler".  The director can be agitated or relaxed.
-When play begins, now the director is agitated.  Understand "director", "dirk",
-"mr furtwangler", "mister furtwangler", "furtwangler", "boss", "him", "himself",
-and "man" as the director.
+of the director is "Mr. Furtwangler".
+
+Understand "director", "dirk", "mr furtwangler", "mister furtwangler",
+"furtwangler", "boss", "him", "himself", and "man" as the director.
+
+The director can be agitated or relaxed.  When play begins, now the director is
+agitated.
+
+The director can be ready.  When play begins, now the director is not ready.
 
 The director's desk is scenery in the director's office.  "An expansive desk
 covered in whirring desk gadgets that roll chrome metal balls back and forth

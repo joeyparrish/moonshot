@@ -26,8 +26,7 @@ Carry out helping:
 	say "  west (w)[line break]";
 	say "  north (n)[line break]";
 	say "  south (s)[line break]";
-	say "  up (u)[line break]";
-	say "  down (d)[line break]";
+	say "  wait (z)[line break]";
 	say "  save[line break]";
 	say "  restore[line break]";
 	say "  quit (q)[line break]";
