@@ -8,7 +8,9 @@ A checklist has a list of checklist-items called items.
 
 [You can also "read" a checklist, which will just examine it.]
 Instead of examining a checklist (called X):
-	say "The checklist reads:[line break]";
+	say "[The description of X]";
+	say "[If the description of X is not empty]  It[otherwise][The X][end
+	  if] reads:[line break]";
 	repeat with Y running through the items of X:
 		say "  [bracket][if Y is checked]X[otherwise] [end if][close
 		  bracket] [printed name of Y][line break]";
