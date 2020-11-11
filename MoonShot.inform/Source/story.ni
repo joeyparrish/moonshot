@@ -141,11 +141,11 @@ secretary is "Donna".  The secretary can be mad.  When play begins, now the
 secretary is not mad.  Understand "Donna", "her", "herself", and "woman" as
 the secretary.  The secretary is female.
 
-The secretary's desk is scenery in the waiting room.  "A simple teak desk with a light
-stain, and unusually spartan."
+The secretary's desk is scenery in the waiting room.  "A simple teak desk with a
+light stain, and unusually spartan."
 
-A phone is on the secretary's desk.  The description of the phone is "A black rotary
-telephone.  It looks brand new."
+A phone is on the secretary's desk.  The description of the phone is "A black
+rotary telephone.  It looks brand new."
 
 Instead of taking the phone:
 	say "[The secretary] stands up quickly and snatches it back from you.
@@ -168,13 +168,11 @@ Instead of talking to the secretary:
 	say "Perhaps you could ask [the noun] about the weather, or her name."
 
 Instead of quizzing the secretary about name:
-	say "'It's Donna.  Nice to meet you!'";
+	say "'It's Donna,' she says.  'Nice to meet you!'";
 	now the secretary is known.
 
 Instead of quizzing the secretary about the secretary:
-	say "'I'm Donna,' she says.  'Nice to meet you!  The director
-	  will be with you shortly.'";
-	now the secretary is known.
+	try quizzing the secretary about name.
 
 Instead of quizzing the secretary about the weather:
 	say "'Oh, it's lovely this time of year, don't you think?'"
