@@ -202,7 +202,7 @@ At the time when director yells:
 	say "A booming voice comes from the director's office: 'Donna!  Where
 	  the hell is that kid?  They're late!'";
 	say "[The secretary] looks embarrassed and says quietly, 'You'd better
-	  head on in.  He hates tardiness.'";
+	  go on in.  He hates tardiness.'";
 	now the director is ready.
 
 Instead of quizzing the secretary about the director:
@@ -222,6 +222,12 @@ Instead of going to the director's office while the director is not ready:
 		  secretary], examine things, or just type 'wait' to wait
 		  patiently.)";
 	now yourself is told-to-wait.
+
+[In this language "in/inside" is actually a direction you could use to relate
+places to one another.  But in context of this room, we'd like "go in" to send
+you into the director's office.]
+Instead of going inside while in the waiting room:
+	try going north.
 
 [TODO: Add descriptions of what rooms are where.  Is there a built-in for that?]
 
