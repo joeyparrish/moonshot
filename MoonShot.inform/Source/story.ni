@@ -77,6 +77,15 @@ ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this
 building?"
 
+NASA is a concept.  NASA is everywhere.
+Understand "second a" and "second a in NASA" as NASA.
+
+Apollo is a concept.  Apollo is everywhere.
+[Handle variations, including misspellings that I myself (JCP) am prone to:]
+Understand "Apollo 11", "Appollo", "Appolo", "Appollo 11", and "Appolo 11" as
+Apollo.
+
+[You can ask anyone about their name.  It's only polite.]
 Name is a concept.  Name is everywhere.
 
 [The built-in default for asking someone about an unknown thing is "There is no
@@ -110,8 +119,10 @@ After examining a person (called Bob):
 Chapter 1
 
 
-NASA director's waiting room is a room.  "The tiny waiting room barely has
+[TODO: Expand the waiting room description.]
+The director's waiting room is a room.  "The tiny waiting room barely has
 enough room for you, the secretary, and her desk."
+The printed name of director's waiting room is "NASA Director's Waiting Room".
 
 In the waiting room is a stranger called the secretary.  The real name of the
 secretary is "Donna".  The secretary can be mad.  When play begins, now the
@@ -162,14 +173,22 @@ Instead of talking to the secretary while the secretary is mad:
 Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
+[TODO: Ask the secretary about NASA, Apollo]
+
+[TODO: Ask the secretary about the director (which isn't working yet.  FIXME!)]
+[TODO: How does the player get called into the director's office?]
+[TODO: Add descriptions of what rooms are where.  Is there a built-in for that?]
 
 
-NASA Director's Office is north of the waiting room.
 
-In the NASA Director's Office is a stranger called the Director.  The real name
-of the Director is "Mr. Furtwangler".  The Director can be agitated or relaxed.
-When play begins, now the Director is agitated.  Understand "Director", "him",
-"himself", and "man" as the Director.
+[TODO: Write the director's office description.]
+The director's office is north of the waiting room.  The printed name of the
+director's office is "NASA Director's Office".
+
+In the director's office is a stranger called the director.  The real name
+of the director is "Mr. Furtwangler".  The director can be agitated or relaxed.
+When play begins, now the director is agitated.  Understand "director", "him",
+"himself", and "man" as the director.
 
 The director's desk is scenery in the director's office.  "An expansive desk
 covered in whirring desk gadgets that roll chrome metal balls back and forth
@@ -180,7 +199,7 @@ is "The checklist is [if the checklist is on the director's desk]laying on the
 desk, [end if]scribbled out in childish print."
 
 Instead of taking the checklist (called X):
-	say "[The Director] looks relieved and drawls, 'Oh, thank you, wasn't
+	say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't
 	  sure how I was gonna get all that done!'";
 	now the player has X;
 	now the director is relaxed.
@@ -199,9 +218,9 @@ Instead of talking to the director:
 Instead of quizzing the director about name:
 	try quizzing the director about the director.
 
-Instead of quizzing the Director about the Director:
+Instead of quizzing the director about the director:
 	say "'Furtwangler.  Dirk Furtwangler.  Boy am I glad you're here!'";
-	now the Director is known.
+	now the director is known.
 
 The internship is a concept in the director's office.
 Instead of quizzing the director about the internship:
@@ -211,7 +230,22 @@ Instead of quizzing the director about the internship:
 	  much space to analyze....' His voice trails off into a troubled hum
 	  until he notices you looking at him.  He continues, 'Which is exactly
 	  why we need you, the intern, to take care of this whole messy Apollo
-	  11 business.'"
+	  11 business.'  He indicates the checklist on his desk.  'Get started,
+	  kid!'"
+
+Instead of quizzing the director about NASA:
+	say "'NASA!!!"
+[TODO: Write the NASA abbreviation gag for the director.]
+
+[TODO: Ask the director about Apollo]
+
+[FIXME: This doesn't work, possibly because the other person is in another room.
+This needs work, because player would probably very naturally want to ask
+characters about other characters.
+
+Instead of quizzing the director about a person:
+	say "He stares blankly for a second, then suddenly says, 'Who?'"
+]
 
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
@@ -220,9 +254,11 @@ The items of the checklist are {get-blueprints}.
 
 
 
-NASA engineering department is east of the waiting room.  "Another room?!"
+[TODO: Write the engineering department description.]
+The engineering department is east of the waiting room.  "Another room?!"
+The printed name of the engineering department is "NASA Engineering Department".
 
-In NASA engineering department is a stranger called the engineer.  The real
+In the engineering department is a stranger called the engineer.  The real
 name of the engineer is "Rick".  The engineer can be sad.  When play begins, now
 the engineer is not sad.  The engineer is male.
 
@@ -235,7 +271,7 @@ command module is surprisingly lifelike."
 The blueprints can be discussed.  [Only when you've asked about them can you
 take them.]
 
-In NASA engineering department is a container called coffee-pot.  The printed
+In the engineering department is a container called coffee-pot.  The printed
 name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
 coffee-pot.
 
@@ -343,3 +379,5 @@ Instead of asking the engineer to sing:
 
 Instead of quizzing the engineer about anything while the engineer is sad:
 	say "He is too busy weeping."
+
+[TODO: Ask the engineer about NASA & Apollo]
