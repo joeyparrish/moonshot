@@ -88,6 +88,11 @@ Apollo is a concept.  Apollo is everywhere.
 Understand "Apollo 11", "Appollo", "Appolo", "Appollo 11", and "Appolo 11" as
 Apollo.
 
+The command module is a concept.  The command module is everywhere.
+Understand "CSM" as the command module.
+
+The rocket is a concept.  The rocket is everywhere.
+
 
 [The built-in default for asking someone about an unknown thing is "There is no
 reply."  We'd prefer a different default for topics we haven't coded
@@ -237,7 +242,10 @@ Instead of quizzing the director about the internship:
 	  kid!'"
 
 Instead of quizzing the director about NASA:
-	say "'NASA!!!"
+	say "The director looks surprised by your question.  'NASA?  Well, of
+	  course, everyone knows it's the National Aeronautics and Space ...
+	  uhh... It's about space.  That's the important bit.  [bold
+	  type]LOTS[roman type] of space out there.'"
 [TODO: Write the NASA abbreviation gag for the director.]
 
 [TODO: Ask the director about Apollo]
@@ -264,7 +272,8 @@ The engineer is carrying the blueprints.  The description of the blueprints is
 "The blueprints, which are distinctly white, say '[bold type]Apollo 11 Command
 Module[roman type]' on the top.  [if the player has the blueprints]They are
 looking a little worse for wear, to say the least.[otherwise]The drawing of the
-command module is surprisingly lifelike."
+command module is surprisingly lifelike.  You've never seen a more beautiful
+rendering of a truncated cone."
 
 The blueprints can be discussed.  [Only when you've asked about them can you
 take them.]
@@ -374,7 +383,23 @@ Instead of the engineer giving the blueprints to the player:
 	try taking the blueprints;
 	rule succeeds.
 
-[TODO: Ask the engineer about NASA & Apollo]
+Instead of quizzing the engineer about NASA:
+	say "The engineer beams, 'I am [bold type]so[roman type] proud to serve
+	  my country in the National Aeronautics and Space... um... anyway, I
+	  design rockets.  NASA rockets.  It's the best.'"
+
+Instead of quizzing the engineer about rocket:
+	try quizzing the engineer about NASA.
+
+[TODO: Ask the engineer about Apollo]
+
+Instead of quizzing the engineer about the command module:
+	say "[The noun] chuckles and grins broadly.  '[bold type]That[roman
+	  type] is my pride and joy!  Officially, it's the 'Command and Service
+	  Module', or 'CSM', a truncated cone, 10 feet and 7 inches tall (which
+	  is about 1.814285 Buzz Aldrins tall), and 12 feet 10 inches across the
+	  base (which is about 0.8675309 Florida gators).  Really, it's one of
+	  the top... 30 truncated cones in engineering, at least!'"
 
 Instead of talking to the engineer while the engineer is sad:
 	say "He doesn't look like he wants to talk, though he might be convinced
