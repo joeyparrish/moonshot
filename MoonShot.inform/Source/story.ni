@@ -318,7 +318,7 @@ The items of the checklist are {get-blueprints}.
 
 
 [TODO: Write the engineering department description.]
-The engineering department is east of the waiting room.  "Another room?!"
+The engineering department is east of the director's office.  "Another room?!"
 The printed name of the engineering department is "NASA Engineering Department".
 
 In the engineering department is a stranger called the engineer.  The real
