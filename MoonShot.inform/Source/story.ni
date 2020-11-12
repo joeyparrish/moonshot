@@ -11,16 +11,16 @@ The story creation year is 2020.
 
 [Configuration]
 Include the Standard Rules by Graham Nelson.
-Include Basic Screen Effects by Emily Short.
 Include Punctuation Removal by Emily Short.
 Include Exit Lister by Gavin Lambert.
+Include Vorple Screen Effects by Juhana Leinonen.
 Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Asking by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
-Release along with an interpreter.
+Release along with the "Vorple" interpreter.
 
 After reading a command:
 	Resolve punctuated titles.
@@ -34,15 +34,27 @@ The display banner rule is not listed in the startup rulebook.
 [I don't like how Emily Short's "pause the game" rule clears the screen after
 continuing.  Here's my own definition built on some of hers.]
 To pause:
-	say "[paragraph break]Please press SPACE to continue[line break]";
-	wait for the SPACE key;
+	if Vorple is not supported:
+		[This is not needed on the HTML-based Vorple interpeter, and in
+		fact, the "wait for SPACE" part fails miserably, hanging the
+		game.]
+		say "[paragraph break]Please press SPACE to continue[line
+		  break]";
+		wait for the SPACE key;
 	say line break;
 
 When play begins:
-	[This quote could have been done as a single command, but it looks
-	 better this way than it does if we allow the "center" command to do
-	 the line wrapping (which it doesn't really do so well).]
-	if screen width >= 55:
+	if Vorple is supported:
+		[The HTML-based Vorple interpreter can handle centering a large
+		block of text very well.]
+		center "'We choose to go to the moon in this decade... because
+		  that goal will serve to organize and measure the best of our
+		  energies and skills, because that challenge is one that we are
+		  willing to accept, one we are unwilling to postpone...'[line
+		  break][line break]-- U.S.  President John Fitzgerald Kennedy";
+	otherwise:
+		[In other interpreters, it looks better broken up into explicit
+		lines, with each one centered.]
 		center "'We choose to go to the moon in this decade...";
 		center "because that goal will serve to organize and";
 		center "measure the best of our energies and skills,";
@@ -51,28 +63,6 @@ When play begins:
 		center "to postpone...'";
 		center "[line break]";
 		center "-- U.S. President John Fitzgerald Kennedy";
-	otherwise if screen width >= 40:
-		[For smaller mobile screens, format the lines a little
-		differently.]
-		center "'We choose to go to the moon in";
-		center "this decade... because that goal";
-		center "will serve to organize and measure";
-		center "the best of our energies and";
-		center "skills, because that challenge is";
-		center "one that we are willing to accept,";
-		center "one we are unwilling to";
-		center "postpone...'";
-		center "[line break]";
-		center "-- U.S. President John Fitzgerald Kennedy";
-	otherwise:
-		[For very small screens, put it all at once, and the line wraps
-		fall where they may.]
-		say "'We choose to go to the moon inthis decade... because that
-		  goal will serve to organize and measure the best of our
-		  energies and skills, because that challenge is one that we are
-		  willing to accept, one we are unwilling to postpone...'";
-		say line break;
-		say "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	say paragraph break;
 	center "[italic type]MoonShot[roman type]";
