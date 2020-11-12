@@ -1,15 +1,21 @@
 Version 1 of Help by Joey Parrish begins here.
 
+Include Vorple Screen Effects by Juhana Leinonen.
+Include Vorple Hyperlinks by Juhana Leinonen.
+
+help-card is a Vorple style.
+
 Helping is an action applying to nothing.  Understand "help" as helping.
 
 Carry out helping:
-	say "Welcome to your first interactive fiction!  In this story,
-	  [bold type]you[roman type] are the main character.  You interact with
-	  the story by typing what you want to do.  For example, you can 'look'
-	  if you forget what is in the room, you can 'examine' a thing to look
-	  more closely at it (such as 'examine clock'), you can 'take' an
-	  object, and you can move 'east', 'west', etc. to move from room to
-	  room.";
+	say help-card style;
+	say "Welcome to interactive fiction!
+	  In this story, [bold type]you[roman type] are the main character.  You
+	  interact with the story by typing what you want to do.  For example,
+	  you can 'look' if you forget what is in the room, you can 'examine' a
+	  thing to look more closely at it (such as 'examine clock'), you can
+	  'take' an object, and you can move 'east', 'west', etc. to move from
+	  room to room.";
 	say line break;
 	say "Here are some common verbs/commands/patterns you will want to try
 	  out.  Some commands have single-letter aliases you can use (shown here
@@ -32,10 +38,13 @@ Carry out helping:
 	say "  quit (q)[line break]";
 	say "[roman type][line break]";
 	say "There are many other things you can do, so just try things out and
-	  see.  You can also visit http://www.microheaven.com/ifguide/step3.html
-	  for more info.";
+	  see.  You can also visit ";
+	place a link to web site
+	  "http://www.microheaven.com/ifguide/step3.html";
+	say " for more info.";
 	say line break;
-	say "Enjoy!".
+	say "Enjoy!";
+	say end style.
 
 Help ends here.
 
