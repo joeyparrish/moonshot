@@ -22,16 +22,33 @@ Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
-blockquote is a Vorple style.
 
+
+[Styling]
+blockquote is a Vorple style.
+room-heading is a Vorple style.
+room-name is a Vorple style.
+direction-name is a Vorple style.
+
+This is the fancy room description heading rule:
+	say "[room-heading style][bold type][Location][roman type][end
+	  style]".
+The fancy room description heading rule substitutes for the room description
+heading rule.
+
+Rule for printing the name of a room (called the place):
+	say "[room-name style][printed name of place][end style]";
+
+Rule for printing the name of a direction (called whither):
+	say "[direction-name style][printed name of whither][end style]".
+
+
+
+[Other tweaks]
 After reading a command:
 	Resolve punctuated titles.
 [This is so that things like "examine Mr. Furtwangler" are understood.
 Otherwise, the period ends the player's command command.]
-
-
-[Startup]
-The display banner rule is not listed in the startup rulebook.
 
 [I don't like how Emily Short's "pause the game" rule clears the screen after
 continuing.  Here's my own definition built on some of hers.]
@@ -44,6 +61,12 @@ To pause:
 		  break]";
 		wait for the SPACE key;
 	say line break;
+
+
+
+[Startup]
+The display banner rule is not listed in the startup rulebook.
+[We have our own fancy banners below.]
 
 When play begins:
 	if Vorple is supported:
@@ -81,7 +104,7 @@ When play begins:
 	pause;
 	say paragraph break;
 	say paragraph break;
-	say "NASA, 1969.";
+	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
 	say "You did it!  You finally landed an internship at NASA, the National
 	  Aeronautics and Space ... Association?  Agency?  Authority?  You're
@@ -238,7 +261,7 @@ At the time when director yells:
 	say "A booming voice comes from the director's office: 'Donna!  Where
 	  the hell is that kid?  They're late!'";
 	say "[The secretary] looks embarrassed and says quietly, 'You'd better
-	  go on in.  He hates tardiness.'";
+	  go on in.  He [italic type]hates[roman type] tardiness.'";
 	now the director is ready.
 
 Instead of quizzing the secretary about the director:

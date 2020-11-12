@@ -14,3 +14,19 @@
    * work the way we want, we style it as a block. */
   display: block;
 }
+
+.room-heading {
+  font-weight: bold;
+  background-color: lavender;
+}
+
+/* Other room names, not in the heading that describes the current room. */
+:not(.room-heading) > .room-name {
+  font-weight: bold;
+  background-color: lavenderblush;
+}
+
+.direction-name {
+  font-weight: bold;
+  background-color: lavenderblush;
+}
