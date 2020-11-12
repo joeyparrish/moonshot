@@ -29,6 +29,9 @@ blockquote is a Vorple style.
 room-heading is a Vorple style.
 room-name is a Vorple style.
 direction-name is a Vorple style.
+author-line is a Vorple style.
+title-line is a Vorple style.
+copyright-line is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end
@@ -92,9 +95,11 @@ When play begins:
 	say paragraph break;
 	say paragraph break;
 	if Vorple is supported:
-		center "[blockquote style][italic type]MoonShot[roman
-		  type][line break]Story by Joey & Charity Parrish[line
-		  break]Copyright (C) 2020[end style]";
+		center "[blockquote style][title-line style][italic
+		type]MoonShot[roman type][end style][line break][author-line
+		style]Story by Joey & Charity Parrish[end style][line
+		break][copyright-line style]Copyright (C) 2020[end style][end
+		style]";
 		say line break;
 		center "(click or scroll to continue)";
 	otherwise:

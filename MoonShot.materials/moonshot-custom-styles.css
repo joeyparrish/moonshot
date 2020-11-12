@@ -14,6 +14,14 @@
   display: block;
 }
 
+.title-line {
+  font-size: 130%;
+}
+
+.author-line, .copyright-line {
+  font-size: 90%;
+}
+
 .room-heading {
   font-weight: bold;
   background-color: lavender;
