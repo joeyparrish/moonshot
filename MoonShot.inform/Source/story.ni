@@ -118,8 +118,8 @@ Understand "say sorry" as saying sorry.
 After examining a person (called Bob):
 	if Bob does not have nothing:
 		say "[The Bob] is carrying [run paragraph on]";
-		list the contents of Bob, as a sentence, using the definite
-		  article, giving inventory information;
+		list the contents of Bob, as a sentence, giving inventory
+		  information;
 		say "."
 
 [By default, we don't seem to get a description of what rooms are adjacent to
@@ -352,10 +352,13 @@ rendering of a truncated cone."
 
 The blueprints can be discussed.  [Only when you've asked about them can you
 take them.]
+The blueprints are plural-named.  [Don't call them "a blueprints".]
 
-In the engineering department is a container called coffee-pot.  The printed
-name of coffee-pot is "the coffee pot".  Understand "coffee pot" and "pot" as
-coffee-pot.
+In the engineering department is a container called a coffee-pot.  The printed
+name of coffee-pot is "coffee pot".
+[Accept a few misspellings of coffee.]
+Understand "coffee pot", "cofee pot", "coffe pot", "cafe pot", "cofe pot", and
+"pot" as the coffee-pot.
 
 The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee
 is 1000 ml.  The indefinite article is "some".
