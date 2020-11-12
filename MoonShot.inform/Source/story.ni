@@ -575,6 +575,7 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 [TODO: Consider Vorple Multimedia extension for background audio, with "music
 on" and "music off" commands to let the player control it.]
+[TODO: Consdier adding cover art.]
 
 
 
