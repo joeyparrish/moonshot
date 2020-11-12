@@ -502,3 +502,18 @@ Instead of asking the engineer to sing:
 
 Instead of quizzing the engineer about anything while the engineer is sad:
 	say "He is too busy weeping."
+
+
+
+
+[Test commands for speedy testing:]
+
+Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist /
+x checklist / i".
+
+Test blueprints with "test checklist / e / ask about blueprints / ask about
+whiteprints / x engineer / take blueprints / i".
+
+Test coffee with "test checklist / e / x coffee pot / take pot / i / take coffee
+/ i / put checklist in pot / i".
+
