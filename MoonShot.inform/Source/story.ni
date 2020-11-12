@@ -389,7 +389,9 @@ player enters for the first time?]
 The checklist is critical.  [You can't drop it.]
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
-The items of checklist-1 are {get-blueprints}.
+Get-equations is a checklist-item.  The printed name of get-equations is "Get
+rocket equations".
+The items of checklist-1 are {get-blueprints, get-equations}.
 
 
 
@@ -603,7 +605,7 @@ Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist /
 x checklist / i".
 
 Test blueprints with "test checklist / e / e / ask about blueprints / ask about
-whiteprints / x engineer / take blueprints / i".
+whiteprints / x engineer / take blueprints / i / x checklist".
 
 Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take
 coffee / i / put checklist in pot / i".
