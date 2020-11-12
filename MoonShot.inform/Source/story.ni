@@ -130,6 +130,10 @@ this game.  We want to always tell the user what the names of nearby rooms are,
 even if we have not yet been to them.  For this, we use:]
 A room memory rule: rule succeeds.
 
+Things can be critical.
+Instead of dropping something critical:
+	say "No, you're going to need that."
+
 
 
 Chapter 1
@@ -266,7 +270,7 @@ desk, [end if]scribbled out in childish print."
 Instead of taking the checklist (called X):
 	say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't
 	  sure how I was gonna get all that done!'  (Hint: You can examine the
-	  checklist to see the details)";
+	  checklist to see the details)[line break]";
 	now the player has X;
 	now the director is relaxed.
 
@@ -320,14 +324,14 @@ Instead of going from the director's office:
 		  He indicates the checklist[if the checklist is on the
 		  director's desk] laying on his desk[end if].  'Get all of that
 		  done, ASAP.'"
-[FIXME: If the player takes the checklist, leaves, drops it, and returns, they
-will be trapped!]
+
 [TODO: Should the player be able to take the checklist without some conversation
 with the director?  Perhaps the director should open a conversation when the
 player enters for the first time?]
 
 
 
+The checklist is critical.  [You can't drop it.]
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
 The items of the checklist are {get-blueprints}.
@@ -352,6 +356,7 @@ rendering of a truncated cone."
 
 The blueprints can be discussed.  [Only when you've asked about them can you
 take them.]
+The blueprints are critical.  [You can't drop them.]
 The blueprints are plural-named.  [Don't call them "a blueprints".]
 
 In the engineering department is a container called a coffee-pot.  The printed
