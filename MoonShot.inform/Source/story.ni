@@ -188,7 +188,9 @@ Instead of dropping something critical:
 
 
 
-Chapter 1
+Day one is a scene.
+Day one begins when play begins.
+
 
 
 [TODO: Expand the waiting room description.]
@@ -315,15 +317,16 @@ The director's desk is scenery in the director's office.  "An expansive desk
 covered in whirring desk gadgets that roll chrome metal balls back and forth
 endlessly on balanced tracks, and bobblehead dolls."
 
-There is a checklist on the director's desk.  The description of the checklist
-is "The checklist is [if the checklist is on the director's desk]laying on the
-desk, [end if]scribbled out in childish print."
+There is a checklist on the director's desk called checklist-1.
+The printed name of checklist-1 is "Apollo 11 checklist".
+The description of checklist-1 is "The checklist is [if the checklist is on the
+director's desk]laying on the desk, [end if]scribbled out in childish print."
 
-Instead of taking the checklist (called X):
+Instead of taking checklist-1:
 	say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't
 	  sure how I was gonna get all that done!'  (Hint: You can examine the
 	  checklist to see the details)[line break]";
-	now the player has X;
+	now the player has checklist-1;
 	now the director is relaxed.
 
 The description of the director is "[if the director is relaxed]He gazes
@@ -369,7 +372,7 @@ Instead of quizzing the director about anybody:
 
 [Keep the player from leaving without the checklist.]
 Instead of going from the director's office:
-	if the checklist is carried by the player:
+	if checklist-1 is carried by the player:
 		continue the activity;
 	otherwise:
 		say "'Hang on!' says [the director].  'You're gonna need this!'.
@@ -386,7 +389,7 @@ player enters for the first time?]
 The checklist is critical.  [You can't drop it.]
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
-The items of the checklist are {get-blueprints}.
+The items of checklist-1 are {get-blueprints}.
 
 
 
@@ -575,7 +578,15 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 [TODO: Rocket scientist, room, conversations, checklist item, and puzzle]
 [TODO: Third person, room, conversations, checklist item, and puzzle]
+
+
+
+Day two is a scene.
+Day two begins when checklist-1 is complete.
 [TODO: Completion of chapter 1, transition to chapter 2]
+
+
+
 [TODO: Chapter 3 (epilogue)]
 
 

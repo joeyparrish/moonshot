@@ -5,12 +5,22 @@ A checklist-item can be checked or unchecked.
 
 A checklist is a kind of thing.
 A checklist has a list of checklist-items called items.
+A checklist can be complete.
+
+Definition: a checklist is complete:
+	repeat with Y running through the items of it:
+		if Y is not checked:
+			decide no;
+	decide yes.
 
 [You can also "read" a checklist, which will just examine it.]
 Instead of examining a checklist (called X):
 	say "[The description of X]";
 	say "[If the description of X is not empty]  It[otherwise][The X][end
-	  if] reads:[line break]";
+	  if] reads:[line break][line break]";
+	let NAME be "[X]";
+	replace the text " checklist" in NAME with "";
+	say "[bold type][NAME][roman type][line break]";
 	repeat with Y running through the items of X:
 		say "  [bracket][if Y is checked]X[otherwise] [end if][close
 		  bracket] [printed name of Y][line break]";
