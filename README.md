@@ -34,3 +34,7 @@ measures that legally restrict others from doing anything the license permits.
 
 See LICENSE.md or https://creativecommons.org/licenses/by-nc-nd/4.0/ for full
 license terms.
+
+This repository also includes JavaScript code and Inform7 extensions from
+Vorple (https://vorple-if.com/), under MIT and Creative Commons licenses,
+respectively.  See LICENSE.vorple.md for details.
