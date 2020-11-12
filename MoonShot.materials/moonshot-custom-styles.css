@@ -1,0 +1,16 @@
+/* Use a fixed-width font, background color, and border for block quotes. */
+.blockquote {
+  /* Looks nice for a quote, and mimics other interpreters. */
+  font-family: monospace;
+
+  /* Offsets the block from the page. */
+  background-color: aliceblue;
+  border: 1px solid grey;
+
+  /* Makes the border stay back from the edge of the text, which is nice. */
+  padding: 0.5em;
+
+  /* Vorpal is creating a span for this, but to have the border and background
+   * work the way we want, we style it as a block. */
+  display: block;
+}

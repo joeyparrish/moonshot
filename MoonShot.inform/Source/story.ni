@@ -21,6 +21,8 @@ Include Better Asking by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Release along with the "Vorple" interpreter.
+Release along with the style sheet "moonshot-custom-styles.css".
+blockquote is a Vorple style.
 
 After reading a command:
 	Resolve punctuated titles.
@@ -47,11 +49,12 @@ When play begins:
 	if Vorple is supported:
 		[The HTML-based Vorple interpreter can handle centering a large
 		block of text very well.]
-		center "'We choose to go to the moon in this decade... because
-		  that goal will serve to organize and measure the best of our
-		  energies and skills, because that challenge is one that we are
-		  willing to accept, one we are unwilling to postpone...'[line
-		  break][line break]-- U.S.  President John Fitzgerald Kennedy";
+		center "[blockquote style]'We choose to go to the moon in
+		  this decade... because that goal will serve to organize and
+		  measure the best of our energies and skills, because that
+		  challenge is one that we are willing to accept, one we are
+		  unwilling to postpone...'[line break][line break]-- U.S.
+		  President John Fitzgerald Kennedy[end style]";
 	otherwise:
 		[In other interpreters, it looks better broken up into explicit
 		lines, with each one centered.]
@@ -65,9 +68,16 @@ When play begins:
 		center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	say paragraph break;
-	center "[italic type]MoonShot[roman type]";
-	center "Story by Joey & Charity Parrish";
-	center "Copyright (C) 2020";
+	if Vorple is supported:
+		center "[blockquote style][italic type]MoonShot[roman
+		  type][line break]Story by Joey & Charity Parrish[line
+		  break]Copyright (C) 2020[end style]";
+		say line break;
+		center "(click or scroll to continue)";
+	otherwise:
+		center "[italic type]MoonShot[roman type]";
+		center "Story by Joey & Charity Parrish";
+		center "Copyright (C) 2020";
 	pause;
 	say paragraph break;
 	say paragraph break;
@@ -82,9 +92,9 @@ When play begins:
 	  you've already [italic type]completely[roman type] forgotten, you are
 	  ushered into the office of your new boss: the director of NASA's
 	  Apollo program.  You heard recently that we're ready to send
-	  [italic type]man to the moon[roman type].  You can scarely believe it!
-	  It's like something out of science fiction.  Nervously, you wait to be
-	  called into the inner office.";
+	  [italic type]a man to the moon[roman type].  You can scarely believe
+	  it!  It's like something out of science fiction.  Nervously, you wait
+	  to be called into the inner office.";
 	pause;
 	say "[italic type](If you have never played interactive fiction before,
 	  you can type 'help' to get some basic instruction.)[roman type]";
