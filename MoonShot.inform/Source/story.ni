@@ -32,6 +32,7 @@ direction-name is a Vorple style.
 author-line is a Vorple style.
 title-line is a Vorple style.
 copyright-line is a Vorple style.
+plaque-card is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end
@@ -389,9 +390,25 @@ The items of the checklist are {get-blueprints}.
 
 
 
+The Main Hallway is east of the director's office.  "A long, blank hallway, with
+several doors branching off in various directions.  A bronze plaque is hanging
+on the wall in the center of the hallway."
+
+A bronze plaque is scenery in the hallway.
+
+Instead of examining the plaque:
+	say "Engraved in bronze, the plaque says:[line break]";
+	if Vorple is supported:
+		center "[plaque-card style][bold type]Apollo[roman type][line
+		  break]Never give up, never surrender![end style]";
+	otherwise:
+		center "[bold type]Apollo[roman type]";
+		center "Never give up, never surrender!"
+
+
 
 [TODO: Write the engineering department description.]
-The engineering department is east of the director's office.  "Another room?!"
+The engineering department is east of the hallway.  "Another room?!"
 The printed name of the engineering department is "NASA Engineering Department".
 
 In the engineering department is a stranger called the engineer.  The real
@@ -562,9 +579,10 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist /
 x checklist / i".
 
-Test blueprints with "test checklist / e / ask about blueprints / ask about
+Test blueprints with "test checklist / e / e / ask about blueprints / ask about
 whiteprints / x engineer / take blueprints / i".
 
-Test coffee with "test checklist / e / x coffee pot / take pot / i / take coffee
-/ i / put checklist in pot / i".
+Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take
+coffee / i / put checklist in pot / i".
 
+Test plaque with "test checklist / e / x plaque".
