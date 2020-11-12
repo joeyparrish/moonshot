@@ -42,14 +42,37 @@ When play begins:
 	[This quote could have been done as a single command, but it looks
 	 better this way than it does if we allow the "center" command to do
 	 the line wrapping (which it doesn't really do so well).]
-	center "'We choose to go to the moon in this decade...";
-	center "because that goal will serve to organize and";
-	center "measure the best of our energies and skills,";
-	center "because that challenge is one that we are";
-	center "willing to accept, one we are unwilling";
-	center "to postpone...'";
-	center "[line break]";
-	center "-- U.S. President John Fitzgerald Kennedy";
+	if screen width >= 55:
+		center "'We choose to go to the moon in this decade...";
+		center "because that goal will serve to organize and";
+		center "measure the best of our energies and skills,";
+		center "because that challenge is one that we are";
+		center "willing to accept, one we are unwilling";
+		center "to postpone...'";
+		center "[line break]";
+		center "-- U.S. President John Fitzgerald Kennedy";
+	otherwise if screen width >= 40:
+		[For smaller mobile screens, format the lines a little
+		differently.]
+		center "'We choose to go to the moon in";
+		center "this decade... because that goal";
+		center "will serve to organize and measure";
+		center "the best of our energies and";
+		center "skills, because that challenge is";
+		center "one that we are willing to accept,";
+		center "one we are unwilling to";
+		center "postpone...'";
+		center "[line break]";
+		center "-- U.S. President John Fitzgerald Kennedy";
+	otherwise:
+		[For very small screens, put it all at once, and the line wraps
+		fall where they may.]
+		say "'We choose to go to the moon inthis decade... because that
+		  goal will serve to organize and measure the best of our
+		  energies and skills, because that challenge is one that we are
+		  willing to accept, one we are unwilling to postpone...'";
+		say line break;
+		say "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	say paragraph break;
 	center "[italic type]MoonShot[roman type]";
