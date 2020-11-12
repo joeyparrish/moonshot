@@ -573,6 +573,13 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 
+[TODO: Rocket scientist, room, conversations, checklist item, and puzzle]
+[TODO: Third person, room, conversations, checklist item, and puzzle]
+[TODO: Completion of chapter 1, transition to chapter 2]
+[TODO: Chapter 3 (epilogue)]
+
+
+
 [TODO: Consider Vorple Multimedia extension for background audio, with "music
 on" and "music off" commands to let the player control it.]
 [TODO: Consdier adding cover art.]
