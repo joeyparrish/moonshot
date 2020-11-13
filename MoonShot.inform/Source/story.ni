@@ -32,6 +32,7 @@ direction-name is a Vorple style.
 author-line is a Vorple style.
 title-line is a Vorple style.
 copyright-line is a Vorple style.
+created-with-line is a Vorple style.
 plaque-card is a Vorple style.
 
 This is the fancy room description heading rule:
@@ -99,7 +100,8 @@ This is the fancy banner rule:
 		  type]MoonShot[roman type][end style][line break][author-line
 		  style]Story by Joey & Charity Parrish[end style][line
 		  break][copyright-line style]Copyright (C) 2020[end style][line
-		  break]Created with Inform 7[end style]";
+		  break][created-with-line style]Created with Inform 7[end
+		  style][end style]";
 		say line break;
 		center "(click or scroll to continue)";
 	otherwise:
