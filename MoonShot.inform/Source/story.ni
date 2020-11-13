@@ -629,15 +629,14 @@ When day two begins:
 	  agency (authority? association?) in America.  You collapse into a
 	  dreamless sleep, and wake refreshed, ready for you next challenge.";
 	pause;
-	say "[room-heading style]NASA Headquarters, day 2 of your internship[end
-	  style]";
+	say "[room-heading style]NASA Headquarters, day two of your
+	  internship[end style]";
 	say line break;
 	say "You return to NASA headquarters, brimming with pride over the good
 	  work you've done so far.  What challenges await today?  You can hardly
 	  contain your excitement as you wait to see the director again.";
 	pause;
-	now the player is in the waiting room;
-	try looking.
+	now the player is in the waiting room.
 [other resets should happen here, too, including topics and moods]
 [TODO: transition to day two]
 
