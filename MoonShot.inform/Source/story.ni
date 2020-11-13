@@ -199,7 +199,7 @@ enough room for you, the secretary, and her desk."
 The printed name of director's waiting room is "NASA Director's Waiting Room".
 
 In the waiting room is a stranger called the secretary.  The real name of the
-secretary is "Donna".  The secretary can be mad.  When play begins, now the
+secretary is "Donna".  The secretary can be mad.  When day one begins, now the
 secretary is not mad.  Understand "Donna", "her", "herself", and "woman" as
 the secretary.  The secretary is female.
 
@@ -247,7 +247,7 @@ Instead of quizzing the secretary about anything while the secretary is mad:
 
 [TODO: Ask the secretary about NASA, Apollo]
 
-When play begins:
+When day one begins:
 	secretary warns in 0 turns from now;
 	director yells in 5 turns from now.
 
@@ -308,10 +308,10 @@ of the director is "Mr. Furtwangler".
 Understand "director", "dirk", "mr furtwangler", "mister furtwangler",
 "furtwangler", "boss", "him", "himself", and "man" as the director.
 
-The director can be agitated or relaxed.  When play begins, now the director is
-agitated.
+The director can be agitated or relaxed.  When day one begins, now the director
+is agitated.
 
-The director can be ready.  When play begins, now the director is not ready.
+The director can be ready.  When day one begins, now the director is not ready.
 
 The director's desk is scenery in the director's office.  "An expansive desk
 covered in whirring desk gadgets that roll chrome metal balls back and forth
@@ -319,7 +319,7 @@ endlessly on balanced tracks, and bobblehead dolls."
 
 There is a checklist on the director's desk called checklist-1.
 The printed name of checklist-1 is "Apollo 11 checklist".
-The description of checklist-1 is "The checklist is [if the checklist is on the
+The description of checklist-1 is "The checklist is [if checklist-1 is on the
 director's desk]laying on the desk, [end if]scribbled out in childish print."
 
 Instead of taking checklist-1:
@@ -376,7 +376,7 @@ Instead of going from the director's office:
 		continue the activity;
 	otherwise:
 		say "'Hang on!' says [the director].  'You're gonna need this!'.
-		  He indicates the checklist[if the checklist is on the
+		  He indicates the checklist[if a checklist is on the
 		  director's desk] laying on his desk[end if].  'Get all of that
 		  done, ASAP.'"
 
@@ -384,14 +384,25 @@ Instead of going from the director's office:
 with the director?  Perhaps the director should open a conversation when the
 player enters for the first time?]
 
+Instead of giving a checklist (called proof of your good work) to the director:
+	if proof of your good work is not complete:
+		say "'Whoa,' says [the director], 'what is this?  You've still
+		  got work to do, kid!  Get back out there, and don't come back
+		  until it's all done!'";
+	otherwise:
+		say "[The director] scrutinzes the list, then smiles at you and
+		  drawls, 'Good job, kid.  Come back tomorrow for your next
+		  assignment!'";
+		now the director has proof of your good work.
 
 
-The checklist is critical.  [You can't drop it.]
+
+Checklist-1 is critical.  [You can't drop it.]
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get
 command module blueprints".
 Get-equations is a checklist-item.  The printed name of get-equations is "Get
 rocket equations".
-The items of checklist-1 are {get-blueprints, get-equations}.
+The items of checklist-1 are {get-blueprints}.
 
 
 
@@ -417,8 +428,8 @@ The engineering department is east of the hallway.  "Another room?!"
 The printed name of the engineering department is "NASA Engineering Department".
 
 In the engineering department is a stranger called the engineer.  The real
-name of the engineer is "Rick".  The engineer can be sad.  When play begins, now
-the engineer is not sad.  The engineer is male.
+name of the engineer is "Rick".  The engineer can be sad.  When day one begins,
+now the engineer is not sad.  The engineer is male.
 
 The engineer is carrying the blueprints.  The description of the blueprints is
 "The blueprints, which are distinctly white, say '[bold type]Apollo 11 Command
@@ -583,19 +594,31 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 
+Every turn when the remainder after dividing the turn count by 3 is 0 and
+a checklist (called X) held by the player is complete:
+	say "([X] is complete now.  You should report back to [the director] and
+	  give him the checklist.)[line break]";
+
+
+
 Day two is a scene.
-Day two begins when checklist-1 is complete.
-[TODO: Completion of chapter 1, transition to chapter 2]
+Day two begins when checklist-1 is held by the director.
+When day two begins:
+	now the player is in the waiting room;
+	say "DAY TWO.";
+	try looking.
+[other resets should happen here, too, including topics and moods]
+[TODO: transition to day two]
 
 
 
-[TODO: Chapter 3 (epilogue)]
+[TODO: day three (epilogue)]
 
 
 
 [TODO: Consider Vorple Multimedia extension for background audio, with "music
 on" and "music off" commands to let the player control it.]
-[TODO: Consdier adding cover art.]
+[TODO: Consider adding cover art.]
 
 
 
@@ -611,3 +634,5 @@ Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take
 coffee / i / put checklist in pot / i".
 
 Test plaque with "test checklist / e / x plaque".
+
+Test day2 with "test blueprints / w / w / give checklist to director".
