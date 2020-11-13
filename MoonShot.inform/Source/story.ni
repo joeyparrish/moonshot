@@ -68,11 +68,8 @@ To pause:
 
 
 
-[Startup]
-The display banner rule is not listed in the startup rulebook.
-[We have our own fancy banners below.]
-
-When play begins:
+[Intro]
+This is the fancy banner rule:
 	if Vorple is supported:
 		[The HTML-based Vorple interpreter can handle centering a large
 		block of text very well.]
@@ -95,41 +92,41 @@ When play begins:
 		center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	say paragraph break;
+	[Note that there is a requirement in the Inform license that we mention
+	  Inform somewhere, so we do so here.]
 	if Vorple is supported:
 		center "[blockquote style][title-line style][italic
-		type]MoonShot[roman type][end style][line break][author-line
-		style]Story by Joey & Charity Parrish[end style][line
-		break][copyright-line style]Copyright (C) 2020[end style][end
-		style]";
+		  type]MoonShot[roman type][end style][line break][author-line
+		  style]Story by Joey & Charity Parrish[end style][line
+		  break][copyright-line style]Copyright (C) 2020[end style][line
+		  break]Created with Inform 7[end style]";
 		say line break;
 		center "(click or scroll to continue)";
 	otherwise:
 		center "[italic type]MoonShot[roman type]";
 		center "Story by Joey & Charity Parrish";
 		center "Copyright (C) 2020";
+		center "Created with Inform 7";
 	pause;
 	say paragraph break;
-	say paragraph break;
-	say "[room-heading style]NASA Headquarters, 1969[end style]";
-	say line break;
-	say "You did it!  You finally landed an internship at NASA, the National
-	  Aeronautics and Space ... Association?  Agency?  Authority?  You're
-	  not really sure what the last A stands for, but it's only your first
-	  day.  You're pretty certain you'll figure it out soon enough.";
-	pause;
-	say "After a whirlwind tour of NASA headquarters, which you are sure
-	  you've already [italic type]completely[roman type] forgotten, you are
-	  ushered into the office of your new boss: the director of NASA's
-	  Apollo program.  You heard recently that we're ready to send
-	  [italic type]a man to the moon[roman type].  You can scarely believe
-	  it!  It's like something out of science fiction.  Nervously, you wait
-	  to be called into the inner office.";
-	pause;
-	say "[italic type](If you have never played interactive fiction before,
-	  you can type 'help' to get some basic instruction.)[roman type]";
-	say line break;
+	say paragraph break.
+
+The display banner rule is not listed in the startup rulebook.
+The fancy banner rule is listed before the start in the correct scenes rule in
+the startup rulebook.
+[Subtle difference in timing: we want our intro shown first, not right before
+the initial room description where the typical banner rule goes.  This means
+that our intro happens before "when play begins", which is when our first scene
+begins.  It was really tricky to work out how to time this correctly.]
+
+The detect interpreter's Vorple support rule is listed before the fancy banner
+rule in the startup rulebook.
+[This would normally happen when play begins, but we need to detect Vorple
+support earlier for use in the fancy banner.]
 
 
+
+[General]
 
 The weather is a concept.  The weather is everywhere.  [We can talk about it or
 ask about it in any room.  But if you try to look at it...]
@@ -188,8 +185,29 @@ Instead of dropping something critical:
 
 
 
+[---------- DAY 1 ----------]
+
 Day one is a scene.
 Day one begins when play begins.
+When day one begins:
+	say "[room-heading style]NASA Headquarters, 1969[end style]";
+	say line break;
+	say "You did it!  You finally landed an internship at NASA, the National
+	  Aeronautics and Space ... Association?  Agency?  Authority?  You're
+	  not really sure what the last A stands for, but it's only your first
+	  day.  You're pretty certain you'll figure it out soon enough.";
+	pause;
+	say "After a whirlwind tour of NASA headquarters, which you are sure
+	  you've already [italic type]completely[roman type] forgotten, you are
+	  ushered into the office of your new boss: the director of NASA's
+	  Apollo program.  You heard recently that we're ready to send
+	  [italic type]a man to the moon[roman type].  You can scarely believe
+	  it!  It's like something out of science fiction.  Nervously, you wait
+	  to be called into the inner office.";
+	pause;
+	say "[italic type](If you have never played interactive fiction before,
+	  you can type 'help' to get some basic instruction.)[roman type]";
+	say line break.
 
 
 
@@ -604,8 +622,21 @@ a checklist (called X) held by the player is complete:
 Day two is a scene.
 Day two begins when checklist-1 is held by the director.
 When day two begins:
+	pause;
+	say "[room-heading style]Intermission: End of day one[end style]";
+	say line break;
+	say "You head home, exhausted from a long day at the most important
+	  agency (authority? association?) in America.  You collapse into a
+	  dreamless sleep, and wake refreshed, ready for you next challenge.";
+	pause;
+	say "[room-heading style]NASA Headquarters, day 2 of your internship[end
+	  style]";
+	say line break;
+	say "You return to NASA headquarters, brimming with pride over the good
+	  work you've done so far.  What challenges await today?  You can hardly
+	  contain your excitement as you wait to see the director again.";
+	pause;
 	now the player is in the waiting room;
-	say "DAY TWO.";
 	try looking.
 [other resets should happen here, too, including topics and moods]
 [TODO: transition to day two]
@@ -625,7 +656,7 @@ on" and "music off" commands to let the player control it.]
 [Test commands for speedy testing:]
 
 Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist /
-x checklist / i".
+give checklist to director / x checklist / i".
 
 Test blueprints with "test checklist / e / e / ask about blueprints / ask about
 whiteprints / x engineer / take blueprints / i / x checklist".

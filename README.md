@@ -5,13 +5,20 @@ Game Off 2020.
 
 https://itch.io/jam/game-off-2020
 
+Created with Inform 7.
+
+http://inform7.com/
+
+
 ## Synopsis
 
 You play as a NASA intern in the 1960s, scrambling to make Apollo 11 a success.
 
+
 ## Playing in a browser
 
 TODO: Instructions need to be added for this
+
 
 ## License
 
