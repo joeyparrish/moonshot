@@ -143,7 +143,11 @@ Understand "second a" and "second a in NASA" as NASA.
 
 Apollo is a concept.  Apollo is everywhere.
 [Handle variations, including misspellings that I myself (JCP) am prone to:]
-Understand "Apollo 11", "Appollo", "Appolo", "Appollo 11", and "Appolo 11" as
+Understand "Apollo", "Apollo 11", "Apollo 11 project", and "Apollo project" as
+Apollo.
+Understand "Appollo", "Appollo 11", "Appollo 11 project", and "Appollo project"
+as Apollo.
+Understand "Appolo", "Appolo 11", "Appolo 11 project", and "Appolo project" as
 Apollo.
 
 The command module is a concept.  The command module is everywhere.
