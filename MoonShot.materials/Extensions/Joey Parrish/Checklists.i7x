@@ -4,6 +4,8 @@ Include Vorple Screen Effects by Juhana Leinonen.
 
 A checklist-item is a kind of object.
 A checklist-item can be checked or unchecked.
+A checklist-item has a list of things called sub-items.
+[These can be references to anything: objects, people, etc.]
 
 A checklist is a kind of thing.
 A checklist has a list of checklist-items called items.
@@ -37,7 +39,14 @@ Instead of examining a checklist (called X):
 		  bracket]";
 		if Vorple is supported:
 			say end style;
-		say " [printed name of Y][line break]";
+		say " [Y][line break]";
+		repeat with Z running through sub-items of Y:
+			if Vorple is supported:
+				say monospace font style;
+			say "      ";
+			if Vorple is supported:
+				say end style;
+			say "[the Z][line break]";
 	say end style;
 
 Checklists ends here.
