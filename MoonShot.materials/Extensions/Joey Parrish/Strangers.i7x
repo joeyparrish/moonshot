@@ -5,7 +5,16 @@ stranger has some text called the real name.
 
 Rule for printing the name of a stranger (called Bob) while Bob is known:
 	say "[real name]".
-Every turn, if a stranger (called Bob) is known, now Bob is proper-named.
+
+[It would be better if this were triggered at exactly the time someone becomes
+known.  But until I learn how to build that trigger, we check on every turn.
+I'm sure there's an edge case that's not handled this way, but I'm not sure
+where.]
+Every turn:
+	repeat with Bob running through strangers:
+		if Bob is known:
+			now the printed name of Bob is "[real name of Bob]";
+			now Bob is proper-named.
 [This last rule eliminates articles before the person's name.]
 
 Strangers ends here.
