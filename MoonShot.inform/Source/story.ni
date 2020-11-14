@@ -154,6 +154,10 @@ The command module is a concept.  The command module is everywhere.
 Understand "CSM" as the command module.
 
 The rocket is a concept.  The rocket is everywhere.
+Understand "rocket", "Saturn", "Saturn V", "Saturn V rocket", and "rockets" as
+the rocket.
+
+Work is a concept.  Work is everywhere.
 
 
 [The built-in default for asking someone about an unknown thing is "There is no
@@ -330,7 +334,7 @@ The director's office is north of the waiting room.  "The director's office has 
 director's office is "NASA Director's Office".
 
 In the director's office is a stranger called the director.  The real name
-of the director is "Mr. Furtwangler".
+of the director is "Mr. Furtwangler".  The director is male.
 
 Understand "director", "dirk", "mr furtwangler", "mister furtwangler",
 "furtwangler", "boss", "him", "himself", and "man" as the director.
@@ -623,7 +627,112 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 
-[TODO: Rocket scientist, room, conversations, checklist item, and puzzle]
+[TODO: Write the propulsion lab description.]
+The propulsion lab is north of the hallway.  "Another room?!"
+The printed name of the propulsion lab is "NASA Propulsion Lab".
+
+In the propulsion lab is a stranger called the head rocket scientist.  The real
+name of the head rocket scientist is "Dr. von Braun". The head rocket scientist
+is male.
+
+[This guy has way too many names.  Give players a fair amount of latitude.]
+Understand "doctor", "dr", "dr von braun", "von braun", "braun", "doktor", "herr
+doktor", "Herr Doktor Wernher Magnus Maximilian Freiherr von Braun", "Wernher",
+"Magnus", "Maximilian", "Freiherr", "Wernher von Braun", "Werner", "Werner von
+Braun", "scientist", "head scientist", "rocket scientist", "him", "man", and
+"himself" as the head rocket scientist.
+
+The head rocket scientist can be enraged.
+
+Rule for writing a paragraph about the head rocket scientist:
+	if the head rocket scientist is enraged:
+		say "[The noun] huffs about the room, scribbling on chalk
+		  boards, sparing you only the occasional angry glance.";
+	otherwise:
+		say "[The noun] moves smoothly through the room from one chalk
+		  board to another, making minor changes to complex equations.
+		  He does not seem to notice you."
+
+[TODO: description of the head rocket scientist]
+The description of the head rocket scientist is "[The noun] is a man of average
+height, his hair graying at the sides, wearing a white lab coat over a dark gray
+suit and tie.[if the head rocket scientist is enraged]  His anger toward [italic
+type]you specifically[roman type] is practically a physical presence of its own,
+hanging about his temples like a fog."
+
+Instead of talking to the head rocket scientist:
+	if the head rocket scientist is enraged:
+		say "You open your mouth to speak to [the noun], but he shoots
+		  you a rageful glare of such silent violence that you think
+		  better of it and shut your mouth again.";
+	otherwise:
+		say "Perhaps you could ask [the noun] about the equations, his
+		  work, or himself."
+
+Instead of quizzing the head rocket scientist about name:
+	say "He stops what is doing and considers you as if noticing you for the
+	  first time.  'Herr Doktor Wernher Magnus Maximilian Freiherr von
+	  Braun, chief scientist of the NASA propulsion lab.'  Then, without
+	  making it a true question and without any apparent interest in the
+	  answer, adds, 'How do you do.'";
+	now the head rocket scientist is known.
+
+Instead of quizzing the head rocket scientist about the head rocket scientist:
+	try quizzing the head rocket scientist about name.
+
+Instead of quizzing the head rocket scientist about NASA:
+	say "He considers thoughtfully before replying, 'It's a job.'"
+
+Instead of quizzing the head rocket scientist about rocket:
+	say "'Well,' he begins, looking quietly pleased with himself, 'My
+	  rockets are simply the best.  As you can plainly see, even enemies of
+	  the Reich were forced to acknowledge the greatness of my work.'  He
+	  turns to consider the chalk boards behind him and adds dreamily, 'I
+	  have spent years perfecting this new one...'"
+
+Instead of quizzing the head rocket scientist about work:
+	try quizzing the head rocket scientist about rocket.
+
+Equations is a concept in the propulsion lab.
+Instead of quizzing the head rocket scientist about equations:
+	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns
+	  back to his work."
+
+Rocket-equations is a concept in the propulsion lab.
+Understand "rocket equations" as rocket-equations.  [If I give the object its
+natural name instead of using "understand", then "equations" results in a
+disambiguation prompt between "equations" and "rocket equations", which is
+confusing.]
+Instead of quizzing the head rocket scientist about rocket-equations:
+	say "He turns to you very suddenly.  '[italic type]Rocket
+	  equations?[roman type]  You sound ridiculous!  What buffoon would say
+	  such a thing?  [bold type]Stop wasting my time![roman type]'[line
+	  break]";
+	now the head rocket scientist is enraged.
+
+[TODO: talk about Apollo]
+
+[TODO: chalk boards]
+[TODO: persuasion and taking rules for equations / chalk board]
+[TODO: hints on rocket equations?]
+
+Instead of quizzing the head rocket scientist about anything while the head
+  rocket scientist is enraged:
+	say "[The noun] throws an eraser at you and screams [bold type]'GET
+	  OUT!'[roman type]"
+
+[TODO: apologizing]
+
+
+In the propulsion lab is a person called other scientists.  The other scientists
+are plural-named.
+
+Understand "others" and "them" as other scientists.
+
+[TODO: talking to other scientists]
+
+
+
 [TODO: Third person, room, conversations, checklist item, and puzzle]
 
 
@@ -634,6 +743,8 @@ a checklist (called X) held by the player is complete:
 	  give him the checklist.)[line break]";
 
 
+
+[---------- DAY 2 ----------]
 
 Day two is a scene.
 Day two begins when checklist-1 is held by the director.
@@ -658,6 +769,8 @@ When day two begins:
 
 
 
+[---------- DAY 3 ----------]
+
 [TODO: day three (epilogue)]
 
 
@@ -680,5 +793,8 @@ Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take
 coffee / i / put checklist in pot / i".
 
 Test plaque with "test checklist / e / x plaque".
+
+Test equations with "test checklist / e / n / ask about name / ask about work /
+ask about equations / ask about rocket equations / ask about rockets".
 
 Test day2 with "test blueprints / w / w / give checklist to director".
