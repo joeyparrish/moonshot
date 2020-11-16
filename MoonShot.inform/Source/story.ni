@@ -20,8 +20,10 @@ Include Strangers by Joey Parrish.
 Include Better Asking by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
+Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
+Release along with the file "Icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
 

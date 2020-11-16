@@ -1,0 +1,79 @@
+body {
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  background-color: white;
+  color: black;
+}
+
+.container {
+  margin: 2em;
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  text-decoration: none;
+  color: #03f;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #03f;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #c03;
+}
+
+.coverimage {
+  margin: 2em;
+} 
+
+.coverimage img {
+  width: 300px;
+  max-width: 100%;
+  border: 3px double black;
+}
+
+.introduction { 
+}
+
+h1 {
+  font-size: 200%;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+.synopsis {
+  margin: 1em;
+  font-size: 130%;
+}
+
+.giantplaylink {
+  font-size: 150%;
+  text-align: center;
+  margin: 2em 0;
+}
+
+.giantplaylink a {
+  border: 3px dashed black;
+  padding: 0.5em;
+}
+
+.playinfo {
+  font-size: 75%;
+}
+
+/* For mobile browsers, change to a one-column layout. */
+@media screen and (max-device-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .coverimage {
+    text-align: center;
+  }
+}
