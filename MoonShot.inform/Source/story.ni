@@ -22,6 +22,8 @@ Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
+Release along with cover art ("An camera reflected in an astronaut's helmet").
+[The text associated with the cover art is a description for the blind.]
 
 
 [Styling]
@@ -777,7 +779,6 @@ When day two begins:
 
 [TODO: Consider Vorple Multimedia extension for background audio, with "music
 on" and "music off" commands to let the player control it.]
-[TODO: Consider adding cover art.]
 
 
 

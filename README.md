@@ -1,3 +1,5 @@
+![MoonShot cover art: an image of a camera reflected in an astronaut's helmet](MoonShot.materials/Cover.png)
+
 # MoonShot
 
 A work of interactive fiction created by Joey & Charity Parrish for the GitHub
@@ -12,12 +14,38 @@ http://inform7.com/
 
 ## Synopsis
 
-You play as a NASA intern in the 1960s, scrambling to make Apollo 11 a success.
+You play as a NASA intern in the 1960s, working on the Apollo 11 project.
+
+Everything goes very well, and you have no difficulties at all.  :grin:
 
 
 ## Playing in a browser
 
 TODO: Instructions need to be added for this
+
+
+## Compilation
+
+TODO: Instructions for compilation
+
+
+## Source
+
+The project structure is more or less dictated by Inform 7, so if you are
+unfamiliar with Inform, you may find it hard to locate the relevant source
+files.
+
+The main story source is in `MoonShot.inform/Source/story.ni`.  It relies on
+several extensions, some of which are standard, some of which were installed
+into the sources, and some of which were written expressly for this project.
+Extensions are like source modules or libraries in Inform, and can be found in
+`MoonShot.materials/Extensions/`.  The extensions written explicitly for this
+project are all in `MoonShot.materials/Extensions/Joey Parrish/`, and were
+mainly used to organize the source code and keep the non-story elements out of
+the main source file.
+
+Other assets, including CSS, cover art, and other associated, non-story
+content, can all be found in the `MoonShot.materials/` folder.
 
 
 ## License
@@ -45,3 +73,17 @@ license terms.
 This repository also includes JavaScript code and Inform7 extensions from
 Vorple (https://vorple-if.com/), under MIT and Creative Commons licenses,
 respectively.  See LICENSE.vorple.md for details.
+
+
+## Cover Art
+
+The cover art is based on the following images:
+ - Astronaut helmet photo
+   - [original link](https://pxhere.com/en/photo/116453)
+   - "No Rights Reserved; Free for personal and commercial use"
+   - [Creative Commons CC0 license](https://creativecommons.org/share-your-work/public-domain/cc0/)
+ - Glass sphere photo
+   - [original link](https://www.pickpik.com/photographer-hobby-profession-glass-ball-leisure-leisure-activity-142240)
+   - "The images provided by PickPik are free to use for personal and
+     commercial projects"
+   - [PickPik Terms of Service](https://www.pickpik.com/terms-of-service)

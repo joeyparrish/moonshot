@@ -4,6 +4,8 @@
     <dict>
         <key>Graphics</key>
         <dict>
+            <key>1</key>
+            <string>/home/joey/hacking/fiction/moonshot/MoonShot.materials/Cover.png</string>
         </dict>
     </dict>
 </plist>
