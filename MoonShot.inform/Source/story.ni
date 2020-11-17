@@ -176,7 +176,7 @@ When day one begins:
 
 
 
-The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her desk.  There's a houseplant in a pot, hanging from the ceiling in elaborately knotted macrame.  [The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
+The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her desk.  [if the houseplant is in the waiting room]There's a houseplant in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
 The printed name of director's waiting room is "NASA Director's Waiting Room".
 
 In the waiting room is a stranger called the secretary.  The real name of the secretary is "Donna".
@@ -184,6 +184,19 @@ Understand "Donna", "her", "herself", and "woman" as the secretary.  The secreta
 The secretary can be mad.  When day one begins, now the secretary is not mad.
 
 The secretary's desk is scenery in the waiting room.  "A simple teak desk with a light stain, and unusually spartan."
+
+The houseplant is in the waiting room.  Understand "plant" as the houseplant.
+The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
+
+Instead of dropping the houseplant:
+	say "You carefully hang the houseplant from the ceiling again, eliciting strange looks from [the secretary].";
+	now the houseplant is in the waiting room;
+	now the houseplant is undescribed.  [Don't mention it again as in the room.  The room description covers it.]
+
+The houseplant is edible.
+Instead of eating the houseplant:
+	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, Apollo 11 fails miserably, and NASA becomes a worldwide laughing stock.  Russia conquers the globe by 1972.  Your tombstone reads 'Intern.'";
+	end the story.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
 
@@ -584,6 +597,8 @@ When day two begins:
 
 
 [Test commands for speedy testing:]
+
+Test plant with "l / take plant / l / drop plant / l / eat plant".
 
 Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist / give checklist to director / x checklist / i".
 
