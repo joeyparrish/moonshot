@@ -25,6 +25,8 @@ Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "Icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
+The print obituary headline rule is not listed in any rulebook.
+
 
 
 [Styling]
@@ -37,6 +39,7 @@ title-line is a Vorple style.
 copyright-line is a Vorple style.
 created-with-line is a Vorple style.
 plaque-card is a Vorple style.
+ending-card is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".
@@ -196,7 +199,7 @@ Instead of dropping the houseplant:
 The houseplant is edible.
 Instead of eating the houseplant:
 	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, Apollo 11 fails miserably, and NASA becomes a worldwide laughing stock.  Russia conquers the globe by 1972.  Your tombstone reads 'Intern.'";
-	say "You have discovered ending #1 of 1!";
+	center "[paragraph break][ending-card style]You have discovered ending #1 of 1![end style]";
 	end the story.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
