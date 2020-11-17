@@ -217,9 +217,8 @@ When day one begins:
 
 
 
-[TODO: Expand the waiting room description.]
 The director's waiting room is a room.  "The tiny waiting room barely has
-enough room for you, the secretary, and her desk."
+enough room for you, the secretary, and her desk.  There's a houseplant in a pot, hanging from the ceiling in elaborately knotted macrame.  The secretary is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
 The printed name of director's waiting room is "NASA Director's Waiting Room".
 
 In the waiting room is a stranger called the secretary.  The real name of the
@@ -251,7 +250,7 @@ youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed
 glasses.  She notices you looking and smiles."
 
 Instead of talking to the secretary:
-	say "Perhaps you could ask [the noun] about the weather, or her name."
+	say "Perhaps you could ask [the noun] about the weather, NASA, the Apollo 11 project, or her name."
 
 Instead of quizzing the secretary about name:
 	say "'It's Donna,' she says.  'Nice to meet you!'";
@@ -263,13 +262,18 @@ Instead of quizzing the secretary about the secretary:
 Instead of quizzing the secretary about the weather:
 	say "'Oh, it's lovely this time of year, don't you think?'"
 
+Instead of quizzing the secretary about NASA:
+	say "'I love working here at the National Aerospace and Space Anonymous.  I feel like I've really worked through so many of my issues about space and aeronautics since starting my job.'"
+	
+Instead of quizzing the secretary about the Apollo 11 project:
+	say "'Between you and me, the Director really needs a win on this one.  Apollo 10 was a disaster.  His eyebrows still haven't grown back.  He's a little gunshy now and the word around the watercooler is, he's been a nervous wreck ever since.'"
+
 Instead of talking to the secretary while the secretary is mad:
 	say "She doesn't look like she wants to talk to you."
 
 Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
-[TODO: Ask the secretary about NASA, Apollo]
 
 When day one begins:
 	secretary warns in 0 turns from now;
@@ -322,8 +326,7 @@ Instead of going inside while in the waiting room:
 
 
 
-[TODO: Write the director's office description.]
-The director's office is north of the waiting room.  The printed name of the
+The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  The director is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade." The printed name of the
 director's office is "NASA Director's Office".
 
 In the director's office is a stranger called the director.  The real name
@@ -389,10 +392,12 @@ Instead of quizzing the director about NASA:
 	  type]LOTS[roman type] of space out there.'"
 [TODO: Rewrite the NASA abbreviation gag for the director?]
 
-[TODO: Ask the director about Apollo]
 
 Instead of quizzing the director about anybody:
-	say "He stares blankly for a second, then suddenly says, 'Who?'"
+	say "He stares blankly for a second, then says, 'Who?'"
+	
+Instead of quizzing the director about Apollo 11:
+	say "'I'm definitely not scared of getting started.  Definitely not.  There's no reason that Apollo 11 won't be a raging success.  No reason whatsoever.'  He looks very uncertain and his hands are quivering as he speaks."
 
 [Keep the player from leaving without the checklist.]
 Instead of going from the director's office:
@@ -452,7 +457,7 @@ Instead of examining the plaque:
 
 
 [TODO: Write the engineering department description.]
-The engineering department is east of the hallway.  "Another room?!"
+The engineering department is east of the hallway.  "It's filled with grey upholstered cubicles and smells like pencil shavings and burned coffee.  At the end of the room is a large whiteboard, at the top of which is written APOLLO 11.  Underneath the heading are some inscrutable equations, and in the bottom right corner, someone has drawn a unicorn."
 The printed name of the engineering department is "NASA Engineering Department".
 
 In the engineering department is a stranger called the engineer.  The real
@@ -581,12 +586,10 @@ Instead of the engineer giving the blueprints to the player:
 Instead of quizzing the engineer about NASA:
 	say "The engineer beams, 'I am [bold type]so[roman type] proud to serve
 	  my country in the National Aeronautics and Space... um... anyway, I
-	  design rockets.  NASA rockets.  It's the best.'"
+	  design rockets.  NASA rockets.  Big, blasting, noisy hard rockets!  It's the best.'"
 
 Instead of quizzing the engineer about rocket:
 	try quizzing the engineer about NASA.
-
-[TODO: Ask the engineer about Apollo]
 
 Instead of quizzing the engineer about the command module:
 	say "[The noun] chuckles and grins broadly.  '[bold type]That[roman
@@ -595,6 +598,9 @@ Instead of quizzing the engineer about the command module:
 	  is about 1.814285 Buzz Aldrins tall), and 12 feet 10 inches across the
 	  base (which is about 0.8675309 Florida gators).  Really, it's one of
 	  the top... 30 truncated cones in engineering, at least!'"
+	
+Instead of quizzing the engineer about the Apollo 11 project:
+	say "[The noun] shudders and says, 'Gotta get this one right. How was I supposed to know that the sulphurous smell of the rocket fuel would cause the astronauts to vomit nonstop for the whole flight?  Commander Stafford needed three liters of fluids when he got back.  He still hasn't forgive me.  Said they never could get the smell out of his favorite spacesuit.' [The noun] hangs his head, but then brightens and says, 'Apollo 11's gonna be different!'
 
 Instead of talking to the engineer while the engineer is sad:
 	say "He doesn't look like he wants to talk, though he might be convinced
