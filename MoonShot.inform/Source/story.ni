@@ -231,7 +231,7 @@ Instead of quizzing the secretary about the weather:
 
 Instead of quizzing the secretary about NASA:
 	say "'I love working here at the National Aerospace and Space Anonymous.  I feel like I've really worked through so many of my issues about space and aeronautics since starting my job.'"
-	
+
 Instead of quizzing the secretary about Apollo:
 	say "'Between you and me, the director really needs a win on this one.  Apollo 10 was a disaster.  His eyebrows still haven't grown back.  He's a little gunshy now and the word around the watercooler is, he's been a nervous wreck ever since.'"
 
@@ -326,7 +326,7 @@ Instead of quizzing the director about NASA:
 
 Instead of quizzing the director about anybody:
 	say "He stares blankly for a second, then says, 'Who?'"
-	
+
 Instead of quizzing the director about Apollo:
 	say "'I'm definitely not scared of getting started.  Definitely not.  There's no reason that Apollo 11 won't be a raging success.  No reason whatsoever.'  He looks very uncertain and his hands are quivering as he speaks."
 
@@ -464,7 +464,7 @@ Instead of quizzing the engineer about rocket:
 
 Instead of quizzing the engineer about the command module:
 	say "[The noun] chuckles and grins broadly.  '[bold type]That[roman type] is my pride and joy!  Officially, it's the 'Command and Service Module', or 'CSM', a truncated cone, 10 feet and 7 inches tall (which is about 1.814285 Buzz Aldrins tall), and 12 feet 10 inches across the base (which is about 0.8675309 Florida gators).  Really, it's one of the top... 30 truncated cones in engineering, at least!'"
-	
+
 Instead of quizzing the engineer about Apollo:
 	say "[The noun] shudders and says, 'Gotta get this one right. How was I supposed to know that the sulphurous smell of the rocket fuel would cause the astronauts to vomit nonstop for the whole flight?  Commander Stafford needed three liters of fluids when he got back.  He still hasn't forgive me.  Said they never could get the smell out of his favorite spacesuit.' [The noun] hangs his head, but then brightens and says, 'Apollo 11's gonna be different!'"
 
