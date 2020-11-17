@@ -321,8 +321,6 @@ Instead of quizzing the director about the internship:
 
 Instead of quizzing the director about NASA:
 	say "The director looks surprised by your question.  'NASA?  Well, of course, everyone knows about the National Aeronautics and Space...  uhh... It's about space.  That's the important bit.  [bold type]LOTS[roman type] of space out there.'"
-[TODO: Rewrite the NASA abbreviation gag for the director?]
-
 
 Instead of quizzing the director about anybody:
 	say "He stares blankly for a second, then says, 'Who?'"
@@ -372,7 +370,6 @@ Instead of examining the plaque:
 
 
 
-[TODO: Write the engineering department description.]
 The engineering department is east of the hallway.  "It's filled with grey upholstered cubicles and smells like pencil shavings and burned coffee.  At the end of the room is a large whiteboard, at the top of which is written APOLLO 11.  Underneath the heading are some inscrutable equations, and in the bottom right corner, someone has drawn a unicorn."
 The printed name of the engineering department is "NASA Engineering Department".
 
@@ -508,7 +505,6 @@ Rule for writing a paragraph about the head rocket scientist:
 	otherwise:
 		say "[The noun] moves smoothly through the room from one chalk board to another, making minor changes to complex equations.  He does not seem to notice you."
 
-[TODO: description of the head rocket scientist]
 The description of the head rocket scientist is "[The noun] is a man of average height, his hair graying at the sides, wearing a white lab coat over a dark gray suit and tie.[if the head rocket scientist is enraged]  His anger toward [italic type]you specifically[roman type] is practically a physical presence of its own, hanging about his temples like a fog."
 
 Instead of talking to the head rocket scientist:
