@@ -78,9 +78,15 @@
   padding: 0.5em;
 
   /* Vorpal is creating a span for this, but to have the border and background
-   * work the way we want, we style it as a block or inline-block.  Using
-   * inline-block makes it hug the text, which I like better for the plaque. */
-  display: inline-block;
+   * work the way we want, we style it as a block or inline-block.
+   * Even worse, there is some bug in which trying to center the content in
+   * Inform causes the generated HTML to be all screwy, with the ending-card
+   * empty and the text outside it.  Ugh.
+   * So, to solve all that, we use block to take up the whole line, inline-size
+   * to shrink the background to the content, and margin to center it all. */
+  display: block;
+  inline-size: fit-content;
+  margin: 0 auto;
 }
 
 /* https://fonts.googleapis.com/css2?family=Short+Stack&display=swap */

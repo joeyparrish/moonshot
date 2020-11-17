@@ -25,7 +25,6 @@ Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "Icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
-The print obituary headline rule is not listed in any rulebook.
 
 
 
@@ -51,6 +50,15 @@ Rule for printing the name of a room (called the place):
 Rule for printing the name of a direction (called whither):
 	say "[direction-name style][printed name of whither][end style]".
 
+The print obituary headline rule is not listed in any rulebook.
+To show ending (N - number):
+	say paragraph break;
+	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
+	say ending-card style;
+	say "You have discovered ending #[N] of 1 after [turn count] turns!";
+	say end style;
+	end the story.
+
 
 
 [Other tweaks]
@@ -72,12 +80,10 @@ To pause:
 [Intro]
 This is the fancy banner rule:
 	if Vorple is supported:
-		[The HTML-based Vorple interpreter can handle centering a large
-		block of text very well.]
+		[The HTML-based Vorple interpreter can handle centering a large block of text very well.]
 		center "[blockquote style]'We choose to go to the moon in this decade... because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone...'[line break][line break]-- U.S. President John Fitzgerald Kennedy[end style]";
 	otherwise:
-		[In other interpreters, it looks better broken up into explicit
-		lines, with each one centered.]
+		[In other interpreters, it looks better broken up into explicit lines, with each one centered.]
 		center "'We choose to go to the moon in this decade...";
 		center "because that goal will serve to organize and";
 		center "measure the best of our energies and skills,";
@@ -199,8 +205,7 @@ Instead of dropping the houseplant:
 The houseplant is edible.
 Instead of eating the houseplant:
 	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, Apollo 11 fails miserably, and NASA becomes a worldwide laughing stock.  Russia conquers the globe by 1972.  Your tombstone reads 'Intern.'";
-	center "[paragraph break][ending-card style]You have discovered ending #1 of 1![end style]";
-	end the story.
+	show ending 1.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
 
