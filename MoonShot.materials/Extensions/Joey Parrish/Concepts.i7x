@@ -2,6 +2,16 @@ Version 1 of Concepts by Joey Parrish begins here.
 
 A concept is a kind of backdrop.  Instead of examining a concept, say "You can't see any such thing."
 
+A concept can be physical.  A concept is usually not physical.
+
+Instead of taking a concept (called the considered):
+	if the considered is physical:
+		say "You can't see any such thing.";
+		[Treat it as an object that isn't present in the room.]
+	otherwise:
+		say "What would that even [italic type]mean?[roman type][line break]";
+		[Treat it as a purely conceptual thing.]
+
 Concepts ends here.
 
 ---- Documentation ----

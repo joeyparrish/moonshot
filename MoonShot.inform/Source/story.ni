@@ -126,10 +126,10 @@ Understand "Apollo", "Apollo 11", "Apollo 11 project", and "Apollo project" as A
 Understand "Appollo", "Appollo 11", "Appollo 11 project", and "Appollo project" as Apollo.
 Understand "Appolo", "Appolo 11", "Appolo 11 project", and "Appolo project" as Apollo.
 
-The command module is a concept.  The command module is everywhere.
+The command module is a physical concept.  The command module is everywhere.
 Understand "CSM" as the command module.
 
-The rocket is a concept.  The rocket is everywhere.
+The rocket is a physical concept.  The rocket is everywhere.
 Understand "rocket", "Saturn", "Saturn V", "Saturn V rocket", and "rockets" as the rocket.
 
 Work is a concept.  Work is everywhere.
@@ -196,6 +196,7 @@ Instead of dropping the houseplant:
 The houseplant is edible.
 Instead of eating the houseplant:
 	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, Apollo 11 fails miserably, and NASA becomes a worldwide laughing stock.  Russia conquers the globe by 1972.  Your tombstone reads 'Intern.'";
+	say "You have discovered ending #1 of 1!";
 	end the story.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
@@ -308,7 +309,10 @@ Instead of quizzing the director about the director:
 	say "'Furtwangler.  Dirk Furtwangler.  Boy am I glad you're here!'";
 	now the director is known.
 
-The internship is a concept in the director's office.
+The internship is a concept.  The internship is everywhere.
+Instead of taking the internship:
+	say "(You've already been hired.)"
+
 Instead of quizzing the director about the internship:
 	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the checklist on his desk.  'Get started, kid!'"
 
