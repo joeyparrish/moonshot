@@ -278,7 +278,7 @@ Instead of going inside while in the waiting room:
 
 
 
-The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  The director is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade." The printed name of the
+The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  [The director] is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade." The printed name of the
 director's office is "NASA Director's Office".
 
 In the director's office is a stranger called the director.  The real name of the director is "Mr. Furtwangler".  The director is male.
