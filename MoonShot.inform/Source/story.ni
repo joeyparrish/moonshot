@@ -564,9 +564,13 @@ Instead of quizzing the head scientist about anything while the head scientist i
 
 In the propulsion lab is a person called the other scientists.
 The other scientists are plural-named.
+Understand "others", and "them" as the other scientists.
 
-Understand "other scientists", "others", and "them" as the other scientists.
-[FIXME: "other scientists" is still resolved as the head scientist.  Why?]
+[NOTE: Something really odd is happening, and the only people who understand Inform in enough detail to debug this are Graham Nelson and gray aliens.  For whatever reason, "other scientists", which is the _EXACT NAME_ of the character, resolves to "the head scientist", which is _MADDENING_.  This is a hacky workaround, in which we just edit the user's commands as they come in and replace the thing that _should_ work with an explicit alias that _does_ work.]
+After reading a command:
+	let N be "[the player's command]";
+		replace the regular expression "\bother scientists\b" in N with "the others";
+		change the text of the player's command to N.
 
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
