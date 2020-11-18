@@ -299,11 +299,7 @@ The director's desk is scenery in the director's office.  "An expansive desk cov
 There is a checklist on the director's desk called checklist-1.
 The printed name of checklist-1 is "Apollo 11 checklist".
 The description of checklist-1 is "The checklist is [if checklist-1 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
-
-Instead of taking checklist-1:
-	say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'  (Hint: You can examine the checklist to see the details)[line break]";
-	now the player has checklist-1;
-	now the director is relaxed.
+Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
 
@@ -322,7 +318,8 @@ Instead of taking the internship:
 	say "(You've already been hired.)"
 
 Instead of quizzing the director about the internship:
-	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the checklist on his desk.  'Get started, kid!'"
+	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the checklist on his desk.  'Get started, kid!'";
+	now checklist-1 is ready.
 
 Instead of quizzing the director about NASA:
 	say "The director looks surprised by your question.  'NASA?  Well, of course, everyone knows about the National Aeronautics and Space...  uhh... It's about space.  That's the important bit.  [bold type]LOTS[roman type] of space out there.'"
@@ -333,6 +330,12 @@ Instead of quizzing the director about anybody:
 Instead of quizzing the director about Apollo:
 	say "'I'm definitely not scared of getting started.  Definitely not.  There's no reason that Apollo 11 won't be a raging success.  No reason whatsoever.'  He looks very uncertain and his hands are quivering as he speaks."
 
+Instead of quizzing the director about checklist-1:
+	say "'Oh, I'm glad you asked about that,' he says.  'This is a detailed and highly technical checklist of the things I need you to do today.  Now, I wrote this myself, so please don't hesitate to ask me if you need help with any of these things'.";
+	now checklist-1 is ready.
+
+[TODO: If you ask him about any of the checklist items, should he direct you to the right rooms?  Or should we have a gag here instead?]
+
 [Keep the player from leaving without the checklist.]
 Instead of going from the director's office:
 	if checklist-1 is carried by the player:
@@ -340,7 +343,14 @@ Instead of going from the director's office:
 	otherwise:
 		say "'Hang on!' says [the director].  'You're gonna need this!'.  He indicates the checklist[if a checklist is on the director's desk] laying on his desk[end if].  'Get all of that done, ASAP.'"
 
-[TODO: Should the player be able to take the checklist without some conversation with the director?  Perhaps the director should open a conversation when the player enters for the first time?]
+[Keep the player from taking the checklist until you've talked to the director first.]
+Instead of taking checklist-1:
+	if checklist-1 is ready:
+		say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'  (Hint: You can examine the checklist to see the details)[line break]";
+		now the player has checklist-1;
+		now the director is relaxed;
+	else:
+		say "'Not so fast!' says [the director].  'We need to talk first.'  (Hint: You can 'talk to director' for suggestions on topics.)"
 
 Instead of giving a checklist (called proof of your good work) to the director:
 	if proof of your good work is not complete:
@@ -616,7 +626,7 @@ When day two begins:
 
 Test plant with "l / take plant / l / drop plant / l / eat plant".
 
-Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist / give checklist to director / x checklist / i".
+Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
 Test blueprints with "test checklist / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
 
