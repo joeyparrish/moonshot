@@ -501,57 +501,54 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 The propulsion lab is north of the hallway.  "Another room?!"
 The printed name of the propulsion lab is "NASA Propulsion Lab".
 
-In the propulsion lab is a stranger called the head-scientist.
-The printed name of the head-scientist is "head rocket scientist".
-The real name of the head-scientist is "Dr. von Braun".
-The head-scientist is male.
-[This hyphenated name is a workaround for a disambiguation problem.  Having the head scientist and other scientists causes issues for the parser otherwise.  This lets us be explicit in what similar phrases map to which characters.]
-[FIXME: This is still broken.]
+In the propulsion lab is a stranger called the head scientist.
+The real name of the head scientist is "Dr. von Braun".
+The head scientist is male.
 
 [This guy has way too many names.  Give players a fair amount of latitude.]
-Understand "doctor", "dr", "dr von braun", "von braun", "braun", "doktor", "herr doktor", "Herr Doktor Wernher Magnus Maximilian Freiherr von Braun", "Wernher", "Magnus", "Maximilian", "Freiherr", "Wernher von Braun", "Werner", "Werner von Braun", "head", "the scientist", "head scientist", "rocket scientist", "him", "man", and "himself" as the head-scientist.
+Understand "doctor", "dr", "dr von braun", "von braun", "braun", "doktor", "herr doktor", "Herr Doktor Wernher Magnus Maximilian Freiherr von Braun", "Wernher", "Magnus", "Maximilian", "Freiherr", "Wernher von Braun", "Werner", "Werner von Braun", "head", "the scientist", "head scientist", "rocket scientist", "him", "man", and "himself" as the head scientist.
 
-The head-scientist can be enraged.
+The head scientist can be enraged.
 
-Rule for writing a paragraph about the head-scientist:
-	if the head-scientist is enraged:
-		say "[The head-scientist] huffs about the room, scribbling on chalk boards, sparing you only the occasional angry glance.";
+Rule for writing a paragraph about the head scientist:
+	if the head scientist is enraged:
+		say "[The head scientist] huffs about the room, scribbling on chalk boards, sparing you only the occasional angry glance.";
 	otherwise:
-		say "[The head-scientist] moves smoothly through the room from one chalk board to another, making minor changes to complex equations.  He does not seem to notice you."
+		say "[The head scientist] moves smoothly through the room from one chalk board to another, making minor changes to complex equations.  He does not seem to notice you."
 
-The description of the head-scientist is "[The noun] is a man of average height, his hair graying at the sides, wearing a white lab coat over a dark gray suit and tie.[if the head-scientist is enraged]  His anger toward [italic type]you specifically[roman type] is practically a physical presence of its own, hanging about his temples like a fog."
+The description of the head scientist is "[The noun] is a man of average height, his hair graying at the sides, wearing a white lab coat over a dark gray suit and tie.[if the head scientist is enraged]  His anger toward [italic type]you specifically[roman type] is practically a physical presence of its own, hanging about his temples like a fog."
 
-Instead of talking to the head-scientist:
-	if the head-scientist is enraged:
+Instead of talking to the head scientist:
+	if the head scientist is enraged:
 		say "You open your mouth to speak to [the noun], but he shoots you a rageful glare of such silent violence that you think better of it and shut your mouth again.";
 	otherwise:
 		say "Perhaps you could ask [the noun] about the equations, his work, or himself."
 
-Instead of quizzing the head-scientist about name:
+Instead of quizzing the head scientist about name:
 	say "He stops what is doing and considers you as if noticing you for the first time.  'Herr Doktor Wernher Magnus Maximilian Freiherr von Braun, chief scientist of the NASA propulsion lab.'  Then, without making it a true question and without any apparent interest in the answer, adds, 'How do you do.'";
-	now the head-scientist is known.
+	now the head scientist is known.
 
-Instead of quizzing the head-scientist about the head-scientist:
-	try quizzing the head-scientist about name.
+Instead of quizzing the head scientist about the head scientist:
+	try quizzing the head scientist about name.
 
-Instead of quizzing the head-scientist about NASA:
+Instead of quizzing the head scientist about NASA:
 	say "He considers thoughtfully before replying, 'It's a job.'"
 
-Instead of quizzing the head-scientist about rocket:
+Instead of quizzing the head scientist about rocket:
 	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the chalk boards behind him and adds dreamily, 'I have spent years perfecting this new one...'"
 
-Instead of quizzing the head-scientist about work:
-	try quizzing the head-scientist about rocket.
+Instead of quizzing the head scientist about work:
+	try quizzing the head scientist about rocket.
 
 Equations is a concept in the propulsion lab.
-Instead of quizzing the head-scientist about equations:
+Instead of quizzing the head scientist about equations:
 	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to his work."
 
 Rocket-equations is a concept in the propulsion lab.
 Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
-Instead of quizzing the head-scientist about rocket-equations:
+Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
-	now the head-scientist is enraged.
+	now the head scientist is enraged.
 
 [TODO: talk about Apollo]
 
@@ -559,27 +556,25 @@ Instead of quizzing the head-scientist about rocket-equations:
 [TODO: persuasion and taking rules for equations / chalk board]
 [TODO: hints on rocket equations?]
 
-Instead of quizzing the head-scientist about anything while the head-scientist is enraged:
+Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type]"
 
 [TODO: apologizing]
 
 
-In the propulsion lab is a person called the other-scientists.
-The printed name of the other-scientists is "other scientists".
-The other-scientists are plural-named.
-[This hyphenated name is a workaround for a disambiguation problem.  Having the head scientist and other scientists causes issues for the parser otherwise.  This lets us be explicit in what similar phrases map to which characters.]
+In the propulsion lab is a person called the other scientists.
+The other scientists are plural-named.
 
-Understand "other scientists", "others", and "them" as the other-scientists.
-[FIXME: This is still broken.]
+Understand "other scientists", "others", and "them" as the other scientists.
+[FIXME: "other scientists" is still resolved as the head scientist.  Why?]
 
-Instead of quizzing the other-scientists about anything:
-	try talking to the other-scientists.
+Instead of quizzing the other scientists about anything:
+	try talking to the other scientists.
 
-Instead of talking to the other-scientists:
+Instead of talking to the other scientists:
 	say "They all look incredibly busy and smart in those white lab coats.  You can't seem to get their attention."
 
-[TODO: talking to other-scientists]
+[TODO: talking to other scientists]
 
 
 
