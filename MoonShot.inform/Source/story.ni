@@ -371,8 +371,8 @@ Instead of going from the director's office:
 Instead of taking checklist-1:
 	if checklist-1 is ready:
 		say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'  (Hint: You can examine the checklist to see the details)[line break]";
-		now the player has checklist-1;
 		now the director is relaxed;
+		continue the action;
 	else:
 		say "'Not so fast!' says [the director].  'We need to talk first.'  (Hint: You can 'talk to director' for suggestions on topics.)"
 
@@ -480,8 +480,8 @@ Instead of taking the blueprints:
 	if the blueprints are discussed:
 		say "[The engineer] says, 'Here you go.'  He hands you a large roll of white paper which is not even slightly blue.  You cram the 3-foot roll of paper into your pocket, taking no care whatsoever to keep it neat or undamaged.  [The engineer] appears to be crying.";
 		now the engineer is sad;
-		now the player has the blueprints;
 		now get-blueprints is checked;
+		continue the action;
 	otherwise:
 		say "Taken aback, [the engineer] says, 'Hold on, there!  You don't know the first thing about these.'"
 
