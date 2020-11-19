@@ -17,6 +17,7 @@ Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Asking by Joey Parrish.
+Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
@@ -55,7 +56,7 @@ To show ending (N - number):
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 1 after [turn count] turns!";
+	say "You have discovered ending #[N] of 2 after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -167,6 +168,11 @@ Things can be critical.
 Instead of dropping something critical:
 	say "No, you're going to need that."
 
+[This seems unlikely to come up in practice, but now that we are creating "enterable" game objects such as chairs, I thought I'd throw this in.  You can get this by the phrases "enter" or "sit on".]
+Instead of entering a person:
+	say "[The noun] looks shocked that you should even try it!  [bold type][italic type]'SECURITY!'[roman type]  NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for sexual harassment in 1969, in spite of the term not being coined until 1975.  But then, you always [italic type]did[roman type] consider yourself ahead of your time.";
+	show ending 2.
+
 
 
 [---------- DAY 1 ----------]
@@ -193,6 +199,10 @@ Understand "Donna", "her", "herself", and "woman" as the secretary.  The secreta
 The secretary can be mad.  When day one begins, now the secretary is not mad.
 
 The secretary's desk is scenery in the waiting room.  "A simple teak desk with a light stain, and unusually spartan."
+The secretary's desk is an enterable supporter.  [You can put things on it or sit on it.]
+
+The orange chair is a chair in the director's waiting room.
+The description of the orange chair is "A simple office chair, with classy orange upholstery.  Not too comfy, though."
 
 The houseplant is in the waiting room.  Understand "plant" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
@@ -295,6 +305,10 @@ The director can be agitated or relaxed.  When day one begins, now the director 
 The director can be ready.  When day one begins, now the director is not ready.
 
 The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, and bobblehead dolls."
+The director's desk is an enterable supporter.  [You can put things on it or sit on it.]
+
+The wooden armchair is a chair in the director's office.
+The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
 
 There is a checklist on the director's desk called checklist-1.
 The printed name of checklist-1 is "Apollo 11 checklist".
