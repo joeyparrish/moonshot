@@ -364,9 +364,11 @@ Instead of quizzing the director about checklist-1:
 [TODO: If you ask him about any of the checklist items, should he direct you to the right rooms?  Or should we have a gag here instead?]
 
 [Keep the player from leaving without the checklist.]
-Instead of going from the director's office:
+Instead of going from the director's office during day one:
 	if checklist-1 is carried by the player:
 		continue the activity;
+	otherwise if checklist-1 is not ready:
+		try taking checklist-1;  [So that the director will ask you to stop and talk first.]
 	otherwise:
 		say "'Hang on!' says [the director].  'You're gonna need this!'.  He indicates the checklist[if a checklist is on the director's desk] laying on his desk[end if].  'Get all of that done, ASAP.'"
 
