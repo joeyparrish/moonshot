@@ -173,6 +173,16 @@ Instead of entering a person:
 	say "[The noun] looks shocked that you should even try it!  [bold type][italic type]'SECURITY!'[roman type]  NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for sexual harassment in 1969, in spite of the term not being coined until 1975.  But then, you always [italic type]did[roman type] consider yourself ahead of your time.";
 	show ending 2.
 
+[As if the above wasn't risque enough...]
+Instead of entering yourself:
+	let occupants be the list of people in the location;
+	remove yourself from occupants;
+	if occupants is empty:
+		[At least the player is alone, but still...]
+		say "Please don't.  This is a place of business.";
+	otherwise:
+		try entering entry 1 of occupants.  [Chain to the ending above for harassment.]
+
 
 
 [---------- DAY 1 ----------]
