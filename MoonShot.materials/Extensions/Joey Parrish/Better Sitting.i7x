@@ -10,8 +10,10 @@ A chair is a kind of enterable supporter.
 [This is a more specific kind of thing.  We prefer to sit on chairs over, say, desks.]
 
 Check sitting on:
-	if the noun is an enterable supporter:
-		say "You sit on [the noun].";
+	if the noun is a chair:
+		say "You sit in [the noun].";  [This sounds better to me than "on".]
+	otherwise if the noun is an enterable supporter:
+		say "You sit on [the noun].";  [For a general supporter, "on" is always correct.]
 	otherwise:
 		say "That's not something you can sit down on."
 
