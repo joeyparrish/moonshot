@@ -9,27 +9,29 @@ Check quizzing it about:
 	say "[The noun] shrugs unhelpfully."
 
 [This adds the ability to say "ask about thingy" without specifying a specific person to ask.  It will ask the first person found in the room with you.]
-Quizzing generally is an action applying to one thing.  Understand "ask about [anything]" as quizzing generally.
-
-Check quizzing generally:
+To decide which person is arbitrary-person:
 	let occupants be the list of people in the location;
 	remove yourself from occupants;
 	if occupants is empty:
+		decide on nothing;
+	otherwise:
+		decide on entry 1 of occupants.
+
+Quizzing generally is an action applying to one thing.  Understand "ask about [anything]" as quizzing generally.
+
+Check quizzing generally:
+	if arbitrary-person is nobody:
 		say "There's nobody here to ask.";
 	otherwise:
-		let arbitrary-person be entry 1 of occupants;
 		try quizzing arbitrary-person about the noun.
 
 [This adds the ability to say "ask for thingy" without specifying a specific person to ask.  It will ask the first person found in the room with you.]
 Begging generally is an action applying to one thing.  Understand "ask for [anything]" as begging generally.
 
 Check begging generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
-	if occupants is empty:
+	if arbitrary-person is nobody:
 		say "There's nobody here to ask.";
 	otherwise:
-		let arbitrary-person be entry 1 of occupants;
 		try asking arbitrary-person for the noun.
 
 
@@ -43,16 +45,34 @@ Check informing it about:
 Informing generally is an action applying to one thing.  Understand "tell about [anything]" as informing generally.
 
 Check informing generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
-	if occupants is empty:
+	if arbitrary-person is nobody:
 		say "There's nobody here to tell.";
 	otherwise:
-		let arbitrary-person be entry 1 of occupants;
 		try informing arbitrary-person about the noun.
 
 
 Talking to is an action applying to one visible thing.  Understand "talk to [someone]" or "converse with [someone]" as talking to.
+
+Talking to it about is an action applying to two things.  Understand "talk to [someone] about [anything]" as talking to it about.
+Check talking to it about:
+	try quizzing the noun about the second noun.
+[Now "talk to Bob about thingy" is the same as "ask Bob about thingy".]
+
+Talking about generally is an action applying to one thing.  Understand "talk about [anything]" as talking about generally.
+Check talking about generally:
+	if arbitrary-person is nobody:
+		say "There's nobody here to ask.";
+	otherwise:
+		try quizzing arbitrary-person about the noun.
+[Now "talk about thingy" is the same "ask about thingy".]
+
+Talking generally is an action applying to nothing.  Understand "talk" as talking generally.
+Check talking generally:
+	if arbitrary-person is nobody:
+		say "There's nobody here to talk to.";
+	otherwise:
+		try talking to arbitrary-person.
+[Now "talk" in a room with Bob is the same as "talk to Bob".]
 
 
 [These activities are now explicitly allowed to reference things in other rooms.]
