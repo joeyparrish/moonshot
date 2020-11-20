@@ -40,6 +40,7 @@ copyright-line is a Vorple style.
 created-with-line is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
+personnel-file is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".
@@ -400,7 +401,7 @@ The items of checklist-1 are {get-blueprints, get-equations, choose-crew}.
 
 
 
-The Main Hallway is east of the director's office.  "A long, blank hallway, with several doors branching off in various directions.  A bronze plaque is hanging on the wall in the center of the hallway."
+The Main Hallway is east of the director's office.  "A long, blank hallway, with several doors branching off in various directions and a stairwell leading down.  A bronze plaque is hanging on the wall in the center of the hallway."
 
 A bronze plaque is scenery in the hallway.
 
@@ -612,6 +613,30 @@ Instead of talking to the other scientists:
 
 
 [TODO: Third person, room, conversations, checklist item, and puzzle]
+The personnel department is south of the hallway.  "TODO: describe personnel department."
+The printed name of the personnel department is "NASA Personnel Department".
+Candidates is a concept.
+
+The personnel file for Buzz Aldrin is a thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
+
+Professional History:[line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering[line break]   * US Air Force, 1952-[line break]   * Korean War, 1952-53[line break]   * Graduated MIT, 1963, Sc.D in Astronautics[line break]   * NASA Gemini program, 1963-1966
+
+Psychological profile:[line break]   * Suffers from mood disorders, including space madness[line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion[line break][end style][variable letter spacing]".
+
+The personnel file for Neil Armstrong is a thing with description "[personnel-file style]
+[end style]".
+
+The personnel file for Michael Collins is a thing with description "[personnel-file style]
+[end style]".
+
+[FIXME - WIP]
+The personnel file for Buzz Aldrin is in the personnel department.
+
+
+
+The basement is below the hallway.
+Instead of going to the basement during day one:
+	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
 
 
 
@@ -664,6 +689,8 @@ Test plaque with "test checklist / e / x plaque".
 
 Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets".
 
-Test others with "test checklist / e/ n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
+Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
+
+Test files with "test checklist / e / s / x file for aldrin".
 
 Test day2 with "test blueprints / w / w / give checklist to director".

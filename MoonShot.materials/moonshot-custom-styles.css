@@ -103,6 +103,19 @@
 }
 
 .checklist-block {
+  /* Make it stand out, and look like paper. */
+  display: block;
+  background-color: aliceblue;
+  border: 1px solid black;
+
+  /* Fit to content. */
+  inline-size: fit-content;
+
+  /* Unless the content is larger 30 characters or so. */
+  max-width: 30em;
+}
+
+.checklist-contents {
   /* The story says it's "scribbled out in childish print", so let's emulate
    * that as much as we can. */
 
@@ -114,4 +127,35 @@
 
   /* Skew the text in a weird, scrawly way. */
   transform: skew(7deg, 1deg);
+
+  /* Add padding, which helps keep the skewed text inside the outer block with
+   * the background. */
+  padding: 2em;
+}
+
+.personnel-file {
+  /* Make this look more like a typed document on yellowish paper. */
+
+  display: block;
+  background-color: lightyellow;
+  font-family: monospace;
+  border: 1px solid darkgrey;
+
+  font-size: 75%;
+  max-width: 24em;
+  padding: 2em;
+}
+
+/* Though I can't figure out why, Inform/Vorple creates an empty span of this
+ * class before the one with the content.  This hides it. */
+.personnel-file:empty {
+  display: none;
+}
+
+/* Text indentation in Inform sucks and is hard to figure out.  Do it in CSS
+ * instead, which sucks slightly less. */
+.personnel-file span {
+  display: block;  /* Or else text-indent doesn't work */
+  margin-left: 3.2em;  /* Indents all text */
+  text-indent: -3.2em;  /* Unindents the first line by the same amount */
 }

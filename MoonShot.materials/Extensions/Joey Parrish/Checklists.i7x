@@ -11,7 +11,8 @@ A checklist is a kind of thing.
 A checklist has a list of checklist-items called items.
 A checklist can be complete.
 
-checklist-block is a Vorple style.
+checklist-block is a Vorple style.  [An outer span.]
+checklist-contents is a Vorple style.  [An inner span.]
 
 Definition: a checklist is complete:
 	repeat with Y running through the items of it:
@@ -25,6 +26,7 @@ Instead of examining a checklist (called X):
 	say "[If the description of X is not empty]  It[otherwise][The X][end if] reads:[line break][line break]";
 	if Vorple is supported:
 		say checklist-block style;
+		say checklist-contents style;
 	let NAME be "[X]";
 	replace the text " checklist" in NAME with "";
 	if Vorple is supported:
@@ -36,16 +38,18 @@ Instead of examining a checklist (called X):
 			say monospace font style;
 		say "  [bracket][if Y is checked]X[otherwise] [end if][close bracket]";
 		if Vorple is supported:
-			say end style;
+			say end style;  [monospace]
 		say " [Y][line break]";
 		repeat with Z running through sub-items of Y:
 			if Vorple is supported:
 				say monospace font style;
 			say "      ";
 			if Vorple is supported:
-				say end style;
+				say end style;  [monospace]
 			say "[the Z][line break]";
-	say end style;
+	if Vorple is supported:
+		say end style;  [checklist-contents]
+		say end style;  [checklist-block]
 
 Checklists ends here.
 
