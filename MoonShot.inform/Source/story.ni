@@ -184,6 +184,17 @@ Instead of entering yourself:
 	otherwise:
 		try entering entry 1 of occupants.  [Chain to the ending above for harassment.]
 
+A person can be asleep.
+Understand "wake [someone]" and "wake [someone] up" and "wake up [someone]" as waking.
+The block waking rule is not listed in any rulebook.  [Override the built-in rule, which is not useful.]
+Carry out waking:
+	if the noun is not asleep:
+		say "[The noun] appears to be awake already.";
+		stop the action;
+	else:
+		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
+		now the noun is not asleep;
+
 
 
 [---------- DAY 1 ----------]
@@ -618,16 +629,137 @@ Instead of going to the basement during day one:
 
 
 
-[TODO: Third person, room, conversations, checklist item, and puzzle]
-The personnel department is south of the hallway.  "TODO: describe personnel department."
-The printed name of the personnel department is "NASA Personnel Department".
-Candidates is a concept.
-
-
 An astronaut is a kind of person.  [They don't have special properties, but they are unique for the game.  Other kinds of people are ineligible for the mission.  Furthermore, all of the astronauts start in the basement.  Not giving them an initial location causes the rules for "choosing crew" to fail with a built-in message about them being "unavailable".  Putting them in literally any room fixes this.  We don't want the player to meet them yet, so they begin in the basement, which is locked during day one.]
 
 Buzz Aldrin is an astronaut in the basement.
-The personnel file for Buzz Aldrin is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
+Neil Armstrong is an astronaut in the basement.
+Michael Collins is an astronaut in the basement.
+Lisa Nowak is an astronaut in the basement.
+Ijon Tichy is an astronaut in the basement.
+Clifford McBride is an astronaut in the basement.
+
+
+
+The personnel department is south of the hallway.  "This tiny room feels like the sort of place careers go to die.  [The head of personnel] [if the head of personnel is asleep]is reclined behind a cheap desk, snoring softly with his feet up[otherwise]is staring at you impatiently from behind the desk, waiting for you to state your business.  He does not look pleased[end if].  To the left of the desk is a tan, metallic filing cabinet."
+The printed name of the personnel department is "NASA Personnel Department".
+
+The cheap desk is scenery in the personnel department.  The description of the cheap desk is "You have never seen less thought or money put into furniture before.  The desk has four legs and a surface, but everything else about it looks like an accident."
+The cheap desk is an enterable supporter.
+
+The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one drawer in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
+The metallic filing cabinet is an enterable supporter.
+An openable closed container called the drawer is part of the metallic filing cabinet.
+
+The personnel file for Buzz Aldrin is a critical thing in the drawer.
+The personnel file for Neil Armstrong is a critical thing in the drawer.
+The personnel file for Michael Collins is a critical thing in the drawer.
+The personnel file for Lisa Nowak is a critical thing in the drawer.
+The personnel file for Ijon Tichy is a critical thing in the drawer.
+The personnel file for Clifford McBride is a critical thing in the drawer.
+
+The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
+
+The head of personnel is a stranger in the personnel department.
+The real name of the head of personnel is "Franklin".
+The head of personnel is male.
+
+Understand "head", "Franklin", "Franklin Stanford", "Stanford", "him", "man", and "himself" as the head of personnel.
+
+When day one begins, now the head of personnel is asleep.  [Aren't we all?]
+
+The description of the head of personnel is "[The noun] is a short, balding man wearing black eyeglasses, a short-sleeved shirt, and a plain tie.  He is [if the head of personnel is asleep]snoring softly with his feet up, occasionally twitching in his chair[otherwise]staring at you impatiently.  He must not enjoy having his nap interrupted[end if]."
+
+Instead of waking the head of personnel:
+	if the head of personnel is asleep:
+		say "You say 'Excuse me,' and [the head of personnel] snorts and snaps awake, practically falling out of his chair.  'Wha?!' he exclaims, then adds testily, 'What is it?  What do you want?'";
+	continue the action.
+
+Instead of talking to the head of personnel:
+	if the head of personnel is asleep:
+		try waking the head of personnel;
+	otherwise:
+		say "Perhaps you could ask [the noun] about the crew candidates, the personnel files, or himself."
+
+Instead of quizzing the head of personnel about name:
+	say "'Franklin, Franklin Stanford.  What the hell do you want?  Spit it out.'";
+	now the head of personnel is known.
+
+Instead of quizzing the head of personnel about the head of personnel:
+	try quizzing the head of personnel about name.
+
+The crew is a concept.
+Understand "candidates" and "crew candidates" as the crew.
+
+The personnel files is a concept in the personnel department.
+Understand "files" as the personnel files.
+
+Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
+	try waking the head of personnel.
+
+[TODO: talk to Franklin about NASA
+Instead of quizzing the head of personnel about NASA:
+	say "";
+]
+
+[TODO: talk to Franklin about Apollo
+Instead of quizzing the head of personnel about Apollo:
+	say "";
+]
+
+[TODO: talk to Franklin about Dirk
+Instead of quizzing the head of personnel about the director:
+	say "";
+]
+
+[TODO: I bet Franklin would have opinions about every single character.]
+
+Instead of quizzing the head of personnel about the crew:
+	if the personnel puzzle is not ready:
+		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the filing cabinet and produces a set of six files for you.  'Here you go,' he says, handing you.  'Anything else?'";
+	otherwise:
+		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.  Just read the files.  Anything else?'";
+	if the personnel puzzle is not ready:
+		now the player has the personnel file for Buzz Aldrin;
+		now the player has the personnel file for Neil Armstrong;
+		now the player has the personnel file for Michael Collins;
+		now the player has the personnel file for Lisa Nowak;
+		now the player has the personnel file for Ijon Tichy;
+		now the player has the personnel file for Clifford McBride;
+		now the personnel puzzle is ready;
+
+Instead of quizzing the head of personnel about the personnel files:
+	if the personnel puzzle is not ready:
+		say "[The noun] impatiently hooks a thumb at the filing cabinet.  'In there.  Go nuts.'  He starts drumming his fingers on his desk.  'Anything else?'";
+	otherwise:
+		say "'You've already got [']em!  Now get lost.'";
+[TODO: hint every few turns about the "choose" action and examining the files.]
+
+Instead of taking the personnel files:
+	if the personnel puzzle is not ready:
+		try opening the drawer;
+		try silently taking the personnel file for Buzz Aldrin;
+		try silently taking the personnel file for Neil Armstrong;
+		try silently taking the personnel file for Michael Collins;
+		try silently taking the personnel file for Lisa Nowak;
+		try silently taking the personnel file for Ijon Tichy;
+		try silently taking the personnel file for Clifford McBride;
+		say "You collect six files from the drawer.";
+		now the personnel puzzle is ready;
+	otherwise:
+		say "You already have the personnel files."
+
+Instead of opening the drawer:
+	if the head of personnel is asleep:
+		say "You pull open the drawer carefully, but the drawer gets stuck briefly in the track and makes a loud [italic type]CLANG[roman type] sound.  [The head of personnel] snorts and snaps awake, practically falling out of his chair.  'Wha?!' he exclaims.  'What do you think you're doing?'";
+		now the head of personnel is not asleep;
+	continue the action.
+
+After going from the personnel department:
+	now the head of personnel is asleep.
+
+
+
+The description of the personnel file for Buzz Aldrin is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
 
 Professional History:
 [line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering
@@ -642,8 +774,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-Neil Armstrong is an astronaut in the basement.
-The personnel file for Neil Armstrong is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
+The description of the personnel file for Neil Armstrong is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
 
 Professional History:
 [line break]   * Graduated Purdue University, 1955, BS in Aeronautical Engineering
@@ -661,8 +792,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-Michael Collins is an astronaut in the basement.
-The personnel file for Michael Collins is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
+The description of the personnel file for Michael Collins is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
 
 Professional History:
 [line break]   * Joined the Irish Republican Brotherhood at age 19
@@ -677,8 +807,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-Lisa Nowak is an astronaut in the basement.
-The personnel file for Lisa Nowak is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
+The description of the personnel file for Lisa Nowak is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
 
 Professional History:
 [line break]   * Graduated US Naval Academy, Annapolis, BS in aerospace engineering
@@ -693,8 +822,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-Ijon Tichy is an astronaut in the basement.
-The personnel file for Ijon Tichy is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
+The description of the personnel file for Ijon Tichy is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
 
 Professional History:
 [line break]   * Experienced space pilot
@@ -710,8 +838,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-Clifford McBride is an astronaut in the basement.
-The personnel file for Clifford McBride is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
+The description of the personnel file for Clifford McBride is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
 
 Professional History:
 [line break]   * Undergrad degree from Purdue
@@ -728,18 +855,6 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-
-[FIXME - WIP - get the files all at once, from a person]
-The personnel file for Buzz Aldrin is in the personnel department.
-The personnel file for Neil Armstrong is in the personnel department.
-The personnel file for Michael Collins is in the personnel department.
-The personnel file for Lisa Nowak is in the personnel department.
-The personnel file for Ijon Tichy is in the personnel department.
-The personnel file for Clifford McBride is in the personnel department.
-The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
-After taking the personnel file for Buzz Aldrin:
-	now the personnel puzzle is ready;  [FIXME - WIP - ready when the files are received from a person]
-	continue the action.  [Show default "taken" message.]
 
 Choosing crew is an action applying to one thing.  Understand "choose [anyone]" as choosing crew.
 [NOTE: "anyone" should match people who are not present.  But we still need this rule to allow it:]
@@ -824,6 +939,10 @@ Test equations with "test checklist / e / n / ask about name / ask about work / 
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
-Test crew with "test checklist / e / s / choose donna / x file for aldrin / take file for aldrin / drop file for aldrin / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
+Test crew with "test checklist / e / s / choose donna / x file for aldrin / wake him / ask him about name / ask him about files / take files / drop file for aldrin / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
+
+Test wake with "test checklist / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
+
+Test files with "test checklist / e / s / take files / x file for aldrin / x file for armstrong / x file for collins / x file for nowak / x file for tichy / x mcbride".
 
 Test day2 with "test blueprints / w / w / give checklist to director".
