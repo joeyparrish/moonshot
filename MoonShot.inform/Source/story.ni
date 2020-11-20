@@ -206,9 +206,6 @@ Carry out waking:
 
 
 [---------- DAY 1 ----------]
-
-[TODO: "stand" is weird.]
-
 Day one is a scene.
 Day one begins when play begins.
 When day one begins:
@@ -939,6 +936,8 @@ Day three is a scene.
 
 
 [Test commands for speedy testing:]
+
+Test stand with "sit / stand / stand / z / z / z / n".
 
 Test plant with "l / take plant / l / drop plant / l / eat plant".
 

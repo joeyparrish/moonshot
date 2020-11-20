@@ -12,8 +12,10 @@ A chair is a kind of enterable supporter.
 Check sitting on:
 	if the noun is a chair:
 		say "You sit in [the noun].";  [This sounds better to me than "on".]
+		try silently entering the noun;
 	otherwise if the noun is an enterable supporter:
 		say "You sit on [the noun].";  [For a general supporter, "on" is always correct.]
+		try silently entering the noun;
 	otherwise:
 		say "That's not something you can sit down on."
 
@@ -29,6 +31,18 @@ Check sitting generally:
 			try sitting on entry 1 of good-enough-seats;
 		otherwise:
 			say "You don't see anything good to sit on, so you sit on the floor.";
+
+[The default behavior of "stand" is weird, and I don't like it.  I don't like the response phrasing, and it prints the room description again, which seems inappropriate for leaving chairs and tables.  And if you aren't sitting, the default is "you aren't *in* anything", which seems really weird, too.]
+Understand the command "stand" as something new.
+Standing generally is an action applying to nothing.
+Understand "stand" and "stand up" as standing generally.
+Check standing generally:
+	if the player is on a supporter (called the seat):
+		say "You stand up from [the seat].  It's good to move around.  (It keeps the blood moving!)";
+		let the former exterior be the not-counting-parts holder of the seat;
+		surreptitiously move the player to the former exterior;
+	otherwise:
+		say "You are already standing.";
 
 Better Sitting ends here.
 
