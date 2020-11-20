@@ -26,7 +26,13 @@ TODO: Instructions need to be added for this
 
 ## Compilation
 
-TODO: Instructions for compilation
+You can either load the folder MoonShot.inform into the Inform IDE, or you can
+build on the command-line.  Either way, you need to install Inform 7 from
+http://inform7.com/downloads/ if you don't already have it.
+
+For command-line builds on Linux, just type `make`.
+
+The HTML output goes to `MoonShot.materials/Release/`.
 
 
 ## Source
@@ -46,6 +52,8 @@ the main source file.
 
 Other assets, including CSS, cover art, and other associated, non-story
 content, can all be found in the `MoonShot.materials/` folder.
+
+The final HTML output goes to `MoonShot.materials/Release/`.
 
 
 ## License

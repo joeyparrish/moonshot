@@ -2,6 +2,7 @@
 *.dbg
 Release.blurb
 Release/
+Release.zip
 Build/
 Index/
 *.skein
