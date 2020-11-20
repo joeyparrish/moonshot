@@ -665,10 +665,10 @@ Michael Collins is an astronaut in the basement.
 The personnel file for Michael Collins is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
 
 Professional History:
-[line break]   * Joined the Irish Republican Brotherhood, 1909
-[line break]   * Aide-de-camp, rebel headquarters, 1916, Easter Rising
-[line break]   * Chairman of the Provisional Government, Irish Free State, 1922
-[line break]   * Commander-in-Chief of the National Army, 1922
+[line break]   * Joined the Irish Republican Brotherhood at age 19
+[line break]   * Aide-de-camp, rebel headquarters, Easter Rising
+[line break]   * Chairman of the Provisional Government, Irish Free State
+[line break]   * Commander-in-Chief of the National Army, Irish Free State
 
 Psychological profile:
 [line break]   * Abrasive, fiercely proud
@@ -681,10 +681,14 @@ Lisa Nowak is an astronaut in the basement.
 The personnel file for Lisa Nowak is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
 
 Professional History:
-[line break]   * X
+[line break]   * Graduated US Naval Academy, Annapolis, BS in aerospace engineering
+[line break]   * Served in US Navy Electronic Warfare Aggressor Squadron
+[line break]   * US Naval Postgraduate School, Monterey, MS in aeronautical engineering
 
 Psychological profile:
-[line break]   * X
+[line break]   * Enjoys long road trips
+[line break]   * Refuses to use rest stops
+[line break]   * Loves to plan elaborate surprises
 
 [line break][end style][variable letter spacing]".
 
@@ -693,10 +697,15 @@ Ijon Tichy is an astronaut in the basement.
 The personnel file for Ijon Tichy is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
 
 Professional History:
-[line break]   * X
+[line break]   * Experienced space pilot
+[line break]   * Experienced diplomat
+[line break]   * Took part in the Eighth World Futurological Congress in Costa Rica
 
 Psychological profile:
-[line break]   * X
+[line break]   * Eager to explore
+[line break]   * Generally amiable
+[line break]   * Accident-prone
+[line break]   * Lives in a messy, three-bedroom rocket
 
 [line break][end style][variable letter spacing]".
 
@@ -705,10 +714,16 @@ Clifford McBride is an astronaut in the basement.
 The personnel file for Clifford McBride is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
 
 Professional History:
-[line break]   * X
+[line break]   * Undergrad degree from Purdue
+[line break]   * Doctorate from MIT
+[line break]   * Graduated US Air Force Academy
+[line break]   * Experienced astronaut
+[line break]   * Commander, NASA Lima program
 
 Psychological profile:
-[line break]   * X
+[line break]   * Brilliant, obsessive, extremely driven
+[line break]   * Willing to make sacrifices
+[line break]   * Enjoys dehydrated food
 
 [line break][end style][variable letter spacing]".
 
