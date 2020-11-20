@@ -612,31 +612,148 @@ Instead of talking to the other scientists:
 
 
 
+The basement is below the hallway.
+Instead of going to the basement during day one:
+	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
+
+
+
 [TODO: Third person, room, conversations, checklist item, and puzzle]
 The personnel department is south of the hallway.  "TODO: describe personnel department."
 The printed name of the personnel department is "NASA Personnel Department".
 Candidates is a concept.
 
-The personnel file for Buzz Aldrin is a thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
 
-Professional History:[line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering[line break]   * US Air Force, 1952-[line break]   * Korean War, 1952-53[line break]   * Graduated MIT, 1963, Sc.D in Astronautics[line break]   * NASA Gemini program, 1963-1966
+An astronaut is a kind of person.  [They don't have special properties, but they are unique for the game.  Other kinds of people are ineligible for the mission.  Furthermore, all of the astronauts start in the basement.  Not giving them an initial location causes the rules for "choosing crew" to fail with a built-in message about them being "unavailable".  Putting them in literally any room fixes this.  We don't want the player to meet them yet, so they begin in the basement, which is locked during day one.]
 
-Psychological profile:[line break]   * Suffers from mood disorders, including space madness[line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion[line break][end style][variable letter spacing]".
+Buzz Aldrin is an astronaut in the basement.
+The personnel file for Buzz Aldrin is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
 
-The personnel file for Neil Armstrong is a thing with description "[personnel-file style]
-[end style]".
+Professional History:
+[line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering
+[line break]   * US Air Force, 1952-
+[line break]   * Korean War, 1952-53
+[line break]   * Graduated MIT, 1963, Sc.D in Astronautics
+[line break]   * NASA Gemini program, 1963-1966
 
-The personnel file for Michael Collins is a thing with description "[personnel-file style]
-[end style]".
+Psychological profile:
+[line break]   * Suffers from mood disorders, including space madness
+[line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion
+[line break][end style][variable letter spacing]".
 
-[FIXME - WIP]
+
+Neil Armstrong is an astronaut in the basement.
+The personnel file for Neil Armstrong is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
+
+Professional History:
+[line break]   * Graduated Purdue University, 1955, BS in Aeronautical Engineering
+[line break]   * US Navy, 1949-1952
+[line break]   * Korean War, 1951-1952
+[line break]   * US Navy Reserve, 1952-1960
+[line break]   * Test pilot, National Advisory Committee on Aeronautics, 1955-1958
+[line break]   * Test pilot, NASA, 1958-1962
+[line break]   * NASA Gemini program, 1965-1966
+
+Psychological profile:
+[line break]   * Humble about work, avoids publicity
+[line break]   * Scottish heritage and sense of honor requires him to headbutt descendents of rival clans
+[line break]   * Refuses to wear socks inside his spacesuit
+[line break][end style][variable letter spacing]".
+
+
+Michael Collins is an astronaut in the basement.
+The personnel file for Michael Collins is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
+
+Professional History:
+[line break]   * Joined the Irish Republican Brotherhood, 1909
+[line break]   * Aide-de-camp, rebel headquarters, 1916, Easter Rising
+[line break]   * Chairman of the Provisional Government, Irish Free State, 1922
+[line break]   * Commander-in-Chief of the National Army, 1922
+
+Psychological profile:
+[line break]   * Abrasive, fiercely proud
+[line break]   * Does not consult with other on decisions
+[line break]   * Has not attended official NASA meetings since his assassination in August 1922
+[line break][end style][variable letter spacing]".
+
+
+Lisa Nowak is an astronaut in the basement.
+The personnel file for Lisa Nowak is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
+
+Professional History:
+[line break]   * X
+
+Psychological profile:
+[line break]   * X
+
+[line break][end style][variable letter spacing]".
+
+
+Ijon Tichy is an astronaut in the basement.
+The personnel file for Ijon Tichy is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
+
+Professional History:
+[line break]   * X
+
+Psychological profile:
+[line break]   * X
+
+[line break][end style][variable letter spacing]".
+
+
+Clifford McBride is an astronaut in the basement.
+The personnel file for Clifford McBride is a critical thing with description "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
+
+Professional History:
+[line break]   * X
+
+Psychological profile:
+[line break]   * X
+
+[line break][end style][variable letter spacing]".
+
+
+
+[FIXME - WIP - get the files all at once, from a person]
 The personnel file for Buzz Aldrin is in the personnel department.
+The personnel file for Neil Armstrong is in the personnel department.
+The personnel file for Michael Collins is in the personnel department.
+The personnel file for Lisa Nowak is in the personnel department.
+The personnel file for Ijon Tichy is in the personnel department.
+The personnel file for Clifford McBride is in the personnel department.
+The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
+After taking the personnel file for Buzz Aldrin:
+	now the personnel puzzle is ready;  [FIXME - WIP - ready when the files are received from a person]
+	continue the action.  [Show default "taken" message.]
 
-
-
-The basement is below the hallway.
-Instead of going to the basement during day one:
-	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
+Choosing crew is an action applying to one thing.  Understand "choose [anyone]" as choosing crew.
+[NOTE: "anyone" should match people who are not present.  But we still need this rule to allow it:]
+Rule for reaching inside a room while choosing crew:
+	allow access.  ["Reaching inside a room" means that person is in literally any other room.]
+Check choosing crew during day two:
+	say "It's much too late for that now."
+Check choosing crew during day three:
+	say "It's much too late for that now."
+[I couldn't figure out the syntax for combining these last two scene conditions. -JCP]
+Check choosing crew during day one:
+	if the personnel puzzle is not ready:
+		say "You aren't ready to choose the crew.";
+	otherwise if the noun is not an astronaut:
+		say "[The noun] is not eligible for this mission.  Try choosing from the personnel files.";
+	otherwise if the noun is listed in the sub-items of choose-crew:
+		say "You've already selected [the noun] for the crew of Apollo 11.  Try choosing another astronaut from the personnel files.";
+	otherwise if TBD is not listed in the sub-items of choose-crew:  [if the list is full, that is]
+		say "It's too late!  You've already finished selecting the crew of Apollo 11.  Look at the checklist to see what else needs to be done.";
+	otherwise:
+		remove TBD from the sub-items of choose-crew;
+		add the noun to the sub-items of choose-crew;
+		if the number of entries in the sub-items of choose-crew is 3:
+			now choose-crew is checked;
+		while the number of entries in the sub-items of choose-crew < 3:
+			add TBD to the sub-items of choose-crew;
+		say "You add [the noun] to the crew list for Apollo 11.";
+		if choose-crew is checked:
+			say "That should do it!  There was only room for three."
 
 
 
@@ -668,6 +785,7 @@ When day two begins:
 [---------- DAY 3 ----------]
 
 [TODO: day three (epilogue)]
+Day three is a scene.
 
 
 
@@ -691,6 +809,6 @@ Test equations with "test checklist / e / n / ask about name / ask about work / 
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
-Test files with "test checklist / e / s / x file for aldrin".
+Test crew with "test checklist / e / s / choose donna / x file for aldrin / take file for aldrin / drop file for aldrin / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
 Test day2 with "test blueprints / w / w / give checklist to director".
