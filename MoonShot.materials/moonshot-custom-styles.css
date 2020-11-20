@@ -42,6 +42,11 @@
   background-color: lavenderblush;
 }
 
+.hint {
+  font-style: italic;
+  background-color: linen;
+}
+
 .help-card {
   /* Offsets the block from the page. */
   background-color: beige;

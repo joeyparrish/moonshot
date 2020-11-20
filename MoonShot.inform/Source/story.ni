@@ -38,6 +38,7 @@ author-line is a Vorple style.
 title-line is a Vorple style.
 copyright-line is a Vorple style.
 created-with-line is a Vorple style.
+hint is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file is a Vorple style.
@@ -60,6 +61,13 @@ To show ending (N - number):
 	say "You have discovered ending #[N] of 2 after [turn count] turns!";
 	say end style;
 	end the story.
+
+To show hint (T - text):
+	say italic type;
+	say hint style;
+	say "(Hint: [T])[line break]";
+	say end style;
+	say roman type;
 
 
 
@@ -199,6 +207,8 @@ Carry out waking:
 
 [---------- DAY 1 ----------]
 
+[TODO: "stand" is weird.]
+
 Day one is a scene.
 Day one begins when play begins.
 When day one begins:
@@ -208,7 +218,7 @@ When day one begins:
 	pause;
 	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.";
 	pause;
-	say "[italic type](If you have never played interactive fiction before, you can type 'help' to get some basic instruction.)[roman type]";
+	show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
 	say line break.
 
 
@@ -306,7 +316,8 @@ Instead of going to the director's office while the director is not ready:
 		[If the player has been told at least once before, they are
 		perhaps having trouble with this waiting thing, so offer a
 		hint.]
-		say "[line break](Hint: You can explore the room, talk to [the secretary], examine things, or just type 'wait' to wait patiently.)";
+		say line break;
+		show hint "You can explore the room, talk to [the secretary], examine things, or just type 'wait' to wait patiently.";
 	now yourself is told-to-wait.
 
 [In this language "in/inside" is actually a direction you could use to relate places to one another.  But in context of this room, we'd like "go in" to send you into the director's office.]
@@ -387,11 +398,13 @@ Instead of going from the director's office during day one:
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-1:
 	if checklist-1 is ready:
-		say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'  (Hint: You can examine the checklist to see the details)[line break]";
+		say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'";
+		show hint "You can examine the checklist to see the details.";
 		now the director is relaxed;
 		continue the action;
 	else:
-		say "'Not so fast!' says [the director].  'We need to talk first.'  (Hint: You can 'talk to director' for suggestions on topics.)"
+		say "'Not so fast!' says [the director].  'We need to talk first.'";
+		show hint "You can 'talk to director' for suggestions on topics.";
 
 Instead of giving a checklist (called proof of your good work) to the director:
 	if proof of your good work is not complete:
@@ -732,7 +745,6 @@ Instead of quizzing the head of personnel about the personnel files:
 		say "[The noun] impatiently hooks a thumb at the filing cabinet.  'In there.  Go nuts.'  He starts drumming his fingers on his desk.  'Anything else?'";
 	otherwise:
 		say "'You've already got [']em!  Now get lost.'";
-[TODO: hint every few turns about the "choose" action and examining the files.]
 
 Instead of taking the personnel files:
 	if the personnel puzzle is not ready:
@@ -887,8 +899,11 @@ Check choosing crew during day one:
 
 
 
+Every turn when the remainder after dividing the turn count by 10 is 0 and the personnel puzzle is ready and choose-crew is not checked:
+	show hint "Use 'choose so-and-so' to choose someone for the Apollo 11 crew.  Read the personnel files for details on each crew candidate.";
+
 Every turn when the remainder after dividing the turn count by 3 is 0 and a checklist (called X) held by the player is complete:
-	say "([X] is complete now.  You should report back to [the director] and give him the checklist.)[line break]";
+	say "[X] is complete now.  You should report back to [the director] and give him the checklist.";
 
 
 
