@@ -94,18 +94,14 @@
   margin: 0 auto;
 }
 
-/* https://fonts.googleapis.com/css2?family=Short+Stack&display=swap */
+/* https://www.fontspace.com/kbkinderwrite-font-f15885 */
 @font-face {
-  /* TODO: try alternate scribbly fonts */
-  font-family: 'Short Stack';
+  font-family: 'KBKinderWrite';
+  src: local('KBKinderWrite'),
+       url('KBKinderWrite.woff') format('woff'),
+       url('KBKinderWrite.woff2') format('woff2');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Short Stack'),
-       local('ShortStack'),
-       url(https://fonts.gstatic.com/s/shortstack/v10/bMrzmS2X6p0jZC6EcmPFX9SVe34.woff2) format('woff2'),
-       url(https://fonts.gstatic.com/s/shortstack/v10/bMrzmS2X6p0jZC6EcmPFX-SS.ttf) format('truetype');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 .checklist-block {
@@ -119,24 +115,19 @@
 
   /* Unless the content is larger 30 characters or so. */
   max-width: 30em;
+
+  /* Add padding around the contents. */
+  padding: 2em;
 }
 
 .checklist-contents {
   /* The story says it's "scribbled out in childish print", so let's emulate
    * that as much as we can. */
 
-  /* So that it has a more hand-written-looking font. */
-  font-family: 'Short Stack', cursive;
-
-  /* So that our transforms work. */
-  display: block;
-
-  /* Skew the text in a weird, scrawly way. */
-  transform: skew(7deg, 1deg);
-
-  /* Add padding, which helps keep the skewed text inside the outer block with
-   * the background. */
-  padding: 2em;
+  /* A really childish, hand-written-looking font. */
+  font-family: 'KBKinderWrite', cursive;
+  font-weight: bold;
+  font-size: 130%;
 }
 
 .personnel-file {

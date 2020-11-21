@@ -35,6 +35,8 @@ Include Help by Joey Parrish.
 Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
+Release along with the file "KBKinderWrite.woff".
+Release along with the file "KBKinderWrite.woff2".
 Release along with the file "Icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
