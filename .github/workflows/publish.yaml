@@ -5,14 +5,14 @@ on: push
 jobs:
   publish:
     name: Publish latest version
-    runs-on: "ubuntu-20.04"
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Debug - WIP
         run: |
           docker run \
-            --mount type=bind,source="$(SOURCE_DIR)",target=/home/informer \
+            --mount type=bind,source="$(pwd)",target=/home/informer \
             katre/docker-inform \
             /bin/bash -c '/bin/ls -la; whoami; pwd'
       - name: Build with Inform 7
