@@ -8,6 +8,18 @@ The story description is "A NASA intern in the 1960s scrambles to make Apollo 11
 The story creation year is 2020.
 
 
+
+[
+===== ===== ===== Before reading further ... ===== ===== =====
+
+If you intend to play through the game,
+please do so before you read the source code, to avoid spoilers.
+
+===== ===== ===== Thanks for your attention! ===== ===== =====
+]
+
+
+
 [Configuration]
 Include the Standard Rules by Graham Nelson.
 Include Punctuation Removal by Emily Short.
