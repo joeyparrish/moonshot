@@ -24,10 +24,11 @@ https://cashpipeplusplus.github.io/moonshot/
 ## Compilation
 
 You can either load the folder MoonShot.inform into the Inform IDE, or you can
-build on the command-line.  Either way, you need to install Inform 7 from
+build on the command-line.  You can install Inform from
 http://inform7.com/downloads/ if you don't already have it.
 
-For command-line builds on Linux using Docker, just type `make`.
+For command-line builds on Linux using Docker (no Inform installation
+required), just type `make`.  (For this, you must have Docker, of course.)
 
 The HTML output goes to `MoonShot.materials/Release/`.
 
