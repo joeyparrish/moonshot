@@ -9,13 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Give Docker image write access to the repo
-        run: chmod -R o+w .
       - name: Build with Inform 7
         run: make
-      - name: Debug - WIP
-        run: |
-          ls -la MoonShot.materials/; ls -la MoonShot.materials/Release/
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
