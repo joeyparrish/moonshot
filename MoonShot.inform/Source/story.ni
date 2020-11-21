@@ -324,7 +324,7 @@ Instead of quizzing the secretary about anything while the secretary is mad:
 
 When day one begins:
 	secretary warns in 0 turns from now;
-	director yells in 5 turns from now.
+	director yells-1 in 4 turns from now.
 
 Yourself can be told-to-wait.
 At the time when secretary warns:
@@ -335,9 +335,8 @@ At the time when secretary warns:
 Before waiting in the waiting room:
 	say "[one of]You sit awkwardly, wondering when this whole thing is supposed to get started.[or]Maybe there's something you can do, or something you should be talking about while you wait?[or]The waiting is the hardest part, isn't it?[purely at random]".
 
-At the time when director yells:
-	say "A booming voice comes from the director's office: 'Donna!  Where the hell is that kid?  They're late!'";
-	say "[The secretary] looks embarrassed and says quietly, 'You'd better go on in.  He [italic type]hates[roman type] tardiness.'";
+At the time when director yells-1:
+	say "A booming voice comes from the director's office: 'Donna!  Where the hell is that kid?  They're late!'[paragraph break][The secretary] looks embarrassed and says quietly, 'You'd better go on in.  He [italic type]hates[roman type] tardiness.'";
 	now the director is ready.
 
 Instead of quizzing the secretary about the director:
@@ -1061,10 +1060,48 @@ When day two begins:
 	say line break;
 	say "You return to NASA headquarters, brimming with pride over the good work you've done so far.  What challenges await today?  You can hardly contain your excitement as you wait to see the director again.";
 	pause;
-	now the player is in the waiting room.
-[other resets should happen here, too, including topics and moods, waiting to see the director, etc.]
-[TODO: transition to day two]
-[TODO: lock the doors to the propulsion lab and the engineering department]
+	now checklist-1 is nowhere;
+	now the chalkboard is nowhere;
+	now the chalkboard is not critical;  [So you aren't traveling with it anymore]
+	now checklist-2 is on the director's desk;
+	now the director is not ready;
+	now the director is not relaxed;
+	now the secretary is not mad;
+	now the player is in the waiting room;
+	secretary warns in 0 turns from now;
+	director yells-2 in 4 turns from now.
+
+At the time when director yells-2:
+	say "A booming voice comes from the director's office: 'Donna!  Is that damned kid late again?!  Why did we even hire that punk?'[paragraph break][The secretary] shrugs at you and gestures toward [the director]'s office door.";
+	now the director is ready.
+
+Glitter is a concept.  The allowed-scene of glitter is day two.
+Understand "operation glitter" as glitter.
+
+Checklist-2 is a checklist.
+The printed name of checklist-2 is "Operation Glitter checklist".
+The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
+Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
+
+Instead of quizzing the director about glitter:
+	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming.";
+
+[TODO: other transitions to day 2
+ - new conversation topics with dirk
+ - checklist-2 items, sub-items
+ - put the correct astronauts in the basement, and hide the others (maybe during "choose" in day 1?)
+]
+
+
+
+[For day two, we lock the doors to these rooms.]
+Instead of going to the propulsion lab during day two:
+	say "The door to the lab appears to be locked.  There is a sign on it which says 'closed for remodeling'."
+
+Instead of going to the engineering department during day two:
+	say "The door to the engineering department appears to be locked.  There is a sign on it which says 'deserted'.  (You were [italic type]sure[roman type] they were never going to do that...)[line break]".
+
+[TODO: describe all the astronauts]
 
 
 
@@ -1081,13 +1118,15 @@ Day three is a scene.
 
 [Test commands for speedy testing:]
 
-Test stand with "sit / stand / stand / z / z / z / n".
+Test stand with "sit / stand / stand / z / z / n".
 
 Test plant with "l / take plant / l / drop plant / l / eat plant".
 
-Test nameplate with "z / z / z / z / z / z / n / x nameplate / x desk / take nameplate / i / x nameplate / g / g / g / g / l / x desk / drop nameplate / l / x desk / put nameplate on desk / l / x desk / open nameplate / l / x toblerone / eat toblerone".
+Test waiting with "z / z / z / z / z / n";
 
-Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
+Test nameplate with "test waiting / x nameplate / x desk / take nameplate / i / x nameplate / g / g / g / g / l / x desk / drop nameplate / l / x desk / put nameplate on desk / l / x desk / open nameplate / l / x toblerone / eat toblerone".
+
+Test checklist with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
 Test tasks with "test checklist / ask about blueprints / ask about equations / ask about crew".
 
@@ -1112,3 +1151,7 @@ Test files with "test checklist / e / s / take files / x file 1 / x file 2 / x f
 Test drawer with "test checklist / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
 Test day2 with "test blueprints / w / w / s / test crew / n / w / s / test equations / s / w / give checklist to director".
+
+Test glitter1 with "test waiting / ask about glitter".
+
+Test glitter2 with "test day2 / test waiting / ask about glitter".
