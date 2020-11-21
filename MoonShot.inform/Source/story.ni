@@ -72,7 +72,7 @@ To show ending (N - number):
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 2 after [turn count] turns!";
+	say "You have discovered ending #[N] of 3 after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -273,7 +273,7 @@ Instead of dropping the houseplant:
 
 The houseplant is edible.
 Instead of eating the houseplant:
-	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, Apollo 11 fails miserably, and NASA becomes a worldwide laughing stock.  Russia conquers the globe by 1972.  Your tombstone reads 'Intern.'";
+	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, Apollo 11 fails miserably, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
 	show ending 1.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
@@ -668,8 +668,13 @@ Instead of quizzing the head scientist about anything while the head scientist i
 
 Instead of saying sorry while the player is in the propulsion lab:
 	if the head scientist is enraged:
-		say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.  (You barely escape un-swatted.)";
-		try going south;
+		say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
+		if a random chance of 9 in 10 succeeds:
+			say "You barely escape un-swatted.[line break]";
+			try going south;
+		otherwise:
+			say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+			show ending 3;
 	otherwise:
 		say "What is there to apologize for?"
 
@@ -1051,6 +1056,8 @@ Test plaque with "test checklist / e / x plaque".
 Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
+
+Test shoe with "test checklist / e / n / ask about rocket equations / sorry / w".
 
 Test crew with "test checklist / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
