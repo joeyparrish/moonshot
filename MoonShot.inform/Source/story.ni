@@ -647,7 +647,7 @@ Instead of quizzing the head scientist about rocket-equations:
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type]"
 
-[TODO: apologizing]
+[TODO: apologizing to von Braun]
 
 
 In the propulsion lab is a person called the other scientists.
@@ -1010,7 +1010,7 @@ Test equations with "test checklist / e / n / ask about name / ask about work / 
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
-Test crew with "test checklist / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file for aldrin / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
+Test crew with "test checklist / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
 Test wake with "test checklist / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
 
@@ -1018,4 +1018,4 @@ Test files with "test checklist / e / s / take files / x file 1 / x file 2 / x f
 
 Test drawer with "test checklist / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
-Test day2 with "test blueprints / w / w / give checklist to director".
+Test day2 with "test blueprints / w / w / s / test crew / n / w / s / test equations / s / w / give checklist to director".
