@@ -2,14 +2,10 @@
 
 # MoonShot
 
-A work of interactive fiction created by Joey & Charity Parrish for the GitHub
-Game Off 2020.
+A work of interactive fiction created by Joey & Charity Parrish for the [GitHub
+Game Off 2020](https://itch.io/jam/game-off-2020).
 
-https://itch.io/jam/game-off-2020
-
-Created with Inform 7.
-
-http://inform7.com/
+Created with [Inform 7](http://inform7.com/).
 
 
 ## Synopsis
