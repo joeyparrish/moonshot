@@ -505,7 +505,8 @@ Instead of quizzing the engineer about the blueprints:
 	say "[The noun] looks both smug and offended at once.  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The cyanotype [italic type]blueprint[roman type] began to be supplanted by [italic type]diazo prints[roman type], also known as [italic type]whiteprints[roman type].'";
 	now the printed name of get-blueprints is "Get command module whiteprints".
 
-The whiteprints is a concept.
+[Give this concept a location, so we can have rules about "taking" it.]
+The whiteprints is a concept in the engineering department.
 Instead of quizzing the engineer about the whiteprints:
 	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and take them if you need them so badly.'";
 	now the blueprints are discussed;
@@ -712,7 +713,8 @@ Instead of quizzing the head of personnel about the head of personnel:
 The crew is a concept.
 Understand "candidates" and "crew candidates" as the crew.
 
-The personnel files is a concept.
+[NOTE: Unlike other concepts, this one must be in a room, since we can use it with "take".  And since we have a rule for "drop", which needs to work no matter where you go, let's make the files "everywhere".]
+The personnel files is a concept.  The personnel files are everywhere.
 Understand "files" as the personnel files.
 
 Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
@@ -768,6 +770,8 @@ Instead of taking the personnel files:
 		now the personnel puzzle is ready;
 	otherwise:
 		say "You already have the personnel files."
+Instead of dropping the personnel files:
+	say "You're going to need those."
 
 Instead of opening the drawer:
 	if the head of personnel is asleep:
