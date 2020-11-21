@@ -671,7 +671,14 @@ The cheap desk is an enterable supporter.
 
 The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one drawer in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
 The metallic filing cabinet is an enterable supporter.
+
 An openable closed container called the drawer is part of the metallic filing cabinet.
+[We don't get told automatically what is inside an open container if it's part of another thing.  Fix this for the open drawer.]
+Before listing exits:
+	if the player is in the personnel department:
+		if the drawer is open:
+			say "In the open cabinet drawer, you can see [list of things in the drawer].[paragraph break]";
+	continue the action.
 
 The personnel file for Buzz Aldrin is a critical thing in the drawer.
 The personnel file for Neil Armstrong is a critical thing in the drawer.
@@ -759,7 +766,8 @@ Instead of quizzing the head of personnel about the personnel files:
 
 Instead of taking the personnel files:
 	if the personnel puzzle is not ready:
-		try opening the drawer;
+		if the drawer is not open:
+			try opening the drawer;
 		try silently taking the personnel file for Buzz Aldrin;
 		try silently taking the personnel file for Neil Armstrong;
 		try silently taking the personnel file for Michael Collins;
@@ -772,6 +780,12 @@ Instead of taking the personnel files:
 		say "You already have the personnel files."
 Instead of dropping the personnel files:
 	say "You're going to need those."
+
+Instead of opening the cabinet:
+	try opening the drawer.
+
+Instead of closing the cabinet:
+	try closing the drawer.
 
 Instead of opening the drawer:
 	if the head of personnel is asleep:
@@ -975,5 +989,7 @@ Test crew with "test checklist / e / s / choose donna / x file for aldrin / wake
 Test wake with "test checklist / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
 
 Test files with "test checklist / e / s / take files / x file for aldrin / x file for armstrong / x file for collins / x file for nowak / x file for tichy / x mcbride".
+
+Test drawer with "test checklist / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
 Test day2 with "test blueprints / w / w / give checklist to director".
