@@ -603,9 +603,32 @@ The head scientist can be enraged.
 
 Rule for writing a paragraph about the head scientist:
 	if the head scientist is enraged:
-		say "[The head scientist] huffs about the room, scribbling on chalk boards, sparing you only the occasional angry glance.";
+		say "[The head scientist] huffs about the room, scribbling on chalkboards, sparing you only the occasional angry glance.";
 	otherwise:
-		say "[The head scientist] moves smoothly through the room from one chalk board to another, making minor changes to complex equations.  He does not seem to notice you."
+		say "[The head scientist] moves smoothly through the room from one chalkboard to another, making minor changes to complex equations.  He does not seem to notice you."
+
+The chalkboard is in the propulsion lab.  The description of the chalkboard is "A large, slate black, wheeled chalkboard covered in inscrutable equations."
+The chalkboard is undescribed.  [Mentioned in the scenery, but not in the room.]
+The chalkboard is pushable between rooms.
+Understand "chalk board" and "board" as the chalkboard.
+
+Instead of taking the chalkboard:
+	if the location is the propulsion lab:
+		say "You hurriedly start pushing one of the wheeled chalkboards out of the room.  [The head scientist] screams after you, '[bold type]SCHWEINHUND!  [italic type]HALT!!![roman type]'[line break]";
+		now the head scientist is enraged;
+		now the chalkboard is described;  [It will show up in room descriptions again.]
+		now the chalkboard is critical;  [You can't leave it behind; see below]
+		now get-equations is checked;  [Woohoo!]
+		now the chalkboard is in the hallway;
+		try going south;
+	otherwise:
+		say "You've already brought that with you into the room, and there's no way it would fit in your pockets."
+
+Instead of going to anywhere (called the destination):
+	if the chalkboard is critical:
+		say "([one of]You push the massive chalkboard along with you[or]As you drag the chalkboard over the threshold into [the destination], one of the wheels catches on the door jam and the giant board falls to the ground.  It takes you a minute or two to get it upright again[or]You drag the chalkboard along, and hope like hell that it turns out to be worth the effort[purely at random].)[line break]";
+		now the chalkboard is in the destination;
+	continue the action.
 
 The description of the head scientist is "[The noun] is a man of average height, his hair graying at the sides, wearing a white lab coat over a dark gray suit and tie.[if the head scientist is enraged]  His anger toward [italic type]you specifically[roman type] is practically a physical presence of its own, hanging about his temples like a fog."
 
@@ -626,13 +649,13 @@ Instead of quizzing the head scientist about NASA:
 	say "He considers thoughtfully before replying, 'It's a job.'"
 
 Instead of quizzing the head scientist about rocket:
-	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the chalk boards behind him and adds dreamily, 'I have spent years perfecting this new one...'"
+	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the chalkboards behind him and adds dreamily, 'I have spent years perfecting this new one...'"
 
 Instead of quizzing the head scientist about work:
 	try quizzing the head scientist about rocket.
 
 Instead of quizzing the head scientist about equations:
-	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to his work."
+	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to the chalkboards."
 
 Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
@@ -640,19 +663,21 @@ Instead of quizzing the head scientist about rocket-equations:
 
 [TODO: talk about Apollo]
 
-[TODO: chalk boards]
-[TODO: persuasion and taking rules for equations / chalk board]
-[TODO: hints on rocket equations?]
-
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
-	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type]"
+	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
 
-[TODO: apologizing to von Braun]
+Instead of saying sorry while the player is in the propulsion lab:
+	if the head scientist is enraged:
+		say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.  (You barely escape un-swatted.)";
+		try going south;
+	otherwise:
+		say "What is there to apologize for?"
 
 
 In the propulsion lab is a person called the other scientists.
 The other scientists are plural-named.
 Understand "others", and "them" as the other scientists.
+The description of the other scientists is "They scurry around busily in white lab coats, occasionally looking back at [the head scientist] to see if he is noticing their industriousness.  (He is most certainly not.)[line break]"
 
 [NOTE: Something really odd is happening, and the only people who understand Inform in enough detail to debug this are Graham Nelson and gray aliens.  For whatever reason, "other scientists", which is the _EXACT NAME_ of the character, resolves to "the head scientist", which is _MADDENING_.  This is a hacky workaround, in which we just edit the user's commands as they come in and replace the thing that _should_ work with an explicit alias that _does_ work.]
 After reading a command:
@@ -660,13 +685,16 @@ After reading a command:
 		replace the regular expression "\bother scientists\b" in N with "the others";
 		change the text of the player's command to N.
 
+Instead of quizzing the other scientists about the head scientist:
+	say "The other scientists glance warily in the direction of [the head scientist], who [if the head scientist is enraged]glares at them with fire in his eyes[otherwise]looks back with calm surety[end if].  In unison, the scientists chant, 'Dr. von Braun is the best boss a scientist could ask for.  His work in the field is unparalleled, and we are lucky to be in his lab.'  [The head scientist] looks pleased about this, and turns back to his work.";
+	now the head scientist is known;
+	now the head scientist is not enraged;
+
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
 
 Instead of talking to the other scientists:
 	say "They all look incredibly busy and smart in those white lab coats.  You can't seem to get their attention."
-
-[TODO: talking to other scientists]
 
 
 
@@ -1006,7 +1034,7 @@ Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take co
 
 Test plaque with "test checklist / e / x plaque".
 
-Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets".
+Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
