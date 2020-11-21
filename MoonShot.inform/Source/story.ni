@@ -661,7 +661,7 @@ Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
 	now the head scientist is enraged.
 
-[TODO: talk about Apollo]
+[TODO: ask von Braun about Apollo]
 
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
@@ -793,7 +793,12 @@ Instead of quizzing the head of personnel about the director:
 
 [TODO: I bet Franklin would have opinions about every single character.]
 
-[TODO: Apologize to Franklin]
+Instead of saying sorry while the player is in the personnel department:
+	if the head of personnel is asleep:
+		say "What is there to apologize for?";
+	otherwise:
+		say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
+		now the head of personnel is asleep;
 
 Instead of quizzing the head of personnel about the crew:
 	if the personnel puzzle is not ready:
@@ -1002,7 +1007,7 @@ When day two begins:
 	say "You return to NASA headquarters, brimming with pride over the good work you've done so far.  What challenges await today?  You can hardly contain your excitement as you wait to see the director again.";
 	pause;
 	now the player is in the waiting room.
-[other resets should happen here, too, including topics and moods]
+[other resets should happen here, too, including topics and moods, waiting to see the director, etc.]
 [TODO: transition to day two]
 
 
@@ -1040,7 +1045,7 @@ Test others with "test checklist / e / n / talk to other scientists / talk to sc
 
 Test crew with "test checklist / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
-Test wake with "test checklist / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
+Test wake with "test checklist / wake him / sorry / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
 
 Test files with "test checklist / e / s / take files / x file 1 / x file 2 / x file 3 / x file 4 / x file 5 / x file 6 / i".
 
