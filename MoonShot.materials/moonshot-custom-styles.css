@@ -74,6 +74,26 @@
   display: inline-block;
 }
 
+.nameplate-card {
+  /* Offsets the block from the page. */
+  background-color: palegoldenrod;
+  border: 2px ridge grey;
+
+  /* Makes the border stay back from the edge of the text, which is nice. */
+  padding: 0.5em;
+
+  /* Vorpal is creating a span for this, but to have the border and background
+   * work the way we want, we style it as a block.  Using inline-size: fit
+   * makes it hug the text, and margin centers it. */
+  display: block;
+  inline-size: fit-content;
+  margin: 0 auto;
+}
+
+.nameplate-card:first-line {
+  font-family: cursive;
+}
+
 .ending-card {
   /* Offsets the block from the page. */
   background-color: mediumspringgreen;

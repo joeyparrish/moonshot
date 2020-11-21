@@ -56,6 +56,7 @@ hint is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file is a Vorple style.
+nameplate-card is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".
@@ -358,7 +359,8 @@ Instead of going inside while in the waiting room:
 
 
 
-The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  [The director] is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade." The printed name of the director's office is "NASA Director's Office".
+The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  [The director] is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular nameplate.[end if]".
+The printed name of the director's office is "NASA Director's Office".
 
 [Since this is the only room with windows...]
 Instead of examining the weather in the director's office:
@@ -372,10 +374,42 @@ The director can be agitated or relaxed.  When day one begins, now the director 
 
 The director can be ready.  When day one begins, now the director is not ready.
 
-The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, and bobblehead dolls."
+The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, and bobblehead dolls.[if the triangular nameplate is on the director's desk]  On the desk is a small, triangular nameplate.[end if]".
 The director's desk is an enterable supporter.  [You can put things on it or sit on it.]
 
-[TODO: put a name plate triangular name plate on the director's desk, by which he can become known]
+The triangular nameplate is an openable, closed, undescribed thing on the director's desk.
+Instead of examining the triangular nameplate:
+	say "A small, wooden, triangular prism with an engraved metal plate attached that reads:[line break]";
+	if Vorple is supported:
+		center "[nameplate-card style][bold type]Dirk Furtwangler[roman type][line break]Director[end style]";
+	otherwise:
+		center "[bold type]Dirk Furtwangler[roman type]";
+		center "Director";
+	now the director is known;
+	if the player has the triangular nameplate:
+		if a random chance of 1 in 10 succeeds:
+			say "The nameplate rattles a bit as you turn it."
+
+Rule for printing the name of the triangular nameplate:
+	say "triangular nameplate";
+	omit contents in listing.  [So that we don't give away the secret that it can be opened.]
+
+After taking the triangular nameplate:
+	now the triangular nameplate is described;
+	continue the action.
+
+After putting the triangular nameplate on the director's desk:
+	now the triangular nameplate is undescribed;  [It goes back to being described in the room and desk descriptions, so don't duplicate it in the room's contents.]
+	continue the action.
+
+A toblerone is an edible thing inside the triangular nameplate.
+The description of the toblerone is "It's a pale yellow, triangular box that says 'TOBLERONE', 'THE FIRST PATENTED SWISS MILK CHOCOLATE [italic type]with[roman type] ALMONDS & HONEY'.".
+After opening the triangular nameplate:
+	if the toblerone is in the triangular nameplate:
+		say "You open a small, concealed hatch on one side of the nameplate, and a pale yellow, triangular candy box falls out.";
+		now the toblerone is in the location;
+	otherwise:
+		say "You open a small, concealed hatch on one side of the nameplate."
 
 The wooden armchair is a chair in the director's office.
 The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
@@ -1050,6 +1084,8 @@ Day three is a scene.
 Test stand with "sit / stand / stand / z / z / z / n".
 
 Test plant with "l / take plant / l / drop plant / l / eat plant".
+
+Test nameplate with "z / z / z / z / z / z / n / x nameplate / x desk / take nameplate / i / x nameplate / g / g / g / g / l / x desk / drop nameplate / l / x desk / put nameplate on desk / l / x desk / open nameplate / l / x toblerone / eat toblerone".
 
 Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
