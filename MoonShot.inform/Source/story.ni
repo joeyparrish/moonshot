@@ -680,12 +680,12 @@ Before listing exits:
 			say "In the open cabinet drawer, you can see [list of things in the drawer].[paragraph break]";
 	continue the action.
 
-The personnel file for Buzz Aldrin is a critical thing in the drawer.
-The personnel file for Neil Armstrong is a critical thing in the drawer.
-The personnel file for Michael Collins is a critical thing in the drawer.
-The personnel file for Lisa Nowak is a critical thing in the drawer.
-The personnel file for Ijon Tichy is a critical thing in the drawer.
-The personnel file for Clifford McBride is a critical thing in the drawer.
+personnel file 1 is a critical thing in the drawer.
+personnel file 2 is a critical thing in the drawer.
+personnel file 3 is a critical thing in the drawer.
+personnel file 4 is a critical thing in the drawer.
+personnel file 5 is a critical thing in the drawer.
+personnel file 6 is a critical thing in the drawer.
 
 The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
 
@@ -750,12 +750,12 @@ Instead of quizzing the head of personnel about the crew:
 	otherwise:
 		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.  Just read the files.  Anything else?'";
 	if the personnel puzzle is not ready:
-		now the player has the personnel file for Buzz Aldrin;
-		now the player has the personnel file for Neil Armstrong;
-		now the player has the personnel file for Michael Collins;
-		now the player has the personnel file for Lisa Nowak;
-		now the player has the personnel file for Ijon Tichy;
-		now the player has the personnel file for Clifford McBride;
+		now the player has personnel file 6;
+		now the player has personnel file 5;
+		now the player has personnel file 4;
+		now the player has personnel file 3;
+		now the player has personnel file 2;
+		now the player has personnel file 1;
 		now the personnel puzzle is ready;
 
 Instead of quizzing the head of personnel about the personnel files:
@@ -768,13 +768,13 @@ Instead of taking the personnel files:
 	if the personnel puzzle is not ready:
 		if the drawer is not open:
 			try opening the drawer;
-		try silently taking the personnel file for Buzz Aldrin;
-		try silently taking the personnel file for Neil Armstrong;
-		try silently taking the personnel file for Michael Collins;
-		try silently taking the personnel file for Lisa Nowak;
-		try silently taking the personnel file for Ijon Tichy;
-		try silently taking the personnel file for Clifford McBride;
-		say "You collect six files from the drawer.";
+		now the player has personnel file 6;
+		now the player has personnel file 5;
+		now the player has personnel file 4;
+		now the player has personnel file 3;
+		now the player has personnel file 2;
+		now the player has personnel file 1;
+		say "You collect all the files from the drawer.";
 		now the personnel puzzle is ready;
 	otherwise:
 		say "You already have the personnel files."
@@ -799,7 +799,7 @@ After going from the personnel department:
 
 
 
-The description of the personnel file for Buzz Aldrin is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
+The description of personnel file 1 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
 
 Professional History:
 [line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering
@@ -814,7 +814,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of the personnel file for Neil Armstrong is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
+The description of personnel file 2 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
 
 Professional History:
 [line break]   * Graduated Purdue University, 1955, BS in Aeronautical Engineering
@@ -832,7 +832,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of the personnel file for Michael Collins is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
+The description of personnel file 3 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
 
 Professional History:
 [line break]   * Joined the Irish Republican Brotherhood at age 19
@@ -847,7 +847,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of the personnel file for Lisa Nowak is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
+The description of personnel file 4 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
 
 Professional History:
 [line break]   * Graduated US Naval Academy, Annapolis, BS in aerospace engineering
@@ -862,7 +862,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of the personnel file for Ijon Tichy is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
+The description of personnel file 5 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
 
 Professional History:
 [line break]   * Experienced space pilot
@@ -878,7 +878,7 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of the personnel file for Clifford McBride is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
+The description of personnel file 6 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
 
 Professional History:
 [line break]   * Undergrad degree from Purdue
@@ -984,11 +984,11 @@ Test equations with "test checklist / e / n / ask about name / ask about work / 
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
-Test crew with "test checklist / e / s / choose donna / x file for aldrin / wake him / ask him about name / ask him about files / take files / drop file for aldrin / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
+Test crew with "test checklist / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file for aldrin / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
 Test wake with "test checklist / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
 
-Test files with "test checklist / e / s / take files / x file for aldrin / x file for armstrong / x file for collins / x file for nowak / x file for tichy / x mcbride".
+Test files with "test checklist / e / s / take files / x file 1 / x file 2 / x file 3 / x file 4 / x file 5 / x file 6 / i".
 
 Test drawer with "test checklist / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
