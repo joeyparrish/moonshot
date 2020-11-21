@@ -1,0 +1,19 @@
+name: Publish
+
+on: push
+
+jobs:
+  publish:
+    name: Publish latest version
+      runs-on: ubuntu-20.04
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Build with Inform 7
+          run: make
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./MoonShot.materials/Release/
+
