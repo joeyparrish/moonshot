@@ -175,6 +175,10 @@ After reading a command:
 		replace the regular expression "\bastronauts\b" in N with "crew";
 		change the text of the player's command to N.
 
+Equations is a concept.
+Rocket-equations is a concept.
+Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
+
 [The built-in default for asking someone about an unknown thing is "There is no reply."  We'd prefer a different default for topics we haven't coded explicitly.  Sadly, this has to be repeated for both the built-in "asking" (for arbitrary text) and for "quizzing" (for objects/people).]
 
 Instead of quizzing someone (called person) about:
@@ -408,8 +412,15 @@ Instead of quizzing the director about checklist-1:
 	now checklist-1 is ready.
 
 Instead of quizzing the director about crew:
-	say "[The director] beams proudly.  'Fine folks, those astronauts.  Finest, best, most American astronauts that America ever produced.'  His brow furrows for a moment before adding, 'Well, most of [']em.'"
-[TODO: If you ask him about any of the checklist items, should he direct you to the right rooms?  Or should we have a gag here instead?]
+	say "[The director] beams proudly.  'Fine folks, those astronauts.  Finest, best, most American astronauts that America ever produced.'  His brow furrows for a moment before adding, 'Well, most of [']em.  Anyway, you can get all the particulars down in personnel.'"
+
+Instead of quizzing the director about blueprints:
+	say "[The director] starts shaking his head before you even finish asking.  'No, no, not my department.  Go down to engineering, talk to that what's-his-name.  The one who's too cool for school.'";
+
+Instead of quizzing the director about rocket-equations:
+	say "'Uh, yeah.  Of course I know about those,' he says with a scared look on his face.  'But you go ask the eggheads in the lab about that.  They like to show off.'";
+Instead of quizzing the director about equations:
+	try quizzing the director about rocket-equations.
 
 [Keep the player from leaving without the checklist.]
 Instead of going from the director's office during day one:
@@ -620,12 +631,9 @@ Instead of quizzing the head scientist about rocket:
 Instead of quizzing the head scientist about work:
 	try quizzing the head scientist about rocket.
 
-Equations is a concept.
 Instead of quizzing the head scientist about equations:
 	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to his work."
 
-Rocket-equations is a concept.
-Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
 Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
 	now the head scientist is enraged.
@@ -989,6 +997,8 @@ Test stand with "sit / stand / stand / z / z / z / n".
 Test plant with "l / take plant / l / drop plant / l / eat plant".
 
 Test checklist with "z / z / z / z / z / z / n / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
+
+Test tasks with "test checklist / ask about blueprints / ask about equations / ask about crew".
 
 Test blueprints with "test checklist / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
 
