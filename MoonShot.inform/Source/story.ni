@@ -232,6 +232,10 @@ Carry out waking:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep;
 
+[TODO: easy mode: highlight objects that you can interact with, provides hints]
+[TODO: medium mode: no object highlights, still provides hints]
+[TODO: hard mode: no object highlights, no hints]
+
 
 
 
@@ -248,6 +252,7 @@ When day one begins:
 	show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
 	say line break.
 
+[TODO: add an "options" hint at the beginning, where "options" explains brief and verbose room descriptions, and explains custom commands for easy, medium, and hard mode]
 
 
 The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her desk.  [if the houseplant is in the waiting room]There's a houseplant in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
@@ -369,6 +374,8 @@ The director can be ready.  When day one begins, now the director is not ready.
 
 The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, and bobblehead dolls."
 The director's desk is an enterable supporter.  [You can put things on it or sit on it.]
+
+[TODO: put a name plate triangular name plate on the director's desk, by which he can become known]
 
 The wooden armchair is a chair in the director's office.
 The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
@@ -1023,6 +1030,7 @@ When day two begins:
 	now the player is in the waiting room.
 [other resets should happen here, too, including topics and moods, waiting to see the director, etc.]
 [TODO: transition to day two]
+[TODO: lock the doors to the propulsion lab and the engineering department]
 
 
 
