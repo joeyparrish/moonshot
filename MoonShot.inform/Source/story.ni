@@ -780,7 +780,8 @@ Instead of opening the drawer:
 	continue the action.
 
 After going from the personnel department:
-	now the head of personnel is asleep.
+	now the head of personnel is asleep;
+	continue the action.
 
 
 
