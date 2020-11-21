@@ -165,6 +165,13 @@ Understand "rocket", "Saturn", "Saturn V", "Saturn V rocket", and "rockets" as t
 
 Work is a concept.
 
+The crew is a concept.
+Understand "candidates", "crew candidates", and "choosing the crew" as the crew.
+[We'd like Inform to understand "astronauts" as "crew", but instead, it asks the player which astronaut they mean.  This pre-emptive manipulation of the command text is the only workaround I can find. -JCP]
+After reading a command:
+	let N be "[the player's command]";
+		replace the regular expression "\bastronauts\b" in N with "crew";
+		change the text of the player's command to N.
 
 [The built-in default for asking someone about an unknown thing is "There is no reply."  We'd prefer a different default for topics we haven't coded explicitly.  Sadly, this has to be repeated for both the built-in "asking" (for arbitrary text) and for "quizzing" (for objects/people).]
 
@@ -214,6 +221,7 @@ Carry out waking:
 	else:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep;
+
 
 
 
@@ -393,6 +401,8 @@ Instead of quizzing the director about checklist-1:
 	say "'Oh, I'm glad you asked about that,' he says.  'This is a detailed and highly technical checklist of the things I need you to do today.  Now, I wrote this myself, so please don't hesitate to ask me if you need help with any of these things'.";
 	now checklist-1 is ready.
 
+Instead of quizzing the director about crew:
+	say "[The director] beams proudly.  'Fine folks, those astronauts.  Finest, best, most American astronauts that America ever produced.'  His brow furrows for a moment before adding, 'Well, most of [']em.'"
 [TODO: If you ask him about any of the checklist items, should he direct you to the right rooms?  Or should we have a gag here instead?]
 
 [Keep the player from leaving without the checklist.]
@@ -716,9 +726,6 @@ Instead of quizzing the head of personnel about name:
 
 Instead of quizzing the head of personnel about the head of personnel:
 	try quizzing the head of personnel about name.
-
-The crew is a concept.
-Understand "candidates" and "crew candidates" as the crew.
 
 [NOTE: Unlike other concepts, this one must be in a room, since we can use it with "take".  And since we have a rule for "drop", which needs to work no matter where you go, let's make the files "everywhere".]
 The personnel files is a concept.  The personnel files are everywhere.
