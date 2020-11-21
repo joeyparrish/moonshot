@@ -30,7 +30,7 @@ You can either load the folder MoonShot.inform into the Inform IDE, or you can
 build on the command-line.  Either way, you need to install Inform 7 from
 http://inform7.com/downloads/ if you don't already have it.
 
-For command-line builds on Linux, just type `make`.
+For command-line builds on Linux using Docker, just type `make`.
 
 The HTML output goes to `MoonShot.materials/Release/`.
 
