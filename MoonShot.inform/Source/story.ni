@@ -755,6 +755,8 @@ Instead of quizzing the head of personnel about the director:
 
 [TODO: I bet Franklin would have opinions about every single character.]
 
+[TODO: Apologize to Franklin]
+
 Instead of quizzing the head of personnel about the crew:
 	if the personnel puzzle is not ready:
 		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the filing cabinet and produces a set of six files for you.  'Here you go,' he says, handing you.  'Anything else?'";
@@ -940,6 +942,7 @@ Check choosing crew during day one:
 
 Every turn when the remainder after dividing the turn count by 10 is 0 and the personnel puzzle is ready and choose-crew is not checked:
 	show hint "Use 'choose so-and-so' to choose someone for the Apollo 11 crew.  Read the personnel files for details on each crew candidate.";
+	[TODO: Skip this hint if the user just looked at one of the files.]
 
 Every turn when the remainder after dividing the turn count by 3 is 0 and a checklist (called X) held by the player is complete:
 	say "[X] is complete now.  You should report back to [the director] and give him the checklist.";

@@ -96,6 +96,7 @@
 
 /* https://fonts.googleapis.com/css2?family=Short+Stack&display=swap */
 @font-face {
+  /* TODO: try alternate scribbly fonts */
   font-family: 'Short Stack';
   font-style: normal;
   font-weight: 400;
