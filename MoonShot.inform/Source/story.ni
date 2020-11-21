@@ -141,29 +141,29 @@ The detect interpreter's Vorple support rule is listed before the fancy banner r
 
 [General]
 
-The weather is a concept.  The weather is everywhere.
+The weather is a concept.
 [We can talk about it or ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
 
 [You can ask anyone about their name.  It's only polite.]
-Name is a concept.  Name is everywhere.
+Name is a concept.
 
-NASA is a concept.  NASA is everywhere.
+NASA is a concept.
 Understand "second a" and "second a in NASA" as NASA.
 
-Apollo is a concept.  Apollo is everywhere.
+Apollo is a concept.
 [Handle variations, including misspellings that I myself (JCP) am prone to:]
 Understand "Apollo", "Apollo 11", "Apollo 11 project", and "Apollo project" as Apollo.
 Understand "Appollo", "Appollo 11", "Appollo 11 project", and "Appollo project" as Apollo.
 Understand "Appolo", "Appolo 11", "Appolo 11 project", and "Appolo project" as Apollo.
 
-The command module is a physical concept.  The command module is everywhere.
+The command module is a physical concept.
 Understand "CSM" as the command module.
 
-The rocket is a physical concept.  The rocket is everywhere.
+The rocket is a physical concept.
 Understand "rocket", "Saturn", "Saturn V", "Saturn V rocket", and "rockets" as the rocket.
 
-Work is a concept.  Work is everywhere.
+Work is a concept.
 
 
 [The built-in default for asking someone about an unknown thing is "There is no reply."  We'd prefer a different default for topics we haven't coded explicitly.  Sadly, this has to be repeated for both the built-in "asking" (for arbitrary text) and for "quizzing" (for objects/people).]
@@ -505,7 +505,7 @@ Instead of quizzing the engineer about the blueprints:
 	say "[The noun] looks both smug and offended at once.  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The cyanotype [italic type]blueprint[roman type] began to be supplanted by [italic type]diazo prints[roman type], also known as [italic type]whiteprints[roman type].'";
 	now the printed name of get-blueprints is "Get command module whiteprints".
 
-The whiteprints is a concept in the engineering department.
+The whiteprints is a concept.
 Instead of quizzing the engineer about the whiteprints:
 	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and take them if you need them so badly.'";
 	now the blueprints are discussed;
@@ -603,11 +603,11 @@ Instead of quizzing the head scientist about rocket:
 Instead of quizzing the head scientist about work:
 	try quizzing the head scientist about rocket.
 
-Equations is a concept in the propulsion lab.
+Equations is a concept.
 Instead of quizzing the head scientist about equations:
 	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to his work."
 
-Rocket-equations is a concept in the propulsion lab.
+Rocket-equations is a concept.
 Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
 Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
@@ -712,7 +712,7 @@ Instead of quizzing the head of personnel about the head of personnel:
 The crew is a concept.
 Understand "candidates" and "crew candidates" as the crew.
 
-The personnel files is a concept in the personnel department.
+The personnel files is a concept.
 Understand "files" as the personnel files.
 
 Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
