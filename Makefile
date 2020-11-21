@@ -29,7 +29,6 @@ debug: clean
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
 	  /bin/sh -c 'i7 -c /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
-	  i7 -c /tmp/MoonShot.inform
 
 # Create the zip file needed by itch.io.
 dist: clean release
