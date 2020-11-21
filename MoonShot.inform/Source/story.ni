@@ -983,9 +983,18 @@ Check choosing crew during day one:
 
 
 
+[Keep track of when the player looks at the files.  Only hint about the files when the player is doing something else for a while.]
+The time since looking at files is a number which varies.
+After reading a command:
+	if the player's command matches the regular expression "\bfile\b":
+		now the time since looking at files is 0;
+	otherwise if the personnel puzzle is ready:
+		increase the time since looking at files by 1.
+
 Every turn when the remainder after dividing the turn count by 10 is 0 and the personnel puzzle is ready and choose-crew is not checked:
-	show hint "Use 'choose so-and-so' to choose someone for the Apollo 11 crew.  Read the personnel files for details on each crew candidate.";
-	[TODO: Skip this hint if the user just looked at one of the files.]
+	[Skip this hint if the user just looked at one of the files.]
+	if the time since looking at files is greater than 3:
+		show hint "Use 'choose so-and-so' to choose someone for the Apollo 11 crew.  Read the personnel files for details on each crew candidate.";
 
 Every turn when the remainder after dividing the turn count by 3 is 0 and a checklist (called X) held by the player is complete:
 	say "[X] is complete now.  You should report back to [the director] and give him the checklist.";
