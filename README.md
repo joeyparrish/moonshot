@@ -21,7 +21,8 @@ Everything goes very well, and you have no difficulties at all.  :grin:
 
 ## Playing in a browser
 
-TODO: Instructions need to be added for this
+To play the official release version, visit
+https://cashpipeplusplus.github.io/moonshot/
 
 
 ## Compilation
