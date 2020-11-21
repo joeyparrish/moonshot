@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Give Docker image write access to the repo
+        run: chmod -R o+w .
       - name: Debug - WIP
         run: |
           docker run \
