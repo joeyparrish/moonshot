@@ -1062,14 +1062,13 @@ Choosing crew is an action applying to one thing.  Understand "choose [anyone]" 
 [NOTE: "anyone" should match people who are not present.  But we still need this rule to allow it:]
 Rule for reaching inside a room while choosing crew:
 	allow access.  ["Reaching inside a room" means that person is in literally any other room.]
-Check choosing crew during day two:
-	say "It's much too late for that now."
-Check choosing crew during day three:
-	say "It's much too late for that now."
-[I couldn't figure out the syntax for combining these last two scene conditions. -JCP]
-Check choosing crew during day one:
-	if the personnel puzzle is not ready:
+
+Check choosing crew:
+	if day one has ended:
+		say "It's much too late for that now.";
+	otherwise if the personnel puzzle is not ready:
 		say "You aren't ready to choose the crew.";
+		show hint "You will need to have the personnel files for that.";
 	otherwise if the noun is not an astronaut:
 		say "[The noun] is not eligible for this mission.  Try choosing from the personnel files.";
 	otherwise if the noun is listed in the sub-items of choose-crew:
