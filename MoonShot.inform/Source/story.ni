@@ -185,10 +185,6 @@ Understand "rocket equations" as rocket-equations.  [If I give the object its na
 Instead of quizzing someone (called person) about:
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
 
-Nobody-will-ever-use-this is a concept.  [That nobody will ever use.  But we use it to translate the following rule, which matches arbitrary text, into the former rule, which always involves a thing.]
-Instead of asking someone (called person) about anything: [Matches arbitrary text that is not marked as a concept]
-	try quizzing the person about nobody-will-ever-use-this.  [Chain to the default topics rule immediately above.]
-
 [By default, only "sorry" triggers this action.]
 Understand "say sorry" as saying sorry.
 
