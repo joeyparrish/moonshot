@@ -74,7 +74,7 @@ To show ending (N - number):
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 3 after [turn count] turns!";
+	say "You have discovered ending #[N] of 4 after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -1092,7 +1092,9 @@ When day two begins:
 	now the secretary is not mad;
 	now the player is in the waiting room;
 	secretary warns in 0 turns from now;
-	director yells-2 in 4 turns from now.
+	director yells-2 in 4 turns from now;
+	[Work in progress - while getting feedback, end the story here, but only in the release build.  When we run the testing version, we will continue on into the incomplete day two.]
+	maybe end the game.
 
 At the time when director yells-2:
 	say "A booming voice comes from the director's office: 'Donna!  Is that damned kid late again?!  Why did we even hire that punk?'[paragraph break][The secretary] shrugs at you and gestures toward [the director]'s office door.";
@@ -1161,6 +1163,24 @@ Instead of going to the engineering department during day two:
 
 [TODO: day three (epilogue)]
 Day three is a scene.
+
+
+
+
+Section 2 - WIP release mode - For release only
+
+To maybe end the game:
+	say paragraph break;
+	say ending-card style;
+	say "Well, folks, that's all for now!  Thank you for trying out this work in progress.";
+	say end style;
+	show ending 4;
+
+Section 3 - WIP testing mode - Not for release
+
+To maybe end the game:
+	do nothing.
+
 
 
 
