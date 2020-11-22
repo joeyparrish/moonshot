@@ -365,7 +365,8 @@ At the time when director yells-1:
 	now the director is ready.
 
 Instead of quizzing the secretary about the director:
-	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely on top of every aspect of this project.  I don't know how he does it!'"
+	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely on top of every aspect of this project.  I don't know how he does it!'";
+	now the director is known.
 
 Instead of going to the director's office while the director is not ready:
 	say "[The secretary] jumps up and runs for the door, stopping you in your tracks.  'You can't go in there!  Just wait, please, and the director will be with you as soon as he is ready.'";
