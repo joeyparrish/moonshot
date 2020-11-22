@@ -739,20 +739,16 @@ Instead of talking to the other scientists:
 
 
 
-The basement is below the hallway.
-Instead of going to the basement during day one:
-	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
+Purgatory is a room.  [It is inaccessible, but we need the astronauts to be in some room initially.  Not giving them an initial location causes the rules for "choosing crew" to fail with a built-in message about them being "unavailable".  Putting them in literally any room fixes this.  We don't want the player to meet them yet, so they begin here.]
 
+An astronaut is a kind of person.  [They don't have special properties, but they are unique for the game.  Other kinds of people are ineligible for the mission.]
 
-
-An astronaut is a kind of person.  [They don't have special properties, but they are unique for the game.  Other kinds of people are ineligible for the mission.  Furthermore, all of the astronauts start in the basement.  Not giving them an initial location causes the rules for "choosing crew" to fail with a built-in message about them being "unavailable".  Putting them in literally any room fixes this.  We don't want the player to meet them yet, so they begin in the basement, which is locked during day one.]
-
-Buzz Aldrin is an astronaut in the basement.
-Neil Armstrong is an astronaut in the basement.
-Michael Collins is an astronaut in the basement.
-Lisa Nowak is an astronaut in the basement.
-Ijon Tichy is an astronaut in the basement.
-Clifford McBride is an astronaut in the basement.
+Buzz Aldrin is a male astronaut in purgatory.
+Neil Armstrong is a male astronaut in purgatory.
+Michael Collins is a male astronaut in purgatory.
+Lisa Nowak is a female astronaut in purgatory.
+Ijon Tichy is a male astronaut in purgatory.
+Clifford McBride is a male astronaut in purgatory.
 
 [Unless someone has a specific response for a specific astronaut, treat questions about individuals as questions about the crew in general.]
 Instead of quizzing someone (called the interrogated) about Buzz Aldrin:
@@ -1065,6 +1061,7 @@ Check choosing crew:
 	otherwise:
 		remove TBD from the sub-items of choose-crew;
 		add the noun to the sub-items of choose-crew;
+		now the noun is in the basement;  [Where they will be met on day two.]
 		if the number of entries in the sub-items of choose-crew is 3:
 			now choose-crew is checked;
 		while the number of entries in the sub-items of choose-crew < 3:
@@ -1121,6 +1118,9 @@ When day two begins:
 	[Work in progress - while getting feedback, end the story here, but only in the release build.  When we run the testing version, we will continue on into the incomplete day two.]
 	maybe end the game.
 
+
+
+
 At the time when director yells-2:
 	say "A booming voice comes from the director's office: 'Donna!  Is that damned kid late again?!  Why did we even hire that punk?'[paragraph break][The secretary] shrugs at you and gestures toward [the director]'s office door.";
 	now the director is ready.
@@ -1168,7 +1168,6 @@ Instead of quizzing the director about Apollo during day two:
 [TODO: other transitions to day 2
  - new conversation topics with dirk
  - checklist-2 items, sub-items
- - put the correct astronauts in the basement, and hide the others (maybe during "choose" in day 1?)
 ]
 
 
@@ -1180,7 +1179,25 @@ Instead of going to the propulsion lab during day two:
 Instead of going to the engineering department during day two:
 	say "The door to the engineering department appears to be locked.  There is a sign on it which says 'deserted'.  (You were [italic type]sure[roman type] they were never going to do that...)[line break]".
 
+
+
 [TODO: describe all the astronauts]
+The description of Buzz Aldrin is "".
+The description of Neil Armstrong is "".
+The description of Michael Collins is "".
+The description of Lisa Nowak is "".
+The description of Ijon Tichy is "".
+The description of Clifford McBride is "".
+
+
+
+[TODO: Describe the basement.  More rooms branching off?  Etc.]
+The basement is below the hallway.  "Another room!?"
+The printed name of the basement is "NASA Headquarters Basement Level".
+
+Instead of going to the basement during day one:
+	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
+
 
 
 
