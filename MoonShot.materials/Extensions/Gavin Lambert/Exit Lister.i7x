@@ -96,13 +96,13 @@ Turning exits on is an action out of world.
 Understand "exits on" as turning exits on.
 Carry out turning exits on: now list exits is true.
 Report turning exits on (this is the report turning exits on rule):
-	say "(exits listing is on)" (A).
+	say "(exits listing is on)[line break]" (A).
 
 Turning exits off is an action out of world.
 Understand "exits off" as turning exits off.
 Carry out turning exits off: now list exits is false.
 Report turning exits off (this is the report turning exits off rule):
-	say "(exits listing is off)" (A).
+	say "(exits listing is off)[line break]" (A).
 
 Section 5a - Secret Doors (for use with Secret Doors by Andrew Owen)
 

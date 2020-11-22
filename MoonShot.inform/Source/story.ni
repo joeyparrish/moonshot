@@ -32,6 +32,7 @@ Include Better Asking by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
+Include Options by Joey Parrish.
 Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
@@ -57,7 +58,6 @@ plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file is a Vorple style.
 nameplate-card is a Vorple style.
-interesting-highlight is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".
@@ -77,44 +77,6 @@ To show ending (N - number):
 	say "You have discovered ending #[N] of 3 after [turn count] turns!";
 	say end style;
 	end the story.
-
-Difficulty is a kind of value.  The difficulties are easy, medium, and hard.
-A difficulty has a number called numeric value.
-The numeric value of easy is 1.
-The numeric value of medium is 2.
-The numeric value of hard is 3.
-Difficulty mode is a difficulty that varies.  Difficulty mode is initially medium.
-
-Setting difficulty mode to is an action out of world applying to one difficulty.
-Understand "[difficulty] mode" and "set [difficulty] mode" as setting difficulty mode to.
-Check setting difficulty mode to a difficulty (called X):
-	say "The game is now set to [X] mode.";
-	say " - Interesting objects will [if the numeric value of X > 1]not [end if]be [interesting-highlight style]highlighted[end style] (web version only).";
-	say " - Hints will [if the numeric value of X > 2]not [end if]be provided.";
-	now difficulty mode is X;
-
-To show hint (T - text):
-	if the numeric value of difficulty mode <= 2:
-		say italic type;
-		say hint style;
-		say "(Hint: [T])[line break]";
-		say end style;
-		say roman type;
-
-To say interesting:
-	if the numeric value of difficulty mode <= 1:
-		say interesting-highlight style.
-To say /interesting:
-	if the numeric value of difficulty mode <= 1:
-		say end style.
-
-Before printing the name of a thing (called the thingy):
-	if the thingy is not a person and the thingy is not TBD:
-		say interesting.
-After printing the name of a thing (called the thingy):
-	if the thingy is not a person and the thingy is not TBD:
-		say /interesting.
-
 
 
 
@@ -275,9 +237,9 @@ When day one begins:
 	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.";
 	pause;
 	show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
+	show hint "This game comes with a few options.  You can type 'options' to find out about them.";
 	say line break.
 
-[TODO: add an "options" hint at the beginning, where "options" explains brief and verbose room descriptions, and explains custom commands for easy, medium, and hard mode]
 
 
 The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her [interesting]desk[/interesting].  [if the houseplant is in the waiting room]There's a [houseplant] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."

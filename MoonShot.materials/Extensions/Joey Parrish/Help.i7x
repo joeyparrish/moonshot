@@ -5,7 +5,7 @@ Include Vorple Hyperlinks by Juhana Leinonen.
 
 help-card is a Vorple style.
 
-Helping is an action applying to nothing.  Understand "help" as helping.
+Helping is an action out of world applying to nothing.  Understand "help" as helping.
 
 Carry out helping:
 	say help-card style;
@@ -19,7 +19,9 @@ Carry out helping:
 	say "  take thing[line break]";
 	say "  inventory (i)[line break]";
 	say "  talk to so-and-so[line break]";
+	say "  talk[line break]";
 	say "  ask so-and-so about thing[line break]";
+	say "  ask about thing[line break]";
 	say "  east (e)[line break]";
 	say "  west (w)[line break]";
 	say "  north (n)[line break]";
@@ -27,6 +29,7 @@ Carry out helping:
 	say "  wait (z)[line break]";
 	say "  save[line break]";
 	say "  restore[line break]";
+	say "  options[line break]";
 	say "  quit (q)[line break]";
 	say "[roman type][line break]";
 	say "There are many other things you can do, so just try things out and see.  You can also visit ";
