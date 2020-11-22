@@ -756,7 +756,7 @@ Instead of saying sorry while the player is in the propulsion lab:
 In the propulsion lab is a person called the other scientists.
 The other scientists are plural-named.
 Understand "others", and "them" as the other scientists.
-The description of the other scientists is "They scurry around busily in white lab coats, occasionally looking back at [the head scientist] to see if he is noticing their industriousness.  (He is most certainly not.)[line break]"
+The description of the other scientists is "They scurry around busily in white lab coats, occasionally looking back at [the head scientist] to see if he is noticing their industriousness.  (He is most certainly not.)"
 
 [NOTE: Something really odd is happening, and the only people who understand Inform in enough detail to debug this are Graham Nelson and gray aliens.  For whatever reason, "other scientists", which is the _EXACT NAME_ of the character, resolves to "the head scientist", which is _MADDENING_.  This is a hacky workaround, in which we just edit the user's commands as they come in and replace the thing that _should_ work with an explicit alias that _does_ work.]
 After reading a command:
