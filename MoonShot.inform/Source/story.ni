@@ -577,7 +577,7 @@ Instead of taking the blueprints:
 		say "[The engineer] says, 'Here you go.'  He hands you a large roll of white paper which is not even slightly blue.  You cram the 3-foot roll of paper into your pocket, taking no care whatsoever to keep it neat or undamaged.  [The engineer] appears to be crying.";
 		now the engineer is sad;
 		now get-blueprints is checked;
-		continue the action;
+		now the player has the blueprints;
 	otherwise:
 		say "Taken aback, [the engineer] says, 'Hold on, there!  You don't know the first thing about these.'"
 
