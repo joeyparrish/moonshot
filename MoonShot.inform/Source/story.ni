@@ -758,6 +758,20 @@ Lisa Nowak is an astronaut in the basement.
 Ijon Tichy is an astronaut in the basement.
 Clifford McBride is an astronaut in the basement.
 
+[Unless someone has a specific response for a specific astronaut, treat questions about individuals as questions about the crew in general.]
+Instead of quizzing someone (called the interrogated) about Buzz Aldrin:
+	try quizzing the interrogated about crew.
+Instead of quizzing someone (called the interrogated) about Neil Armstrong:
+	try quizzing the interrogated about crew.
+Instead of quizzing someone (called the interrogated) about Michael Collins:
+	try quizzing the interrogated about crew.
+Instead of quizzing someone (called the interrogated) about Lisa Nowak:
+	try quizzing the interrogated about crew.
+Instead of quizzing someone (called the interrogated) about Ijon Tichy:
+	try quizzing the interrogated about crew.
+Instead of quizzing someone (called the interrogated) about Clifford McBride:
+	try quizzing the interrogated about crew.
+
 
 
 The personnel department is south of the hallway.  "This tiny room feels like the sort of place careers go to die.  [The head of personnel] [if the head of personnel is asleep]is reclined behind a cheap desk, snoring softly with his feet up[otherwise]is staring at you impatiently from behind the desk, waiting for you to state your business.  He does not look pleased[end if].  To the left of the desk is a tan, metallic filing cabinet."
