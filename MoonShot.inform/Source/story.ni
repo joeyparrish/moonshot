@@ -1169,7 +1169,7 @@ Instead of talking to the director during day two:
 [TODO: Are these the best Dirk topics for day two?]
 
 Instead of quizzing the director about glitter:
-	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming.";
+	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming with pride.";
 
 [TODO: new replies from dirk for topics from day 1
 Instead of quizzing the director about Apollo during day two:
