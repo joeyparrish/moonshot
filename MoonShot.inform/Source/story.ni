@@ -57,6 +57,7 @@ plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file is a Vorple style.
 nameplate-card is a Vorple style.
+interesting-highlight is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".
@@ -77,12 +78,43 @@ To show ending (N - number):
 	say end style;
 	end the story.
 
+Difficulty is a kind of value.  The difficulties are easy, medium, and hard.
+A difficulty has a number called numeric value.
+The numeric value of easy is 1.
+The numeric value of medium is 2.
+The numeric value of hard is 3.
+Difficulty mode is a difficulty that varies.  Difficulty mode is initially medium.
+
+Setting difficulty mode to is an action out of world applying to one difficulty.
+Understand "[difficulty] mode" and "set [difficulty] mode" as setting difficulty mode to.
+Check setting difficulty mode to a difficulty (called X):
+	say "The game is now set to [X] mode.";
+	say " - Interesting objects will [if the numeric value of X > 1]not [end if]be [interesting-highlight style]highlighted[end style] (web version only).";
+	say " - Hints will [if the numeric value of X > 2]not [end if]be provided.";
+	now difficulty mode is X;
+
 To show hint (T - text):
-	say italic type;
-	say hint style;
-	say "(Hint: [T])[line break]";
-	say end style;
-	say roman type;
+	if the numeric value of difficulty mode <= 2:
+		say italic type;
+		say hint style;
+		say "(Hint: [T])[line break]";
+		say end style;
+		say roman type;
+
+To say interesting:
+	if the numeric value of difficulty mode <= 1:
+		say interesting-highlight style.
+To say /interesting:
+	if the numeric value of difficulty mode <= 1:
+		say end style.
+
+Before printing the name of a thing (called the thingy):
+	if the thingy is not a person and the thingy is not TBD:
+		say interesting.
+After printing the name of a thing (called the thingy):
+	if the thingy is not a person and the thingy is not TBD:
+		say /interesting.
+
 
 
 
@@ -229,10 +261,6 @@ Carry out waking:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep;
 
-[TODO: easy mode: highlight objects that you can interact with, provides hints]
-[TODO: medium mode: no object highlights, still provides hints]
-[TODO: hard mode: no object highlights, no hints]
-
 
 
 
@@ -252,7 +280,7 @@ When day one begins:
 [TODO: add an "options" hint at the beginning, where "options" explains brief and verbose room descriptions, and explains custom commands for easy, medium, and hard mode]
 
 
-The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her desk.  [if the houseplant is in the waiting room]There's a houseplant in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
+The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her [interesting]desk[/interesting].  [if the houseplant is in the waiting room]There's a [houseplant] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
 The printed name of director's waiting room is "NASA Director's Waiting Room".
 
 In the waiting room is a stranger called the secretary.  The real name of the secretary is "Donna".
@@ -269,7 +297,7 @@ The houseplant is in the waiting room.  Understand "plant" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
 
 Instead of dropping the houseplant:
-	say "You carefully hang the houseplant from the ceiling again, eliciting strange looks from [the secretary].";
+	say "You carefully hang the [houseplant] from the ceiling again, eliciting strange looks from [the secretary].";
 	now the houseplant is in the waiting room;
 	now the houseplant is undescribed.  [Don't mention it again as in the room.  The room description covers it.]
 
@@ -279,9 +307,10 @@ Instead of eating the houseplant:
 	show ending 1.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
+Understand "telephone" as the phone.
 
 Instead of taking the phone:
-	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the phone plugged back in.";
+	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the [phone] plugged back in.";
 	now the secretary is mad.
 
 Instead of saying sorry while the player is in the waiting room:
@@ -354,12 +383,14 @@ Instead of going inside while in the waiting room:
 
 
 
-The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  [The director] is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular nameplate.[end if]".
+The director's office is north of the waiting room.  "The director's office has a full wall of [interesting]windows[/interesting] overlooking the hangar.  [The director] is drumming his fingers on the [interesting]desk[/interesting] and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
 The printed name of the director's office is "NASA Director's Office".
 
 [Since this is the only room with windows...]
 Instead of examining the weather in the director's office:
 	say "You glance out the windows, but you can't see much other than the hangar."
+The windows are scenery in the director's office.
+Instead of examining the windows, try examining the weather.
 
 In the director's office is a stranger called the director.  The real name of the director is "Mr. Furtwangler".  The director is male.
 
@@ -369,7 +400,7 @@ The director can be agitated or relaxed.  When day one begins, now the director 
 
 The director can be ready.  When day one begins, now the director is not ready.
 
-The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, and bobblehead dolls.[if the triangular nameplate is on the director's desk]  On the desk is a small, triangular nameplate.[end if]".
+The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, as well as several bobblehead dolls.[if the triangular nameplate is on the director's desk]  On the desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
 The director's desk is an enterable supporter.  [You can put things on it or sit on it.]
 
 The triangular nameplate is an openable, closed, undescribed thing on the director's desk.
@@ -398,10 +429,11 @@ After putting the triangular nameplate on the director's desk:
 	continue the action.
 
 A toblerone is an edible thing inside the triangular nameplate.
+Understand "candy" and "box" and "candy box" as the toblerone.
 The description of the toblerone is "It's a pale yellow, triangular box that says 'TOBLERONE', 'THE FIRST PATENTED SWISS MILK CHOCOLATE [italic type]with[roman type] ALMONDS & HONEY'.".
 After opening the triangular nameplate:
 	if the toblerone is in the triangular nameplate:
-		say "You open a small, concealed hatch on one side of the nameplate, and a pale yellow, triangular candy box falls out.";
+		say "You open a small, concealed hatch on one side of the nameplate, and a pale yellow, triangular [interesting]candy box[/interesting] falls out.";
 		now the toblerone is in the location;
 	otherwise:
 		say "You open a small, concealed hatch on one side of the nameplate."
@@ -431,7 +463,7 @@ Instead of taking the internship:
 	say "(You've already been hired.)"
 
 Instead of quizzing the director about the internship:
-	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the checklist on his desk.  'Get started, kid!'";
+	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the [interesting]checklist[/interesting] on his desk.  'Get started, kid!'";
 	now checklist-1 is ready.
 
 Instead of quizzing the director about NASA:
@@ -471,7 +503,7 @@ Instead of going from the director's office during day one:
 Instead of taking checklist-1:
 	if checklist-1 is ready:
 		say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'";
-		show hint "You can examine the checklist to see the details.";
+		show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
 		now the director is relaxed;
 		continue the action;
 	else:
@@ -497,7 +529,7 @@ The items of checklist-1 are {get-blueprints, get-equations, choose-crew}.
 
 
 
-The Main Hallway is east of the director's office.  "A long, blank hallway, with several doors branching off in various directions and a stairwell leading down.  A bronze plaque is hanging on the wall in the center of the hallway."
+The Main Hallway is east of the director's office.  "A long, blank hallway, with several doors branching off in various directions and a stairwell leading down.  A bronze [interesting]plaque[/interesting] is hanging on the wall in the center of the hallway."
 
 A bronze plaque is scenery in the hallway.
 
@@ -530,7 +562,7 @@ The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee i
 [Accept a few misspellings of coffee.]
 Understand "cofee", "coffe", "cafe", and "cofe" as coffee.
 
-The description of the engineer is "[if the engineer is not sad]He is tall and thin, with slicked-back ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket protector and a name badge.  What a nerd![otherwise][The noun] is just about the saddest thing you've ever seen.  His hair is a mess, and he appears to have been wiping his tears on his tie."
+The description of the engineer is "[if the engineer is not sad]He is tall and thin, with slicked-back ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket protector and a [interesting]name badge[/interesting].  What a nerd![otherwise][The noun] is just about the saddest thing you've ever seen.  His hair is a mess, and he appears to have been wiping his tears on his tie."
 
 Instead of saying sorry while the player is in the engineering department:
 	if the engineer is sad:
@@ -549,14 +581,14 @@ The description of the name-badge is "It says 'Rick' at the top.  The bottom say
 After examining the name-badge, now the engineer is known.
 
 Rule for writing a paragraph about the engineer:
-	if the engineer is unknown, say "An engineer is standing around by the coffee pot, [if the engineer is sad]crying.[otherwise]doing nothing.";
+	if the engineer is unknown, say "An engineer is standing around by the [interesting]coffee pot[/interesting], [if the engineer is sad]crying.[otherwise]doing nothing.";
 	otherwise say "Rick is still here, still [if the engineer is sad]crying.[otherwise]doing nothing.";
 
 Instead of talking to the engineer:
 	say "Perhaps you could ask [the noun] about the weather, the command module blueprints, or himself."
 
 Instead of quizzing the engineer about name:
-	say "The engineer taps his name badge and says, 'Can't you read?'"
+	say "The engineer taps his [interesting]name badge[/interesting] and says, 'Can't you read?'"
 
 Instead of quizzing the engineer about the weather:
 	say "[The noun] glances up at the ceiling for a moment before replying, 'Maybe a bit cloudy, but we should still be clear for launch.  Besides, we're never gonna give this up.'"
@@ -565,7 +597,7 @@ Instead of quizzing the engineer about the engineer:
 	say "[The noun] looks a bit embarrassed by the question, maybe even flattered.  He looks at his feet for a moment before replying, 'Well...  We're no strangers to love.'  Then he raises his eyes and gives you a look that makes you... distinctly uncomfortable."
 
 Instead of quizzing the engineer about the blueprints:
-	say "[The noun] looks both smug and offended at once.  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The cyanotype [italic type]blueprint[roman type] began to be supplanted by [italic type]diazo prints[roman type], also known as [italic type]whiteprints[roman type].'";
+	say "[The noun] looks both smug and offended at once.  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The cyanotype [italic type]blueprint[roman type] began to be supplanted by [italic type]diazo prints[roman type], also known as [italic type][interesting]whiteprints[/interesting][roman type].'";
 	now the printed name of get-blueprints is "Get command module whiteprints".
 
 [Give this concept a location, so we can have rules about "taking" it.]
@@ -639,18 +671,25 @@ The head scientist can be enraged.
 
 Rule for writing a paragraph about the head scientist:
 	if the head scientist is enraged:
-		say "[The head scientist] huffs about the room, scribbling on chalkboards, sparing you only the occasional angry glance.";
+		say "[The head scientist] huffs about the room, scribbling on [interesting]chalkboards[/interesting], sparing you only the occasional angry glance.";
 	otherwise:
-		say "[The head scientist] moves smoothly through the room from one chalkboard to another, making minor changes to complex equations.  He does not seem to notice you."
+		say "[The head scientist] moves smoothly through the room from one [interesting]chalkboard[/interesting] to another, making minor changes to complex [interesting]equations[/interesting].  He does not seem to notice you."
 
-The chalkboard is in the propulsion lab.  The description of the chalkboard is "A large, slate black, wheeled chalkboard covered in inscrutable equations."
+The chalkboard is in the propulsion lab.  The description of the chalkboard is "A large, slate black, wheeled chalkboard covered in inscrutable [interesting]equations[/interesting]."
 The chalkboard is undescribed.  [Mentioned in the scenery, but not in the room.]
 The chalkboard is pushable between rooms.
 Understand "chalk board" and "board" as the chalkboard.
 
+Equations and rocket-equations are parts of the chalkboard.
+[To allow them to be examined while you're in any room with the chalkboard.]
+Instead of examining equations:
+	say "You can't make heads or tails of them.";
+Instead of examining rocket-equations:
+	try examining equations.
+
 Instead of taking the chalkboard:
 	if the location is the propulsion lab:
-		say "You hurriedly start pushing one of the wheeled chalkboards out of the room.  [The head scientist] screams after you, '[bold type]SCHWEINHUND!  [italic type]HALT!!![roman type]'[line break]";
+		say "You hurriedly start pushing one of the wheeled [interesting]chalkboards[/interesting] out of the room.  [The head scientist] screams after you, '[bold type]SCHWEINHUND!  [italic type]HALT!!![roman type]'[line break]";
 		now the head scientist is enraged;
 		now the chalkboard is described;  [It will show up in room descriptions again.]
 		now the chalkboard is critical;  [You can't leave it behind; see below]
@@ -662,7 +701,7 @@ Instead of taking the chalkboard:
 
 Instead of going to anywhere (called the destination):
 	if the chalkboard is critical:
-		say "([one of]You push the massive chalkboard along with you[or]As you drag the chalkboard over the threshold into [the destination], one of the wheels catches on the door jam and the giant board falls to the ground.  It takes you a minute or two to get it upright again[or]You drag the chalkboard along, and hope like hell that it turns out to be worth the effort[purely at random].)[line break]";
+		say "([one of]You push the massive [chalkboard] along with you[or]As you drag the [chalkboard] over the threshold into [the destination], one of the wheels catches on the door jam and the giant board falls to the ground.  It takes you a minute or two to get it upright again[or]You drag the [chalkboard] along, and hope like hell that it turns out to be worth the effort[purely at random].)[line break]";
 		now the chalkboard is in the destination;
 	continue the action.
 
@@ -685,13 +724,13 @@ Instead of quizzing the head scientist about NASA:
 	say "He considers thoughtfully before replying, 'It's a job.'"
 
 Instead of quizzing the head scientist about rocket:
-	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the chalkboards behind him and adds dreamily, 'I have spent years perfecting this new one...'"
+	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the [interesting]chalkboards[/interesting] behind him and adds dreamily, 'I have spent years perfecting this new one...'"
 
 Instead of quizzing the head scientist about work:
 	try quizzing the head scientist about rocket.
 
 Instead of quizzing the head scientist about equations:
-	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to the chalkboards."
+	say "'What about them?' he snaps.  'I'm very busy.'  [The noun] turns back to the [interesting]chalkboards[/interesting]."
 
 Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
@@ -727,7 +766,7 @@ After reading a command:
 		change the text of the player's command to N.
 
 Instead of quizzing the other scientists about the head scientist:
-	say "The other scientists glance warily in the direction of [the head scientist], who [if the head scientist is enraged]glares at them with fire in his eyes[otherwise]looks back with calm surety[end if].  In unison, the scientists chant, 'Dr. von Braun is the best boss a scientist could ask for.  His work in the field is unparalleled, and we are lucky to be in his lab.'  [The head scientist] looks pleased about this, and turns back to his work.";
+	say "The other scientists glance warily in the direction of [the head scientist], who [if the head scientist is enraged]glares at them with fire in his eyes[otherwise]looks back with calm surety[end if].  In unison, the scientists chant, 'Dr. von Braun is the best boss a scientist could ask for.  His work in the field is unparalleled, and we are lucky to be in his lab.'  [The head scientist] looks pleased about this, and turns back to his work at the [interesting]chalkboards[/interesting].";
 	now the head scientist is known;
 	now the head scientist is not enraged;
 
@@ -770,16 +809,16 @@ Instead of quizzing someone (called the interrogated) about Clifford McBride:
 
 
 
-The personnel department is south of the hallway.  "This tiny room feels like the sort of place careers go to die.  [The head of personnel] [if the head of personnel is asleep]is reclined behind a cheap desk, snoring softly with his feet up[otherwise]is staring at you impatiently from behind the desk, waiting for you to state your business.  He does not look pleased[end if].  To the left of the desk is a tan, metallic filing cabinet."
+The personnel department is south of the hallway.  "This tiny room feels like the sort of place careers go to die.  [The head of personnel] [if the head of personnel is asleep]is reclined behind a cheap [interesting]desk[/interesting], snoring softly with his feet up[otherwise]is staring at you impatiently from behind the [interesting]desk[/interesting], waiting for you to state your business.  He does not look pleased[end if].  To the left of the [interesting]desk[/interesting] is a tan, metallic [interesting]filing cabinet[/interesting]."
 The printed name of the personnel department is "NASA Personnel Department".
 
 The cheap desk is scenery in the personnel department.  The description of the cheap desk is "You have never seen less thought or money put into furniture before.  The desk has four legs and a surface, but everything else about it looks like an accident."
 The cheap desk is an enterable supporter.
 
-The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one drawer in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
+The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one [interesting]drawer[/interesting] in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
 The metallic filing cabinet is an enterable supporter.
 
-An openable closed container called the drawer is part of the metallic filing cabinet.
+An openable closed container called the drawer is part of the metallic filing cabinet.  "The drawer is labeled 'Crew Candidate Personnel Files'."
 [We don't get told automatically what is inside an open container if it's part of another thing.  Fix this for the open drawer.]
 Before listing exits:
 	if the player is in the personnel department:
@@ -857,9 +896,9 @@ Instead of saying sorry while the player is in the personnel department:
 
 Instead of quizzing the head of personnel about the crew:
 	if the personnel puzzle is not ready:
-		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the filing cabinet and produces a set of six files for you.  'Here you go,' he says, handing you.  'Anything else?'";
+		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the [interesting]filing cabinet[/interesting] and produces a set of six [interesting]files[/interesting] for you.  'Here you go,' he says, handing you.  'Anything else?'";
 	otherwise:
-		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.  Just read the files.  Anything else?'";
+		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.  Just read the [interesting]files[/interesting].  Anything else?'";
 	if the personnel puzzle is not ready:
 		now the player has personnel file 6;
 		now the player has personnel file 5;
@@ -871,7 +910,7 @@ Instead of quizzing the head of personnel about the crew:
 
 Instead of quizzing the head of personnel about the personnel files:
 	if the personnel puzzle is not ready:
-		say "[The noun] impatiently hooks a thumb at the filing cabinet.  'In there.  Go nuts.'  He starts drumming his fingers on his desk.  'Anything else?'";
+		say "[The noun] impatiently hooks a thumb at the [interesting]filing cabinet[/interesting].  'In there.  Go nuts.'  He starts drumming his fingers on his desk.  'Anything else?'";
 	otherwise:
 		say "'You've already got [']em!  Now get lost.'";
 
@@ -1022,7 +1061,7 @@ Check choosing crew during day one:
 	otherwise if the noun is not an astronaut:
 		say "[The noun] is not eligible for this mission.  Try choosing from the personnel files.";
 	otherwise if the noun is listed in the sub-items of choose-crew:
-		say "You've already selected [the noun] for the crew of Apollo 11.  Try choosing another astronaut from the personnel files.";
+		say "You've already selected [the noun] for the crew of Apollo 11.  Try choosing another astronaut from the personnel [interesting]files[/interesting].";
 	otherwise if TBD is not listed in the sub-items of choose-crew:  [if the list is full, that is]
 		say "It's too late!  You've already finished selecting the crew of Apollo 11.  Look at the checklist to see what else needs to be done.";
 	otherwise:
@@ -1107,7 +1146,7 @@ Instead of going from the director's office during day two:
 Instead of taking checklist-2:
 	if checklist-2 is ready:
 		say "[The director] looks relieved and says, 'Now, you did good work for us yesterday.  Keep it up, and Nixon might let us all see our families again.  Heh heh.'  His chuckle is not at all comforting.";
-		show hint "You can examine the checklist to see the details.";
+		show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
 		now the director is relaxed;
 		continue the action;
 	else:

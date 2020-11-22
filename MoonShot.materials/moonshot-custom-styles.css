@@ -176,3 +176,9 @@
   margin-left: 3.2em;  /* Indents all text */
   text-indent: -3.2em;  /* Unindents the first line by the same amount */
 }
+
+/* This will be used to highlight interesting words in room descriptions in
+ * easy mode. */
+.interesting-highlight {
+  background-color: aquamarine;
+}
