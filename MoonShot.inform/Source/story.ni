@@ -371,9 +371,7 @@ Instead of quizzing the secretary about the director:
 Instead of going to the director's office while the director is not ready:
 	say "[The secretary] jumps up and runs for the door, stopping you in your tracks.  'You can't go in there!  Just wait, please, and the director will be with you as soon as he is ready.'";
 	if yourself is told-to-wait:
-		[If the player has been told at least once before, they are
-		perhaps having trouble with this waiting thing, so offer a
-		hint.]
+		[If the player has been told at least once before, they are perhaps having trouble with this waiting thing, so offer a hint.]
 		say line break;
 		show hint "You can explore the room, talk to [the secretary], examine things, or just type 'wait' to wait patiently.";
 	now yourself is told-to-wait.
