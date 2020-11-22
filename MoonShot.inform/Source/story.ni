@@ -1223,6 +1223,14 @@ Section 3 - WIP testing mode - Not for release
 To maybe end the game:
 	do nothing.
 
+Teleporting to is an action out of world applying to one thing.  Understand "teleport to [anywhere]" and "teleport [anywhere]" as teleporting to.
+Check teleporting to a room (called the destination):
+	try teleporting yourself to the destination;
+
+Teleporting it to is an action out of world applying to two things.  Understand "teleport [anything] to [anywhere]" and "teleport [anything] [anywhere]" as teleporting it to.
+Check teleporting it to:
+	say "Thanks to testing mode, you teleport [the noun] to [the second noun].  With great power comes great responsibility!";
+	now the noun is in the second noun;
 
 
 
