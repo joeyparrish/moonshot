@@ -1049,7 +1049,8 @@ Every turn when the remainder after dividing the turn count by 3 is 0 and a chec
 [---------- DAY 2 ----------]
 
 Day two is a scene.
-Day two begins when checklist-1 is held by the director.
+Day one ends when checklist-1 is held by the director.
+Day two begins when day one ends.
 When day two begins:
 	pause;
 	say "[room-heading style]Intermission: End of day one[end style]";
