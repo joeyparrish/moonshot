@@ -831,22 +831,47 @@ Understand "files" as the personnel files.
 Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
 	try waking the head of personnel.
 
-[TODO: talk to Franklin about NASA
+[TODO: talk to Franklin about NASA]
 Instead of quizzing the head of personnel about NASA:
 	say "";
-]
 
-[TODO: talk to Franklin about Apollo
+[TODO: talk to Franklin about Apollo]
 Instead of quizzing the head of personnel about Apollo:
 	say "";
-]
-
-[TODO: talk to Franklin about Dirk
-Instead of quizzing the head of personnel about the director:
-	say "";
-]
 
 [TODO: I bet Franklin would have opinions about every single character.]
+Instead of quizzing the head of personnel about the secretary:
+	say "";
+
+Instead of quizzing the head of personnel about the director:
+	say "";
+
+Instead of quizzing the head of personnel about the engineer:
+	say "";
+
+Instead of quizzing the head of personnel about the head scientist:
+	say "";
+
+Instead of quizzing the head of personnel about the other scientists:
+	say "";
+
+Instead of quizzing the head of personnel about Buzz Aldrin:
+	say "";
+
+Instead of quizzing the head of personnel about Neil Armstrong:
+	say "";
+
+Instead of quizzing the head of personnel about Michael Collins:
+	say "";
+
+Instead of quizzing the head of personnel about Lisa Nowak:
+	say "";
+
+Instead of quizzing the head of personnel about Ijon Tichy:
+	say "";
+
+Instead of quizzing the head of personnel about Clifford McBride:
+	say "";
 
 Instead of saying sorry while the player is in the personnel department:
 	if the head of personnel is asleep:
