@@ -452,7 +452,7 @@ Instead of quizzing the director about checklist-1:
 	now checklist-1 is ready.
 
 Instead of quizzing the director about crew:
-	say "[The director] beams proudly.  'Fine folks, those astronauts.  Finest, best, most American astronauts that America ever produced.'  His brow furrows for a moment before adding, 'Well, most of [']em.  Anyway, you can get all the particulars down in personnel.'"
+	say "[The director] beams proudly.  'Fine folks, those astronauts.  Finest, best, most American astronauts that America ever produced.'  His brow furrows for a moment before adding, [if day one is happening]'Well, most of [']em.  Anyway, you can get all the particulars down in personnel.'[otherwise]'Well, most of [']em.  I shouldn't get into it.'[end if][line break]".
 
 Instead of quizzing the director about blueprints:
 	say "[The director] starts shaking his head before you even finish asking.  'No, no, not my department.  Go down to engineering, talk to that what's-his-name.  The one who's too cool for school.'";
@@ -1083,8 +1083,37 @@ The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
 
+[Keep the player from leaving without the checklist.]
+Instead of going from the director's office during day two:
+	if checklist-2 is carried by the player:
+		continue the activity;
+	otherwise if checklist-2 is not ready:
+		try taking checklist-2;  [So that the director will ask you to stop and talk first.]
+	otherwise:
+		say "'Hang on!' says [the director].  'You're gonna need this!'.  He indicates the checklist[if a checklist is on the director's desk] laying on his desk[end if].  'Get all of that done, ASAP.'"
+
+[Keep the player from taking the checklist until you've talked to the director first.]
+Instead of taking checklist-2:
+	if checklist-2 is ready:
+		say "[The director] looks relieved and says, 'Now, you did good work for us yesterday.  Keep it up, and Nixon might let us all see our families again.  Heh heh.'  His chuckle is not at all comforting.";
+		show hint "You can examine the checklist to see the details.";
+		now the director is relaxed;
+		continue the action;
+	else:
+		say "'Not so fast!' says [the director].  'We need to talk first.'";
+		show hint "You can 'talk to director' for suggestions on topics.";
+
+Instead of talking to the director during day two:
+	say "Perhaps you could ask [the director] about Apollo, Operation Glitter, or the astronauts.";
+[TODO: Are these the best Dirk topics for day two?]
+
 Instead of quizzing the director about glitter:
 	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming.";
+
+[TODO: new replies from dirk for topics from day 1
+Instead of quizzing the director about Apollo during day two:
+	say "...";
+]
 
 [TODO: other transitions to day 2
  - new conversation topics with dirk
