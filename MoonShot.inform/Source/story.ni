@@ -913,8 +913,22 @@ Instead of quizzing the head of personnel about the personnel files:
 	otherwise:
 		say "'You've already got [']em!  Now get lost.'";
 
+Instead of examining the personnel files:
+	if the personnel puzzle is ready:
+		say "Try examining a particular file instead.";
+	otherwise if the player is not in the personnel department:
+		say "You can't see any such thing.";
+	otherwise:
+		if the drawer is not open:
+			try opening the drawer;
+		say "Try examining a particular file instead.";
+
 Instead of taking the personnel files:
-	if the personnel puzzle is not ready:
+	if the personnel puzzle is ready:
+		say "You already have the personnel files.";
+	otherwise if the player is not in the personnel department:
+		say "You can't see any such thing.";
+	otherwise:
 		if the drawer is not open:
 			try opening the drawer;
 		now the player has personnel file 6;
@@ -925,8 +939,7 @@ Instead of taking the personnel files:
 		now the player has personnel file 1;
 		say "You collect all the files from the drawer.";
 		now the personnel puzzle is ready;
-	otherwise:
-		say "You already have the personnel files."
+
 Instead of dropping the personnel files:
 	say "You're going to need those."
 
