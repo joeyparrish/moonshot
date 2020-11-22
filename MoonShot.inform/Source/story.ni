@@ -513,7 +513,7 @@ Instead of giving a checklist (called proof of your good work) to the director:
 	if proof of your good work is not complete:
 		say "'Whoa,' says [the director], 'what is this?  You've still got work to do, kid!  Get back out there, and don't come back until it's all done!'";
 	otherwise:
-		say "[The director] scrutinzes the list, then smiles at you and drawls, 'Good job, kid.  Come back tomorrow for your next assignment!'";
+		say "[The director] scrutinizes the list, then smiles at you and drawls, 'Good job, kid.  Come back tomorrow for your next assignment!'";
 		now the director has proof of your good work.
 
 
