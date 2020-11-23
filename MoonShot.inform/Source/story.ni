@@ -74,7 +74,7 @@ To show ending (N - number):
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 4 after [turn count] turns!";
+	say "You have discovered ending #[N] of 5 after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -392,16 +392,6 @@ After taking the triangular nameplate:
 After putting the triangular nameplate on the director's desk:
 	now the triangular nameplate is undescribed;  [It goes back to being described in the room and desk descriptions, so don't duplicate it in the room's contents.]
 	continue the action.
-
-A toblerone is an edible thing inside the triangular nameplate.
-Understand "candy" and "box" and "candy box" as the toblerone.
-The description of the toblerone is "It's a pale yellow, triangular box that says 'TOBLERONE', 'THE FIRST PATENTED SWISS MILK CHOCOLATE [italic type]with[roman type] ALMONDS & HONEY'.".
-After opening the triangular nameplate:
-	if the toblerone is in the triangular nameplate:
-		say "You open a small, concealed hatch on one side of the nameplate, and a pale yellow, triangular [interesting]candy box[/interesting] falls out.";
-		now the toblerone is in the location;
-	otherwise:
-		say "You open a small, concealed hatch on one side of the nameplate."
 
 The wooden armchair is a chair in the director's office.
 The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
@@ -1204,6 +1194,80 @@ Instead of going to the basement during day one:
 
 
 
+A truth-table-value is a kind of value.  The truth-table-values are T, F, and X.
+[T = True, F = False, X = Don't Care.  In the context of food, T is a thing a person _must_ have, F is a thing a person _must not_ have, and X is a thing which does not matter to this person.]
+
+Food is a kind of edible thing.
+Kinds of food are defined by the Table of Ingredients.
+
+Table of Ingredients
+food			has-meat	has-fish	has-dairy	has-nuts	has-wheat	is-kosher
+BLT			T		F		F		F		T		F
+tuna sandwich		T		T		T		F		T		F
+salad			F		F		T		F		F		T
+almond chicken		T		F		F		T		F		T
+candy			F		F		T		T		F		F
+
+Table of Dietary Restrictions
+person			vs-meat		vs-fish		vs-dairy	vs-nuts		vs-wheat	vs-kosher
+the secretary		F		F		X		X		X		X
+the director		X		F		X		X		X		F
+the head of personnel	X		X		F		F		X		X
+Buzz Aldrin		T		X		F		T		F		X
+Neil Armstrong		X		X		X		F		F		X
+Michael Collins		X		X		T		X		T		X
+Lisa Nowak		X		T		X		F		X		X
+Ijon Tichy		X		T		X		X		X		X
+Clifford McBride	F		F		X		X		X		X
+[TODO: the photographer should exist first
+the photographer	X		X		F		X		X		T
+]
+
+
+
+The toblerone is a candy inside the triangular nameplate.
+Understand "candy" and "box" and "candy box" as the toblerone.
+The description of the toblerone is "It's a pale yellow, triangular box that says 'TOBLERONE', 'THE FIRST PATENTED SWISS MILK CHOCOLATE [italic type]with[roman type] ALMONDS & HONEY'.".
+After opening the triangular nameplate:
+	if the toblerone is in the triangular nameplate:
+		say "You open a small, concealed hatch on one side of the nameplate, and a pale yellow, triangular [interesting]candy box[/interesting] falls out.";
+		now the toblerone is in the location;
+	otherwise:
+		say "You open a small, concealed hatch on one side of the nameplate."
+
+The printed name of almond chicken is "plate of almond chicken".
+Rule for printing the plural name of almond chicken: say "plates of almond chicken".
+Understand "plate" and "plate of almond chicken" and "plate of chicken" as almond chicken.
+[It's awkward to type "plates" and have only one plate be picked up.  It's even more awkward to solve it in Inform, since "understand" can't be used to map a phrase many objects.  Instead of making the user type "all almond chicken", map "plates", "plates of almond chicken" and "plates of chicken" to "all almond chicken".]
+After reading a command:
+	let T be "[the player's command]";
+	replace the regular expression "plates(?:\s+of(?:\s+almond)?\s+chicken)?" in T with "all almond chicken";
+	change the text of the player's command to T.
+
+
+
+The craft services table is an enterable supporter in the basement.
+Two BLTs, three tuna sandwiches, three salads, and two almond chickens are on the craft services table.
+The description of the craft services table is "The craft services table is a cheap folding table covered in a red plastic tablecloth with a floral print."
+Instead of sitting on the craft services table:
+	say "You start to climb onto the craft services table, but it doesn't look like the table would hold your weight, so you think better of it."
+
+
+
+The snack count is initially 0.
+After eating a food:
+	increase the snack count by 1;
+	if the snack count is 10:
+		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+		show ending 4;
+	otherwise if the snack count is 3:
+		say "You eat [the noun].  You are starting to feel unwell.";
+	otherwise if the snack count >= 4:
+		say "You eat [the noun].  You worry you won't be able to feed everyone now!";
+	otherwise:
+		say "You eat [the noun].  Not bad.";
+
+
 
 [---------- DAY 3 ----------]
 
@@ -1220,7 +1284,7 @@ To maybe end the game:
 	say ending-card style;
 	say "Well, folks, that's all for now!  Thank you for trying out this work in progress.";
 	say end style;
-	show ending 4;
+	show ending 5;
 
 Section 3 - WIP testing mode - Not for release
 
