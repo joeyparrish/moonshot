@@ -42,11 +42,12 @@ To say /interesting:
 		otherwise:
 			say roman type;
 
+A thing can be uninteresting.  Things are usually not uninteresting.
 Before printing the name of a thing (called the thingy):
-	if the thingy is not a person and the thingy is not TBD:
+	if the thingy is not uninteresting:
 		say interesting.
 After printing the name of a thing (called the thingy):
-	if the thingy is not a person and the thingy is not TBD:
+	if the thingy is not uninteresting:
 		say /interesting.
 
 

@@ -479,7 +479,7 @@ Checklist-1 is critical.  [You can't drop it.]
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get command module blueprints".
 Get-equations is a checklist-item.  The printed name of get-equations is "Get rocket equations".
 Choose-crew is a checklist-item.  The printed name of choose-crew is "Choose astro nots (sp?)".
-TBD is a thing.  The printed name of TBD is "__________".
+TBD is a thing.  The printed name of TBD is "__________".  TBD is uninteresting.
 The sub-items of choose-crew are {TBD, TBD, TBD}.
 The items of checklist-1 are {get-blueprints, get-equations, choose-crew}.
 
