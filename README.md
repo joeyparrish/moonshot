@@ -68,19 +68,20 @@ manner, but not in any way that suggests the licensor endorses you or your use.
 2. Non-Commercial - You may not use the material for commercial purposes.
 
 3. No Derivatives - If you remix, transform, or build upon the material, you
-may not distribute the modified material.
+may not distribute the modified material without express permission from the
+authors.
 
 4. No additional restrictions - You may not apply legal terms or technological
 measures that legally restrict others from doing anything the license permits.
 
-See `LICENSE.md` or https://creativecommons.org/licenses/by-nc-nd/4.0/ for full
-license terms.
+See [`LICENSE.md`](LICENSE.md) or
+https://creativecommons.org/licenses/by-nc-nd/4.0/ for full license terms.
 
 -----
 
 This repository also includes JavaScript code and Inform7 extensions from
 Vorple (https://vorple-if.com/), under MIT and Creative Commons licenses,
-respectively.  See `LICENSE.vorple.md` for details.
+respectively.  See [`LICENSE.vorple.md`](LICENSE.vorple.md) for details.
 
 -----
 
@@ -90,7 +91,8 @@ https://www.fontspace.com/kbkinderwrite-font-f15885 and converted to a web font
 with https://www.font-converter.net/ .
 
 The full license for KBKinderWrite is listed on the fontspace page and was
-copied into `LICENSE.KBKinderWrite.md` on 2020-11-20.
+copied into [`LICENSE.KBKinderWrite.md`](LICENSE.KBKinderWrite.md) on
+2020-11-20.
 
 The terms begin with:
 
