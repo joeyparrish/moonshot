@@ -612,7 +612,7 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 [TODO: Write the propulsion lab description.]
-The propulsion lab is north of the hallway.  "Another room?!"
+The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  In the corner, there's a crate with what appears to be a tapir.  You can smell sparks and animal waste."
 The printed name of the propulsion lab is "NASA Propulsion Lab".
 
 In the propulsion lab is a stranger called the head scientist.
@@ -666,7 +666,7 @@ Instead of talking to the head scientist:
 	if the head scientist is enraged:
 		say "You open your mouth to speak to [the noun], but he shoots you a rageful glare of such silent violence that you think better of it and shut your mouth again.";
 	otherwise:
-		say "Perhaps you could ask [the noun] about the equations, his work, or himself."
+		say "Perhaps you could ask [the noun] about the equations, his work, the tapir, or himself."
 
 Instead of quizzing the head scientist about name:
 	say "He stops what is doing and considers you as if noticing you for the first time.  'Herr Doktor Wernher Magnus Maximilian Freiherr von Braun, chief scientist of the NASA propulsion lab.'  Then, without making it a true question and without any apparent interest in the answer, adds, 'How do you do.'";
@@ -674,9 +674,12 @@ Instead of quizzing the head scientist about name:
 
 Instead of quizzing the head scientist about the head scientist:
 	try quizzing the head scientist about name.
+	
+Instead of quizzing the head scientist about the head scientist about tapir:
+	say "Ist no tapir.  Ist an aardvark, obviously.  What else would you find here at the National Agency of Space Aardvarks?"
 
 Instead of quizzing the head scientist about NASA:
-	say "He considers thoughtfully before replying, 'It's a job.'"
+	say "He considers thoughtfully before replying, 'It's a job. But at least here at the National Agency of Space Aardvarks, I work to bring about true emancipation of the aardvarks by returning them to their home in outer space.'  He looks up at the ceiling of the lab for a long moment.  You look up as well, but see nothing other than a white painted lab ceiling, about 40 feet high."
 
 Instead of quizzing the head scientist about rocket:
 	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the [interesting]chalkboards[/interesting] behind him and adds dreamily, 'I have spent years perfecting this new one...'"
@@ -691,7 +694,8 @@ Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
 	now the head scientist is enraged.
 
-[TODO: ask von Braun about Apollo]
+Instead of quizzing the head scientist about Apollo:
+	say "Dee Apollo ist my greatest verk.  Finally I achieve my greatest glory in my career and achieve zee highest aims of NASA, the National Agency of Space Aardvarks: to deliver zee aardvark back into space.  Apollo 11 will deliver zee aardvarks to their true home.";
 
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
@@ -724,6 +728,9 @@ Instead of quizzing the other scientists about the head scientist:
 	say "The other scientists glance warily in the direction of [the head scientist], who [if the head scientist is enraged]glares at them with fire in his eyes[otherwise]looks back with calm surety[end if].  In unison, the scientists chant, 'Dr. von Braun is the best boss a scientist could ask for.  His work in the field is unparalleled, and we are lucky to be in his lab.'  [The head scientist] looks pleased about this, and turns back to his work at the [interesting]chalkboards[/interesting].";
 	now the head scientist is known;
 	now the head scientist is not enraged;
+
+Instead of quizzing the other scientists about the aardvark:
+	say "The scientists throw each other sideways glances, then look to see if Dr. von Braun is watching.  Then one of them says under her breath, 'He's obsessed.  Nobody around here gets it.  He raves about the aardvarks all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives Dr. von Braun a look that is both mystified and compassionate."
 
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
