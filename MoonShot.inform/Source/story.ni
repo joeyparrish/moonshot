@@ -613,7 +613,7 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 [TODO: Integrate chalkboards into this room's description, or replace them with a Tapir-related puzzle.]
-The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  In the corner, there's [if the tapir is in the cage]a metal [interesting]cage[/interesting] with what appears to be a [interesting][tapir][/interesting].[otherwise]an empty metal [interesting]cage[/interesting].[end if]  You can smell sparks and animal waste."
+The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  In the corner, there's [if the tapir is in the cage]a metal [interesting]cage[/interesting] with what appears to be a [interesting][tapir-aardvark][/interesting].[otherwise]an empty metal [interesting]cage[/interesting].[end if]  You can smell sparks and animal waste."
 The printed name of the propulsion lab is "NASA Propulsion Lab".
 
 
@@ -636,6 +636,8 @@ Instead of taking the chalkboard:
 		now the chalkboard is described;  [It will show up in room descriptions again.]
 		now the chalkboard is critical;  [You can't leave it behind; see below]
 		now get-equations is checked;  [Woohoo!]
+		if the tapir is in the hallway:
+			now the tapir is in purgatory;  [Never to be seen again.]
 		now the chalkboard is in the hallway;
 		try going south;
 	otherwise:
@@ -653,7 +655,14 @@ The cage is scenery in the propulsion lab.
 The cage is an openable, transparent, lockable, locked container in the propulsion lab.
 The brass key unlocks the cage.  The head scientist carries the brass key.
 The brass key can be noticed or unnoticed.  When day one begins, now the brass key is unnoticed.
-The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting][The tapir][/interesting] inside looks distressed.[end if]".
+The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting]The [tapir-aardvark][/interesting] inside looks distressed.[end if]".
+
+[This will say tapir or aardvark, but never Brizzleby.]
+To say tapir-aardvark:
+	if the tapir is known:
+		say "aardvark";
+	otherwise:
+		say "tapir".
 
 After examining the head scientist:
 	now the brass key is noticed;
@@ -676,21 +685,95 @@ Instead of taking the brass key:
 		now the player is in the hallway.
 
 After opening the cage while the tapir is in the cage:
-	if a random chance of 1 in 10 succeeds:
-		say "As soon as the cage door opens, [the tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
-		show ending 5;
+	if the tapir is not revealed:
+		if a random chance of 1 in 10 succeeds:
+			say "As soon as the cage door opens, [the tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
+			show ending 5;
+		otherwise:
+			say "As soon as the cage door opens, [the tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
+			say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'";
+			now the head scientist is enraged;
+			now the tapir is in purgatory;  [never to be seen again]
 	otherwise:
-		say "As soon as the cage door opens, [the tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
-		say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'";
-		now the head scientist is enraged;
-		now the tapir is in purgatory.  [never to be seen again]
+		say "As you open the door, the [tapir-aardvark] gives you a wink and quietly slips out of the room.";
+		if get-equations is checked:
+			now the tapir is in purgatory;  [You didn't need him.]
+		otherwise:
+			now the tapir is in the hallway;  [There's an alternate way to get the equations.]
 
 
 
 The tapir is a stranger [animals are people, too, in Inform] in the cage.
+The description of the tapir is "[The tapir] is a bit larger than your average [tapir-aardvark], with intelligent eyes, rabbit-like ears, strong front claws, and a flat, round nose that protrudes from its head.  [if the tapir is in the cage]It lays sadly on the bottom of [the cage], looking distinctly sad and uncomfortable.[otherwise]It stands upright on its rear legs, thought it doesn't look like it has much practice.[end if]".
+
 The real name of the tapir is "aardvark".
 Understand "aardvark", "aardvarks", "ardvark", and "ardvarks" as the tapir.
-[TODO: tapir actions every few turns.]
+
+Every turn when a random chance of 3 in 10 succeeds and the player is in the lab and the tapir is in the cage:
+	say "[one of]The [tapir-aardvark] makes a snuffling sound.[or]A long, sad groan comes from [the cage].[or]Something in here smells distinctly like a [tapir-aardvark] fart.  (You definitely know what those are like.)[purely at random]".
+
+
+
+[You can talk _to_ the tapir without opening the cage first.]
+Rule for reaching inside the cage while talking to:
+	rule succeeds.
+Rule for reaching inside the cage while quizzing:
+	rule succeeds.
+[You can talk _about_ the tapir without opening the cage first.]
+Rule for reaching inside the cage while quizzing generally:
+	rule succeeds.
+
+[If there isn't a topic for this with a specific person, that person will not know about the tapir.]
+Instead of quizzing someone about the tapir:
+	say "[The noun] looks confused.  'Who?'";
+
+Instead of talking to the tapir:
+	say "The [tapir-aardvark] says in a low whisper: 'Hey, kid!  You gotta get me out of here.'"
+
+Instead of quizzing the tapir about anything while the tapir is in the cage:
+	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
+
+The tapir can be revealed.  When day one begins, now the tapir is not revealed.
+Instead of quizzing the tapir about name while the tapir is in the cage:
+	say "The [tapir-aardvark] glances side to side to make sure the scientists are distracted before hissing in a low voice, 'Brizzleby, of the Galactic Federation of Aardvarks.  Now get me the hell out of here!'";
+	now the real name of the tapir is "Brizzleby";
+	now the tapir is revealed;
+	now the tapir is known.
+Understand "Brizzleby", "space-aardvark", "space-ardvark", and "Brizzleby the space-aardvark" as the tapir.
+
+Instead of quizzing the tapir about name:
+	say "'Brizzleby, of the Galactic Federation of Aardvarks, at your service.'";
+	now the real name of the tapir is "Brizzleby";
+	now the tapir is revealed;
+	now the tapir is known.
+
+After printing the name of the tapir while the tapir is revealed:
+	say " (the space-aardvark)".
+
+Instead of quizzing the tapir about the tapir:
+	try quizzing the tapir about name.
+
+Instead of quizzing the tapir about equations:
+	try quizzing the tapir about rocket-equations.
+
+Alien equations is a critical thing.
+The description of alien equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations."
+
+Instead of quizzing the tapir about rocket-equations:
+	say "Brizzleby gives you a satisfied smile.  'I knew you were something special.  Yes, [']rocket equations['] are indeed a thing.  Here.  Take these.  They are the Galactic Federation's most advanced rocket equations.'  He hands you a small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.[paragraph break]";
+	now the player has alien equations;
+	now get-equations is checked;
+	say "He glances at the ceiling for a long moment, then adds, 'It's time for me to get back to my people.  Thank you, noble intern, for freeing me.'  Before you can react, he licks your face, then quickly lopes down the hallway and vanishes from sight.";
+	now the tapir is in purgatory.
+
+Instead of quizzing the tapir about NASA:
+	try quizzing the tapir about Apollo.
+
+Instead of quizzing the tapir about the head scientist:
+	say "The space-aardvark shudders.  'That man... he's a menace to aardvark-kind.  Let's not talk about it.'"
+
+Instead of quizzing the tapir about Apollo:
+	say "'Bah', he begins.  'The Apollo program is a joke.  It'll never get off the ground.  You monkeys have no idea what you're doing.'"
 
 
 
@@ -715,7 +798,7 @@ Instead of talking to the head scientist:
 	if the head scientist is enraged:
 		say "You open your mouth to speak to [the noun], but he shoots you a rageful glare of such silent violence that you think better of it and shut your mouth again.";
 	otherwise:
-		say "Perhaps you could ask [the noun] about the equations, his work, the [tapir], or himself."
+		say "Perhaps you could ask [the noun] about the equations, his work, the [tapir-aardvark], or himself."
 
 Instead of quizzing the head scientist about name:
 	say "He stops what is doing and considers you as if noticing you for the first time.  'Herr Doktor Wernher Magnus Maximilian Freiherr von Braun, chief scientist of the NASA propulsion lab.'  Then, without making it a true question and without any apparent interest in the answer, adds, 'How do you do.'";
@@ -725,12 +808,17 @@ Instead of quizzing the head scientist about the head scientist:
 	try quizzing the head scientist about name.
 
 Before quizzing the head scientist about the tapir:
-	if the head scientist is enraged:
+	if the player's command includes "Brizzleby":  [This name is secret.]
+		say "[The noun] looks confused.  'Who?'";
+		stop the action;
+	otherwise if the head scientist is enraged:
 		say "He looks relieved at this topic.  [run paragraph on]";
 		now the head scientist is not enraged.  [He loves that thing.]
 
 Instead of quizzing the head scientist about the tapir:
-	if the tapir is not in the cage:
+	if the player's command includes "Brizzleby":  [This name is secret.]
+		say "The scientists don't seem to know who that is.";
+	otherwise if the tapir is not in the cage:
 		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
 	otherwise if the player's command includes "tapir":
 		say "'Ist no tapir', replies [the head scientist] cooly.  'Ist an [interesting]aardvark[/interesting], obviously.  What else would you find here at the National Agency of Space Aardvarks?'";
@@ -797,8 +885,11 @@ Instead of quizzing the other scientists about the head scientist:
 	now the head scientist is not enraged;
 
 Instead of quizzing the other scientists about the tapir:
-	say "The scientists throw each other sideways glances, then look to see if [the head scientist] is watching.  Then one of them says under her breath, '[if the tapir is not known]It's an [interesting]aardvark[/interesting], actually.  [end if]He's obsessed.  Nobody around here gets it.  He raves about the [interesting]aardvarks[/interesting] all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives [the head scientist] a look that is both mystified and compassionate.";
-	now the tapir is known.
+	if the player's command includes "Brizzleby":
+		say "The scientists don't seem to know who that is.";
+	otherwise:
+		say "The scientists throw each other sideways glances, then look to see if [the head scientist] is watching.  Then one of them says under her breath, '[if the tapir is not known]It's an [interesting]aardvark[/interesting], actually.  [end if]He's obsessed.  Nobody around here gets it.  He raves about the [interesting]aardvarks[/interesting] all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives [the head scientist] a look that is both mystified and compassionate.";
+		now the tapir is known.
 
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
@@ -937,9 +1028,6 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "";
-
-Instead of quizzing the head of personnel about the tapir:
-	say "[The head of personnel] looks confused.  'Who?'";
 
 Instead of saying sorry while the player is in the personnel department:
 	if the head of personnel is asleep:
@@ -1405,6 +1493,12 @@ Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take co
 Test plaque with "test checklist / e / x plaque".
 
 Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
+
+Test key with "test checklist / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / ask them about him / take key / n".
+
+Test tapir with "test checklist / e / n / ask about tapir / ask about brizzleby / ask them about brizzleby / ask about rocket equations / ask about brizzleby / ask about nasa / ask about tapir / ask about brizzleby / ask about nasa".
+
+Test aliens with "test key / x tapir / ask tapir about name / x cage / open cage / x cage / s / x tapir / ask about nasa / ask about apollo / ask about dr / ask about rocket equations / x checklist".
 
 Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
