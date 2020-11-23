@@ -612,9 +612,11 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 
-[TODO: Integrate chalkboards into this room's description, or replace them with a Tapir-related puzzle.]
-The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  In the corner, there's [if the tapir is in the cage]a metal [interesting]cage[/interesting] with what appears to be a [interesting][tapir-aardvark][/interesting].[otherwise]an empty metal [interesting]cage[/interesting].[end if]  You can smell sparks and animal waste."
+The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  Along one wall are a series of wheeled [interesting]chalkboards[/interesting].  In the corner, there's [if the tapir is in the cage]a metal [interesting]cage[/interesting] with what appears to be a [interesting][tapir-aardvark][/interesting].[otherwise]an empty metal [interesting]cage[/interesting].[end if]  You can smell sparks and animal waste."
 The printed name of the propulsion lab is "NASA Propulsion Lab".
+
+
+The moon buggy skeleton is scenery in the propulsion lab.  The description of the moon buggy skeleton is "It looks like every other moon buggy skeleton you've ever seen."
 
 
 The chalkboard is in the propulsion lab.  The description of the chalkboard is "A large, slate black, wheeled chalkboard covered in inscrutable [interesting]equations[/interesting]."
