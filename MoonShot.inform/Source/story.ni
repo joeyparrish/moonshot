@@ -674,7 +674,6 @@ Instead of taking the brass key:
 		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You fumble the key, and he whips around at the clanging sound.  There is a brief moment of shock upon his face, but it rapidly dissolves into rage as he screams '[bold type]SCHWEINHUND![roman type]' and chases you from the room.";
 		now the head scientist is enraged;
 		now the player is in the hallway.
-		[TODO: We need more ways to calm him so the player has more chances to get the key.]
 
 After opening the cage while the tapir is in the cage:
 	if a random chance of 1 in 10 succeeds:
@@ -724,7 +723,12 @@ Instead of quizzing the head scientist about name:
 
 Instead of quizzing the head scientist about the head scientist:
 	try quizzing the head scientist about name.
-	
+
+Before quizzing the head scientist about the tapir:
+	if the head scientist is enraged:
+		say "He looks relieved at this topic.  [run paragraph on]";
+		now the head scientist is not enraged.  [He loves that thing.]
+
 Instead of quizzing the head scientist about the tapir:
 	if the tapir is not in the cage:
 		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
