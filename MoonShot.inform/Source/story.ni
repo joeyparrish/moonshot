@@ -236,9 +236,13 @@ When day one begins:
 	pause;
 	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.";
 	pause;
-	show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
-	show hint "This game comes with a few options.  You can type 'options' to find out about them.";
-	say line break.
+
+Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
+Before reading a command while the turn count is 1:
+	if intro hints shown is false:
+		show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
+		show hint "This game comes with a few options.  You can type 'options' to find out about them.";
+		now intro hints shown is true;
 
 
 
