@@ -23,6 +23,7 @@ please do so before you read the source code, to avoid spoilers.
 [Configuration]
 Include the Standard Rules by Graham Nelson.
 Include Punctuation Removal by Emily Short.
+Include Locksmith by Emily Short.
 Include Exit Lister by Gavin Lambert.
 Include Vorple Screen Effects by Juhana Leinonen.
 Include Concepts by Joey Parrish.
@@ -74,7 +75,7 @@ To show ending (N - number):
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 5 after [turn count] turns!";
+	say "You have discovered ending #[N] of 6 after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -650,7 +651,42 @@ Instead of going to anywhere (called the destination):
 
 The cage is scenery in the propulsion lab.
 The cage is an openable, transparent, lockable, locked container in the propulsion lab.
-[TODO: key to the cage, ending by trampling?]
+The brass key unlocks the cage.  The head scientist carries the brass key.
+The brass key can be noticed or unnoticed.  When day one begins, now the brass key is unnoticed.
+The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting][The tapir][/interesting] inside looks distressed.[end if]".
+
+After examining the head scientist:
+	now the brass key is noticed;
+	continue the action.
+
+Instead of taking the brass key:
+	if the brass key is unnoticed:
+		say "You can't see any such thing.";
+		show hint "The key must be here somewhere... Try examining things in the room.";
+	otherwise if the head scientist does not have the brass key:
+		continue the action;
+	otherwise if the head scientist is enraged:
+		say "You try to sneak over and reach into [the head scientist]'s coat pocket, but at your first step, his head snaps around and he stares you down until you take a step back again.";
+	otherwise if a random chance of 3 in 10 succeeds:
+		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You manage to lift the brass key out of his pocket without him noticing!";
+		now the player has the brass key;
+	otherwise:
+		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You fumble the key, and he whips around at the clanging sound.  There is a brief moment of shock upon his face, but it rapidly dissolves into rage as he screams '[bold type]SCHWEINHUND![roman type]' and chases you from the room.";
+		now the head scientist is enraged;
+		now the player is in the hallway.
+		[TODO: We need more ways to calm him so the player has more chances to get the key.]
+
+After opening the cage while the tapir is in the cage:
+	if a random chance of 1 in 10 succeeds:
+		say "As soon as the cage door opens, [the tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
+		show ending 5;
+	otherwise:
+		say "As soon as the cage door opens, [the tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
+		say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'";
+		now the head scientist is enraged;
+		now the tapir is in purgatory.  [never to be seen again]
+
+
 
 The tapir is a stranger [animals are people, too, in Inform] in the cage.
 The real name of the tapir is "aardvark".
@@ -690,14 +726,19 @@ Instead of quizzing the head scientist about the head scientist:
 	try quizzing the head scientist about name.
 	
 Instead of quizzing the head scientist about the tapir:
-	if the player's command includes "tapir":
+	if the tapir is not in the cage:
+		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
+	otherwise if the player's command includes "tapir":
 		say "'Ist no tapir', replies [the head scientist] cooly.  'Ist an [interesting]aardvark[/interesting], obviously.  What else would you find here at the National Agency of Space Aardvarks?'";
 		now the tapir is known;
 	otherwise:
 		say "[The head scientist] looks at you quizzically.  'What else would you find here at the National Agency of Space Aardvarks?'";
 
 Instead of quizzing the head scientist about NASA:
-	say "He considers thoughtfully before replying, 'It's a job.  But at least here at the National Agency of Space Aardvarks, I work to bring about true emancipation of the [interesting]aardvarks[/interesting] by returning them to their home in outer space.'  He looks up at the ceiling of the lab for a long moment.  You look up as well, but see nothing other than a white painted lab ceiling, about 40 feet high."
+	if the tapir is not in the cage:
+		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
+	otherwise:
+		say "He considers thoughtfully before replying, 'It's a job.  But at least here at the National Agency of Space Aardvarks, I work to bring about true emancipation of the [interesting]aardvarks[/interesting] by returning them to their home in outer space.'  He looks up at the ceiling of the lab for a long moment.  You look up as well, but see nothing other than a white painted lab ceiling, about 40 feet high."
 
 Instead of quizzing the head scientist about rocket:
 	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the [interesting]chalkboards[/interesting] behind him and adds dreamily, 'I have spent years perfecting this new one...'"
@@ -713,7 +754,10 @@ Instead of quizzing the head scientist about rocket-equations:
 	now the head scientist is enraged.
 
 Instead of quizzing the head scientist about Apollo:
-	say "Apollo ist my greatest work.  Finally I achieve my greatest glory in my career and achieve the highest aims of NASA, the National Agency of Space Aardvarks: to deliver the [interesting]aardvark[/interesting] back into space.  Apollo 11 will deliver the [interesting]aardvarks[/interesting] to their true home.";
+	if the tapir is not in the cage:
+		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
+	otherwise:
+		say "Apollo ist my greatest work.  Finally I achieve my greatest glory in my career and achieve the highest aims of NASA, the National Agency of Space Aardvarks: to deliver the [interesting]aardvark[/interesting] back into space.  Apollo 11 will deliver the [interesting]aardvarks[/interesting] to their true home.";
 
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
@@ -1314,7 +1358,7 @@ To maybe end the game:
 	say ending-card style;
 	say "Well, folks, that's all for now!  Thank you for trying out this work in progress.";
 	say end style;
-	show ending 5;
+	show ending 6;
 
 Section 3 - WIP testing mode - Not for release
 
