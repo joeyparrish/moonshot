@@ -611,24 +611,10 @@ Instead of quizzing the engineer about anything while the engineer is sad:
 
 
 
-[TODO: Write the propulsion lab description.]
-The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  In the corner, there's a crate with what appears to be a tapir.  You can smell sparks and animal waste."
+[TODO: Integrate chalkboards into this room's description, or replace them with a Tapir-related puzzle.]
+The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  In the corner, there's [if the tapir is in the cage]a metal [interesting]cage[/interesting] with what appears to be a [interesting][tapir][/interesting].[otherwise]an empty metal [interesting]cage[/interesting].[end if]  You can smell sparks and animal waste."
 The printed name of the propulsion lab is "NASA Propulsion Lab".
 
-In the propulsion lab is a stranger called the head scientist.
-The real name of the head scientist is "Dr. von Braun".
-The head scientist is male.
-
-[This guy has way too many names.  Give players a fair amount of latitude.]
-Understand "doctor", "dr", "dr von braun", "von braun", "braun", "doktor", "herr doktor", "Herr Doktor Wernher Magnus Maximilian Freiherr von Braun", "Wernher", "Magnus", "Maximilian", "Freiherr", "Wernher von Braun", "Werner", "Werner von Braun", "head", "the scientist", "head scientist", "rocket scientist", "him", "man", and "himself" as the head scientist.
-
-The head scientist can be enraged.
-
-Rule for writing a paragraph about the head scientist:
-	if the head scientist is enraged:
-		say "[The head scientist] huffs about the room, scribbling on [interesting]chalkboards[/interesting], sparing you only the occasional angry glance.";
-	otherwise:
-		say "[The head scientist] moves smoothly through the room from one [interesting]chalkboard[/interesting] to another, making minor changes to complex [interesting]equations[/interesting].  He does not seem to notice you."
 
 The chalkboard is in the propulsion lab.  The description of the chalkboard is "A large, slate black, wheeled chalkboard covered in inscrutable [interesting]equations[/interesting]."
 The chalkboard is undescribed.  [Mentioned in the scenery, but not in the room.]
@@ -660,13 +646,41 @@ Instead of going to anywhere (called the destination):
 		now the chalkboard is in the destination;
 	continue the action.
 
+
+
+The cage is scenery in the propulsion lab.
+The cage is an openable, transparent, lockable, locked container in the propulsion lab.
+[TODO: key to the cage, ending by trampling?]
+
+The tapir is a stranger [animals are people, too, in Inform] in the cage.
+The real name of the tapir is "aardvark".
+Understand "aardvark", "aardvarks", "ardvark", and "ardvarks" as the tapir.
+[TODO: tapir actions every few turns.]
+
+
+
+In the propulsion lab is a stranger called the head scientist.
+The real name of the head scientist is "Dr. von Braun".
+The head scientist is male.
+
+[This guy has way too many names.  Give players a fair amount of latitude.]
+Understand "doctor", "dr", "dr von braun", "von braun", "braun", "doktor", "herr doktor", "Herr Doktor Wernher Magnus Maximilian Freiherr von Braun", "Wernher", "Magnus", "Maximilian", "Freiherr", "Wernher von Braun", "Werner", "Werner von Braun", "head", "the scientist", "head scientist", "rocket scientist", "him", "man", and "himself" as the head scientist.
+
+The head scientist can be enraged.
+
+Rule for writing a paragraph about the head scientist:
+	if the head scientist is enraged:
+		say "[The head scientist] huffs about the room, scribbling on [interesting]chalkboards[/interesting], sparing you only the occasional angry glance.";
+	otherwise:
+		say "[The head scientist] moves smoothly through the room from one [interesting]chalkboard[/interesting] to another, making minor changes to complex [interesting]equations[/interesting].  He does not seem to notice you."
+
 The description of the head scientist is "[The noun] is a man of average height, his hair graying at the sides, wearing a white lab coat over a dark gray suit and tie.[if the head scientist is enraged]  His anger toward [italic type]you specifically[roman type] is practically a physical presence of its own, hanging about his temples like a fog."
 
 Instead of talking to the head scientist:
 	if the head scientist is enraged:
 		say "You open your mouth to speak to [the noun], but he shoots you a rageful glare of such silent violence that you think better of it and shut your mouth again.";
 	otherwise:
-		say "Perhaps you could ask [the noun] about the equations, his work, the tapir, or himself."
+		say "Perhaps you could ask [the noun] about the equations, his work, the [tapir], or himself."
 
 Instead of quizzing the head scientist about name:
 	say "He stops what is doing and considers you as if noticing you for the first time.  'Herr Doktor Wernher Magnus Maximilian Freiherr von Braun, chief scientist of the NASA propulsion lab.'  Then, without making it a true question and without any apparent interest in the answer, adds, 'How do you do.'";
@@ -675,11 +689,15 @@ Instead of quizzing the head scientist about name:
 Instead of quizzing the head scientist about the head scientist:
 	try quizzing the head scientist about name.
 	
-Instead of quizzing the head scientist about the head scientist about tapir:
-	say "Ist no tapir.  Ist an aardvark, obviously.  What else would you find here at the National Agency of Space Aardvarks?"
+Instead of quizzing the head scientist about the tapir:
+	if the player's command includes "tapir":
+		say "'Ist no tapir', replies [the head scientist] cooly.  'Ist an [interesting]aardvark[/interesting], obviously.  What else would you find here at the National Agency of Space Aardvarks?'";
+		now the tapir is known;
+	otherwise:
+		say "[The head scientist] looks at you quizzically.  'What else would you find here at the National Agency of Space Aardvarks?'";
 
 Instead of quizzing the head scientist about NASA:
-	say "He considers thoughtfully before replying, 'It's a job. But at least here at the National Agency of Space Aardvarks, I work to bring about true emancipation of the aardvarks by returning them to their home in outer space.'  He looks up at the ceiling of the lab for a long moment.  You look up as well, but see nothing other than a white painted lab ceiling, about 40 feet high."
+	say "He considers thoughtfully before replying, 'It's a job.  But at least here at the National Agency of Space Aardvarks, I work to bring about true emancipation of the [interesting]aardvarks[/interesting] by returning them to their home in outer space.'  He looks up at the ceiling of the lab for a long moment.  You look up as well, but see nothing other than a white painted lab ceiling, about 40 feet high."
 
 Instead of quizzing the head scientist about rocket:
 	say "'Well,' he begins, looking quietly pleased with himself, 'My rockets are simply the best.  As you can plainly see, even enemies of the Reich were forced to acknowledge the greatness of my work.'  He turns to consider the [interesting]chalkboards[/interesting] behind him and adds dreamily, 'I have spent years perfecting this new one...'"
@@ -695,7 +713,7 @@ Instead of quizzing the head scientist about rocket-equations:
 	now the head scientist is enraged.
 
 Instead of quizzing the head scientist about Apollo:
-	say "Dee Apollo ist my greatest verk.  Finally I achieve my greatest glory in my career and achieve zee highest aims of NASA, the National Agency of Space Aardvarks: to deliver zee aardvark back into space.  Apollo 11 will deliver zee aardvarks to their true home.";
+	say "Apollo ist my greatest work.  Finally I achieve my greatest glory in my career and achieve the highest aims of NASA, the National Agency of Space Aardvarks: to deliver the [interesting]aardvark[/interesting] back into space.  Apollo 11 will deliver the [interesting]aardvarks[/interesting] to their true home.";
 
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
@@ -705,12 +723,13 @@ Instead of saying sorry while the player is in the propulsion lab:
 		say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
 		if a random chance of 9 in 10 succeeds:
 			say "You barely escape un-swatted.[line break]";
-			try going south;
+			now the player is in the hallway;
 		otherwise:
 			say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
 			show ending 3;
 	otherwise:
 		say "What is there to apologize for?"
+
 
 
 In the propulsion lab is a person called the other scientists.
@@ -729,8 +748,9 @@ Instead of quizzing the other scientists about the head scientist:
 	now the head scientist is known;
 	now the head scientist is not enraged;
 
-Instead of quizzing the other scientists about the aardvark:
-	say "The scientists throw each other sideways glances, then look to see if Dr. von Braun is watching.  Then one of them says under her breath, 'He's obsessed.  Nobody around here gets it.  He raves about the aardvarks all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives Dr. von Braun a look that is both mystified and compassionate."
+Instead of quizzing the other scientists about the tapir:
+	say "The scientists throw each other sideways glances, then look to see if [the head scientist] is watching.  Then one of them says under her breath, '[if the tapir is not known]It's an [interesting]aardvark[/interesting], actually.  [end if]He's obsessed.  Nobody around here gets it.  He raves about the [interesting]aardvarks[/interesting] all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives [the head scientist] a look that is both mystified and compassionate.";
+	now the tapir is known.
 
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
@@ -869,6 +889,9 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "";
+
+Instead of quizzing the head of personnel about the tapir:
+	say "[The head of personnel] looks confused.  'Who?'";
 
 Instead of saying sorry while the player is in the personnel department:
 	if the head of personnel is asleep:

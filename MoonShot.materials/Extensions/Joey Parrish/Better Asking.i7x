@@ -52,6 +52,9 @@ Check informing generally:
 
 
 Talking to is an action applying to one visible thing.  Understand "talk to [someone]" or "converse with [someone]" as talking to.
+Carry out talking to:
+	say "[The noun] doesn't look interested in talking."
+
 
 Talking to it about is an action applying to two things.  Understand "talk to [someone] about [anything]" as talking to it about.
 Check talking to it about:
