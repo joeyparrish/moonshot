@@ -9,7 +9,8 @@ Check quizzing it about:
 	say "[The noun] shrugs unhelpfully."
 
 [This adds the ability to say "ask about thingy" without specifying a specific person to ask.  It will ask the first person found in the room with you.]
-To decide which person is arbitrary-person:
+[NOTE: You _must_ use "object" here, not "person" or "thing", or else there is a runtime type check which fails on "decide on nothing".  The game still continues after this failed check, but it prints an error message to the player, even in release mode.]
+To decide which object is arbitrary-person:
 	let occupants be the list of people in the location;
 	remove yourself from occupants;
 	if occupants is empty:

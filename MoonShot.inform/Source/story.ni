@@ -1486,6 +1486,8 @@ Test nameplate with "test waiting / x nameplate / x desk / take nameplate / i / 
 
 Test checklist with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
+Test nobody with "test checklist / e / ask about nasa".
+
 Test tasks with "test checklist / ask about blueprints / ask about equations / ask about crew".
 
 Test blueprints with "test checklist / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
