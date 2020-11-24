@@ -42,6 +42,7 @@ Release along with the file "KBKinderWrite.woff2".
 Release along with the file "Icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
+Use American dialect.
 
 
 
@@ -181,7 +182,15 @@ Instead of quizzing someone (called person) about:
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
 
 [By default, only "sorry" triggers this action.]
-Understand "say sorry" as saying sorry.
+Understand "say sorry", "apologize", and "apologise" as saying sorry.
+[Some folks naturally want to apologize to the person specifically.]
+Saying sorry to is an action applying to one thing.
+Understand "say sorry to [someone]", "apologize to [someone]", and "apologise to [someone]" as saying sorry to.
+Instead of saying sorry:
+	say "What is there to apologize for?"
+Instead of saying sorry to a person:
+	say "What is there to apologize for?"
+
 
 [By default, we don't get to see what people are carrying.  This changes that.]
 After examining a person (called Bob):
@@ -280,11 +289,8 @@ Instead of taking the phone:
 	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the [phone] plugged back in.";
 	now the secretary is mad.
 
-Instead of saying sorry while the player is in the waiting room:
-	if the secretary is mad:
-		say "She doesn't look ready to forgive you.";
-	otherwise:
-		say "What is there to apologize for?"
+Instead of saying sorry while the player is in the waiting room and the secretary is mad:
+	say "She doesn't look ready to forgive you."
 
 The description of the secretary is "[if the secretary is mad]She glares at you and says 'Keep your eyes to yourself, you nut job.'[otherwise][The noun] is a youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed glasses.  She notices you looking and smiles."
 
@@ -530,12 +536,9 @@ Understand "cofee", "coffe", "cafe", and "cofe" as coffee.
 
 The description of the engineer is "[if the engineer is not sad]He is tall and thin, with slicked-back ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket protector and a [interesting]name badge[/interesting].  What a nerd![otherwise][The noun] is just about the saddest thing you've ever seen.  His hair is a mess, and he appears to have been wiping his tears on his tie."
 
-Instead of saying sorry while the player is in the engineering department:
-	if the engineer is sad:
-		say "He sniffs a little, then says 'Um, yeah, okay.  Apology accepted.'";
-		now the engineer is not sad;
-	otherwise:
-		say "What is there to apologize for?"
+Instead of saying sorry while the player is in the engineering department and the engineer is sad:
+	say "He sniffs a little, then says 'Um, yeah, okay.  Apology accepted.'";
+	now the engineer is not sad.
 
 Understand "ginger", "nerd", "man", "him", "himself", and "Rick" as the engineer.
 
@@ -872,17 +875,14 @@ Instead of quizzing the head scientist about Apollo:
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
 
-Instead of saying sorry while the player is in the propulsion lab:
-	if the head scientist is enraged:
-		say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
-		if a random chance of 9 in 10 succeeds:
-			say "You barely escape un-swatted.[line break]";
-			now the player is in the hallway;
-		otherwise:
-			say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-			show ending 3;
+Instead of saying sorry while the player is in the propulsion lab and the head scientist is enraged:
+	say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
+	if a random chance of 9 in 10 succeeds:
+		say "You barely escape un-swatted.[line break]";
+		now the player is in the hallway;
 	otherwise:
-		say "What is there to apologize for?"
+		say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+		show ending 3;
 
 
 
@@ -1047,12 +1047,9 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "";
 
-Instead of saying sorry while the player is in the personnel department:
-	if the head of personnel is asleep:
-		say "What is there to apologize for?";
-	otherwise:
-		say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
-		now the head of personnel is asleep;
+Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
+	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
+	now the head of personnel is asleep;
 
 Instead of quizzing the head of personnel about the crew:
 	if the personnel puzzle is not ready:
