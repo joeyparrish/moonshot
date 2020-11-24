@@ -1530,7 +1530,7 @@ Test files with "test checklist / e / s / take files / x file 1 / x file 2 / x f
 
 Test drawer with "test checklist / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
-Test day2 with "test blueprints / w / w / s / test crew / n / w / s / test equations / s / w / give checklist to director".
+Test day2 with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / take chalkboard / w / give checklist to director".
 
 Test glitter1 with "test waiting / ask about glitter".
 
