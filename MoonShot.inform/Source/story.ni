@@ -58,7 +58,7 @@ created-with-line is a Vorple style.
 hint is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
-personnel-file is a Vorple style.
+personnel-file-card is a Vorple style.
 nameplate-card is a Vorple style.
 
 This is the fancy room description heading rule:
@@ -968,12 +968,14 @@ Before listing exits:
 			say "In the open cabinet drawer, you can see [list of things in the drawer].[paragraph break]";
 	continue the action.
 
-personnel file 1 is a critical thing in the drawer.
-personnel file 2 is a critical thing in the drawer.
-personnel file 3 is a critical thing in the drawer.
-personnel file 4 is a critical thing in the drawer.
-personnel file 5 is a critical thing in the drawer.
-personnel file 6 is a critical thing in the drawer.
+[This mapping will allow us to enable the player to type both "choose Buzz Aldrin" and "choose file 1".]
+A personnel-file is a kind of thing.  A personnel-file has a person called the employee.
+personnel file 1 is a critical personnel-file in the drawer.
+personnel file 2 is a critical personnel-file in the drawer.
+personnel file 3 is a critical personnel-file in the drawer.
+personnel file 4 is a critical personnel-file in the drawer.
+personnel file 5 is a critical personnel-file in the drawer.
+personnel file 6 is a critical personnel-file in the drawer.
 
 The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
 
@@ -1126,7 +1128,8 @@ After going from the personnel department:
 
 
 
-The description of personnel file 1 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
+The employee of personnel file 1 is Buzz Aldrin.
+The description of personnel file 1 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
 
 Professional History:
 [line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering
@@ -1141,7 +1144,8 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of personnel file 2 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
+The employee of personnel file 2 is Neil Armstrong.
+The description of personnel file 2 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
 
 Professional History:
 [line break]   * Graduated Purdue University, 1955, BS in Aeronautical Engineering
@@ -1159,7 +1163,8 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of personnel file 3 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
+The employee of personnel file 3 is Michael Collins.
+The description of personnel file 3 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
 
 Professional History:
 [line break]   * Joined the Irish Republican Brotherhood at age 19
@@ -1174,7 +1179,8 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of personnel file 4 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
+The employee of personnel file 4 is Lisa Nowak.
+The description of personnel file 4 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
 
 Professional History:
 [line break]   * Graduated US Naval Academy, Annapolis, BS in aerospace engineering
@@ -1189,7 +1195,8 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of personnel file 5 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
+The employee of personnel file 5 is Ijon Tichy.
+The description of personnel file 5 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
 
 Professional History:
 [line break]   * Experienced space pilot
@@ -1205,7 +1212,8 @@ Psychological profile:
 [line break][end style][variable letter spacing]".
 
 
-The description of personnel file 6 is "[fixed letter spacing][personnel-file style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
+The employee of personnel file 6 is Clifford McBride.
+The description of personnel file 6 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
 
 Professional History:
 [line break]   * Undergrad degree from Purdue
@@ -1223,12 +1231,12 @@ Psychological profile:
 
 
 
-Choosing crew is an action applying to one thing.  Understand "choose [anyone]" as choosing crew.
+Choosing for crew is an action applying to one thing.  Understand "choose [anyone]" as choosing for crew.
 [NOTE: "anyone" should match people who are not present.  But we still need this rule to allow it:]
-Rule for reaching inside a room while choosing crew:
+Rule for reaching inside a room while choosing for crew:
 	allow access.  ["Reaching inside a room" means that person is in literally any other room.]
 
-Check choosing crew:
+Check choosing for crew:
 	if day one has ended:
 		say "It's much too late for that now.";
 	otherwise if the personnel puzzle is not ready:
@@ -1251,6 +1259,12 @@ Check choosing crew:
 		say "You add [the noun] to the crew list for Apollo 11.";
 		if choose-crew is checked:
 			say "That should do it!  There was only room for three."
+
+
+[Some players in testing wanted to "choose file 1".  This is reasonable, so we support it here.]
+Choosing crew by is an action applying to one thing.  Understand "choose [personnel-file]" as choosing crew by.
+Check choosing crew by personnel-file (called the particular-file):
+	try choosing for crew the employee of the particular-file.
 
 
 
