@@ -287,6 +287,10 @@ Instead of eating the houseplant:
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
 Understand "telephone" as the phone.
 
+Phone-number is a concept.  Understand "phone number" and "number" as phone-number.
+Instead of quizzing the secretary about phone-number:
+	say "[The secretary] blushes.  With a sly look, she says 'Klondike-five, thirteen thirty-seven.'"
+
 Instead of taking the phone:
 	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the [phone] plugged back in.";
 	now the secretary is mad.
