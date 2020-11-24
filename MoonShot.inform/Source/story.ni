@@ -1520,7 +1520,7 @@ Test plaque with "test checklist / e / x plaque".
 
 Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
 
-Test key with "test checklist / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / ask them about him / take key / n".
+Test key with "test checklist / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
 
 Test tapir with "test checklist / e / n / ask about tapir / ask about brizzleby / ask them about brizzleby / ask about rocket equations / ask about brizzleby / ask about nasa / ask about tapir / ask about brizzleby / ask about nasa".
 
