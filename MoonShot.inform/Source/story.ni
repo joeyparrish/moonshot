@@ -417,6 +417,7 @@ There is a checklist on the director's desk called checklist-1.
 The printed name of checklist-1 is "Apollo 11 checklist".
 The description of checklist-1 is "The checklist is [if checklist-1 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
+Understand "checklist" and "list" as checklist-1.
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
 
@@ -1312,6 +1313,7 @@ Checklist-2 is a checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
+Understand "checklist" and "list" as checklist-2.
 
 [Keep the player from leaving without the checklist.]
 Instead of going from the director's office during day two:
