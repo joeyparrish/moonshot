@@ -190,4 +190,7 @@
 
 img.unicorn {
   content: url(unicorn.jpg);
+  /* Center it. */
+  display: flex;
+  margin: 0 auto;
 }
