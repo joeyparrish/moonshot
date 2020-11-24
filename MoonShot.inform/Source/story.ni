@@ -671,6 +671,12 @@ Instead of going to anywhere (called the destination):
 		now the chalkboard is in the destination;
 	continue the action.
 
+Every turn when a random chance of 1 in 10 succeeds and the player is in the lab and the chalkboard is not critical:
+	say "[The head scientist] grumbles under his breath and erases half of the equations on one of the [interesting]mobile, wheeled chalkboards[/interesting], then starts furiously scribbling new ones."
+
+Every turn when the remainder after dividing the turn count by 5 is 0 and the player is in the lab and the chalkboard is not critical:
+	show hint "Look around the room for something you need for your checklist."
+
 
 
 The cage is scenery in the propulsion lab.
