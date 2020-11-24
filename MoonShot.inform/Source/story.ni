@@ -1609,37 +1609,37 @@ Test waiting with "z / z / z / z / z / n";
 
 Test nameplate with "test waiting / x nameplate / x desk / take nameplate / i / x nameplate / g / g / g / g / l / x desk / drop nameplate / l / x desk / put nameplate on desk / l / x desk / open nameplate / l / x toblerone / eat toblerone".
 
-Test checklist with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
+Test start-day1 with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
-Test nobody with "test checklist / e / ask about nasa".
+Test nobody with "test start-day1 / e / ask about nasa".
 
-Test tasks with "test checklist / ask about blueprints / ask about equations / ask about crew".
+Test tasks with "test start-day1 / ask about blueprints / ask about equations / ask about crew".
 
-Test blueprints with "test checklist / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
+Test blueprints with "test start-day1 / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
 
-Test coffee with "test checklist / e / e / x coffee pot / take pot / i / take coffee / i / put checklist in pot / i".
+Test coffee with "test start-day1 / e / e / x coffee pot / take pot / i / take coffee / i / put checklist in pot / i".
 
-Test plaque with "test checklist / e / x plaque".
+Test plaque with "test start-day1 / e / x plaque".
 
-Test equations with "test checklist / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
+Test equations with "test start-day1 / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
 
-Test key with "test checklist / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
+Test key with "test start-day1 / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
 
-Test tapir with "test checklist / e / n / ask about tapir / ask about brizzleby / ask them about brizzleby / ask about rocket equations / ask about brizzleby / ask about nasa / ask about tapir / ask about brizzleby / ask about nasa".
+Test tapir with "test start-day1 / e / n / ask about tapir / ask about brizzleby / ask them about brizzleby / ask about rocket equations / ask about brizzleby / ask about nasa / ask about tapir / ask about brizzleby / ask about nasa".
 
 Test aliens with "test key / x tapir / ask tapir about name / x cage / open cage / x cage / s / x tapir / ask about nasa / ask about apollo / ask about dr / ask about rocket equations / x checklist".
 
-Test others with "test checklist / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
+Test others with "test start-day1 / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
-Test shoe with "test checklist / e / n / ask about rocket equations / sorry / w".
+Test shoe with "test start-day1 / e / n / ask about rocket equations / sorry / w".
 
-Test crew with "test checklist / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
+Test crew with "test start-day1 / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
-Test wake with "test checklist / wake him / sorry / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
+Test wake with "test start-day1 / wake him / sorry / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
 
-Test files with "test checklist / e / s / take files / x file 1 / x file 2 / x file 3 / x file 4 / x file 5 / x file 6 / i".
+Test files with "test start-day1 / e / s / take files / x file 1 / x file 2 / x file 3 / x file 4 / x file 5 / x file 6 / i".
 
-Test drawer with "test checklist / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
+Test drawer with "test start-day1 / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
 Test day2 with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / take chalkboard / w / give checklist to director".
 
