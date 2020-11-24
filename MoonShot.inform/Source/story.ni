@@ -767,12 +767,14 @@ Instead of quizzing the tapir about the tapir:
 Instead of quizzing the tapir about equations:
 	try quizzing the tapir about rocket-equations.
 
-Alien equations is a critical thing.
-The description of alien equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations."
+Alien-equations is a critical thing.
+The description of alien-equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations."
+Understand "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
+
 
 Instead of quizzing the tapir about rocket-equations:
 	say "Brizzleby gives you a satisfied smile.  'I knew you were something special.  Yes, [']rocket equations['] are indeed a thing.  Here.  Take these.  They are the Galactic Federation's most advanced rocket equations.'  He hands you a small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.[paragraph break]";
-	now the player has alien equations;
+	now the player has alien-equations;
 	now get-equations is checked;
 	say "He glances at the ceiling for a long moment, then adds, 'It's time for me to get back to my people.  Thank you, noble intern, for freeing me.'  Before you can react, he licks your face, then quickly lopes down the hallway and vanishes from sight.";
 	now the tapir is in purgatory.
