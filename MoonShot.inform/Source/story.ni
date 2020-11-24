@@ -739,6 +739,13 @@ The brass key unlocks the cage.  The head scientist carries the brass key.
 The brass key can be noticed or unnoticed.  When day one begins, now the brass key is unnoticed.
 The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting]The [tapir-aardvark][/interesting] inside looks distressed.[end if]".
 
+The locking mechanism is scenery in the propulsion lab.
+Understand "lock" as the locking mechanism.
+
+The welder is scenery in the propulsion lab.  "You try to watch them working, but you don't have one of those protective helmets, so you quickly think better of it."
+
+The waste is scenery in the propulsion lab.  "Eww."  Understand "animal waste" as the waste.
+
 [This will say tapir or aardvark, but never Brizzleby.]
 To say tapir-aardvark:
 	if the tapir is known:
@@ -793,7 +800,7 @@ The tapir is a stranger [animals are people, too, in Inform] in the cage.
 The description of the tapir is "[The tapir] is a bit larger than your average [tapir-aardvark], with intelligent eyes, rabbit-like ears, strong front claws, and a flat, round nose that protrudes from its head.  [if the tapir is in the cage]It lays sadly on the bottom of [the cage], looking distinctly sad and uncomfortable.[otherwise]It stands upright on its rear legs, thought it doesn't look like it has much practice.[end if]".
 
 The real name of the tapir is "aardvark".
-Understand "aardvark", "aardvarks", "ardvark", and "ardvarks" as the tapir.
+Understand "aardvark", "aardvarks", "ardvark", "ardvarks", and "animal" as the tapir.
 
 Every turn when a random chance of 3 in 10 succeeds and the player is in the lab and the tapir is in the cage:
 	say "[one of]The [tapir-aardvark] makes a snuffling sound.[or]A long, sad groan comes from [the cage].[or]Something in here smells distinctly like a [tapir-aardvark] fart.  (You definitely know what those are like.)[purely at random]".
