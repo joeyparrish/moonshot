@@ -492,6 +492,15 @@ Instead of taking checklist-1:
 		say "'Not so fast!' says [the director].  'We need to talk first.'";
 		show hint "You can 'talk to director' for suggestions on topics.";
 
+Reporting to is an action applying to one thing.  Understand "report to [someone]" as reporting to.
+Check reporting to someone:
+	if the player has checklist-1:
+		try giving checklist-1 to the noun;
+	otherwise if the player has checklist-2:
+		try giving checklist-2 to the noun;
+	otherwise:
+		say "You don't have anything to report."
+
 Instead of giving a checklist (called proof of your good work) to the director:
 	if proof of your good work is not complete:
 		say "'Whoa,' says [the director], 'what is this?  You've still got work to do, kid!  Get back out there, and don't come back until it's all done!'";
