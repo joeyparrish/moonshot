@@ -1524,6 +1524,45 @@ the photographer	X		X		F		X		X		T
 ]
 
 
+Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
+Understand "food" and "food preferences" as food-preferences.
+
+
+A person can be fed.  A person is usually not fed.
+Before quizzing a fed person about food-preferences:
+	say "'Oh,' says [the noun], 'you already gave me my lunch.  Thanks!'";
+	stop the action.
+
+Instead of quizzing the secretary about food-preferences:
+	say "'Oh, well, I can't eat any meat or fish,' she says.  'You see, I'm what you call an [']herbivore['].'"
+
+Instead of quizzing the director about food-preferences:
+	say "'I'm glad you asked,' he begins.  'I can't have fish, because I simply don't like the smell.  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat anything Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
+
+Instead of quizzing the head of personnel about food-preferences:
+	say "'I'm lactose-intolerant, and I'm allergic to nuts.  Now get lost!'"
+
+Instead of quizzing Buzz Aldrin about food-preferences:
+	say "'I've gotta have meat,' he begins, 'and nuts.  In every meal.  And no dairy or wheat!  You think our ancestors ate all this dairy and wheat all the time?  All this processed garbage?!  No way!'  His eyes are becoming increasingly wide.  'Our ancestors foraged for nuts, and they found meat, just lying around or whatever, no biggy, and they ate that!'  His breath is becoming labored, and it takes a visible exertion of effort for him to calm himself."
+
+Instead of quizzing Neil Armstrong about food-preferences:
+	say "'I can't have any gluten or nuts.  I'm not allergic to either one, I just... [bold type][italic type]hate[roman type] nuts and glutens.'  The seasoned astronaut looks haunted.  'Sticky, disgusting glutens, clinging to the body.  Dirty.  You can feel it, filling your body from the bottom up.  The more wheat a human being eats, the heavier his toes get.  Look it up!'"
+
+Instead of quizzing Michael Collins about food-preferences:
+	say "'Whatever's got dairy and wheat in it is fine.  There's nothing good on God's Green Earth that hasn't got good, preferably Irish, dairy and wheat.'  He gets a dreamy look talking about his homeland.  After a moment, he adds, 'Have you got any porridge?'"
+
+Instead of quizzing Lisa Nowak about food-preferences:
+	say "'Oh, what day is it?' she asks. '... Oh, right, it's Friday, isn't it?  It'll have to be something with fish, then.  Oh, and no nuts!'"
+
+Instead of quizzing Ijon Tichy about food-preferences:
+	say "He goes on at some length in a slavic-sounding language.  After realizing you haven't understood, he patiently draws a picture of a fish in the air with his finger, then raises his eyebrows meaningfully at you."
+
+Instead of quizzing Clifford McBride about food-preferences:
+	say "He give you a look filled with a calm intensity that scares you to your core.  'This is a one-way voyage.  I never cared about you, or any of your small ideas.  For 30 years...' he licks his lips, 'I've been breathing this air, eating this food... enduring these hardships... but I found my destiny.'  After a long moment of terrifying silence, he adds, 'No meat, no fish.  Nothing I couldn't take with me.'"
+
+[TODO: create photographer, ask about food prefs]
+
+
 
 The toblerone is a candy inside the triangular nameplate.
 Understand "candy" and "box" and "candy box" as the toblerone.
@@ -1574,22 +1613,6 @@ The description of a tuna sandwich is "A tuna sandwich on wheat bread.  The tuna
 The description of salad is "A basic salad, with lettuce, tomato, and shredded cheese.  And it's kosher!"
 The description of almond chicken is "Chicken, breaded in a ground-almond batter, fried, and served with almonds, onions, and rice.  Certified Kosher!"
 Understand "sandwhich", "tuna sandwhich", "tuna salad", "tuna salad sandwich", and "tuna salad sandwhich" as tuna sandwich.
-
-
-
-Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
-Understand "food" and "food preferences" as food-preferences.
-
-
-
-Before quizzing a fed person about food-preferences:
-	say "'Oh,' says [the noun], 'you already gave me my lunch.  Thanks!'";
-	stop the action.
-
-[TODO: ask everyone about their food preferences.]
-Instead of quizzing the director about food-preferences:
-	say "'I'm glad you asked,' he begins.  'I can't have fish, because I simply don't like the smell.  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat anything Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'";
-
 
 
 
@@ -1647,7 +1670,6 @@ To decide if (the recipient - person) will eat (the snack - food):
 	otherwise:
 		decide yes.
 
-A person can be fed.  A person is usually not fed.
 The fed count is initially 0.
 Check giving a food (called the snack) to someone (called the recipient) during day two:
 	if the recipient is yourself:
