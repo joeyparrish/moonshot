@@ -1730,10 +1730,6 @@ Check teleporting it to:
 
 
 
-[TODO: Consider Vorple Multimedia extension for background audio, with "music on" and "music off" commands to let the player control it.]
-
-
-
 [Test commands for speedy testing:]
 
 Test stand with "sit / stand / stand / z / z / n".
