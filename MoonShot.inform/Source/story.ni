@@ -396,7 +396,7 @@ Instead of examining the triangular nameplate:
 		center "Director";
 	now the director is known;
 	if the player has the triangular nameplate:
-		if a random chance of 1 in 10 succeeds:
+		if a random chance of 3 in 10 succeeds:
 			say "The nameplate rattles a bit as you turn it."
 
 Rule for printing the name of the triangular nameplate:
@@ -698,7 +698,7 @@ Instead of taking the brass key:
 		continue the action;
 	otherwise if the head scientist is enraged:
 		say "You try to sneak over and reach into [the head scientist]'s coat pocket, but at your first step, his head snaps around and he stares you down until you take a step back again.";
-	otherwise if a random chance of 3 in 10 succeeds:
+	otherwise if a random chance of 5 in 10 succeeds:
 		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You manage to lift the brass key out of his pocket without him noticing!";
 		now the player has the brass key;
 	otherwise:
