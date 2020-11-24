@@ -96,6 +96,9 @@ To pause:
 		wait for the SPACE key;
 	say line break;
 
+[One play tester kept using "exa" instead of "x" or "examine" because that alias works in some common MUD games.  Support it here.]
+Understand "exa [thing]" as examining.
+
 
 
 [Intro]
