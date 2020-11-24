@@ -699,10 +699,10 @@ Instead of taking the brass key:
 After opening the cage while the tapir is in the cage:
 	if the tapir is not revealed:
 		if a random chance of 1 in 10 succeeds:
-			say "As soon as the cage door opens, [the tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
+			say "As soon as the cage door opens, the [tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
 			show ending 5;
 		otherwise:
-			say "As soon as the cage door opens, [the tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
+			say "As soon as the cage door opens, the [tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
 			say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'";
 			now the head scientist is enraged;
 			now the tapir is in purgatory;  [never to be seen again]
