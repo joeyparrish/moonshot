@@ -1052,7 +1052,7 @@ Instead of saying sorry while the player is in the personnel department:
 
 Instead of quizzing the head of personnel about the crew:
 	if the personnel puzzle is not ready:
-		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the [interesting]filing cabinet[/interesting] and produces a set of six [interesting]files[/interesting] for you.  'Here you go,' he says, handing you.  'Anything else?'";
+		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the [interesting]filing cabinet[/interesting] and produces a set of six [interesting]files[/interesting] for you.  'Here you go,' he says, handing you the files.  'Anything else?'";
 	otherwise:
 		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.  Just read the [interesting]files[/interesting].  Anything else?'";
 	if the personnel puzzle is not ready:
