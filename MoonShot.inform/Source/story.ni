@@ -182,10 +182,10 @@ Instead of quizzing someone (called person) about:
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
 
 [By default, only "sorry" triggers this action.]
-Understand "say sorry", "apologize", and "apologise" as saying sorry.
+Understand "say sorry", "apologize", "apologise", and "console" as saying sorry.
 [Some folks naturally want to apologize to the person specifically.]
 Saying sorry to is an action applying to one thing.
-Understand "say sorry to [someone]", "apologize to [someone]", and "apologise to [someone]" as saying sorry to.
+Understand "say sorry to [someone]", "apologize to [someone]", "apologise to [someone]", and "console [someone]" as saying sorry to.
 Instead of saying sorry:
 	say "What is there to apologize for?"
 Instead of saying sorry to a person:
