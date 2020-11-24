@@ -183,6 +183,11 @@
   background-color: aquamarine;
 }
 
+/* Don't highlight within the checklist. */
+.checklist-contents .interesting-highlight {
+  background-color: transparent;
+}
+
 img.unicorn {
   content: url(unicorn.jpg);
 }
