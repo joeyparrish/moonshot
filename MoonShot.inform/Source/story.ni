@@ -680,6 +680,10 @@ After examining the head scientist:
 	now the brass key is noticed;
 	continue the action.
 
+Understand "steal [something]" as taking.
+Understand "steal [something] from [someone]" as removing it from.
+Instead of removing the brass key from the scientist:
+	try taking the brass key.
 Instead of taking the brass key:
 	if the brass key is unnoticed:
 		say "You can't see any such thing.";
