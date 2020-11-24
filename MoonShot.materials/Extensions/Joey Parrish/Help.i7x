@@ -34,9 +34,24 @@ Carry out helping:
 	say "[roman type][line break]";
 	say "There are many other things you can do, so just try things out and see.  You can also visit ";
 	place a link to web site "http://www.microheaven.com/ifguide/step3.html";
-	say " for more info.";
+	say " for general information on playing interactive fiction.";
+	say line break;
+	say "Finally, we provide a quick reference for verbs.  Just type 'verbs' to see it.";
 	say line break;
 	say "Enjoy!";
+	say end style.
+
+Showing verb reference is an action out of world applying to nothing.  Understand "verb" and "verbs" as showing verb reference.
+
+Carry out showing verb reference:
+	say help-card style;
+	say "Here is a short, alphabetical list of useful verbs in this game.  Others may also work, so feel free to try things out.  But you can use this list if you get stuck.";
+	say line break;
+	say "[italic type]     apologize, ask about... / ask so-and-so about..., drink, drop, eat, enter, examine (x), give, inventory (i), look (l) / look at..., open, take, talk / talk to..., wait (z), wake so-and-so[roman type][line break]";
+	say line break;
+	say "You can also use the following 'out-of-world' commands to manipulate the game outside of controlling your character.";
+	say line break;
+	say "[italic type]     brief, easy mode, hard mode, help, medium mode, options, restore, save, verbose, verbs[roman type][line break]";
 	say end style.
 
 Help ends here.

@@ -252,6 +252,8 @@ Before reading a command while the turn count is 1:
 	if intro hints shown is false:
 		show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
 		show hint "This game comes with a few options.  You can type 'options' to find out about them.";
+		show hint "You can type 'verbs' to get a very brief reference of useful verbs.";
+		show hint "You can talk to everyone.  Try 'talk to so-and-so' for suggestions on topics.";
 		now intro hints shown is true;
 
 
