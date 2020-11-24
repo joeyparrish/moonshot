@@ -331,6 +331,10 @@ At the time when director yells-1:
 	say "A booming voice comes from the director's office: 'Donna!  Where the hell is that kid?  They're late!'[paragraph break][The secretary] looks embarrassed and says quietly, 'You'd better go on in.  He [italic type]hates[roman type] tardiness.'";
 	now the director is ready.
 
+[Give periodic reminders to get into the director's office if the player misses the first yell.]
+Every turn when the remainder after dividing the turn count by 5 is 0 and the director is ready and the director is not visited during day one:
+	director yells-1 in 0 turns from now.
+
 Instead of quizzing the secretary about the director:
 	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely on top of every aspect of this project.  I don't know how he does it!'";
 	now the director is known.
@@ -365,6 +369,11 @@ Understand "director", "dirk", "mr furtwangler", "mister furtwangler", "furtwang
 The director can be agitated or relaxed.  When day one begins, now the director is agitated.
 
 The director can be ready.  When day one begins, now the director is not ready.
+The director can be visited.  When day one begins, now the director is not visited.
+
+After going to the director's office:
+	now the director is visited;
+	continue the action.
 
 The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, as well as several bobblehead dolls.[if the triangular nameplate is on the director's desk]  On the desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
 The director's desk is an enterable supporter.  [You can put things on it or sit on it.]
@@ -1272,6 +1281,7 @@ When day two begins:
 	now the chalkboard is not critical;  [So you aren't traveling with it anymore]
 	now checklist-2 is on the director's desk;
 	now the director is not ready;
+	now the director is not visited;
 	now the director is not relaxed;
 	now the secretary is not mad;
 	now the player is in the waiting room;
@@ -1286,6 +1296,10 @@ When day two begins:
 At the time when director yells-2:
 	say "A booming voice comes from the director's office: 'Donna!  Is that damned kid late again?!  Why did we even hire that punk?'[paragraph break][The secretary] shrugs at you and gestures toward [the director]'s office door.";
 	now the director is ready.
+
+[Give periodic reminders to get into the director's office if the player misses the first yell.]
+Every turn when the remainder after dividing the turn count by 5 is 0 and the director is ready and the director is not visited during day two:
+	director yells-2 in 0 turns from now.
 
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
