@@ -1032,15 +1032,17 @@ Understand "files" as the personnel files.
 Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
 	try waking the head of personnel.
 
-[TODO: talk to Franklin about NASA]
+[TODO: talk to Franklin about NASA
 Instead of quizzing the head of personnel about NASA:
 	say "";
+]
 
-[TODO: talk to Franklin about Apollo]
+[TODO: talk to Franklin about Apollo
 Instead of quizzing the head of personnel about Apollo:
 	say "";
+]
 
-[TODO: I bet Franklin would have opinions about every single character.]
+[TODO: I bet Franklin would have opinions about every single character.
 Instead of quizzing the head of personnel about the secretary:
 	say "";
 
@@ -1073,6 +1075,7 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "";
+]
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
