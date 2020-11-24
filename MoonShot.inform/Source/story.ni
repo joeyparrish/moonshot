@@ -40,6 +40,7 @@ Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
 Release along with the file "Icon.png".
+Release along with the file "unicorn.jpg".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
 Use American dialect.
@@ -536,6 +537,27 @@ Instead of examining the plaque:
 
 The engineering department is east of the hallway.  "It's filled with grey upholstered cubicles and smells like pencil shavings and burned coffee.  At the end of the room is a large whiteboard, at the top of which is written APOLLO 11.  Underneath the heading are some inscrutable diagrams, and in the bottom right corner, someone has drawn a unicorn."
 The printed name of the engineering department is "NASA Engineering Department".
+
+Unicorn is scenery in the engineering department.
+Instead of examining the unicorn:
+	if Vorple is supported:
+		place an "img" element called "unicorn";
+	otherwise:
+		[Many thanks to https://www.asciiart.eu/mythology/unicorns]
+		[The escaping ruins the effect in the source code.  :-( ]
+		say fixed letter spacing;
+		say "                    /[line break]";
+		say "               ,.. /[line break]";
+		say "             ,[']   ['];[line break]";
+		say "  ,,.__    _,['] /['];  .[line break]";
+		say " :['],[']  ~~~~    [']. [']~[line break]";
+		say ":['] (   )         )::,[line break]";
+		say "[']. [']. .=----=..-~  .;['][line break]";
+		say " [']  ;[']  ::   [']:.  ['][quotation mark][line break]";
+		say "   (:   [']:    ;)[line break]";
+		say "    \\   ['][quotation mark]  ./[line break]";
+		say "     ['][quotation mark]      ['][quotation mark][line break]";
+		say variable letter spacing.
 
 In the engineering department is a stranger called the engineer.  The real name of the engineer is "Rick".  The engineer can be sad.  When day one begins, now the engineer is not sad.  The engineer is male.
 

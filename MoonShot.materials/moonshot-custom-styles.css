@@ -182,3 +182,7 @@
 .interesting-highlight {
   background-color: aquamarine;
 }
+
+img.unicorn {
+  content: url(unicorn.jpg);
+}
