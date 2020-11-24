@@ -77,7 +77,7 @@ To show ending (N - number):
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 6 after [turn count] turns!";
+	say "You have discovered ending #[N] of 7 after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -1404,7 +1404,7 @@ Every turn when the remainder after dividing the turn count by 5 is 0 and the di
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
 
-Checklist-2 is a checklist.
+Checklist-2 is a critical checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
@@ -1455,15 +1455,20 @@ Instead of quizzing the director about Apollo during day two:
 [TODO: other transitions to day 2
  - new conversation topics with dirk
  - checklist-2 items, sub-items
+ - checklist-2 becoming ready
 ]
 
 
+Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
+The items of checklist-2 are {get-lunch}.
 
-[For day two, we lock the doors to these rooms.]
-Instead of going to the propulsion lab during day two:
+
+
+[Starting on day two, we lock the doors to these rooms.]
+Instead of going to the propulsion lab while day one has ended:
 	say "The door to the lab appears to be locked.  There is a sign on it which says 'closed for remodeling'."
 
-Instead of going to the engineering department during day two:
+Instead of going to the engineering department while day one has ended:
 	say "The door to the engineering department appears to be locked.  There is a sign on it which says 'deserted'.  (You were [italic type]sure[roman type] they were never going to do that...)[line break]".
 
 
@@ -1487,8 +1492,10 @@ Instead of going to the basement during day one:
 
 
 
-A truth-table-value is a kind of value.  The truth-table-values are T, F, and X.
-[T = True, F = False, X = Don't Care.  In the context of food, T is a thing a person _must_ have, F is a thing a person _must not_ have, and X is a thing which does not matter to this person.]
+A truth-table-value is a kind of value.  The truth-table-values are T, F, X, and Z.
+[T = True, F = False, X = Don't Care.  In the context of food, T is a thing a person _must_ have, F is a thing a person _must not_ have, and X is a thing which does not matter to this person.  Z is unused in the tables, but is the opposite of "don't care" for the purposes of generic processing of food properties.]
+A truth-table-value has a truth-table-value called antonym.  ["Opposite" was taken already by built-ins.]
+The antonym of T is F.  The antonym of F is T.  The antonym of X is Z.
 
 Food is a kind of edible thing.
 Kinds of food are defined by the Table of Ingredients.
@@ -1562,6 +1569,112 @@ After eating a food:
 
 
 
+The description of a BLT is "A bacon, lettuce, and tomato sandwich on wheat bread.  This one has no mayo."
+The description of a tuna sandwich is "A tuna sandwich on wheat bread.  The tuna is mixed with mayo, celery, and onion, and includes some percentage non-Kosher dolphin meat."
+The description of salad is "A basic salad, with lettuce, tomato, and shredded cheese.  And it's kosher!"
+The description of almond chicken is "Chicken, breaded in a ground-almond batter, fried, and served with almonds, onions, and rice.  Certified Kosher!"
+Understand "sandwhich", "tuna sandwhich", "tuna salad", "tuna salad sandwich", and "tuna salad sandwhich" as tuna sandwich.
+
+
+
+Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
+Understand "food" and "food preferences" as food-preferences.
+
+
+
+Before quizzing a fed person about food-preferences:
+	say "'Oh,' says [the noun], 'you already gave me my lunch.  Thanks!'";
+	stop the action.
+
+[TODO: ask everyone about their food preferences.]
+Instead of quizzing the director about food-preferences:
+	say "'I'm glad you asked,' he begins.  'I can't have fish, because I simply don't like the smell.  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat anything Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'";
+
+
+
+
+[The player should be able to "take food" or "take all food".  Same for "drop" or "examine".  So let's make that work.]
+Food-preferences is everywhere.
+Instead of taking food-preferences:
+	repeat with F running through the list of visible food not carried by the player:
+		say "[F]: Taken.";
+		try silently taking F.
+
+Instead of dropping food-preferences:
+	repeat with F running through the list of food carried by the player:
+		say "[F]: Dropped.";
+		try silently dropping F.
+
+Instead of examining food-preferences:
+	let L be the list of visible food;
+	if L is empty:
+		say "You can't see any such thing.";
+	otherwise if the number of entries in L is 1:
+		try examining entry 1 of L;
+	otherwise:
+		say "Which food would you like to examine?  ([L])[line break]".
+
+
+
+[When I defined the tables above, I thought I would get to do this with less spaghetti.  But although I can iterate through properties from a list, I couldn't figure out how to use that property variable to get access to a property value from a food.]
+
+To decide if (the recipient - person) will eat (the snack - food):
+	choose the row with person of the recipient from Table of Dietary Restrictions;
+	let M1 be the has-meat of the snack;
+	let M2 be the vs-meat entry;
+	let F1 be the has-fish of the snack;
+	let F2 be the vs-fish entry;
+	let D1 be the has-dairy of the snack;
+	let D2 be the vs-dairy entry;
+	let N1 be the has-nuts of the snack;
+	let N2 be the vs-nuts entry;
+	let W1 be the has-wheat of the snack;
+	let W2 be the vs-wheat entry;
+	let K1 be the is-kosher of the snack;
+	let K2 be the vs-kosher entry;
+	if M1 is the antonym of M2:
+		decide no;
+	otherwise if F1 is the antonym of F2:
+		decide no;
+	otherwise if D1 is the antonym of D2:
+		decide no;
+	otherwise if N1 is the antonym of N2:
+		decide no;
+	otherwise if W1 is the antonym of W2:
+		decide no;
+	otherwise if K1 is the antonym of K2:
+		decide no;
+	otherwise:
+		decide yes.
+
+A person can be fed.  A person is usually not fed.
+The fed count is initially 0.
+Check giving a food (called the snack) to someone (called the recipient) during day two:
+	if the recipient is yourself:
+		[This condition avoids a runtime exception looking up in the table of dietary restrictions.]
+		say "Do you really think they would feed the intern?";
+	otherwise if the recipient is fed:
+		say "'No, thanks,' says [the recipient].  'I've already got my lunch.'";
+	otherwise if the recipient will eat the snack:
+		say "[The recipient] takes [the snack].  [one of]'Thanks, kid!'[or]'Oh, my favorite!'[or]'That looks great!'[purely at random]";
+		now the snack is nowhere;
+		now the recipient is fed;
+		increase the fed count by 1;
+		if the fed count is 7:
+			say "That seems to be the last of the lunch deliveries!";
+			now get-lunch is checked;
+	otherwise:
+		if a random chance of 1 in 3 succeeds:
+			say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
+			say "NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for gross craft-services negligence, and Operation Glitter fails miserably.  NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Not only have you failed your country, but you are banned by the International Alliance of Theatrical Stage Employees and you never work in Hollywood again.";
+			show ending 6;
+		otherwise:
+			say "[The recipient] looks at [the snack] and says 'No, I can't eat that.  Were you even listening?'";
+	stop the action.
+
+
+
+
 [---------- DAY 3 ----------]
 
 [TODO: day three (epilogue)]
@@ -1577,7 +1690,7 @@ To maybe end the game:
 	say ending-card style;
 	say "Well, folks, that's all for now!  Thank you for trying out this work in progress.";
 	say end style;
-	show ending 6;
+	show ending 7;
 
 Section 3 - WIP testing mode - Not for release
 
