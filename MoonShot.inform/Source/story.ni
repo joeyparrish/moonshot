@@ -637,7 +637,7 @@ Understand "chalk board" and "board" as the chalkboard.
 Equations and rocket-equations are parts of the chalkboard.
 [To allow them to be examined while you're in any room with the chalkboard.]
 Instead of examining equations:
-	say "You can't make heads or tails of them.";
+	say "You can't make heads or tails of them, but the [interesting]wheeled chalkboards[/interesting] are covered in them.";
 Instead of examining rocket-equations:
 	try examining equations.
 
