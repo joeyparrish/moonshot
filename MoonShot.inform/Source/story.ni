@@ -172,8 +172,8 @@ Understand "candidates", "crew candidates", "choosing the crew", "astro nots", a
 [We'd like Inform to understand "astronauts" as "crew", but instead, it asks the player which astronaut they mean.  This pre-emptive manipulation of the command text is the only workaround I can find. -JCP]
 After reading a command:
 	let N be "[the player's command]";
-		replace the regular expression "\bastronauts\b" in N with "crew";
-		change the text of the player's command to N.
+	replace the regular expression "\bastronauts\b" in N with "crew";
+	change the text of the player's command to N.
 
 Equations is a concept.
 Rocket-equations is a concept.
@@ -919,8 +919,8 @@ The description of the other scientists is "They scurry around busily in white l
 [NOTE: Something really odd is happening, and the only people who understand Inform in enough detail to debug this are Graham Nelson and gray aliens.  For whatever reason, "other scientists", which is the _EXACT NAME_ of the character, resolves to "the head scientist", which is _MADDENING_.  This is a hacky workaround, in which we just edit the user's commands as they come in and replace the thing that _should_ work with an explicit alias that _does_ work.]
 After reading a command:
 	let N be "[the player's command]";
-		replace the regular expression "\bother scientists?\b" in N with "the others";
-		change the text of the player's command to N.
+	replace the regular expression "\bother scientists?\b" in N with "the others";
+	change the text of the player's command to N.
 
 Instead of quizzing the other scientists about the head scientist:
 	say "The other scientists glance warily in the direction of [the head scientist], who [if the head scientist is enraged]glares at them with fire in his eyes[otherwise]looks back with calm surety[end if].  In unison, the scientists chant, 'Dr. von Braun is the best boss a scientist could ask for.  His work in the field is unparalleled, and we are lucky to be in his lab.'  [The head scientist] looks pleased about this, and turns back to his work at the [interesting]chalkboards[/interesting].";
