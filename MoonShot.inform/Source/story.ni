@@ -164,7 +164,7 @@ Understand "rocket", "Saturn", "Saturn V", "Saturn V rocket", and "rockets" as t
 Work is a concept.
 
 The crew is a concept.
-Understand "candidates", "crew candidates", and "choosing the crew" as the crew.
+Understand "candidates", "crew candidates", "choosing the crew", "astro nots", and "astronots" as the crew.
 [We'd like Inform to understand "astronauts" as "crew", but instead, it asks the player which astronaut they mean.  This pre-emptive manipulation of the command text is the only workaround I can find. -JCP]
 After reading a command:
 	let N be "[the player's command]";
