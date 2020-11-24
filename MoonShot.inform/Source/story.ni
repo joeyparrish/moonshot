@@ -538,7 +538,7 @@ Instead of examining the plaque:
 The engineering department is east of the hallway.  "It's filled with grey upholstered cubicles and smells like pencil shavings and burned coffee.  At the end of the room is a large whiteboard, at the top of which is written APOLLO 11.  Underneath the heading are some inscrutable diagrams, and in the bottom right corner, someone has drawn a unicorn."
 The printed name of the engineering department is "NASA Engineering Department".
 
-Unicorn is scenery in the engineering department.
+The unicorn is scenery in the engineering department.
 Instead of examining the unicorn:
 	if Vorple is supported:
 		place an "img" element called "unicorn";
@@ -558,6 +558,26 @@ Instead of examining the unicorn:
 		say "    \\   ['][quotation mark]  ./[line break]";
 		say "     ['][quotation mark]      ['][quotation mark][line break]";
 		say variable letter spacing.
+
+The diagram is scenery in the engineering department.
+Understand "diagrams" as the diagram.
+Instead of examining the diagram:
+	if Vorple is supported:
+		place a link to web site "https://xkcd.com/730/" reading "You can't make any sense of it.";
+		say line break;
+	otherwise:
+		say "You can't make any sense of it."
+
+The cubicles are scenery in the engineering department.  "These are standard cubicles for standard engineers.  They are precisely measured, in imperial units.  America!"
+
+The whiteboard is scenery in the engineering department.  "At the top of the whiteboard, someone has written 'APOLLO 11'.  Underneath the heading are some inscrutable [interesting]diagrams[/interesting], and in the bottom right corner, someone has drawn a [interesting]unicorn[/interesting]."
+
+[These things are not truly scenery, but they will never move, so this is fine.  It gets annoying to make actual clothing for everyone and have it described as part of their inventory when you look at them.  Just by making them exist, though, examining them will at least get you "you see nothing special about ..."]
+The tie is scenery in the engineering department.
+The shirt is scenery in the engineering department.
+The pocket protector is scenery in the engineering department.
+
+
 
 In the engineering department is a stranger called the engineer.  The real name of the engineer is "Rick".  The engineer can be sad.  When day one begins, now the engineer is not sad.  The engineer is male.
 
