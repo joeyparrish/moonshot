@@ -404,6 +404,7 @@ After putting the triangular nameplate on the director's desk:
 	continue the action.
 
 The wooden armchair is a chair in the director's office.
+Understand "chair" as the wooden armchair.  [Duh.]
 The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
 
 There is a checklist on the director's desk called checklist-1.
