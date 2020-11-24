@@ -394,6 +394,11 @@ After going to the director's office:
 The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, as well as several bobblehead dolls.[if the triangular nameplate is on the director's desk]  On the desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
 The director's desk is an enterable supporter.  [You can put things on it or sit on it.]
 
+The gadgets are scenery in the director's office.
+The tracks are scenery in the director's office.
+The balls are scenery in the director's office.
+The bobblehead dolls are scenery in the director's office.
+
 The triangular nameplate is an openable, closed, undescribed thing on the director's desk.
 Instead of examining the triangular nameplate:
 	say "A small, wooden, triangular prism with an engraved metal plate attached that reads:[line break]";
