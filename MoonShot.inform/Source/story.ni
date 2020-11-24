@@ -429,7 +429,7 @@ Instead of taking the internship:
 	say "(You've already been hired.)"
 
 Instead of quizzing the director about the internship:
-	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the [interesting]checklist[/interesting] on his desk.  'Get started, kid!'";
+	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the [interesting]checklist[/interesting][if checklist-1 is on the director's desk] on his desk[end if].  'Get started, kid!'";
 	now checklist-1 is ready.
 
 Instead of quizzing the director about NASA:
