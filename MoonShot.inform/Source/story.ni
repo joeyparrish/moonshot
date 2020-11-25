@@ -1501,7 +1501,10 @@ Instead of quizzing the director about blueprints during day two:
 	say "[The director] shakes his head.  'No, no, we're done with that.  We gave those to the set designer, but they took a few liberties in the end.  I'm sure it'll look fine on the television.  Those folks are professionals.'"
 
 Instead of quizzing the director about rocket-equations during day two:
-	say "'Who needs [']em?  Heh heh.  Those eggheads were just dead weight.'  He wipes his eyes.  'The only numbers I care about now are the Nielsens!'"
+	if the player has alien-equations:
+		say "[The director] looks haunted.  '... What were those?'  He shakes his head.  'No time for that.  We can't afford to get distracted now.'";
+	otherwise:
+		say "'Who needs [']em?  Heh heh.  Those eggheads were just dead weight.'  He wipes his eyes.  'The only numbers I care about now are the Nielsens!'"
 
 
 
