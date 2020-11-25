@@ -863,6 +863,8 @@ Instead of quizzing the tapir about equations:
 Alien-equations is a critical thing.
 The description of alien-equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations."
 Understand "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
+The printed name of alien-equations is "alien equations".
+Understand "paper" as alien-equations.
 
 
 Instead of quizzing the tapir about rocket-equations:
