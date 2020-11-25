@@ -322,6 +322,8 @@ Instead of saying sorry while the player is in the waiting room and the secretar
 
 The description of the secretary is "[if the secretary is mad]She glares at you and says 'Keep your eyes to yourself, you nut job.'[otherwise][The noun] is a youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed glasses.  She notices you looking and smiles."
 
+The secretary wears a beehive haircut and horn-rimmed glasses.
+
 Instead of talking to the secretary:
 	say "Perhaps you could ask [the noun] about the weather, NASA, the Apollo 11 project, or her name."
 
