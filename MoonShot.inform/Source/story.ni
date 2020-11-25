@@ -1599,7 +1599,7 @@ Instead of quizzing the secretary about food-preferences:
 Instead of quizzing the director about food-preferences:
 	if lunch is not day-two-discussed:
 		try quizzing the director about lunch;
-	say "'Now I'm glad you asked about food,' he begins.  'I can't have fish, because I simply don't like the smell.  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat anything Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
+	say "'Now I'm glad you asked about food,' he begins.  'I can't have fish, because I simply don't like the smell.  Not the smell of the fish itself, but the way it makes [bold type]me[roman type] smell when I eat it.  Doctors don't know what it is, and I've just learned to change my diet.  Life gives you a weird-smelling disease, you make lemonade, dammit!  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat [bold type]anything[roman type] Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
 
 Instead of quizzing the head of personnel about food-preferences:
 	say "'I'm lactose-intolerant, and I'm allergic to nuts.  Now get lost!'"
