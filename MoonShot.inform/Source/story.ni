@@ -292,7 +292,8 @@ The secretary's desk is an enterable supporter.  [You can put things on it or si
 The orange chair is a chair in the director's waiting room.
 The description of the orange chair is "A simple office chair, with classy orange upholstery.  Not too comfy, though."
 
-The potted houseplant is in the waiting room.  Understand "plant" and "pot" as the houseplant.
+The potted houseplant is in the waiting room.  "It's some kind of... ivy?  Maybe?"
+Understand "plant" and "pot" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
 
 Instead of dropping the houseplant:
@@ -1599,12 +1600,18 @@ Instead of going to the basement during day one:
 [TODO: Describe the sound stage, add scenery.]
 The sound stage is east of the basement.  "Another room!?"
 
+[TODO: Name this person.]
 [TODO: Do something with this person.]
-The photographer is a stranger in the sound stage.
+The photographer is a stranger in the sound stage.  The photographer is female.
 
 
 
-[TODO: Add the chemist's lab and chemist.]
+[TODO: Describe the chemistry lab, add scenery.]
+The chemistry lab is west of the basement.  "Another room!?"
+
+[TODO: Name this person.]
+[TODO: Do something with this person.]
+The chemist is a stranger in the chemistry lab.  The chemist is female.
 
 
 
