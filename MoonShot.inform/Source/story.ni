@@ -1107,7 +1107,7 @@ Instead of quizzing the head of personnel about Apollo:
 	say "";
 ]
 
-[TODO: I bet Franklin would have opinions about every single character.
+
 Instead of quizzing the head of personnel about the secretary:
 	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
 
@@ -1115,19 +1115,19 @@ Instead of quizzing the head of personnel about the director:
 	say "'Furtwangler....more like SkirtTangler!' he exclaims, looking at you to see if you're laughing. 'He's more interested in Earth women than extraterrestrial glory.  Word around the Tang cooler is that he's in trouble with the Missus on account of the Miss, if you know what I mean.'";
 
 Instead of quizzing the head of personnel about the engineer:
-	say "'Rick is an insufferable bastard";
+	say "''Now that's a guy who's never gonna tell a lie and hurt you.' When Franklin notices your confusion, he goes on, 'Well, he certainly never let *me* down.'"";
 
 Instead of quizzing the head of personnel about the head scientist:
-	say "'Herr Doktor von Braun is a genius, and as you know, '";
+	say "'Von Braun is a genius, and as you may know, 100% bazonkers.  He actually thinks that some anteaters are aliens.  Sure knows his way around a rocket though.''";
 
 Instead of quizzing the head of personnel about the other scientists:
-	say "";
+	say "'I call those empty headed lackeys 'The Chorus.'  All they do is say 'Yes, Herr Docktor von Braun, whatever you say, sir!' no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say 'Yes, Herr Doktor Frankenpants, whatever you say, sir!'  What a bunch of ninnies.' ";
 
 Instead of quizzing the head of personnel about Buzz Aldrin:
-	say "";
+	say "'Don't get close enough to that guy to smell his breath, you <i>will</i> regret it.'";
 
 Instead of quizzing the head of personnel about Neil Armstrong:
-	say "";
+	say "Fun fact: his arms are notoriously weak.  Once, I saw him struggle to lift a can of Coke.'";
 
 Instead of quizzing the head of personnel about Michael Collins:
 	say "";
@@ -1140,7 +1140,6 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "";
-]
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
@@ -1260,7 +1259,7 @@ Professional History:
 
 Psychological profile:
 [line break]   * Abrasive, fiercely proud
-[line break]   * Does not consult with other on decisions
+[line break]   * Does not consult with others on decisions
 [line break]   * Has not attended official NASA meetings since his assassination in August 1922
 [line break][end style][variable letter spacing]".
 
