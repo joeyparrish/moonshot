@@ -1474,7 +1474,6 @@ Instead of going to the engineering department while day one has ended:
 	say "The door to the engineering department appears to be locked.  There is a sign on it which says 'deserted'.  (You were [italic type]sure[roman type] they were never going to do that...)[line break]".
 
 
-
 [TODO: describe all the astronauts]
 The description of Buzz Aldrin is "".
 The description of Neil Armstrong is "".
@@ -1491,6 +1490,10 @@ The printed name of the basement is "NASA Headquarters Basement Level".
 
 Instead of going to the basement during day one:
 	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
+
+[TODO: Do something with this person.]
+The photographer is a stranger in the basement.
+
 
 
 
@@ -1521,9 +1524,8 @@ Michael Collins		X		X		T		X		T		X
 Lisa Nowak		X		T		X		F		X		X
 Ijon Tichy		X		T		X		X		X		X
 Clifford McBride	F		F		X		X		X		X
-[TODO: the photographer should exist first
 the photographer	X		X		F		X		X		T
-]
+
 
 
 Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
@@ -1562,7 +1564,8 @@ Instead of quizzing Ijon Tichy about food-preferences:
 Instead of quizzing Clifford McBride about food-preferences:
 	say "He give you a look filled with a calm intensity that scares you to your core.  'This is a one-way voyage.  I never cared about you, or any of your small ideas.  For 30 years...' he licks his lips, 'I've been breathing this air, eating this food... enduring these hardships... but I found my destiny.'  After a long moment of terrifying silence, he adds, 'No meat, no fish.  Nothing I couldn't take with me.'"
 
-[TODO: create photographer, ask about food prefs]
+Instead of quizzing the photographer about food-preferences:
+	say "'Kosher, no dairy,' he says, and then immediately turns back to his camera setup."
 
 
 
@@ -1684,7 +1687,7 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 		now the snack is nowhere;
 		now the recipient is fed;
 		increase the fed count by 1;
-		if the fed count is 6:  [TODO: Make this 7 after we create the photographer]
+		if the fed count is 7:
 			say "That seems to be the last of the lunch deliveries!";
 			now get-lunch is checked;
 	otherwise:
@@ -1784,6 +1787,6 @@ Test glitter1 with "test waiting / ask about glitter".
 
 Test glitter2 with "test day2 / test waiting / ask about glitter".
 
-Test food with "test day2 / test waiting / ask about glitter / take checklist / x checklist / e / d / take food / give chicken to buzz / give tuna to collins / give salad to armstrong / u / s / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test food with "test day2 / test waiting / ask about glitter / take checklist / x checklist / e / d / take food / give chicken to buzz / give tuna to collins / give salad to armstrong / give chicken to photographer / u / s / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
 
 Test day3 with "test food / n / report".
