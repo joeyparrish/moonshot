@@ -1605,7 +1605,7 @@ Instead of quizzing the head of personnel about food-preferences:
 	say "'I'm lactose-intolerant, and I'm allergic to nuts.  Now get lost!'"
 
 Instead of quizzing Buzz Aldrin about food-preferences:
-	say "'I've gotta have meat,' he begins, 'and nuts.  In every meal.  And no dairy or wheat!  You think our ancestors ate all this dairy and wheat all the time?  All this processed garbage?!  No way!'  His eyes are becoming increasingly wide.  'Our ancestors foraged for nuts, and they found meat, just lying around or whatever, no biggy, and they ate that!'  His breath is becoming labored, and it takes a visible exertion of effort for him to calm himself."
+	say "'I've gotta have meat,' he begins, 'and nuts.  In every meal.  And no dairy or wheat!  You think our ancestors ate all this dairy and wheat all the time?  All this processed garbage?!  No way!'  His eyes are becoming increasingly wide.  'Our ancestors foraged for nuts, and they found meat, just lying around or whatever, no biggie, and they ate that!'  His breath is becoming labored, and it takes a visible exertion of effort for him to calm himself."
 
 Instead of quizzing Neil Armstrong about food-preferences:
 	say "'I can't have any gluten or nuts.  I'm not allergic to either one, I just... [bold type][italic type]hate[roman type] nuts and glutens.'  The seasoned astronaut looks haunted.  'Sticky, disgusting glutens, clinging to the body.  Dirty.  You can feel it, filling your body from the bottom up.  The more wheat a human being eats, the heavier his toes get.  Look it up!'"
