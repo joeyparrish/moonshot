@@ -1335,7 +1335,7 @@ Check choosing for crew:
 	otherwise:
 		remove TBD from the sub-items of choose-crew;
 		add the noun to the sub-items of choose-crew;
-		now the noun is in the basement;  [Where they will be met on day two.]
+		now the noun is in the sound stage;  [Where they will be met on day two.]
 		if the number of entries in the sub-items of choose-crew is 3:
 			now choose-crew is checked;
 		while the number of entries in the sub-items of choose-crew < 3:
@@ -1482,7 +1482,7 @@ Instead of quizzing the director about glitter:
 		say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming with pride.[paragraph break]";
 	if Apollo is not day-two-discussed:
 		try quizzing the director about Apollo;
-	say "'If you haven't seen the sound studio in the basement, you might want to start down there.  Get to know the photographer, the crew, and make sure everything goes smoothly.'  He leans forward across his desk and looks you directly in the eyes.  'I shouldn't have to say this, but if this project fails, we all go down with it.  Don't screw this up, kid.'";
+	say "'If you haven't seen the sound stage in the basement, you might want to start down there.  Get to know the photographer, the crew, and make sure everything goes smoothly.'  He leans forward across his desk and looks you directly in the eyes.  'I shouldn't have to say this, but if this project fails, we all go down with it.  Don't screw this up, kid.'";
 	now checklist-2 is ready.
 
 Lunch can be day-two-discussed.
@@ -1528,16 +1528,24 @@ The description of Clifford McBride is "".
 
 
 
-[TODO: Describe the basement.  More rooms branching off?  Etc.]
+[TODO: Describe the basement hallway, add scenery.]
 The basement is below the hallway.  "Another room!?"
 The printed name of the basement is "NASA Headquarters Basement Level".
 
 Instead of going to the basement during day one:
 	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
 
-[TODO: Do something with this person.]
-The photographer is a stranger in the basement.
 
+
+[TODO: Describe the sound stage, add scenery.]
+The sound stage is east of the basement.  "Another room!?"
+
+[TODO: Do something with this person.]
+The photographer is a stranger in the sound stage.
+
+
+
+[TODO: Add the chemist's lab and chemist.]
 
 
 
@@ -1757,7 +1765,7 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 Day three is a scene.
 Day two ends when checklist-2 is held by the director.
 Day three begins when day two ends.
-[TODO: day three (epilogue)
+[TODO: day three (epilogue) - darkness, locked rooms, dirk meets you in the waiting room
 When day three begins:
 ]
 
