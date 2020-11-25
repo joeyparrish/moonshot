@@ -1498,7 +1498,10 @@ Instead of quizzing the director about the internship during day two:
 	say "'Plenty more for you to do around here,' he chuckles.  'Just keep to that [interesting]checklist[/interesting] and everything will be fine.'"
 
 Instead of quizzing the director about blueprints during day two:
-	say "[The director] shakes his head.  'No, no, we're done with that.  We gave those to the set designer, but they took a few liberties in the end.  I'm sure it'll look fine on the television.  Those folks are professionals.'"
+	if the player has alien-equations:
+		say "[The director] shakes his head.  'No, no, we're done with that.  We've got bigger fish to fry now.'";
+	otherwise:
+		say "[The director] shakes his head.  'No, no, we're done with that.  We gave those to the set designer, but they took a few liberties in the end.  I'm sure it'll look fine on the television.  Those folks are professionals.'"
 
 Instead of quizzing the director about rocket-equations during day two:
 	if the player has alien-equations:
