@@ -1404,6 +1404,8 @@ Every turn when the remainder after dividing the turn count by 5 is 0 and the di
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
 
+Lunch is a concept.  The allowed-scene of lunch is day two.
+
 Checklist-2 is a critical checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
@@ -1441,17 +1443,29 @@ Instead of taking checklist-2:
 		show hint "You can 'talk to director' for suggestions on topics.";
 
 Instead of talking to the director during day two:
-	say "Perhaps you could ask [the director] about Apollo, Operation Glitter, or the astronauts.";
+	say "Perhaps you could ask [the director] about Apollo, or the astronauts.";
 [TODO: Are these the best Dirk topics for day two?]
+
+Apollo can be day-two-discussed.  When day two begins, now Apollo is not day-two-discussed.
+Instead of quizzing the director about Apollo during day two:
+	say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting yesterday.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on Operation Glitter.'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
+	now Apollo is day-two-discussed.
+
+Instead of quizzing the director about checklist-2:
+	say "'Good, you noticed that.  Same drill as before', he says, 'just follow my highly technical [interesting]checklist[/interesting] to get this operation going.  Ask about any of it if you need help!'";
+	if Apollo is not day-two-discussed:
+		try quizzing the director about Apollo;
+	now checklist-2 is ready.
 
 Instead of quizzing the director about glitter:
 	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming with pride.";
-	[TODO: this is a poor trigger for taking the checklist]
-	now checklist-2 is ready.
+
+Lunch can be day-two-discussed.
+Instead of quizzing the director about lunch:
+	say "'Lunch is the most important meal of the day,' he says with a serious scowl.  'Don't let doctors tell you otherwise.  And actors get hungry, even when they're astronauts.  You just need to head down to the craft services table and get everybody's food.  Don't forget to ask around and get everyone's order, and don't take any crap about special orders from these prima donnas.  We're on a budget around here!  Tax payers, yadda yadda yadda.'";
+	now lunch is day-two-discussed.
 
 [TODO: new replies from dirk for topics from day 1
-Instead of quizzing the director about Apollo during day two:
-	say "...";
 ]
 
 [TODO: other transitions to day 2
@@ -1530,6 +1544,10 @@ the photographer	X		X		F		X		X		T
 
 Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
 Understand "food" and "food preferences" as food-preferences.
+Instead of quizzing someone about lunch:
+	try quizzing the noun about food-preferences.
+	[Unless they have a specific response for lunch.]
+
 
 
 A person can be fed.  A person is usually not fed.
@@ -1541,7 +1559,9 @@ Instead of quizzing the secretary about food-preferences:
 	say "'Oh, well, I can't eat any meat or fish,' she says.  'You see, I'm what you call an [']herbivore['].'"
 
 Instead of quizzing the director about food-preferences:
-	say "'I'm glad you asked,' he begins.  'I can't have fish, because I simply don't like the smell.  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat anything Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
+	if lunch is not day-two-discussed:
+		try quizzing the director about lunch;
+	say "'Now I'm glad you asked about food,' he begins.  'I can't have fish, because I simply don't like the smell.  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat anything Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
 
 Instead of quizzing the head of personnel about food-preferences:
 	say "'I'm lactose-intolerant, and I'm allergic to nuts.  Now get lost!'"
