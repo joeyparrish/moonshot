@@ -1110,24 +1110,27 @@ Instead of quizzing the head of personnel about Apollo:
 
 Instead of quizzing the head of personnel about the secretary:
 	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
+	now the secretary is known.
 
 Instead of quizzing the head of personnel about the director:
-	say "'Furtwangler....more like SkirtTangler!' he exclaims, looking at you to see if you're laughing. 'He's more interested in Earth women than extraterrestrial glory.  Word around the Tang cooler is that he's in trouble with the Missus on account of the Miss, if you know what I mean.'";
+	say "'Furtwangler... more like SkirtTangler!' he exclaims, looking at you to see if you're laughing. 'He's more interested in Earth women than extraterrestrial glory.  Word around the Tang cooler is that he's in trouble with the Missus on account of the Miss, if you know what I mean.'";
+	now the director is known.
 
 Instead of quizzing the head of personnel about the engineer:
-	say "''Now that's a guy who's never gonna tell a lie and hurt you.' When Franklin notices your confusion, he goes on, 'Well, he certainly never let *me* down.'"";
+	say "'Now that's a guy who's never gonna tell a lie and hurt you.'  When Franklin notices your confusion, he goes on, 'Well, he certainly never let [bold type]me[roman type] down.'";
 
 Instead of quizzing the head of personnel about the head scientist:
-	say "'Von Braun is a genius, and as you may know, 100% bazonkers.  He actually thinks that some anteaters are aliens.  Sure knows his way around a rocket though.''";
+	say "'Von Braun is a genius, and as you may know, 100% bazonkers.  He actually thinks that some anteaters are aliens.  Sure knows his way around a rocket, though.'";
+	now the head scientist is known.
 
 Instead of quizzing the head of personnel about the other scientists:
-	say "'I call those empty headed lackeys 'The Chorus.'  All they do is say 'Yes, Herr Docktor von Braun, whatever you say, sir!' no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say 'Yes, Herr Doktor Frankenpants, whatever you say, sir!'  What a bunch of ninnies.' ";
+	say "'I call those empty headed lackeys [']The Chorus.[']  All they do is say [']Yes, Herr Doktor von Braun, whatever you say, sir!['] no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say [']Yes, Herr Doktor Frankenpants, whatever you say, sir![']  What a bunch of ninnies.'";
 
 Instead of quizzing the head of personnel about Buzz Aldrin:
-	say "'Don't get close enough to that guy to smell his breath, you <i>will</i> regret it.'";
+	say "'Don't get close enough to that guy to smell his breath, or you [italic type]will[roman type] regret it.'";
 
 Instead of quizzing the head of personnel about Neil Armstrong:
-	say "Fun fact: his arms are notoriously weak.  Once, I saw him struggle to lift a can of Coke.'";
+	say "'Fun fact: his arms are notoriously weak.  Once, I saw him struggle to lift a can of Coke.'";
 
 Instead of quizzing the head of personnel about Michael Collins:
 	say "";
