@@ -1446,6 +1446,8 @@ Instead of talking to the director during day two:
 
 Instead of quizzing the director about glitter:
 	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming with pride.";
+	[TODO: this is a poor trigger for taking the checklist]
+	now checklist-2 is ready.
 
 [TODO: new replies from dirk for topics from day 1
 Instead of quizzing the director about Apollo during day two:
@@ -1682,7 +1684,7 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 		now the snack is nowhere;
 		now the recipient is fed;
 		increase the fed count by 1;
-		if the fed count is 7:
+		if the fed count is 6:  [TODO: Make this 7 after we create the photographer]
 			say "That seems to be the last of the lunch deliveries!";
 			now get-lunch is checked;
 	otherwise:
@@ -1699,8 +1701,12 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 
 [---------- DAY 3 ----------]
 
-[TODO: day three (epilogue)]
 Day three is a scene.
+Day two ends when checklist-2 is held by the director.
+Day three begins when day two ends.
+[TODO: day three (epilogue)
+When day three begins:
+]
 
 
 
@@ -1777,3 +1783,7 @@ Test day2 with "test blueprints / w / s / take files / choose aldrin / choose co
 Test glitter1 with "test waiting / ask about glitter".
 
 Test glitter2 with "test day2 / test waiting / ask about glitter".
+
+Test food with "test day2 / test waiting / ask about glitter / take checklist / x checklist / e / d / take food / give chicken to buzz / give tuna to collins / give salad to armstrong / u / s / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+
+Test day3 with "test food / n / report".
