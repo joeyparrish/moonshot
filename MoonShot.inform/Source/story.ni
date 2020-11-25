@@ -1106,16 +1106,16 @@ Instead of quizzing the head of personnel about Apollo:
 
 [TODO: I bet Franklin would have opinions about every single character.
 Instead of quizzing the head of personnel about the secretary:
-	say "";
+	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
 
 Instead of quizzing the head of personnel about the director:
-	say "";
+	say "'Furtwangler....more like SkirtTangler!' he exclaims, looking at you to see if you're laughing. 'He's more interested in Earth women than extraterrestrial glory.  Word around the Tang cooler is that he's in trouble with the Missus on account of the Miss, if you know what I mean.'";
 
 Instead of quizzing the head of personnel about the engineer:
-	say "";
+	say "'Rick is an insufferable bastard";
 
 Instead of quizzing the head of personnel about the head scientist:
-	say "";
+	say "'Herr Doktor von Braun is a genius, and as you know, '";
 
 Instead of quizzing the head of personnel about the other scientists:
 	say "";
