@@ -26,6 +26,11 @@
   font-size: 80%;
 }
 
+.continue {
+  background-color: khaki;
+  padding: 0.5em;
+}
+
 .room-heading {
   font-weight: bold;
   background-color: lavender;

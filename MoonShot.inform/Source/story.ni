@@ -37,6 +37,7 @@ Include Options by Joey Parrish.
 Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
+Release along with the file "pause.js".
 Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
 Release along with the file "Icon.png".
@@ -61,6 +62,7 @@ plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
 nameplate-card is a Vorple style.
+continue is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".
@@ -91,8 +93,11 @@ Otherwise, the period ends the player's command command.]
 
 [I don't like how Emily Short's "pause the game" rule clears the screen after continuing. Here's my own definition built on some of hers.]
 To pause:
-	if Vorple is not supported:
-		[This is not needed on the HTML-based Vorple interpeter, and in fact, the "wait for SPACE" part fails miserably, hanging the game.]
+	if Vorple is supported:
+		center "[continue style](click or tap to continue)[end style]";
+		execute JavaScript code "pauseGame()";
+		wait for any key;  [This doesn't work somehow with the keyboard, but the pauseGame() function can simulate a keypress directly into the prompt to unblock the interpreter.]
+	otherwise:
 		say "[paragraph break]Please press SPACE to continue[line break]";
 		wait for the SPACE key;
 	say line break;
@@ -123,7 +128,6 @@ This is the fancy banner rule:
 	if Vorple is supported:
 		center "[blockquote style][title-line style][italic type]MoonShot[roman type][end style][line break][author-line style]Story by Joey & Charity Parrish[end style][line break][copyright-line style]Copyright (C) 2020[end style][line break][created-with-line style]Created with Inform 7[end style][end style]";
 		say line break;
-		center "(click or scroll to continue)";
 	otherwise:
 		center "[italic type]MoonShot[roman type]";
 		center "Story by Joey & Charity Parrish";
@@ -246,10 +250,8 @@ Day one begins when play begins.
 When day one begins:
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
-	say "You did it!  You finally landed an internship at NASA, the National Aeronautics and Space ... Association?  Agency?  Authority?  You're not really sure what the last A stands for, but it's only your first day.  You're pretty certain you'll figure it out soon enough.";
-	pause;
-	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.";
-	pause;
+	say "You did it!  You finally landed an internship at NASA, the National Aeronautics and Space ... Association?  Agency?  Authority?  You're not really sure what the last A stands for, but it's only your first day.  You're pretty certain you'll figure it out soon enough.[paragraph break]";
+	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.[paragraph break]";
 
 Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
 Before reading a command while the turn count is 1:
@@ -1369,14 +1371,12 @@ Day two is a scene.
 Day one ends when checklist-1 is held by the director.
 Day two begins when day one ends.
 When day two begins:
-	pause;
 	say "[room-heading style]Intermission: End of day one[end style]";
 	say line break;
-	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.";
-	pause;
+	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
 	say "[room-heading style]NASA Headquarters, day two of your internship[end style]";
 	say line break;
-	say "You return to NASA headquarters, brimming with pride over the good work you've done so far.  What challenges await today?  You can hardly contain your excitement as you wait to see the director again.";
+	say "You return to NASA headquarters, brimming with pride over the good work you've done so far.  What challenges await today?  You can hardly contain your excitement as you wait to see the director again.[paragraph break]";
 	pause;
 	now checklist-1 is nowhere;
 	now the blueprints are nowhere;
