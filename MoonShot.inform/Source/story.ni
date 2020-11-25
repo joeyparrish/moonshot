@@ -770,6 +770,7 @@ Understand "steal [something]" as taking.
 Understand "steal [something] from [someone]" as removing it from.
 Instead of removing the brass key from the scientist:
 	try taking the brass key.
+The brass key has a number called steal-attempts.  [Third time's the charm.  Let's not be too mean.]
 Instead of taking the brass key:
 	if the brass key is unnoticed:
 		say "You can't see any such thing.";
@@ -778,11 +779,12 @@ Instead of taking the brass key:
 		continue the action;
 	otherwise if the head scientist is enraged:
 		say "You try to sneak over and reach into [the head scientist]'s coat pocket, but at your first step, his head snaps around and he stares you down until you take a step back again.";
-	otherwise if a random chance of 5 in 10 succeeds:
+	otherwise if a random chance of 5 in 10 succeeds or the steal-attempts of the brass key is 2:
 		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You manage to lift the brass key out of his pocket without him noticing!";
 		now the player has the brass key;
 	otherwise:
 		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You fumble the key, and he whips around at the clanging sound.  There is a brief moment of shock upon his face, but it rapidly dissolves into rage as he screams '[bold type]SCHWEINHUND![roman type]' and chases you from the room.";
+		increase the steal-attempts of the brass key by 1;
 		now the head scientist is enraged;
 		now the player is in the hallway.
 
