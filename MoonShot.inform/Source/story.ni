@@ -1078,6 +1078,8 @@ Instead of waking the head of personnel:
 Instead of talking to the head of personnel:
 	if the head of personnel is asleep:
 		try waking the head of personnel;
+	otherwise if the personnel puzzle is ready:
+		say "Perhaps you could ask [the noun] about the crew candidates, various employees, or himself.";
 	otherwise:
 		say "Perhaps you could ask [the noun] about the crew candidates, the personnel files, or himself."
 
