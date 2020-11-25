@@ -1841,9 +1841,13 @@ Test drawer with "test startday1 / e / s / open drawer / close drawer / open cab
 
 Test day2 with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / take chalkboard / w / give checklist to director".
 
+Test day2alt with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / x dr / take key / n / ask about tapir / take key / n / ask about tapir / take key / ask tapir about name / open cage / s / ask about rocket equations / w / give checklist to director".
+
 Test glitter1 with "test waiting / ask about glitter".
 
 Test glitter2 with "test day2 / test waiting / talk to him / x checklist / talk to him / ask about glitter".
+
+Test glitter2alt with "test day2alt / test waiting / talk to him / x checklist / talk to him / ask about glitter".
 
 Test startday2 with "test day2 / test waiting / ask about glitter / take checklist / x checklist".
 
