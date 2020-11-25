@@ -21,7 +21,7 @@ Definition: a checklist is complete:
 	decide yes.
 
 [You can also "read" a checklist, which will just examine it.]
-Instead of examining a checklist (called X):
+Carry out examining a checklist (called X):
 	say "[The description of X]";
 	say "[If the description of X is not empty]  It[otherwise][The X][end if] reads:[line break][line break]";
 	if Vorple is supported:
