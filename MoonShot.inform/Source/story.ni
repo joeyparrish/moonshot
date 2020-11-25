@@ -711,7 +711,9 @@ Instead of examining rocket-equations:
 	try examining equations.
 
 Instead of taking the chalkboard:
-	if the location is the propulsion lab:
+	if the player has alien-equations:
+		say "You have the paper that [tapir] gave you, so you don't think you'll need the chalkboards any more.";
+	otherwise if the location is the propulsion lab:
 		say "You hurriedly start pushing one of the wheeled [interesting]chalkboards[/interesting] out of the room.  [The head scientist] screams after you, '[bold type]SCHWEINHUND!  [italic type]HALT!!![roman type]'[line break]";
 		now the head scientist is enraged;
 		now the chalkboard is described;  [It will show up in room descriptions again.]
@@ -1377,6 +1379,7 @@ When day two begins:
 	say "You return to NASA headquarters, brimming with pride over the good work you've done so far.  What challenges await today?  You can hardly contain your excitement as you wait to see the director again.";
 	pause;
 	now checklist-1 is nowhere;
+	now the blueprints are nowhere;
 	now the chalkboard is nowhere;
 	now the chalkboard is not critical;  [So you aren't traveling with it anymore]
 	now checklist-2 is on the director's desk;
@@ -1453,7 +1456,12 @@ Instead of talking to the director during day two:
 
 Apollo can be day-two-discussed.  When day two begins, now Apollo is not day-two-discussed.
 Instead of quizzing the director about Apollo during day two:
-	say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting yesterday.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on Operation Glitter.'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
+	if the player has alien-equations:
+		say "'Now, listen, we haven't told anyone this, and we think this would be best kept within these four walls.'  He leans forward and lowers his voice.  'We did it.  We launched Apollo 11 last night, while everyone was asleep.  Those strange equations you showed us were... well... we don't know what they were exactly, but we were able to accomplish the trip much faster than we had originally planned.  But what we found was... disturbing.'[paragraph break]";
+		say "[The director] shifts uncomfortably in his chair, as if trying to cope physically with the mental burden he's carrying.  'When we tried to touch down on the surface... it was all wrong.  Up close, the moon was flat, almost two-dimensional.  And then the command module just... went right through, like a ghost.  Now we know what no other human knows: it's not real.  The moon is a projection, put there for a reason, we think, but we could study it for a thousand more years and never truly understand.'[paragraph break]";
+		say "'This,' he says somberly, 'is a secret we must keep at all costs.  The American people must not know.  The Ruskies must not know.  We need to show them a perfectly successful moon landing.  So that's exactly where Operation Glitter comes in.'";
+	otherwise:
+		say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting yesterday.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on Operation Glitter.'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
 	now Apollo is day-two-discussed.
 
 Instead of quizzing the director about checklist-2:
@@ -1463,7 +1471,10 @@ Instead of quizzing the director about checklist-2:
 	now checklist-2 is ready.
 
 Instead of quizzing the director about glitter:
-	say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming with pride.[paragraph break]";
+	if the player has alien-equations:
+		say "'We need to film something convincing, and that's what Operation Glitter is all about.  The truth about the moon [bold type]must[roman type] be kept hidden.'  [The director] sighs a heavy sigh.  He looks years older than he did yesterday.[paragraph break]";
+	otherwise:
+		say "'It's cheap, and it pretties up just about anything.  Good name, huh?  They let me pick it myself this time!'  He is practically beaming with pride.[paragraph break]";
 	if Apollo is not day-two-discussed:
 		try quizzing the director about Apollo;
 	say "'If you haven't seen the sound studio in the basement, you might want to start down there.  Get to know the photographer, the crew, and make sure everything goes smoothly.'  He leans forward across his desk and looks you directly in the eyes.  'I shouldn't have to say this, but if this project fails, we all go down with it.  Don't screw this up, kid.'";
@@ -1474,13 +1485,19 @@ Instead of quizzing the director about lunch:
 	say "'Lunch is the most important meal of the day,' he says with a serious scowl.  'Don't let doctors tell you otherwise.  And actors get hungry, even when they're astronauts.  You just need to head down to the craft services table and get everybody's food.  Don't forget to ask around and get everyone's order, and don't take any crap about special orders from these prima donnas.  We're on a budget around here!  Tax payers, yadda yadda yadda.'";
 	now lunch is day-two-discussed.
 
-[TODO: new replies from dirk for topics from day 1
-]
+Instead of quizzing the director about the internship during day two:
+	say "'Plenty more for you to do around here,' he chuckles.  'Just keep to that [interesting]checklist[/interesting] and everything will be fine.'"
 
-[TODO: other transitions to day 2
- - new conversation topics with dirk
- - checklist-2 items, sub-items
-]
+Instead of quizzing the director about blueprints during day two:
+	say "[The director] shakes his head.  'No, no, we're done with that.  We gave those to the set designer, but they took a few liberties in the end.  I'm sure it'll look fine on the television.  Those folks are professionals.'"
+
+Instead of quizzing the director about rocket-equations during day two:
+	say "'Who needs [']em?  Heh heh.  Those eggheads were just dead weight.'  He wipes his eyes.  'The only numbers I care about now are the Nielsens!'"
+
+
+
+[TODO: checklist-2 items, sub-items, corresponding conversation topics with the director]
+
 
 
 Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
