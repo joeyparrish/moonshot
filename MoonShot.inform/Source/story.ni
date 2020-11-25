@@ -203,10 +203,11 @@ Instead of saying sorry to a person:
 
 [By default, we don't get to see what people are carrying.  This changes that.]
 After examining a person (called Bob):
-	if Bob does not have nothing:
-		say "[The Bob] is carrying [run paragraph on]";
-		list the contents of Bob, as a sentence, giving inventory information;
-		say "."
+	let stuff be the list of things carried by Bob;
+	repeat with X running through stuff:
+		if X is worn by Bob, remove X from stuff;
+	if stuff is not empty:
+		say "[The Bob] is carrying [stuff].";
 
 [By default, we don't seem to get a description of what rooms are adjacent to the current room, and in what direction.  This is something I'm used to seeing in IF, and I'd like to avoid writing it explicitly in every room.  Including the "Exit Lister" extension solves that.  But it needs a little configuration for this game.  We want to always tell the user what the names of nearby rooms are, even if we have not yet been to them.  For this, we use:]
 A room memory rule:
@@ -242,6 +243,16 @@ Carry out waking:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep;
 
+[Sometimes, we have a piece of scenery that is technically portable, but that we don't want the player to take.  The default for taking scenery is "that's hardly portable", but sometimes, that isn't true.  So this type prints a different message.]
+Portable-scenery is a kind of thing.
+Portable-scenery is scenery.
+Instead of taking portable-scenery:
+	say "It's probably best if you leave that alone."
+
+[Clothing that is repeated among multiple characters must be a "kind" first.]
+A tie is a kind of wearable thing.
+A short-sleeved shirt is a kind of wearable thing.
+A lab coat is a kind of wearable thing.
 
 
 
@@ -265,8 +276,11 @@ Before reading a command while the turn count is 1:
 
 
 
-The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her [interesting]desk[/interesting].  [if the houseplant is in the waiting room]There's a [houseplant] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
+The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her [interesting]desk[/interesting].  [if the houseplant is in the waiting room]There's a [interesting]houseplant[/interesting] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
 The printed name of director's waiting room is "NASA Director's Waiting Room".
+
+The bubblegum is portable-scenery in the waiting room.  Understand "gum" as the bubblegum.
+The macrame is portable-scenery in the waiting room.
 
 In the waiting room is a stranger called the secretary.  The real name of the secretary is "Donna".
 Understand "Donna", "her", "herself", and "woman" as the secretary.  The secretary is female.
@@ -278,7 +292,7 @@ The secretary's desk is an enterable supporter.  [You can put things on it or si
 The orange chair is a chair in the director's waiting room.
 The description of the orange chair is "A simple office chair, with classy orange upholstery.  Not too comfy, though."
 
-The houseplant is in the waiting room.  Understand "plant" as the houseplant.
+The potted houseplant is in the waiting room.  Understand "plant" and "pot" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
 
 Instead of dropping the houseplant:
@@ -372,8 +386,13 @@ Instead of going inside while in the waiting room:
 
 
 
-The director's office is north of the waiting room.  "The director's office has a full wall of [interesting]windows[/interesting] overlooking the hangar.  [The director] is drumming his fingers on the [interesting]desk[/interesting] and humming 'California Dreamin' in double time.  He's wearing a baby blue collared short sleeve shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
+The director's office is north of the waiting room.  "The director's office has a full wall of [interesting]windows[/interesting] overlooking the hangar.  [The director] is drumming his fingers on the [interesting]desk[/interesting] and humming 'California Dreamin' in double time.  He's wearing a baby-blue, collared, short-sleeved shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
 The printed name of the director's office is "NASA Director's Office".
+
+The director wears a baby-blue collared short-sleeved shirt, a tie, and pomade.
+The printed name of the baby-blue collared short-sleeved shirt is "the shirt".  [We want the player to be able to refer to it by all of these things, but it's a mouthful when we print something about it.]
+Understand "blue shirt", "blue collared short-sleeved shirt", and "blue short-sleeved shirt" as the baby-blue collared short-sleeved shirt.
+
 
 [Since this is the only room with windows...]
 Instead of examining the weather in the director's office:
@@ -399,8 +418,8 @@ The director's desk is an enterable supporter.  [You can put things on it or sit
 
 The gadgets are scenery in the director's office.
 The tracks are scenery in the director's office.
-The balls are scenery in the director's office.
-The bobblehead dolls are scenery in the director's office.
+The balls are portable-scenery in the director's office.
+The bobblehead dolls are portable-scenery in the director's office.
 
 The triangular nameplate is an openable, closed, undescribed thing on the director's desk.
 Instead of examining the triangular nameplate:
@@ -532,6 +551,8 @@ The items of checklist-1 are {get-blueprints, get-equations, choose-crew}.
 The Main Hallway is east of the director's office.  "A long, blank hallway, with several doors branching off in various directions and a stairwell leading down.  A bronze [interesting]plaque[/interesting] is hanging on the wall in the center of the hallway."
 
 A bronze plaque is scenery in the hallway.
+Instead of taking the bronze plaque:
+	say "The plaque is bolted to the wall."
 
 Instead of examining the plaque:
 	say "Engraved in bronze, the plaque says:[line break]";
@@ -567,6 +588,9 @@ Instead of examining the unicorn:
 		say "     ['][quotation mark]      ['][quotation mark][line break]";
 		say variable letter spacing.
 
+Instead of taking the unicorn:
+	say "Only the pure of heart may approach a unicorn."
+
 The diagram is scenery in the engineering department.
 Understand "diagrams" as the diagram.
 Instead of examining the diagram:
@@ -580,10 +604,6 @@ The cubicles are scenery in the engineering department.  "These are standard cub
 
 The whiteboard is scenery in the engineering department.  "At the top of the whiteboard, someone has written 'APOLLO 11'.  Underneath the heading are some inscrutable [interesting]diagrams[/interesting], and in the bottom right corner, someone has drawn a [interesting]unicorn[/interesting]."
 
-[These things are not truly scenery, but they will never move, so this is fine.  It gets annoying to make actual clothing for everyone and have it described as part of their inventory when you look at them.  Just by making them exist, though, examining them will at least get you "you see nothing special about ..."]
-The tie is scenery in the engineering department.
-The shirt is scenery in the engineering department.
-The pocket protector is scenery in the engineering department.
 
 
 
@@ -603,7 +623,14 @@ The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee i
 [Accept a few misspellings of coffee.]
 Understand "cofee", "coffe", "cafe", and "cofe" as coffee.
 
+
+
 The description of the engineer is "[if the engineer is not sad]He is tall and thin, with slicked-back ginger hair and a short-sleeved shirt and tie.  He is wearing a pocket protector and a [interesting]name badge[/interesting].  What a nerd![otherwise][The noun] is just about the saddest thing you've ever seen.  His hair is a mess, and he appears to have been wiping his tears on his tie."
+
+The engineer wears a tie, a short-sleeved shirt, and a pocket protector.
+The tears are scenery in the engineering department.
+
+
 
 Instead of saying sorry while the player is in the engineering department and the engineer is sad:
 	say "He sniffs a little, then says 'Um, yeah, okay.  Apology accepted.'";
@@ -735,10 +762,10 @@ Instead of going to anywhere (called the destination):
 		now the chalkboard is in the destination;
 	continue the action.
 
-Every turn when a random chance of 1 in 10 succeeds and the player is in the lab and the chalkboard is not critical:
+Every turn when a random chance of 1 in 10 succeeds and the player is in the propulsion lab and the chalkboard is not critical:
 	say "[The head scientist] grumbles under his breath and erases half of the equations on one of the [interesting]mobile, wheeled chalkboards[/interesting], then starts furiously scribbling new ones."
 
-Every turn when the remainder after dividing the turn count by 5 is 0 and the player is in the lab and the chalkboard is not critical:
+Every turn when the remainder after dividing the turn count by 5 is 0 and the player is in the propulsion lab and the chalkboard is not critical:
 	show hint "Look around the room for something you need for your checklist."
 
 
@@ -814,7 +841,7 @@ The description of the tapir is "[The tapir] is a bit larger than your average [
 The real name of the tapir is "aardvark".
 Understand "aardvark", "aardvarks", "ardvark", "ardvarks", and "animal" as the tapir.
 
-Every turn when a random chance of 3 in 10 succeeds and the player is in the lab and the tapir is in the cage:
+Every turn when a random chance of 3 in 10 succeeds and the player is in the propulsion lab and the tapir is in the cage:
 	say "[one of]The [tapir-aardvark] makes a snuffling sound.[or]A long, sad groan comes from [the cage].[or]Something in here smells distinctly like a [tapir-aardvark] fart.  (You definitely know what those are like.)[purely at random]".
 
 
@@ -903,6 +930,13 @@ Rule for writing a paragraph about the head scientist:
 
 The description of the head scientist is "[The noun] is a man of average height, his hair graying at the sides, wearing a white lab coat over a dark gray suit and tie.[if the head scientist is enraged]  His anger toward [italic type]you specifically[roman type] is practically a physical presence of its own, hanging about his temples like a fog."
 
+The head scientist wears a white lab coat, a dark gray suit, and a tie.
+The anger is scenery in the propulsion lab.
+Instead of taking the anger:
+	say "Anger is a weapon only to one's opponent."
+
+
+
 Instead of talking to the head scientist:
 	if the head scientist is enraged:
 		say "You open your mouth to speak to [the noun], but he shoots you a rageful glare of such silent violence that you think better of it and shut your mouth again.";
@@ -978,6 +1012,8 @@ In the propulsion lab is a person called the other scientists.
 The other scientists are plural-named.
 Understand "others", and "them" as the other scientists.
 The description of the other scientists is "They scurry around busily in white lab coats, occasionally looking back at [the head scientist] to see if he is noticing their industriousness.  (He is most certainly not.)"
+
+The other scientists wear white lab coats.
 
 [NOTE: Something really odd is happening, and the only people who understand Inform in enough detail to debug this are Graham Nelson and gray aliens.  For whatever reason, "other scientists", which is the _EXACT NAME_ of the character, resolves to "the head scientist", which is _MADDENING_.  This is a hacky workaround, in which we just edit the user's commands as they come in and replace the thing that _should_ work with an explicit alias that _does_ work.]
 After reading a command:
@@ -1069,6 +1105,11 @@ Understand "head", "Franklin", "Franklin Stanford", "Stanford", "him", "man", an
 When day one begins, now the head of personnel is asleep.  [Aren't we all?]
 
 The description of the head of personnel is "[The noun] is a short, balding man wearing black eyeglasses, a short-sleeved shirt, and a plain tie.  He is [if the head of personnel is asleep]snoring softly with his feet up, occasionally twitching in his chair[otherwise]staring at you impatiently.  He must not enjoy having his nap interrupted[end if]."
+
+The head of personnel wears black eyeglasses, a short-sleeved shirt, and a plain tie.
+
+
+
 
 Instead of waking the head of personnel:
 	if the head of personnel is asleep:
@@ -1539,8 +1580,16 @@ The description of Clifford McBride is "".
 
 
 [TODO: Describe the basement hallway, add scenery.]
-The basement is below the hallway.  "Another room!?"
+The basement is below the hallway.  "A long, blank hallway, dimly lit, with doors at either end.  A stairwell in the middle leads back up.  A paper sign is hastily taped to the wall opposite the stairwell."
 The printed name of the basement is "NASA Headquarters Basement Level".
+
+[We'd like to add a door as scenery, in case the player wants to examine the door.  However, "door" is a built-in kind in Inform, so we give it a hyphenated name in the source.]
+The-door is a backdrop.  Understand "door" and "the door" as the-door.  The printed name of the-door is "the door".
+The-door is everywhere.  [Every room has a door, but they are not interesting.]
+
+The stairwell is a backdrop.  The stairwell is in the hallway and in the basement.
+
+The paper sign is scenery.  "It says 'AUTHORIZED PERSONNEL ONLY', hand-drawn in black marker."
 
 Instead of going to the basement during day one:
 	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
