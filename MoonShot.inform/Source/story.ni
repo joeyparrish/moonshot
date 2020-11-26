@@ -618,13 +618,16 @@ The blueprints can be discussed.  [Only when you've asked about them can you tak
 The blueprints are critical.  [You can't drop them.]
 The blueprints are plural-named.  [Don't call them "a blueprints".]
 
-In the engineering department is a container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
+In the engineering department is a liquid-safe container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
 [Accept a few misspellings of coffee.]
 Understand "coffee pot", "cofee pot", "coffe pot", "cafe pot", "cofe pot", and "pot" as the coffee-pot.
 
-The coffee is a drink.  The coffee is in the coffee-pot.  The amount of coffee is 1000 ml.  The indefinite article is "some".
+The coffee is a drink in the coffee-pot.  The amount of coffee is 1000 ml.  The indefinite article is "some".
 [Accept a few misspellings of coffee.]
 Understand "cofee", "coffe", "cafe", and "cofe" as coffee.
+
+Instead of taking the coffee:
+	say "Most of it slips through your fingers, but you manage to get some of it to stain your pockets, too.";
 
 
 
