@@ -254,6 +254,10 @@ A tie is a kind of wearable thing.
 A short-sleeved shirt is a kind of wearable thing.
 A lab coat is a kind of wearable thing.
 
+[We'd like to add a door as scenery, in case the player wants to examine the door.  However, "door" is a built-in kind in Inform, so we give it a hyphenated name in the source.]
+The-door is a backdrop.  Understand "door" and "the door" as the-door.  The printed name of the-door is "the door".
+The-door is everywhere.  [Every room has a door, but they are not interesting.]
+
 
 
 [---------- DAY 1 ----------]
@@ -1585,17 +1589,12 @@ The description of Clifford McBride is "".
 
 
 
-[TODO: Describe the basement hallway, add scenery.]
 The basement is below the hallway.  "A long, blank hallway, dimly lit, with doors at either end.  A stairwell in the middle leads back up.  A paper sign is hastily taped to the wall opposite the stairwell."
 The printed name of the basement is "NASA Headquarters Basement Level".
 
-[We'd like to add a door as scenery, in case the player wants to examine the door.  However, "door" is a built-in kind in Inform, so we give it a hyphenated name in the source.]
-The-door is a backdrop.  Understand "door" and "the door" as the-door.  The printed name of the-door is "the door".
-The-door is everywhere.  [Every room has a door, but they are not interesting.]
-
 The stairwell is a backdrop.  The stairwell is in the hallway and in the basement.
 
-The paper sign is scenery.  "It says 'AUTHORIZED PERSONNEL ONLY', hand-drawn in black marker."
+The paper sign is scenery in the basement.  "It says 'AUTHORIZED PERSONNEL ONLY', hand-drawn in black marker."
 
 Instead of going to the basement during day one:
 	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
@@ -1604,19 +1603,12 @@ Instead of going to the basement during day one:
 
 [TODO: Describe the sound stage, add scenery.]
 The sound stage is east of the basement.  "Another room!?"
+The printed name of the sound stage is "NASA's Secret Underground Sound Stage".
 
 [TODO: Name this person.]
 [TODO: Do something with this person.]
 The photographer is a stranger in the sound stage.  The photographer is female.
 
-
-
-[TODO: Describe the chemistry lab, add scenery.]
-The chemistry lab is west of the basement.  "Another room!?"
-
-[TODO: Name this person.]
-[TODO: Do something with this person.]
-The chemist is a stranger in the chemistry lab.  The chemist is female.
 
 
 
@@ -1719,7 +1711,7 @@ After reading a command:
 
 
 
-The craft services table is an enterable supporter in the basement.
+The craft services table is an enterable supporter in the sound stage.
 Two BLTs, three tuna sandwiches, three salads, and two almond chickens are on the craft services table.
 The description of the craft services table is "The craft services table is a cheap folding table covered in a red plastic tablecloth with a floral print."
 Instead of sitting on the craft services table:
@@ -1827,6 +1819,16 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 		otherwise:
 			say "[The recipient] looks at [the snack] and says 'No, I can't eat that.  Were you even listening?'";
 	stop the action.
+
+
+
+[TODO: Describe the chemistry lab, add scenery.]
+The chemistry lab is west of the basement.  "Another room!?"
+The printed name of the chemistry lab is "NASA Chemistry Lab".
+
+[TODO: Name this person.]
+[TODO: Do something with this person.]
+The chemist is a stranger in the chemistry lab.  The chemist is female.
 
 
 
