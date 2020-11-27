@@ -50,6 +50,7 @@ Carry out examining a checklist (called X):
 	if Vorple is supported:
 		say end style;  [checklist-contents]
 		say end style;  [checklist-block]
+	stop the action.  [Or else we see the description again at the bottom.]
 
 Checklists ends here.
 
