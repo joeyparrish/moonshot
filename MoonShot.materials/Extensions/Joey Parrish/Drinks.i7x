@@ -31,13 +31,23 @@ Instead of drinking a drink (called the potion):
 Instead of taking a drink (called the potion):
 	try taking the holder of the potion instead.
 
-Instead of dropping a thing containing a drink (called the potion):
+Instead of dropping a thing (called the flask) containing a drink (called the potion):
 	try dropping the potion;
-	continue the action.
+	now the flask is in the location.
 
 Instead of dropping a drink (called the potion):
 	say "[The potion] spills everywhere[if the potion is staining], staining the floors terribly[end if].";
 	now the potion is nowhere.
+
+[You can carefully put a container onto the floor, as opposed to dropping it.]
+The floor is a backdrop.  The floor is everywhere.
+
+Instead of putting a drink (called the potion) on the floor:
+	try dropping the potion.
+
+Instead of putting a thing on the floor:
+	say "You carefully place [the noun] on the floor.";
+	now the noun is in the location.
 
 A container can be liquid-safe.
 Instead of inserting a drink (called the potion) into a thing (called the flask):
@@ -68,17 +78,20 @@ Instead of putting a drink (called the potion) on a thing (called the surface):
 		say "That doesn't make sense."
 
 Pouring is an action applying to one thing.  Understand "pour [thing]" as pouring.
-Pouring it into is an action applying to two things.  Understand "pour [thing] into [thing]" as pouring it into.
-Pouring it onto is an action applying to two things.  Understand "pour [thing] onto [thing]" as pouring it onto.
+Pouring it into is an action applying to two things.  Understand "pour [thing] into [thing]" and "pour [thing] in [thing]" as pouring it into.
+Pouring it onto is an action applying to two things.  Understand "pour [thing] onto [thing]" and "pour [thing] on [thing]" as pouring it onto.
 Pouring out is an action applying to one thing.  Understand "pour out [thing]" and "pour [thing] out" as pouring out.
 Mixing is an action applying to one things.  Understand "mix [thing]" as mixing.
-Mixing it into is an action applying to two things.  Understand "mix [thing] into [thing]" as mixing it into.
+Mixing it into is an action applying to two things.  Understand "mix [thing] into [thing]" and "mix [thing] in [thing]" as mixing it into.
 
 Check pouring a drink (called the potion):
 	say "What do you want to pour [the potion] into?"
 
 Check pouring a container (called the flask):
 	say "What do you want to pour [the flask] into?"
+
+Check pouring a thing:
+	say "That isn't something you can pour."
 
 Check pouring a drink (called the potion) into something (called the destination):
 	try inserting the potion into the destination.
@@ -89,6 +102,9 @@ Check pouring a container (called the flask) into something (called the destinat
 	repeat with X running through the list of things contained by the flask:
 		try inserting X into the destination.
 
+Check pouring a thing into a thing:
+	say "That isn't something you can pour."
+
 Check pouring a drink (called the potion) onto a thing (called the surface):
 	try putting the potion on the surface.
 
@@ -97,6 +113,9 @@ Check pouring a container (called the flask) onto something (called the surface)
 		say "[The flask] appears to be empty.";
 	repeat with X running through the list of things contained by the flask:
 		try putting X on the surface.
+
+Check pouring a thing onto a thing:
+	say "That isn't something you can pour."
 
 Check pouring out a drink (called the potion):
 	try dropping the potion.
@@ -107,8 +126,14 @@ Check pouring out a container (called the flask):
 	repeat with X running through the list of things contained by the flask:
 		try dropping X.
 
+Check pouring out a thing:
+	say "That isn't something you can pour."
+
 Check mixing a drink (called the potion):
 	say "You swirl [the potion] around in [the holder of the potion], but nothing happens."
+
+Check mixing a thing:
+	say "That isn't something you can mix."
 
 Check mixing a drink (called the potion) into something (called the destination):
 	try inserting the potion into the destination.
@@ -118,6 +143,9 @@ Check mixing a container (called the flask) into something (called the destinati
 		say "[The flask] appears to be empty.";
 	repeat with X running through the list of things contained by the flask:
 		try mixing X into the destination.
+
+Check mixing a thing into a thing:
+	say "That isn't something you can mix."
 
 Drinks ends here.
 
