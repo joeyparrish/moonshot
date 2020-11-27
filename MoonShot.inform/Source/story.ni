@@ -206,6 +206,7 @@ After examining a person (called Bob):
 	let stuff be the list of things carried by Bob;
 	repeat with X running through stuff:
 		if X is worn by Bob, remove X from stuff;
+		if X is uninteresting, remove X from stuff;
 	if stuff is not empty:
 		say "[The Bob] is carrying [stuff].";
 
@@ -307,7 +308,7 @@ Instead of dropping the houseplant:
 
 The houseplant is edible.
 Instead of eating the houseplant:
-	say "It tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, [if day one is happening]Apollo 11 fails miserably,[otherwise]Operation Glitter fails and is exposed,[end if] and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+	say "The houseplant tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, [if day one is happening]Apollo 11 fails miserably,[otherwise]Operation Glitter fails and is exposed,[end if] and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
 	show ending 1.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
@@ -464,6 +465,10 @@ Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
 Understand "Apollo 11 checklist" as checklist-1.
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
+
+The director is holding a coffee-cup.  The printed name of the coffee-cup is "coffee cup".  Coffee-cup is uninteresting.
+The description of the coffee-cup is "Where does someone even find such a gigantic cup?"
+Understand "cup", "coffee cup", "cup of coffee", "large cup", "large cup of coffee", "comically large cup", "comically large coffee cup", and "comically large cup of coffee" as the coffee-cup.
 
 Instead of talking to the director:
 	say "Perhaps you could ask [the director] about the internship, what the second A in NASA stands for, the Apollo 11 project, or his name."
