@@ -661,7 +661,7 @@ The description of the name-badge is "It says 'Rick' at the top.  The bottom say
 After examining the name-badge, now the engineer is known.
 
 Rule for writing a paragraph about the engineer:
-	if the engineer is unknown, say "An engineer is standing around by the [interesting]coffee pot[/interesting], [if the engineer is sad]crying.[otherwise]doing nothing.";
+	if the engineer is unknown, say "An engineer is standing around[if the coffee-pot is in the location] by the [interesting]coffee pot[/interesting][end if], [if the engineer is sad]crying.[otherwise]doing nothing.";
 	otherwise say "Rick is still here, still [if the engineer is sad]crying.[otherwise]doing nothing.";
 
 Instead of talking to the engineer:
