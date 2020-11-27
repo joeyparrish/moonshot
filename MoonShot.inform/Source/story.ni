@@ -1545,11 +1545,6 @@ Instead of quizzing the director about glitter:
 	say "'If you haven't seen the sound stage in the basement, you might want to start down there.  Get to know the photographer, the crew, and make sure everything goes smoothly.'  He leans forward across his desk and looks you directly in the eyes.  'I shouldn't have to say this, but if this project fails, we all go down with it.  Don't screw this up, kid.'";
 	now checklist-2 is ready.
 
-Lunch can be day-two-discussed.
-Instead of quizzing the director about lunch:
-	say "'Lunch is the most important meal of the day,' he says with a serious scowl.  'Don't let doctors tell you otherwise.  And actors get hungry, even when they're astronauts.  You just need to head down to the craft services table and get everybody's food.  Don't forget to ask around and get everyone's order, and don't take any crap about special orders from these prima donnas.  We're on a budget around here!  Tax payers, yadda yadda yadda.'";
-	now lunch is day-two-discussed.
-
 Instead of quizzing the director about the internship during day two:
 	say "'Plenty more for you to do around here,' he chuckles.  'Just keep to that [interesting]checklist[/interesting] and everything will be fine.'"
 
@@ -1572,7 +1567,16 @@ Instead of quizzing the director about rocket-equations during day two:
 
 
 Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
-The items of checklist-2 are {get-lunch}.
+
+Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts for interviews".
+The interview is a concept.  The allowed-scene of the interview is day two.  Understand "prepare", "brainwash", "brainwashing", "brain wash", and "brain washing" as the interview.
+The interview can be discussed.
+Instead of quizzing the director about the interview:
+	say "'Yes, well, here's the thing,' he begins carefully.  'There are sure to be interviews with these astronauts after the operation is over, and well, loose lips sink ships.  So head downstairs to the [interesting]chemistry lab[/interesting] and get something to... [italic type]massage[roman type] the crew's memory a bit.  As far as they are concerned, today's photo shoot is [bold type]the real thing[roman type].'  [The director] looks a bit uncomfortable at the subject.  'Just ask [interesting]the chemist[/interesting] for details.'";
+	now the interview is discussed.
+
+
+The items of checklist-2 are {get-lunch, drug-astronauts}.
 
 
 
@@ -1610,9 +1614,10 @@ Instead of going to the basement during day one:
 The sound stage is east of the basement.  "Another room!?"
 The printed name of the sound stage is "NASA's Secret Underground Sound Stage".
 
-[TODO: Name this person.]
 [TODO: Do something with this person.]
-The photographer is a stranger in the sound stage.  The photographer is female.
+The photographer is a stranger in the sound stage.  The photographer is male.
+The real name of the photographer is "Stanley".
+[TODO: Describe Kubrick.]
 
 
 
@@ -1648,6 +1653,11 @@ the photographer	X		X		F		X		X		T
 
 
 
+Lunch can be day-two-discussed.
+Instead of quizzing the director about lunch:
+	say "'Lunch is the most important meal of the day,' he says with a serious scowl.  'Don't let doctors tell you otherwise.  And actors get hungry, even when they're astronauts.  You just need to head down to [interesting]the craft services table[/interesting] and get everybody's [interesting]food[/interesting].  Don't forget to ask around and get everyone's order, and don't take any crap about special orders from these prima donnas.  We're on a budget around here!  Tax payers, yadda yadda yadda.'";
+	now lunch is day-two-discussed.
+
 Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
 Understand "food" and "food preferences" as food-preferences.
 Instead of quizzing someone about lunch:
@@ -1667,7 +1677,7 @@ Instead of quizzing the secretary about food-preferences:
 Instead of quizzing the director about food-preferences:
 	if lunch is not day-two-discussed:
 		try quizzing the director about lunch;
-	say "'Now I'm glad you asked about food,' he begins.  'I can't have fish, because I simply don't like the smell.  Not the smell of the fish itself, but the way it makes [bold type]me[roman type] smell when I eat it.  Doctors don't know what it is, and I've just learned to change my diet.  Life gives you a weird-smelling disease, you make lemonade, dammit!  And I absolutely, under any circumstances, [bold type]cannot[roman type] eat [bold type]anything[roman type] Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
+	say "'Now I'm glad you asked about food,' he begins.  'I can't have fish, because I simply don't like the smell.  Not the smell of the fish itself, but the way it makes [bold type]me[roman type] smell when I eat it.  Doctors don't know what it is, and I've just learned to change my diet.  Life gives you a weird-smelling disease, you make lemonade, dammit!'  He looks lost for a moment.  'Where was I?  Right.  Food!  I absolutely, under any circumstances, [bold type]cannot[roman type] eat [bold type]anything[roman type] Kosher.  Even one bite of anything blessed by a Rabbi, and I swell up like a beach ball.'"
 
 Instead of quizzing the head of personnel about food-preferences:
 	say "'I'm lactose-intolerant, and I'm allergic to nuts.  Now get lost!'"
@@ -1827,13 +1837,146 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 
 
 
+
 [TODO: Describe the chemistry lab, add scenery.]
 The chemistry lab is west of the basement.  "Another room!?"
 The printed name of the chemistry lab is "NASA Chemistry Lab".
 
-[TODO: Name this person.]
-[TODO: Do something with this person.]
 The chemist is a stranger in the chemistry lab.  The chemist is female.
+[TODO: Name this person.]
+[TODO: Describe this person.]
+
+Instead of talking to the chemist:
+	say "'What can I get you?' asks [the chemist].  'We've got [list of things which are a drug in the location].'"
+
+Instead of asking the chemist for a thing:
+	say "'Here you go!'  She hands you [the second noun].";
+	try silently taking the second noun.
+
+Instead of giving a food to the chemist:
+	say "'Oh, no thanks.  I already had lunch,' she says.  'I just ate a handful of mushrooms.'"
+
+Instead of giving a thing which is a drug to the chemist:
+	say "She shakes her head.  'No, I've got plenty.  You keep that.'"
+
+Instead of quizzing the chemist about the interview:
+	if the interview is discussed:
+		say "You carefully relay to [the chemist] what [the director] told you about this part of the operation.  'Whoa,' she finally responds.  'That's heavy.'  She zones out for a moment, then comes back to herself.  'Manipulating memories is pretty a new field, so you may just have to [italic type]experiment[roman type] a bit.  Take whatever you like, dude.'";
+	otherwise:
+		say "She looks confused.  'I don't know anything about that.  Did [the director] send you?  You might want to ask him first.'"
+
+
+
+
+
+Drugs are a concept.  Drugs are everywhere.  Understand "drug" as drugs.
+A thing can be a drug.  A thing is usually not a drug.
+Instead of quizzing the director about drugs:
+	say "[The director] quickly begins shaking his head.  'No, no, not my department.  Head downstairs to the [interesting]chemistry lab[/interesting] and ask in there.'"
+
+
+
+Instead of taking drugs:
+	let T be the list of things which are a drug in the location;
+	let U be the list of things which are a drug carried by the player;
+	if the player's command includes "take":
+		if the player's command matches the regular expression "\ball (?:the )?drugs\b":
+			say "Whoa, slow down, there![paragraph break]";
+			repeat with D running through T:
+				say "[D]: Taken.";
+				now the player has D;
+			stop the action;
+		otherwise:
+			say "(Assuming you mean 'pick up'...) [run paragraph on]";
+	if T is not empty:
+		say "Which do you want to pick up?  (You can see [T].)[line break]";
+	otherwise if U is not empty:
+		say "You can't see any such thing in the room.  (But you are carrying [U].)";
+	otherwise:
+		say "You can't see any such thing."
+
+Before taking a thing which is a drug:
+	if the player's command includes "take":
+		say "(Assuming you mean 'pick up'...) [run paragraph on]".
+
+
+
+Instead of giving a thing (called the flask) which contains a drink (called the potion) which is a drug to an astronaut (called the space-hero):
+	try giving the potion to the space-hero.
+
+Before giving a thing which is a drug to an astronaut:
+	say "[The second noun] takes [the noun] from you.  'Is this some kind of pre-flight vitamin?'[paragraph break]";
+	say "'Um, yes, I think so,' you lie unconvincingly.[paragraph break]";
+	if the noun is a space-cake:
+		say "[The second noun] smiles.  'Vitamins in cake form?  What will they think of next?'"
+
+Before giving a thing which is a drug to Ijon Tichy:
+	say "[The second noun] takes [the noun] from you.  He raises an eyebrow at you, and you smile and nod."
+
+After giving a thing which is a drug to an astronaut:
+	if the noun is a drink:
+		[You gave them the container.  You didn't pour it into their mouth for them.]
+		now the holder of the noun is nowhere;
+	otherwise:
+		now the noun is nowhere.
+
+
+
+The block giving rule is not listed in the check giving it to rules.
+Check giving a thing to someone:
+	if the noun is a drug and the second noun is an astronaut:
+		do nothing;
+	otherwise:
+		say "[The second noun] [don't] seem interested.";
+		stop the action.
+After giving a thing which is a drug to an astronaut:
+	[The "carry out" rules for each drug describe the action, but the astronaut consumes it immediately.]
+	now the noun is nowhere.
+
+
+
+A space-cake is a kind of thing.  A space-cake is edible and a drug.
+Understand "cake", "space cake", and "spacecake" as space-cake.
+Carry out giving a space-cake to an astronaut:
+	say "[The second noun] eats the cake, slowly at first, but then more quickly."
+
+
+LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
+Before dropping LSD, say "(Assuming you mean 'put down'...) [run paragraph on]".
+Carry out giving LSD to an astronaut:
+	say "[The second noun] pops the LSD into [their] mouth."
+
+
+Valium is a kind of thing.  Valium is edible, swallowable, and a drug.
+Carry out giving valium to an astronaut:
+	say "[The second noun] swallows the pill."
+
+
+Librium is a kind of thing.  Librium is edible, swallowable, and a drug.
+Carry out giving librium to an astronaut:
+	say "[The second noun] swallows the pill."
+
+
+A mysterious silver liquid is a kind of drink.  A mysterious silver liquid is a drug.
+Carry out giving a mysterious silver liquid to an astronaut:
+	say "[The second noun] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway."
+
+
+
+A vial is a kind of liquid-safe container.
+The description of a vial is "A small glass vial[if the noun contains nothing]which appears to be empty.[otherwise].[end if]".
+Rule for printing the name of a vial (called the flask) while not inserting or removing:
+	if the flask contains nothing:
+		say "empty vial";
+	otherwise:
+		say "vial of [list of objects contained by the flask]";
+	omit contents in listing.
+
+
+
+
+In the chemistry lab is a space-cake, LSD, three valium, and two librium.
+The small vial is a vial in the chemistry lab.  In the small vial is a mysterious silver liquid.
 
 
 
