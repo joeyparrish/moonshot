@@ -683,22 +683,27 @@ Instead of quizzing the engineer about the blueprints:
 [Give this concept a location, so we can have rules about "taking" it.]
 The whiteprints is a concept in the engineering department.
 Instead of quizzing the engineer about the whiteprints:
-	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and take them if you need them so badly.'";
+	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and [interesting]take the blueprints[/interesting] if you need them so badly.'";
 	now the blueprints are discussed;
 	now the printed name of get-blueprints is "Get command module drawings formerly known as blueprints".
 
 [If the player tries "take whiteprints", it should behave the same as above, when asking about "whiteprints".]
 Instead of taking the whiteprints:
 	try quizzing the engineer about the whiteprints.
+Instead of asking the engineer for whiteprints:
+	try quizzing the engineer about the whiteprints.
 
 Instead of taking the blueprints:
-	if the blueprints are discussed:
+	if the player's command includes "steal":
+		say "It doesn't look like you'll be able to sneak up on [the engineer].  He's looking right at you.";
+		show hint "You could ask for them instead.";
+	otherwise if the blueprints are discussed:
 		say "[The engineer] says, 'Here you go.'  He hands you a large roll of white paper which is not even slightly blue.  You cram the 3-foot roll of paper into your pocket, taking no care whatsoever to keep it neat or undamaged.  [The engineer] appears to be crying.";
 		now the engineer is sad;
 		now get-blueprints is checked;
 		now the player has the blueprints;
 	otherwise:
-		say "Taken aback, [the engineer] says, 'Hold on, there!  You don't know the first thing about these.'"
+		try quizzing the engineer about blueprints.
 
 Persuasion rule for asking the engineer to try giving the blueprints to the player:
 	persuasion succeeds.
