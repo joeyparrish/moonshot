@@ -8,8 +8,19 @@ A drink can be staining.  A drink is usually staining.
 
 [Drinking, as an action, is already defined in the standard rules.  But it doesn't do anything by default.]
 
+["Swallow" maps to "drink", but pills should be edible and the player may try to swallow them.]
+A thing can be swallowable.
+Instead of drinking a swallowable thing:
+	if the player's command includes "swallow":
+		try eating the noun;
+	otherwise:
+		say "You can't drink that."
+
 Instead of drinking a thing:
-	say "You can't drink that."
+	if the player's command includes "swallow":
+		say "You can't swallow that[if the noun is edible] whole[end if].";
+	otherwise:
+		say "You can't drink that."
 
 Instead of drinking a liquid-safe container (called the flask):
 	if the flask contains a drink (called the potion):
