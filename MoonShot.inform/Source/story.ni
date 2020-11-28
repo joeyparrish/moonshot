@@ -34,6 +34,7 @@ Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Include Options by Joey Parrish.
+Include Events by Joey Parrish.
 Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
@@ -355,26 +356,26 @@ Instead of quizzing the secretary about anything while the secretary is mad:
 	say "She harrumphs at you and continues to scowl."
 
 
+Director-yells-1 is an event.
+Secretary-warns is an event.
 When day one begins:
-	secretary warns in 0 turns from now;
-	director yells-1 in 4 turns from now.
+	activate secretary-warns in 1 turns;
+	activate director-yells-1 in 5 turns;
 
 Yourself can be told-to-wait.
-At the time when secretary warns:
+Carry out triggering secretary-warns:
 	if yourself has not been told-to-wait:
-		say "[The secretary] catches your attention and says, 'The director will be with you shortly.  Please make yourself comfortable while you wait.'";
+		say "[The secretary] catches your attention and says, 'The director will be with you shortly.  Please make yourself comfortable while you [interesting]wait[/interesting].'";
 	now yourself is told-to-wait.
 
 Before waiting in the waiting room:
 	say "[one of]You sit awkwardly, wondering when this whole thing is supposed to get started.[or]Maybe there's something you can do, or something you should be talking about while you wait?[or]The waiting is the hardest part, isn't it?[purely at random]".
 
-At the time when director yells-1:
-	say "A booming voice comes from the director's office: 'Donna!  Where the hell is that kid?  They're late!'[paragraph break][The secretary] looks embarrassed and says quietly, 'You'd better go on in.  He [italic type]hates[roman type] tardiness.'";
-	now the director is ready.
-
-[Give periodic reminders to get into the director's office if the player misses the first yell.]
-Every turn when the remainder after dividing the turn count by 5 is 0 and the director is ready and the director is not visited during day one:
-	director yells-1 in 0 turns from now.
+Carry out triggering director-yells-1:
+	say "A booming voice comes from the director's office: 'Donna!  Where the hell is that kid?  They're late!'[paragraph break][The secretary] looks embarrassed and says quietly, 'You'd better [interesting]go in[/interesting].  He [italic type]hates[roman type] tardiness.'";
+	now the director is ready;
+	[Give periodic reminders to get into the director's office if the player misses the first yell.]
+	activate director-yells-1 in 3 turns.
 
 Instead of quizzing the secretary about the director:
 	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely on top of every aspect of this project.  I don't know how he does it!'";
@@ -419,6 +420,8 @@ The director can be visited.  When day one begins, now the director is not visit
 
 After going to the director's office:
 	now the director is visited;
+	deactivate director-yells-1;
+	deactivate director-yells-2;
 	continue the action.
 
 The director's desk is scenery in the director's office.  "An expansive desk covered in whirring desk gadgets that roll chrome metal balls back and forth endlessly on balanced tracks, as well as several bobblehead dolls.[if the triangular nameplate is on the director's desk]  On the desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
@@ -739,6 +742,21 @@ Instead of asking the engineer to sing:
 Instead of quizzing the engineer about anything while the engineer is sad:
 	say "He is too busy weeping."
 
+Blueprints-hint is an event.
+After going to the engineering department:
+	if get-blueprints is not checked:
+		activate blueprints-hint in 8 turns;
+	continue the action.
+After going from the engineering department:
+	deactivate blueprints-hint;
+	continue the action.
+Carry out triggering blueprints-hint:
+	if the count of blueprints-hint > 1:
+		show hint "Look around the room for something you need, or someone who may have something you need for your checklist.";
+	otherwise:
+		show hint "Look around the room for something you need for your checklist.";
+	activate blueprints-hint in 6 turns.
+
 
 
 The propulsion lab is north of the hallway.  "The propulsion lab is as large as a warehouse, and your footsteps echo throughout the space.  The skeleton of a moon buggy looms at one end, and on the other, someone is welding.  Along one wall are a series of wheeled [interesting]chalkboards[/interesting].  In the corner, there's [if the tapir is in the cage]a metal [interesting]cage[/interesting] with what appears to be a [interesting][tapir-aardvark][/interesting].[otherwise]an empty metal [interesting]cage[/interesting].[end if]  You can smell sparks and animal waste."
@@ -782,11 +800,23 @@ Instead of going to anywhere (called the destination):
 		now the chalkboard is in the destination;
 	continue the action.
 
-Every turn when a random chance of 1 in 10 succeeds and the player is in the propulsion lab and the chalkboard is not critical:
+Every turn when a random chance of 1 in 10 succeeds and the player is in the propulsion lab and get-equations is not checked:
 	say "[The head scientist] grumbles under his breath and erases half of the equations on one of the [interesting]mobile, wheeled chalkboards[/interesting], then starts furiously scribbling new ones."
 
-Every turn when the remainder after dividing the turn count by 5 is 0 and the player is in the propulsion lab and the chalkboard is not critical:
-	show hint "Look around the room for something you need for your checklist."
+Equations-hint is an event.
+After going to the propulsion lab:
+	if get-equations is not checked:
+		activate equations-hint in 8 turns;
+	continue the action.
+After going from the propulsion lab:
+	deactivate equations-hint;
+	continue the action.
+Carry out triggering equations-hint:
+	if the count of equations-hint > 1:
+		show hint "Look around the room for something you need, or someone who may have something you need for your checklist.";
+	otherwise:
+		show hint "Look around the room for something you need for your checklist.";
+	activate equations-hint in 6 turns.
 
 
 
@@ -1440,6 +1470,8 @@ Every turn when the remainder after dividing the turn count by 3 is 0 and a chec
 Day two is a scene.
 Day one ends when checklist-1 is held by the director.
 Day two begins when day one ends.
+
+Director-yells-2 is an event.
 When day two begins:
 	say "[room-heading style]Intermission: End of day one[end style]";
 	say line break;
@@ -1458,21 +1490,19 @@ When day two begins:
 	now the director is not relaxed;
 	now the secretary is not mad;
 	now the player is in the waiting room;
-	secretary warns in 0 turns from now;
-	director yells-2 in 4 turns from now;
+	activate secretary-warns in 1 turns;
+	activate director-yells-2 in 5 turns;
 	[Work in progress - while getting feedback, end the story here, but only in the release build.  When we run the testing version, we will continue on into the incomplete day two.]
 	maybe end the game.
 
 
 
 
-At the time when director yells-2:
+Carry out triggering director-yells-2:
 	say "A booming voice comes from the director's office: 'Donna!  Is that damned kid late again?!  Why did we even hire that punk?'[paragraph break][The secretary] shrugs at you and gestures toward [the director]'s office door.";
-	now the director is ready.
-
-[Give periodic reminders to get into the director's office if the player misses the first yell.]
-Every turn when the remainder after dividing the turn count by 5 is 0 and the director is ready and the director is not visited during day two:
-	director yells-2 in 0 turns from now.
+	now the director is ready;
+	[Give periodic reminders to get into the director's office if the player misses the first yell.]
+	activate director-yells-2 in 3 turns.
 
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
