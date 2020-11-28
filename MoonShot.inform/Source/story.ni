@@ -1225,16 +1225,16 @@ Instead of quizzing the head of personnel about Neil Armstrong:
 	say "'Fun fact: his arms are notoriously weak.  Once, I saw him struggle to lift a can of Coke.'"
 
 Instead of quizzing the head of personnel about Michael Collins:
-	say "";
+	say "A good enough fellow if you can handle his Irish brogue.  Don't mention the Brits around him though.  Wouldn't be surprised if he tried to claim the moon in the name of Ireland.  Between you and me, he'd be a lot more fun if he had a TOM Collins or two.'";
 
 Instead of quizzing the head of personnel about Lisa Nowak:
-	say "";
+	say "'Shhhh!' he says, looking from side to side, his voice dropping to a whisper.  'We used to date casually and when I broke it off, she went a little nutso.  I had to fake my own death.  Why do you think I hide out in this tiny office?'";
 
 Instead of quizzing the head of personnel about Ijon Tichy:
-	say "";
+	say "That guy only speaks Polish but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'";
 
 Instead of quizzing the head of personnel about Clifford McBride:
-	say "";
+	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be the unibomber.  Safer to have him in space than on planet Earth.'";
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
