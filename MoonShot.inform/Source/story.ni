@@ -1207,10 +1207,10 @@ Instead of quizzing the head of personnel about anything while the head of perso
 
 
 Instead of quizzing the head of personnel about Apollo:
-	say "Wait 'til those pencil-necked poindexters over at the other NASA see what our insane pet German cooked up!  They should've known better than to attempt to beat us at our own game.  As if they could out NASA us.'  Franklin snorts derisively.";
+	say "'Wait [']til those pencil-necked poindexters over at the other NASA see what our insane pet German cooked up!  They should've known better than to attempt to beat us at our own game.  As if they could out-NASA us.'  [The head of personnel] snorts derisively."
 
 Instead of quizzing the head of personnel about NASA:
-	say "'National Agency of Space Astronauts.  Duh.  Here are NASA we pride ourselves at being the #1 source of American space astronauts.  Now those do-nothings over at our rival organization, the National Astronautics Sentral Authority, tried to muscle in on our game but there's only room for one NASA in this country.'"
+	say "'National Agency of Space Astronauts.  Duh.  Here are NASA we pride ourselves at being the #1 source of American space astronauts.  Now those do-nothings over at our rival organization, the National Astronautics Sentral Authority, tried to muscle in on our game, but there's only room for one NASA in this country.'"
 
 Instead of quizzing the head of personnel about the secretary:
 	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
@@ -1221,7 +1221,7 @@ Instead of quizzing the head of personnel about the director:
 	now the director is known.
 
 Instead of quizzing the head of personnel about the engineer:
-	say "'Now that's a guy who's never gonna tell a lie and hurt you.'  When Franklin notices your confusion, he goes on, 'Well, he certainly never let [bold type]me[roman type] down.'";
+	say "'Now that's a guy who's never gonna tell a lie and hurt you.'  When [the head of personnel] notices your confusion, he goes on, 'Well, he certainly never let [bold type]me[roman type] down.'";
 
 Instead of quizzing the head of personnel about the head scientist:
 	say "'Von Braun is a genius, and as you may know, 100% bazonkers.  He actually thinks that some anteaters are aliens.  Sure knows his way around a rocket, though.'";
