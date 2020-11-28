@@ -19,6 +19,15 @@ To decide which object is arbitrary-person:
 		decide on entry 1 of occupants.
 
 Quizzing generally is an action applying to one thing.  Understand "ask about [anything]" as quizzing generally.
+Quizzing non-nouns is an action applying to one topic.  Understand "ask about [text]" as quizzing non-nouns.
+
+[This is how we handle "ask about [text that isn't a noun]" by chaining to the default rules for unknown objects.  We convert it to a dummy noun.]
+whatsit is a backdrop.  whatsit is everywhere.
+Check quizzing non-nouns:
+	if arbitrary-person is nobody:
+		say "There's nobody here to ask.";
+	otherwise:
+		try quizzing arbitrary-person about whatsit.
 
 Check quizzing generally:
 	if arbitrary-person is nobody:
