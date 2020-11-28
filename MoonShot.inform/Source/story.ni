@@ -671,7 +671,7 @@ Instead of talking to the engineer:
 	say "Perhaps you could ask [the noun] about the weather, the command module blueprints, or himself."
 
 Instead of quizzing the engineer about name:
-	say "The engineer taps his [interesting]name badge[/interesting] and says, 'Can't you read?'"
+	say "[The engineer] taps his [interesting]name badge[/interesting] and says, 'Can't you read?'"
 
 Instead of quizzing the engineer about the weather:
 	say "[The noun] glances up at the ceiling for a moment before replying, 'Maybe a bit cloudy, but we should still be clear for launch.  Besides, we're never gonna give this up.'"
@@ -716,7 +716,7 @@ Instead of the engineer giving the blueprints to the player:
 	rule succeeds.
 
 Instead of quizzing the engineer about NASA:
-	say "The engineer beams, 'I am [bold type]so[roman type] proud to serve my country in the National Aeronautics and Space... um... anyway, I design rockets.  NASA rockets.  Big, blasting, noisy hard rockets!  It's the best.'"
+	say "[The engineer] beams, 'I am [bold type]so[roman type] proud to serve my country in the National Aeronautics and Space... um... anyway, I design rockets.  NASA rockets.  Big, blasting, noisy hard rockets!  It's the best.'"
 
 Instead of quizzing the engineer about rocket:
 	try quizzing the engineer about NASA.
