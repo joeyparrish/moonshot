@@ -1171,9 +1171,9 @@ Instead of talking to the head of personnel:
 	if the head of personnel is asleep:
 		try waking the head of personnel;
 	otherwise if the personnel puzzle is ready:
-		say "Perhaps you could ask [the noun] about the crew candidates, various employees, or himself.";
+		say "Perhaps you could ask [the noun] about the crew candidates, various employees, NASA, Apollo, or himself.";
 	otherwise:
-		say "Perhaps you could ask [the noun] about the crew candidates, the personnel files, or himself."
+		say "Perhaps you could ask [the noun] about the crew candidates, the personnel files, NASA, Apollo, or himself."
 
 Instead of quizzing the head of personnel about name:
 	say "'Franklin, Franklin Stanford.  What the hell do you want?  Spit it out.'";
@@ -1189,16 +1189,13 @@ Understand "files" as the personnel files.
 Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
 	try waking the head of personnel.
 
-[TODO: talk to Franklin about NASA
-Instead of quizzing the head of personnel about NASA:
-	say "";
-]
 
-[TODO: talk to Franklin about Apollo
+
 Instead of quizzing the head of personnel about Apollo:
-	say "";
-]
+	say "Wait 'til those pencil-necked poindexters over at the other NASA see what our insane pet German cooked up!  They should've known better than to attempt to beat us at our own game.  As if they could out NASA us.'  Franklin snorts derisively.";
 
+Instead of quizzing the head of personnel about NASA:
+	say "'National Agency of Space Astronauts.  Duh.  Here are NASA we pride ourselves at being the #1 source of American space astronauts.  Now those do-nothings over at our rival organization, the National Astronautics Sentral Authority, tried to muscle in on our game but there's only room for one NASA in this country.'"
 
 Instead of quizzing the head of personnel about the secretary:
 	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
@@ -1234,7 +1231,7 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 	say "That guy only speaks Polish but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'";
 
 Instead of quizzing the head of personnel about Clifford McBride:
-	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be the unibomber.  Safer to have him in space than on planet Earth.'";
+	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be the unibomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'";
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
