@@ -382,7 +382,7 @@ Instead of quizzing the secretary about the director:
 	now the director is known.
 
 Instead of going to the director's office while the director is not ready:
-	say "[The secretary] jumps up and runs for the door, stopping you in your tracks.  'You can't go in there!  Just wait, please, and the director will be with you as soon as he is ready.'";
+	say "[The secretary] jumps up and runs for the door, stopping you in your tracks.  'You can't go in there!  Just [interesting]wait[/interesting], please, and the director will be with you as soon as he is ready.'";
 	if yourself is told-to-wait:
 		[If the player has been told at least once before, they are perhaps having trouble with this waiting thing, so offer a hint.]
 		say line break;
@@ -664,8 +664,8 @@ The description of the name-badge is "It says 'Rick' at the top.  The bottom say
 After examining the name-badge, now the engineer is known.
 
 Rule for writing a paragraph about the engineer:
-	if the engineer is unknown, say "An engineer is standing around[if the coffee-pot is in the location] by the [interesting]coffee pot[/interesting][end if], [if the engineer is sad]crying.[otherwise]doing nothing.";
-	otherwise say "Rick is still here, still [if the engineer is sad]crying.[otherwise]doing nothing.";
+	if the engineer is unknown, say "[interesting]An engineer[/interesting] is standing around[if the coffee-pot is in the location] by the [interesting]coffee pot[/interesting][end if], [if the engineer is sad]crying.[otherwise]doing nothing.";
+	otherwise say "[interesting]Rick[/interesting] is still here, still [if the engineer is sad]crying.[otherwise]doing nothing.";
 
 Instead of talking to the engineer:
 	say "Perhaps you could ask [the noun] about the weather, the command module blueprints, or himself."
@@ -686,7 +686,7 @@ Instead of quizzing the engineer about the blueprints:
 [Give this concept a location, so we can have rules about "taking" it.]
 The whiteprints is a concept in the engineering department.
 Instead of quizzing the engineer about the whiteprints:
-	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and [interesting]take the blueprints[/interesting] if you need them so badly.'";
+	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and [interesting][italic type]take the blueprints[roman type][/interesting] if you need them so badly.'";
 	now the blueprints are discussed;
 	now the printed name of get-blueprints is "Get command module drawings formerly known as blueprints".
 

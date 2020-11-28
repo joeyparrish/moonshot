@@ -17,7 +17,7 @@ Understand "[difficulty] mode" and "set [difficulty] mode" as setting difficulty
 Check setting difficulty mode to a difficulty (called X):
 	say "The game is now set to [X] mode.";
 	now difficulty mode is X;
-	say " - Interesting objects will [if the numeric value of X > 1]not [end if]be [interesting]highlighted[/interesting].";
+	say " - Interesting objects and phrases will [if the numeric value of X > 1]not [end if]be [interesting]highlighted[/interesting].";
 	say " - Hints will [if the numeric value of X > 2]not [end if]be provided.";
 
 To show hint (T - text):
@@ -65,11 +65,11 @@ Carry out showing options:
 	say line break;
 	say "This game also has three difficulty modes.";
 	say line break;
-	say "  - The [italic type]easy mode[roman type] command causes the game to show you hints and to [interesting-highlight style]highlight[end style] potentially interesting objects in room descriptions and conversations.";
+	say "  - The [italic type]easy mode[roman type] command causes the game to show you hints and to [interesting-highlight style]highlight[end style] potentially interesting objects and phrases in room descriptions and conversations.";
 	say line break;
-	say "  - The [italic type]medium mode[roman type] command (the default) causes the game to show you hints, but not to highlight potentially interesting objects for you.";
+	say "  - The [italic type]medium mode[roman type] command (the default) causes the game to show you hints, but not to highlight potentially interesting objects and phrases for you.";
 	say line break;
-	say "  - The [italic type]hard mode[roman type] command causes the game to neither show hints nor highlight potentially interesting objects for you.";
+	say "  - The [italic type]hard mode[roman type] command causes the game to neither show hints nor highlight potentially interesting objects and phrases for you.";
 	say end style.
 
 Options ends here.
@@ -80,4 +80,4 @@ This adds three difficulty modes (easy, medium, and hard), commands to control t
 
 It also creates a "show hint" action.  Hints will not be shown in hard mode.
 
-Finally, this creates styles for highlighting interesting objects.  These highlights only show up in easy mode.  To mark up text in a room description or conversation for highlighting in easy mode, use the "[interesting]" opening tag and the "[/interesting]" closing tag.
+Finally, this creates styles for highlighting interesting objects and phrases.  These highlights only show up in easy mode.  To mark up text in a room description or conversation for highlighting in easy mode, use the "[interesting]" opening tag and the "[/interesting]" closing tag.
