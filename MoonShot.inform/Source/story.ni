@@ -784,6 +784,12 @@ Instead of examining equations:
 Instead of examining rocket-equations:
 	try examining equations.
 
+Copying is an action applying to one thing.  Understand "copy [thing]" and "copy down [thing]" and "make copy of [thing]" as copying.
+Check copying equations:
+	say "You don't feel confident that you would get them right, even if you tried.  If only you could somehow get the originals..."
+Check copying:
+	say "You don't know how to copy that."
+
 Instead of taking the chalkboard:
 	if the player has alien-equations:
 		say "You have the paper that [tapir] gave you, so you don't think you'll need the chalkboards any more.";
