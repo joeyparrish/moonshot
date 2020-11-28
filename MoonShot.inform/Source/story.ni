@@ -696,6 +696,7 @@ Instead of taking the whiteprints:
 Instead of asking the engineer for whiteprints:
 	try quizzing the engineer about the whiteprints.
 
+[TODO: Is there an alternate solution we could add here?]
 Instead of taking the blueprints:
 	if the player's command includes "steal":
 		say "It doesn't look like you'll be able to sneak up on [the engineer].  He's looking right at you.";
