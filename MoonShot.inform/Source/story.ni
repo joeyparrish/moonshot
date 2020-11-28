@@ -924,6 +924,9 @@ Instead of quizzing someone about the tapir:
 Instead of talking to the tapir:
 	say "The [tapir-aardvark] says in a low whisper: 'Hey, kid!  You gotta get me out of here.'"
 
+Instead of quizzing the tapir about the brass key while the tapir is in the cage:
+	say "The [tapir-aardvark] says in a low whisper: 'Von Braun has it.  Now be quick!'"
+
 Instead of quizzing the tapir about anything while the tapir is in the cage:
 	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
 
