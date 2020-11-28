@@ -155,7 +155,7 @@ The weather is a concept.
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
 
 [You can ask anyone about their name.  It's only polite.]
-Name is a concept.
+Name is a concept.  Understand "her name", "his name", "their name", "your name", and "the name" as name.
 
 NASA is a concept.
 Understand "second a" and "second a in NASA" as NASA.
@@ -282,7 +282,7 @@ Before reading a command while the turn count is 1:
 		show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
 		show hint "This game comes with a few options.  You can type 'options' to find out about them.";
 		show hint "You can type 'verbs' to get a very brief reference of useful verbs.";
-		show hint "You can talk to everyone.  Try 'talk to so-and-so' for suggestions on topics.";
+		show hint "You can talk to everyone, and everyone has a name.  Try 'talk to so-and-so' for suggestions on topics, or 'ask about name'.";
 		now intro hints shown is true;
 
 
