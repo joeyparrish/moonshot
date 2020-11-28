@@ -634,6 +634,7 @@ The engineer is carrying the blueprints.  The description of the blueprints is "
 The blueprints can be discussed.  [Only when you've asked about them can you take them.]
 The blueprints are critical.  [You can't drop them.]
 The blueprints are plural-named.  [Don't call them "a blueprints".]
+Understand "drawing", "drawings", "command module drawing", "command module drawings", and "command module drawings formerly known as blueprints" as blueprints.
 
 In the engineering department is a liquid-safe container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
 [Accept a few misspellings of coffee.]
