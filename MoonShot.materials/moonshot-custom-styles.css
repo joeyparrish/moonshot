@@ -199,3 +199,26 @@ img.unicorn {
   display: flex;
   margin: 0 auto;
 }
+
+/* Based on https://codepen.io/thetypebeast/pen/KWNGGd by Jennifer */
+body.lsd::before {
+  content: ""; /* required for ::before */
+  position: fixed; /* don't scroll with page */
+  z-index: -100; /* place behind elements on page */
+  /* fill the page */
+  width: 100%;
+  height: 100%;
+  /* fill the background with a gradient */
+  background-image:
+      radial-gradient(circle farthest-side at top right, transparent, #def),
+      radial-gradient(ellipse farthest-corner at 0% 100%, transparent, #fed);
+  animation: lsd-bg-change 3s infinite;
+}
+@keyframes lsd-bg-change {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(-180deg);
+  }
+}
