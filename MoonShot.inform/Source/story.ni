@@ -1622,15 +1622,24 @@ Instead of quizzing the director about lunch:
 		now lunch is day-two-discussed.
 
 
-Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts for interviews".
-The interview is a concept.  The allowed-scene of the interview is day two.  Understand "prepare", "brainwash", "brainwashing", "brain wash", and "brain washing" as the interview.
+Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts".
+The interview is a concept.  The allowed-scene of the interview is day two.  Understand "prepare", "preparing", "brainwash", "brainwashing", "brain wash", and "brain washing" as the interview.
 The interview can be discussed.
 Instead of quizzing the director about the interview:
-	say "'Yes, well, here's the thing,' he begins carefully.  'There are sure to be interviews with these astronauts after the operation is over, and well, loose lips sink ships.  So head downstairs to the [interesting]chemistry lab[/interesting] and get something to... [italic type]massage[roman type] the crew's memory a bit.  As far as they are concerned, today's photo shoot is [bold type]the real thing[roman type].'  [The director] looks a bit uncomfortable at the subject.  'Just ask [interesting]the chemist[/interesting] for details.'";
+	say "'Yes, well, here's the thing,' he begins carefully.  'There are sure to be interviews with these astronauts after the operation is over, and well, loose lips sink ships.  So head downstairs to the [interesting]chemistry lab[/interesting] and get something to... [italic type]massage[roman type] the crew's memory a bit.  As far as they are concerned, today's photo shoot is [bold type]the real thing[roman type].'  [The director] looks a bit uncomfortable with the subject.  'Just ask [interesting]the chemist[/interesting] for details.'";
 	now the interview is discussed.
 
 
-The items of checklist-2 are {get-lunch, drug-astronauts}.
+
+Film-moon-landing is a checklist-item.  The printed name of film-moon-landing is "Film 'moon landing'".
+The filming is a concept.  Understand "film", "moon landing", and "landing" as the filming.
+Instead of quizzing the director about the filming:
+	say "'Oh, you'll do fine.  Thankfully, Stanley left behind his script for the moon landing.'"
+[TODO: Sketch filming]
+
+
+
+The items of checklist-2 are {get-lunch, drug-astronauts}.  [Initially, we hide the filming and reveal it later when Stanley gets sick.]
 
 
 
@@ -1665,14 +1674,17 @@ Instead of going to the basement during day one:
 
 
 [TODO: Describe the sound stage, add scenery.]
-The sound stage is east of the basement.  "Another room!?"
+The sound stage is east of the basement.  "You find yourself in a large, hangar-like structure, painted in the black and gray tones of a desolate lunar surface.  [if the photographer is in the sound stage][A photographer] with dark hair and an intense look is flitting around between cameras, double-checking everything for the shoot.[otherwise]There are cameras, tripods, and lights standing around, waiting to be used.[end if]  Against the side wall away from the set is a [interesting]craft services table[/interesting][if food is on the craft services table] covered in food[end if]."
 The printed name of the sound stage is "NASA's Secret Underground Sound Stage".
 
-[TODO: Do something with this person.]
 The photographer is a stranger in the sound stage.  The photographer is male.
 The real name of the photographer is "Stanley".
-[TODO: Describe Kubrick.]
-
+Understand "Stanley", "Kubrick", "film-maker", and "filmmaker" as the photographer.
+The description of the photographer is "[The photographer] is a bit shorter than average, with dark, wild, wavy hair and a dark, thick beard.  He is busily checking and adjusting various cameras, tripods, and lights."
+The tripods are scenery in the sound stage.  Understand "tripod" as the tripods.
+The lights are scenery in the sound stage.  Understand "light" as the lights.
+The cameras are scenery in the sound stage.  Understand "camera" and "equipment" as the cameras.
+The beard is part of the photographer.  The description of the beard is "It's... magnificent.  [The photographer]'s cheeks are shaved clean into a virtual fenceline, holding the dark, wild beard in check, keeping the power and chaos of it from consuming his entire face.  You suppress a shudder."
 
 
 
@@ -1780,7 +1792,7 @@ After reading a command:
 
 
 The craft services table is an enterable supporter in the sound stage.
-Two BLTs, three tuna sandwiches, three salads, and two almond chickens are on the craft services table.
+Three BLTs, four tuna sandwiches, four salads, and two almond chickens are on the craft services table.
 The description of the craft services table is "The craft services table is a cheap folding table covered in a red plastic tablecloth with a floral print."
 Instead of sitting on the craft services table:
 	say "You start to climb onto the craft services table, but it doesn't look like the table would hold your weight, so you think better of it."
@@ -1849,7 +1861,9 @@ To decide if (the recipient - person) will eat (the snack - food):
 	let W2 be the vs-wheat entry;
 	let K1 be the is-kosher of the snack;
 	let K2 be the vs-kosher entry;
-	if M1 is the antonym of M2:
+	if the recipient is the photographer:
+		decide yes;
+	otherwise if M1 is the antonym of M2:
 		decide no;
 	otherwise if F1 is the antonym of F2:
 		decide no;
@@ -1877,8 +1891,9 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 		now the recipient is fed;
 		increase the fed count by 1;
 		if the fed count is 7:
-			say "That seems to be the last of the lunch deliveries!";
+			say "That seems to be the last of the lunch deliveries![paragraph break]";
 			now get-lunch is checked;
+			start photographer illness;
 	otherwise:
 		if a random chance of 1 in 3 succeeds:
 			say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
@@ -1887,6 +1902,21 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 		otherwise:
 			say "[The recipient] looks at [the snack] and says 'No, I can't eat that.  Were you even listening?'";
 	stop the action.
+
+To start photographer illness:
+	if the player is in the sound stage:
+		say "Suddenly, [the photographer] gets dizzy and collapses!  Someone calls for help, and a team of medics rush him away on a stretcher.  After the commotion dies down, someone brings you to speak with [the director] in his office.[paragraph break]";
+	otherwise if the player is in the director's office:
+		say "Suddenly, [the director]'s phone rings.  He answers, 'yes?', followed by a few grunts of what you assume are acknowledgement, then he hangs up.[paragraph break]";
+	otherwise if the player is in the waiting room:
+		say "Suddenly, [the director] opens the door to his office and says, 'You better get in here, kid.  We've got some bad news.'  You follow him in.[paragraph break]";
+	otherwise:
+		say "Suddenly, [the secretary] rushes in and says, '[The director] needs to see you right away.  Something terrible has happened!'  You follow her to the director's office.[paragraph break]";
+	pause;
+	now the player is in the director's office;
+	now the photographer is in purgatory;
+	say "[The director] looks at you somberly from across the desk.  'I'm not sure if you met Stanley, the photographer, but he seems to have eaten something he shouldn't have.'  You try to act nonchalant.  'He's going to be okay, but he'll be in the hospital for a while, so we'll need you to take over filming and shooting photos downstairs.  I've updated your checklist.'";
+	now the items of checklist-2 are {get-lunch, drug-astronauts, film-moon-landing}.
 
 
 
