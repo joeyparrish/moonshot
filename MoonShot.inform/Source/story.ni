@@ -1520,8 +1520,6 @@ Carry out triggering director-yells-2:
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
 
-Lunch is a concept.  The allowed-scene of lunch is day two.
-
 Checklist-2 is a critical checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
@@ -1612,9 +1610,17 @@ Instead of quizzing the director about rocket-equations during day two:
 
 [TODO: checklist-2 items, sub-items, corresponding conversation topics with the director]
 
-
-
 Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
+
+Lunch is a concept.  The allowed-scene of lunch is day two.
+Lunch can be day-two-discussed.
+Instead of quizzing the director about lunch:
+	if get-lunch is checked:
+		say "'Thanks for sorting out lunch, kid.'";
+	otherwise:
+		say "'Lunch is the most important meal of the day,' he says with a serious scowl.  'Don't let doctors tell you otherwise.  And actors get hungry, even when they're astronauts.  You just need to head down to [interesting]the craft services table[/interesting] and get everybody's [interesting]food[/interesting].  Don't forget to ask around and get everyone's order, and don't take any crap about special orders from these prima donnas.  We're on a budget around here!  Tax payers, yadda yadda yadda.'";
+		now lunch is day-two-discussed.
+
 
 Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts for interviews".
 The interview is a concept.  The allowed-scene of the interview is day two.  Understand "prepare", "brainwash", "brainwashing", "brain wash", and "brain washing" as the interview.
@@ -1701,13 +1707,9 @@ the photographer	X		X		F		X		X		T
 
 
 
-Lunch can be day-two-discussed.
-Instead of quizzing the director about lunch:
-	say "'Lunch is the most important meal of the day,' he says with a serious scowl.  'Don't let doctors tell you otherwise.  And actors get hungry, even when they're astronauts.  You just need to head down to [interesting]the craft services table[/interesting] and get everybody's [interesting]food[/interesting].  Don't forget to ask around and get everyone's order, and don't take any crap about special orders from these prima donnas.  We're on a budget around here!  Tax payers, yadda yadda yadda.'";
-	now lunch is day-two-discussed.
 
 Food-preferences is a concept.  The allowed-scene of food-preferences is day two.
-Understand "food" and "food preferences" as food-preferences.
+Understand "food", "food preferences", "diet", "diet preferences", "dietary preferences", "order", "food order", and "special order" as food-preferences.
 Instead of quizzing someone about lunch:
 	try quizzing the noun about food-preferences.
 	[Unless they have a specific response for lunch.]
@@ -1749,7 +1751,10 @@ Instead of quizzing Clifford McBride about food-preferences:
 	say "He give you a look filled with a calm intensity that scares you to your core.  'This is a one-way voyage.  I never cared about you, or any of your small ideas.  For 30 years...' he licks his lips, 'I've been breathing this air, eating this food... enduring these hardships... but I found my destiny.'  After a long moment of terrifying silence, he adds, 'No meat, no fish.  Nothing I couldn't take with me.'"
 
 Instead of quizzing the photographer about food-preferences:
-	say "'Kosher, no dairy,' he says, and then immediately turns back to his camera setup."
+	say "'Kosher, no dairy,' he says, and then immediately turns back to his cameras."
+
+Instead of quizzing the chemist about food-preferences:
+	say "'Oh, no thanks.  I already had lunch,' she says.  'I just ate a handful of mushrooms.'"
 
 
 
@@ -1902,7 +1907,7 @@ Instead of asking the chemist for a thing:
 	try silently taking the second noun.
 
 Instead of giving a food to the chemist:
-	say "'Oh, no thanks.  I already had lunch,' she says.  'I just ate a handful of mushrooms.'"
+	try quizzing the chemist about food-preferences.  [We already wrote a response there.]
 
 Instead of giving a thing which is a drug to the chemist:
 	say "She shakes her head.  'No, I've got plenty.  You keep that.'"
