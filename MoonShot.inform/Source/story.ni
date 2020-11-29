@@ -196,9 +196,9 @@ Understand "say sorry", "apologize", "apologise", and "console" as saying sorry.
 Saying sorry to is an action applying to one thing.
 Understand "say sorry to [someone]", "apologize to [someone]", "apologise to [someone]", and "console [someone]" as saying sorry to.
 Instead of saying sorry:
-	say "What is there to apologize for?"
+	say "Nobody here is upset at the moment."
 Instead of saying sorry to a person:
-	say "What is there to apologize for?"
+	say "[The noun] is not upset at the moment."
 
 
 [By default, we don't get to see what people are carrying.  This changes that.]
