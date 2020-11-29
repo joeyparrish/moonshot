@@ -1251,6 +1251,16 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be some kind of mad bomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'"
 
+[TODO: Ask Franklin about Stanley
+Instead of quizzing the head of personnel about the photographer:
+	say "'...'"
+]
+
+[TODO: Ask Franklin about Molly
+Instead of quizzing the head of personnel about the chemist:
+	say "'...'"
+]
+
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
 	now the head of personnel is asleep;
@@ -1694,6 +1704,12 @@ The lights are scenery in the sound stage.  Understand "light" as the lights.
 The cameras are scenery in the sound stage.  Understand "camera" and "equipment" as the cameras.
 The beard is part of the photographer.  The description of the beard is "It's... magnificent.  [The photographer]'s cheeks are shaved clean into a virtual fenceline, holding the dark, wild beard in check, keeping the power and chaos of it from consuming his entire face.  You suppress a shudder."
 
+Instead of quizzing the photographer about the photographer:
+	try quizzing the photographer about name.
+
+Instead of quizzing the photographer about name:
+	say "He offers his hand and says, 'Kubrick.  Stanley Kubrick.  Nice to meet you.'"
+
 
 
 A truth-table-value is a kind of value.  The truth-table-values are T, F, X, and Z.
@@ -1934,8 +1950,16 @@ The chemistry lab is west of the basement.  "Another room!?"
 The printed name of the chemistry lab is "NASA Chemistry Lab".
 
 The chemist is a stranger in the chemistry lab.  The chemist is female.
-[TODO: Name this person.]
-[TODO: Describe this person.]
+The real name of the chemist is "Molly".
+Understand "Molly" as the chemist.
+[TODO: Describe Molly.]
+
+Instead of quizzing the chemist about the chemist:
+	try quizzing the chemist about name.
+
+Instead of quizzing the chemist about name:
+	say "'They call me Molly,' she says with a grin.";
+	now the chemist is known.
 
 Instead of talking to the chemist:
 	say "'What can I get you?' asks [the chemist].  'We've got [list of things which are a drug in the location].'"
