@@ -2,20 +2,28 @@ Version 1 of Events by Joey Parrish begins here.
 
 An event is a kind of object.
 An event has a number called the countdown.
+An event has text called the message.
 An event can be pending.  A event is usually not pending.
 An event has a number called the count.  The count of a event is usually 0.
 
 To activate (X - a event) in (Y - a number) turns:
+	activate X in Y turns with message "".
+
+To activate (X - a event) in (Y - a number) turns with message (Z - text):
 	now the countdown of X is Y;
+	now the message of X is Z;
 	now X is pending.
 
 To deactivate (X - a event):
+	now the message of X is "";
 	now X is not pending.
 
 Triggering is an action out of world applying to one thing.
 [Out of world, because the object it applies to (the counter) isn't in any physical place.]
 
 Check triggering an event (called X):
+	if the number of words in the message of X is not 0:
+		say the message of X;
 	deactivate X;
 	increase the count of X by 1.
 
