@@ -259,6 +259,9 @@ A lab coat is a kind of wearable thing.
 The-door is a backdrop.  Understand "door" and "the door" as the-door.  The printed name of the-door is "the door".
 The-door is everywhere.  [Every room has a door, but they are not interesting.]
 
+Understand "upstairs" and "up stairs" as up.
+Understand "downstairs" and "down stairs" as down.
+
 
 
 [---------- DAY 1 ----------]
