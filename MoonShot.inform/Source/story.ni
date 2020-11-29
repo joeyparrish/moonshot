@@ -1198,6 +1198,9 @@ Instead of quizzing the head of personnel about the head of personnel:
 The personnel files is a concept.  The personnel files are everywhere.
 Understand "files" as the personnel files.
 
+Instead of giving anything to the head of personnel while the head of personnel is asleep:
+	try waking the head of personnel.
+
 Instead of quizzing the head of personnel about anything while the head of personnel is asleep:
 	try waking the head of personnel.
 
