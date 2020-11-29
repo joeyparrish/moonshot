@@ -1,7 +1,5 @@
 Version 1 of Concepts by Joey Parrish begins here.
 
-Include Better Asking by Joey Parrish.
-
 A concept is a kind of backdrop.  Instead of examining a concept, say "You can't see any such thing."
 
 A concept can be physical.  A concept is usually not physical.
@@ -15,15 +13,6 @@ Instead of taking a concept (called the considered):
 	otherwise:
 		say "What would that even [italic type]mean?[roman type][line break]";
 		[Treat it as a purely conceptual thing.]
-
-Non-existent-concept is a concept.  [That the game won't use, and therefore we can use to trigger defaults when another concept is out of bounds because of allowed-scene.]
-
-Before quizzing someone (called the interrogated) about a concept (called thingy):
-	if the allowed-scene of thingy is happening:
-		continue the action;
-	otherwise:
-		try quizzing the interrogated about non-existent-concept;
-		stop the action.
 
 Concepts ends here.
 

@@ -186,12 +186,6 @@ Equations is a concept.
 Rocket-equations is a concept.
 Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
 
-[The built-in default for asking someone about an unknown thing is "There is no reply."  We'd prefer a different default for topics we haven't coded explicitly.  Use "non-existent-concept" defined in the Concepts extension to chain to the default quizzing rule.]
-Instead of asking someone (called the person) about:
-	try quizzing the person about non-existent-concept.
-Instead of asking about:
-	try quizzing arbitrary-person about non-existent-concept.
-
 Instead of quizzing someone (called the person) about:
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
 
