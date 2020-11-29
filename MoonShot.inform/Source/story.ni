@@ -791,6 +791,10 @@ Instead of examining rocket-equations:
 Copying is an action applying to one thing.  Understand "copy [thing]" and "copy down [thing]" and "make copy of [thing]" as copying.
 Check copying equations:
 	say "You don't feel confident that you would get them right, even if you tried.  If only you could somehow get the originals..."
+Check copying blueprints:
+	say "You don't feel confident that you would get them right, even if you tried.  If only you could somehow get the originals..."
+Check copying whiteprints:
+	say "You don't feel confident that you would get them right, even if you tried.  If only you could somehow get the originals..."
 Check copying:
 	say "You don't know how to copy that."
 
