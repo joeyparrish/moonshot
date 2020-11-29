@@ -1933,8 +1933,11 @@ Instead of talking to the chemist:
 	say "'What can I get you?' asks [the chemist].  'We've got [list of things which are a drug in the location].'"
 
 Instead of asking the chemist for a thing:
-	say "'Here you go!'  She hands you [the second noun].";
-	try silently taking the second noun.
+	if the second noun is a drug:
+		say "'Here you go!'  She hands you [the second noun].";
+		try silently taking the second noun;
+	otherwise:
+		say "'Sorry, I don't have that.  We've got [list of things which are a drug in the location], though.  Just [interesting]take[/interesting] whatever you need, man.'"
 
 Instead of giving a food to the chemist:
 	try quizzing the chemist about food-preferences.  [We already wrote a response there.]
@@ -1944,7 +1947,7 @@ Instead of giving a thing which is a drug to the chemist:
 
 Instead of quizzing the chemist about the interview:
 	if the interview is discussed:
-		say "You carefully relay to [the chemist] what [the director] told you about this part of the operation.  'Whoa,' she finally responds.  'That's heavy.'  She zones out for a moment, then comes back to herself.  'Manipulating memories is pretty a new field, so you may just have to [italic type]experiment[roman type] a bit.  Take whatever you like, dude.'";
+		say "You carefully relay to [the chemist] what [the director] told you about this part of the operation.  'Whoa,' she finally responds.  'That's heavy.'  She zones out for a moment, then comes back to herself.  'Manipulating memories is pretty a new field, so you may just have to [italic type]experiment[roman type] a bit.  Take whatever you like, man.'";
 	otherwise:
 		say "She looks confused.  'I don't know anything about that.  Did [the director] send you?  You might want to ask him first.'"
 
