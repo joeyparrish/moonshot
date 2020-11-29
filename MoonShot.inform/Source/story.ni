@@ -1608,8 +1608,6 @@ Instead of quizzing the director about rocket-equations during day two:
 
 
 
-[TODO: checklist-2 items, sub-items, corresponding conversation topics with the director]
-
 Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
 
 Lunch is a concept.  The allowed-scene of lunch is day two.
@@ -1623,11 +1621,19 @@ Instead of quizzing the director about lunch:
 
 
 Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts".
-The interview is a concept.  The allowed-scene of the interview is day two.  Understand "prepare", "preparing", "brainwash", "brainwashing", "brain wash", and "brain washing" as the interview.
-The interview can be discussed.
-Instead of quizzing the director about the interview:
+Brain-washing is a concept.  The allowed-scene of the brain-washing is day two.
+[So much euphamism, and so many variations in phrasing.  Phrasing!]
+Understand "prepare", "preparing", "prepare astronauts", "preparing astronauts", "prepare crew", and "preparing crew" as brain-washing.
+Understand "interview", "interviews", and "interviewing" as brain-washing.
+Understand "brainwash", "brainwashing", "brain wash", "brain washing", "brain-wash", and "brain-washing" as brain-washing.
+Understand "brainwash crew", "brainwashing crew", "brain wash crew", "brain washing crew", "brain-wash crew", and "brain-washing crew" as brain-washing.
+Understand "brainwash astronauts", "brainwashing astronauts", "brain wash astronauts", "brain washing astronauts", "brain-wash astronauts", and "brain-washing astronauts" as brain-washing.
+Understand "brainwash astronaut", "brainwashing astronaut", "brain wash astronaut", "brain washing astronaut", "brain-wash astronaut", and "brain-washing astronaut" as brain-washing.
+
+Brain-washing can be discussed.
+Instead of quizzing the director about brain-washing:
 	say "'Yes, well, here's the thing,' he begins carefully.  'There are sure to be interviews with these astronauts after the operation is over, and well, loose lips sink ships.  So head downstairs to the [interesting]chemistry lab[/interesting] and get something to... [italic type]massage[roman type] the crew's memory a bit.  As far as they are concerned, today's photo shoot is [bold type]the real thing[roman type].'  [The director] looks a bit uncomfortable with the subject.  'Just ask [interesting]the chemist[/interesting] for details.'";
-	now the interview is discussed.
+	now brain-washing is discussed.
 
 
 
@@ -1945,8 +1951,8 @@ Instead of giving a food to the chemist:
 Instead of giving a thing which is a drug to the chemist:
 	say "She shakes her head.  'No, I've got plenty.  You keep that.'"
 
-Instead of quizzing the chemist about the interview:
-	if the interview is discussed:
+Instead of quizzing the chemist about brain-washing:
+	if brain-washing is discussed:
 		say "You carefully relay to [the chemist] what [the director] told you about this part of the operation.  'Whoa,' she finally responds.  'That's heavy.'  She zones out for a moment, then comes back to herself.  'Manipulating memories is pretty a new field, so you may just have to [italic type]experiment[roman type] a bit.  Take whatever you like, man.'";
 	otherwise:
 		say "She looks confused.  'I don't know anything about that.  Did [the director] send you?  You might want to ask him first.'"
