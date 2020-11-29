@@ -156,6 +156,9 @@ Instead of examining the weather, say "Hrm... why are there no windows in this b
 
 [You can ask anyone about their name.  It's only polite.]
 Name is a concept.  Understand "her name", "his name", "their name", "your name", and "the name" as name.
+Name-asking is an action applying to nothing.
+Understand "ask her name", "ask his name", "ask for her name", and "ask for his name" as name-asking.
+Carry out name-asking: try quizzing generally name.
 
 NASA is a concept.
 Understand "second a" and "second a in NASA" as NASA.
