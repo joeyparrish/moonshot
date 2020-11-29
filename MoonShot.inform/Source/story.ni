@@ -1679,7 +1679,6 @@ Instead of going to the basement during day one:
 
 
 
-[TODO: Describe the sound stage, add scenery.]
 The sound stage is east of the basement.  "You find yourself in a large, hangar-like structure, painted in the black and gray tones of a desolate lunar surface.  [if the photographer is in the sound stage][A photographer] with dark hair and an intense look is flitting around between cameras, double-checking everything for the shoot.[otherwise]There are cameras, tripods, and lights standing around, waiting to be used.[end if]  Against the side wall away from the set is a [interesting]craft services table[/interesting][if food is on the craft services table] covered in food[end if]."
 The printed name of the sound stage is "NASA's Secret Underground Sound Stage".
 
@@ -2031,27 +2030,32 @@ A space-cake is a kind of thing.  A space-cake is edible and a drug.
 Understand "cake", "space cake", and "spacecake" as space-cake.
 Carry out giving a space-cake to an astronaut:
 	say "[The second noun] eats the cake, slowly at first, but then more quickly."
+[TODO: describe space-cake, status effects for yourself, and for the astronauts]
 
 
 LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
 Before dropping LSD, say "(Assuming you mean 'put down'...) [run paragraph on]".
 Carry out giving LSD to an astronaut:
 	say "[The second noun] pops the LSD into [their] mouth."
+[TODO: describe LSD, status effects for yourself, and for the astronauts]
 
 
 Valium is a kind of thing.  Valium is edible, swallowable, and a drug.
 Carry out giving valium to an astronaut:
 	say "[The second noun] swallows the pill."
+[TODO: describe valium, status effects for yourself, and for the astronauts]
 
 
 Librium is a kind of thing.  Librium is edible, swallowable, and a drug.
 Carry out giving librium to an astronaut:
 	say "[The second noun] swallows the pill."
+[TODO: describe librium, status effects for yourself, and for the astronauts]
 
 
 A mysterious silver liquid is a kind of drink.  A mysterious silver liquid is a drug.
 Carry out giving a mysterious silver liquid to an astronaut:
 	say "[The second noun] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway."
+[TODO: describe silver liquid, status effects for yourself, and for the astronauts]
 
 
 
@@ -2069,6 +2073,7 @@ Rule for printing the name of a vial (called the flask) while not inserting or r
 
 In the chemistry lab is a space-cake, LSD, three valium, and two librium.
 The small vial is a vial in the chemistry lab.  In the small vial is a mysterious silver liquid.
+[TODO: replenish stock when the player leaves?]
 
 
 
