@@ -85,18 +85,14 @@ respectively.  See [`LICENSE.vorple.md`](LICENSE.vorple.md) for details.
 
 -----
 
-The HTML version of the game makes use of a font called "KBKinderWrite",
-designed by KhrysKreations (Khrys Bosland).  This font was downloaded from
-https://www.fontspace.com/kbkinderwrite-font-f15885 and converted to a web font
-with https://www.font-converter.net/ .
+The HTML version of the game makes use of the fonts "KBKinderWrite",
+designed by KhrysKreations (Khrys Bosland), and "Lovecraft's Diary", designed
+by Nate Piekos of Blambot Comic Fonts.  The license terms of these fonts can be
+found in [`LICENSE.KBKinderWrite.md`](LICENSE.KBKinderWrite.md) and
+[`LICENSE.LovecraftsDiary.md`](LICENSE.LovecraftsDiary.md), respectively.
 
-The full license for KBKinderWrite is listed on the fontspace page and was
-copied into [`LICENSE.KBKinderWrite.md`](LICENSE.KBKinderWrite.md) on
-2020-11-20.
+The terms for "KBKinderWrite" include:
 
-The terms begin with:
-
-> * This font may be used for ANY free/personal use.
 > * You may use this font on your personal blog or website; however you must
 >   include my button on the site.
 

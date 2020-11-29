@@ -41,6 +41,8 @@ Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "pause.js".
 Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
+Release along with the file "LovecraftsDiary.woff".
+Release along with the file "LovecraftsDiary.woff2".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
@@ -64,6 +66,7 @@ plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
 nameplate-card is a Vorple style.
+alien-paper is a Vorple style.
 continue is a Vorple style.
 
 This is the fancy room description heading rule:
@@ -955,8 +958,12 @@ Instead of quizzing the tapir about equations:
 	try quizzing the tapir about rocket-equations.
 
 Alien-equations is a critical thing.
-The description of alien-equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations."
-Understand "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
+The description of alien-equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations.[if Vorple is supported]
+[alien-paper style]
+Mix high-quality bourbon whiskey with lemon juice and maple syrup, then garnish with orange peel and a cocktail cherry.  Shake with ice and serve.
+[end style][end if]"
+
+Understand "equations" and "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
 The printed name of alien-equations is "alien equations".
 Understand "paper" as alien-equations.
 
@@ -2118,7 +2125,11 @@ Instead of quizzing the chemist about the tapir:
 Carry out giving a mysterious silver liquid to an astronaut:
 	say "[The second noun] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately."
 [TODO: silver liquid status effects for the astronaut]
-[TODO: taking silver liquid yourself - fatal? other ending?]
+Instead of drinking a mysterious silver liquid:
+	say "...";
+	pause;
+	add page effect "alien-paper" for 3 turns with message "... What [italic type]was[roman type] that?";
+	now the noun is nowhere.
 
 
 

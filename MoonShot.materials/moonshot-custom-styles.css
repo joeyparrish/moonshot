@@ -222,3 +222,45 @@ body.lsd::before {
     filter: hue-rotate(-180deg);
   }
 }
+
+/* https://www.1001fonts.com/lovecrafts-diary-font.html */
+@font-face {
+  font-family: 'LovecraftsDiary';
+  src: local('LovecraftsDiary'),
+       url('LovecraftsDiary.woff') format("woff"),
+       url('LovecraftsDiary.woff2') format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* The alien paper uses this strange font.  Can also be applied to body.*/
+.alien-paper {
+  font-family: 'LovecraftsDiary';
+}
+/* This is explicitly the paper. */
+span.alien-paper {
+  /* Make it stand out, and look like paper. */
+  display: block;
+  background-color: aliceblue;
+  border: 1px solid black;
+
+  /* Fit to content. */
+  inline-size: fit-content;
+
+  /* Unless the content is larger 30 characters or so. */
+  max-width: 30em;
+
+  padding: 1em;
+}
+
+/* Though I can't figure out why, Inform/Vorple creates an empty span of this
+ * class before the one with the content.  This hides it. */
+span.alien-paper:empty {
+  display: none;
+}
+
+/* When the whole page is in alien paper mode, the alien paper reads in plain
+ * English. */
+body.alien-paper .alien-paper {
+  font-family: 'Roboto', sans-serif;
+}
