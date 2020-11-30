@@ -2144,7 +2144,7 @@ To add page effect (X - text) for (N - a number) turns with message (Z - text):
 
 A space-cake is a kind of thing.  A space-cake is edible and a drug.
 
-The description of a space-cake is "The space cake looks like a 2x2 inch brownie square wrapped in cling wrap.  On the top is a sticker with an image of a tie dyed peace sign and text reading 'Open and consume for treatment of oppressive sobriety.'"
+The description of a space-cake is "The space-cake looks like a 2x2 inch brownie square wrapped in cling wrap.  On the top is a sticker with an image of a tie dyed peace sign and text reading 'Open and consume for treatment of oppressive sobriety.'"
 An astronaut can be high.
 Understand "cake", "space cake", and "spacecake" as space-cake.
 Instead of quizzing the chemist about space-cake:
@@ -2183,7 +2183,7 @@ An astronaut can be good at chess.
 Instead of quizzing the chemist about librium:
 	say "'Librium is a powerful hypnotic.  [one of]If I were you, I'd save [']em up for the night time.  Otherwise, they turn off right when you need them to turn on.  If you know what I mean.'  You are sure you don't.[or]Some people think it makes you better at chess, but actually, it just makes you hallucinate being good at chess.'[purely at random][line break]".
 Carry out giving librium to an astronaut:
-	say "[The second noun] swallows the pill.  [They] get pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
+	say "[The second noun] swallows the pill.  [They] gets pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
 	now the second noun is good at chess.
 Instead of eating librium:
 	[TODO: chess animation?]
