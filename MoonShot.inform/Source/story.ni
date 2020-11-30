@@ -1257,7 +1257,7 @@ Instead of quizzing the head of personnel about Lisa Nowak:
 	say "'Shhhh!' he says, looking from side to side, his voice dropping to a whisper.  'We used to date casually and when I broke it off, she went a little nutso.  I had to fake my own death.  Why do you think I hide out in this tiny office?'"
 
 Instead of quizzing the head of personnel about Ijon Tichy:
-	say "'That guy only speaks Polish but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'"
+	say "'That guy only speaks Polish, but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'"
 
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be some kind of mad bomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'"
@@ -1691,6 +1691,12 @@ The description of Clifford McBride is "".
 
 
 
+[It's a running gag that he doesn't speak English.  So preempt any default responses for him.]
+Instead of quizzing Ijon Tichy about anything:
+	say "He looks a little confused, and responds in a slavic-sounding language.  When he realizes that you don't understand him either, he sighs heavily and shakes his head."
+
+
+
 The basement is below the hallway.  "A long, blank hallway, dimly lit, with doors at either end.  A stairwell in the middle leads back up.  A paper sign is hastily taped to the wall opposite the stairwell."
 The printed name of the basement is "NASA Headquarters Basement Level".
 
@@ -1860,14 +1866,21 @@ Understand "sandwhich", "tuna sandwhich", "tuna salad", "tuna salad sandwich", a
 [The player should be able to "take food" or "take all food".  Same for "drop" or "examine".  So let's make that work.]
 Food-preferences is everywhere.
 Instead of taking food-preferences:
-	repeat with F running through the list of visible food not carried by the player:
-		say "[F]: Taken.";
-		try silently taking F.
+	let L be the list of visible food not carried by the player;
+	if the number of entries in L is not 0:
+		repeat with F running through L:
+			say "[F]: Taken.";
+			try silently taking F;
+	otherwise:
+		say "You don't see any such thing."
 
 Instead of dropping food-preferences:
-	repeat with F running through the list of food carried by the player:
-		say "[F]: Dropped.";
-		try silently dropping F.
+	if the player has food:
+		repeat with F running through the list of food carried by the player:
+			say "[F]: Dropped.";
+			try silently dropping F;
+	otherwise:
+		say "You don't have any food."
 
 Instead of examining food-preferences:
 	let L be the list of visible food;
@@ -1919,9 +1932,15 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 		[This condition avoids a runtime exception looking up in the table of dietary restrictions.]
 		say "Do you really think they would feed the intern?";
 	otherwise if the recipient is fed:
-		say "'No, thanks,' says [the recipient].  'I've already got my lunch.'";
+		if the recipient is Ijon Tichy:
+			say "[The recipient] shakes his head, says something in a slavic-sounding language, puffs out his cheeks, and points at his stomach.";
+		otherwise:
+			say "'No, thanks,' says [the recipient].  'I've already got my lunch.'";
 	otherwise if the recipient will eat the snack:
-		say "[The recipient] takes [the snack].  [one of]'Thanks, kid!'[or]'Oh, my favorite!'[or]'That looks great!'[purely at random]";
+		if the recipient is Ijon Tichy:
+			say "[The recipient] takes [the snack], then nods, smiles, and gives you thumbs-up.";
+		otherwise:
+			say "[The recipient] takes [the snack].  [one of]'Thanks, kid!'[or]'Oh, my favorite!'[or]'That looks great!'[purely at random]";
 		now the snack is nowhere;
 		now the recipient is fed;
 		increase the fed count by 1;
@@ -1931,11 +1950,17 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 			start photographer illness;
 	otherwise:
 		if a random chance of 1 in 3 succeeds:
-			say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
+			if the recipient is Ijon Tichy:
+				say "[The recipient] takes [the snack], smiles, and takes a bite.  He quickly starts to hack and choke, then screams in some foreign language.[paragraph break]";
+			otherwise:
+				say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
 			say "NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for gross craft-services negligence, and Operation Glitter fails miserably.  NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Not only have you failed your country, but you are banned by the International Alliance of Theatrical Stage Employees and you never work in Hollywood again.";
 			show ending 6;
 		otherwise:
-			say "[The recipient] looks at [the snack] and says 'No, I can't eat that.  Were you even listening?'";
+			if the recipient is Ijon Tichy:
+				say "[The recipient] looks at [the snack] and shakes his head slowly.  You feel a little foolish.";
+			otherwise:
+				say "[The recipient] looks at [the snack] and says 'No, I can't eat that.  Were you even listening?'";
 	stop the action.
 
 To start photographer illness:
@@ -2034,13 +2059,23 @@ Instead of giving a thing (called the flask) which contains a drink (called the 
 	try giving the potion to the space-hero.
 
 Before giving a thing which is a drug to an astronaut:
-	say "[The second noun] takes [the noun] from you.  'Is this some kind of pre-flight vitamin?'[paragraph break]";
-	say "'Um, yes, I think so,' you lie unconvincingly.[paragraph break]";
-	if the noun is a space-cake:
-		say "[The second noun] smiles.  'Vitamins in cake form?  What will they think of next?'"
+	if the second noun is Ijon Tichy:
+		do nothing;  [more specific rules below]
+	otherwise if the second noun is fed:
+		say "[The second noun] takes [the noun] from you.  'Is this some kind of pre-flight vitamin?'[paragraph break]";
+		say "'Um, yes, I think so,' you lie unconvincingly.[paragraph break]";
+		if the noun is a space-cake:
+			say "[The second noun] smiles.  'Vitamins in cake form?  What will they think of next?'";
+	otherwise:
+		say "'Hang on, kid,' says [the second noun], 'I need to eat lunch first.'";
+		stop the action.
 
 Before giving a thing which is a drug to Ijon Tichy:
-	say "[The second noun] takes [the noun] from you.  He raises an eyebrow at you, and you smile and nod."
+	if the second noun is fed:
+		say "[The second noun] takes [the noun] from you.  He raises an eyebrow at you, and you smile and nod.";
+	otherwise:
+		say "[The second noun] complains at you in some slavic-sounding language.  Realizing you don't understand, he breathes a heavy sigh.  Finally, he shakes his head, points to his stomach, then raises his eyebrows meaningfully.";
+		stop the action.
 
 After giving a thing which is a drug to an astronaut:
 	[The "carry out" rules for each drug describe the action, but the astronaut consumes it immediately.]
@@ -2235,7 +2270,7 @@ Test files with "test startday1 / e / s / take files / x file 1 / x file 2 / x f
 
 Test drawer with "test startday1 / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
-Test day2 with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / take chalkboard / w / give checklist to director".
+Test day2 with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / take chalkboard / w / give checklist to director".
 
 Test day2alt with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / x dr / take key / n / ask about tapir / take key / n / ask about tapir / take key / ask tapir about name / open cage / s / ask about rocket equations / w / give checklist to director".
 
