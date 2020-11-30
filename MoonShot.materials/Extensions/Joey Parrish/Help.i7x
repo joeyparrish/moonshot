@@ -16,7 +16,7 @@ Carry out helping:
 	say "  look (l)[line break]";
 	say "  look at thing/person[line break]";
 	say "  examine (x) thing/person[line break]";
-	say "  take thing[line break]";
+	say "  take thing / take all[line break]";
 	say "  inventory (i)[line break]";
 	say "  talk to so-and-so[line break]";
 	say "  talk[line break]";
@@ -49,7 +49,7 @@ Carry out showing verb reference:
 	say help-card style;
 	say "Here is a short, alphabetical list of useful verbs in this game.  Others may also work, so feel free to try things out.  But you can use this list if you get stuck.";
 	say line break;
-	say "[italic type]     apologize, ask about... / ask so-and-so about..., drink, drop, eat, enter, examine (x), give, inventory (i), look (l) / look at..., open, take, talk / talk to..., wait (z), wake so-and-so[roman type][line break]";
+	say "[italic type]     apologize, ask about... / ask so-and-so about..., drink, drop, eat, enter, examine (x), give, inventory (i), look (l) / look at..., open, take / take all, talk / talk to..., wait (z), wake so-and-so[roman type][line break]";
 	say line break;
 	say "You can also use the following 'out-of-world' commands to manipulate the game outside of controlling your character.";
 	say line break;
