@@ -1254,7 +1254,7 @@ Instead of quizzing the head of personnel about Michael Collins:
 	say "'A good enough fellow if you can handle his Irish brogue.  Don't mention the Brits around him though.  Wouldn't be surprised if he tried to claim the moon in the name of Ireland.  Between you and me, he'd be a lot more fun if he had a TOM Collins or two.'"
 
 Instead of quizzing the head of personnel about Lisa Nowak:
-	say "'Shhhh!' he says, looking from side to side, his voice dropping to a whisper.  'We used to date casually and when I broke it off, she went a little nutso.  I had to fake my own death.  Why do you think I hide out in this tiny office?'"
+	say "'Shhhh!' he says, looking from side to side, his voice dropping to a whisper.  'We used to date casually, and when I broke it off, she went a little nutso.  I had to fake my own death.  Why do you think I hide out in this tiny office?'"
 
 Instead of quizzing the head of personnel about Ijon Tichy:
 	say "'That guy only speaks Polish, but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'"
@@ -1681,12 +1681,12 @@ Instead of going to the engineering department while day one has ended:
 
 
 
-The description of Buzz Aldrin is "Buzz has a receding hairline and flyaway ears; he flashes you with a goofy smile, but there appears to be a tuft of fur stuck in his teeth.".
-The description of Neil Armstrong is "Neil's prominent front teeth make him look like a friendly, gullible beaver.  Even from a distance you can see that his arms, ironically, are woefully underdeveloped.".
-The description of Michael Collins is "Michael is strutting around and muttering to himself about freedom in a strong Irish accent.  You catch a whiff of boiled cabbage.".
-The description of Lisa Nowak is "Lisa's got a handsome profile with her adorable turn up nose, and her chestnut hair is hanging loose in a wave perm.  You can see an industrial size can of pepper spray sticking out of her pocket.".
-The description of Ijon Tichy is "Ijon has chosen casual attire compared to the others.  He's sporting a white tank top that's partially tucked into his wrinkled slacks.  His sideburns are present and accounted for.".
-The description of Clifford McBride is "Clifford is explaining in a gruff voice to no one in particular the importance of discovering intelligent non-human life.  His eyebrows protrude a full inch from his face.".
+The description of Buzz Aldrin is "Buzz has a receding hairline and flyaway ears; he flashes you with a goofy smile, but there appears to be a tuft of fur stuck in his teeth."
+The description of Neil Armstrong is "Neil's prominent front teeth make him look like a friendly, gullible beaver.  Even from a distance you can see that his arms, ironically, are woefully underdeveloped."
+The description of Michael Collins is "Michael is strutting around and muttering to himself about freedom in a strong Irish accent.  You catch a whiff of boiled cabbage."
+The description of Lisa Nowak is "Lisa's got a handsome profile with her adorable turn-up nose, and her chestnut hair is hanging loose in a wave perm.  You can see an industrial-sized can of pepper spray sticking out of her pocket."
+The description of Ijon Tichy is "Ijon has chosen casual attire compared to the others.  He's sporting a white tank top that's partially tucked into his wrinkled slacks.  His sideburns are present and accounted for."
+The description of Clifford McBride is "Clifford is explaining in a gruff voice to no one in particular the importance of discovering intelligent non-human life.  His eyebrows protrude a full inch from his face."
 
 
 
