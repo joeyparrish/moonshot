@@ -192,7 +192,7 @@ Equations is a concept.
 Rocket-equations is a concept.
 Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
 
-Instead of quizzing someone (called the person) about:
+Instead of quizzing someone (called the person) about (this is the default conversation rule):
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
 
 
@@ -1692,7 +1692,7 @@ The description of Clifford McBride is "".
 
 
 [It's a running gag that he doesn't speak English.  So preempt any default responses for him.]
-Instead of quizzing Ijon Tichy about anything:
+Instead of quizzing Ijon Tichy about anything (this is the Tichy default conversation rule):
 	say "He looks a little confused, and responds in a slavic-sounding language.  When he realizes that you don't understand him either, he sighs heavily and shakes his head."
 
 
@@ -2122,10 +2122,8 @@ Carry out giving a space-cake to an astronaut:
 Instead of eating a space-cake:
 	say "You eat the whole thing.  Up until now, this game was kind of obnoxious.  With a space-cake in your belly, you're starting to think it's actually pretty amusing.";
 	now the noun is nowhere.
-[TODO: space-cake status effects for the astronaut
-Instead of quizzing a high astronaut about anything:
-	say "";
-]
+Instead of quizzing a high astronaut about anything (this is the high astronaut rule):
+	say "[They] [don't] seem to have heard you.  'Waaaiit.  Wait a sec.  We choose to go to the moon because [italic type]it's hard??[roman type]  I mean, can't we do something else right now?'"
 
 
 LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
@@ -2144,21 +2142,31 @@ Instead of eating LSD:
 	say "You don't feel any different.";
 	now the noun is nowhere;
 	add page effect "lsd" for 10 turns with message "(You no longer don't feel any different.)".
+[TODO: LSD conversations for the astronaut
+Instead of quizzing a tripping astronaut about anything:
+	say "";
+]
 
 
-Librium is a kind of thing.  Librium is edible, swallowable, and a drug.
-[TODO: describe librium]
+A librium is a kind of thing.  A librium is edible, swallowable, and a drug.
+The description of a librium is "It's a tiny, green capsule with some inscrutable print on one end."
 An astronaut can be good at chess.
 Instead of quizzing the chemist about librium:
 	say "'Librium is a powerful hypnotic.  [one of]If I were you, I'd save [']em up for the night time.  Otherwise, they turn off right when you need them to turn on.  If you know what I mean.'  You are sure you don't.[or]Some people think it makes you better at chess, but actually, it just makes you hallucinate being good at chess.'[purely at random][line break]".
 Carry out giving librium to an astronaut:
-	say "[The second noun] swallows the pill.  [They] get pretty quiet, but you think you can hear [them] mumbling something like '[one of]knight to queen's bishop 3[or]rook to bishop 4[or]pawn to e4[or]bishop to knight 4[or]bishop to c4[purely at random]' under [their] breath.";
+	say "[The second noun] swallows the pill.  [They] get pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
 	now the second noun is good at chess.
 [TODO: taking librium yourself]
-[TODO: librium status effects for the astronaut
-Instead of quizzing a tripping astronaut about anything:
-	say "";
-]
+Instead of quizzing a good at chess astronaut about anything (this is the astronaut chess rule):
+	if the noun is high:
+		say "[They] [don't] seem to have heard you.  'Whoa.... On a regulation board, a queen-sized bed would only be 8.5 cm.'";
+	otherwise:
+		say "[They] [don't] seem to have heard you.  [They] seem to be muttering '[random chess move]'."
+The astronaut chess rule is listed before the high astronaut rule in the instead rulebook.
+
+To say random chess move:
+	say "[one of]knight to queen's bishop 3[or]rook to bishop 4[or]pawn to e4[or]bishop to knight 4[or]bishop to c4[purely at random]"
+
 
 
 A mysterious silver liquid is a kind of drink.  A mysterious silver liquid is a drug.
@@ -2219,6 +2227,10 @@ Day three begins when day two ends.
 When day three begins:
 ]
 
+
+
+The Tichy default conversation rule is listed last in the instead rulebook.
+The default conversation rule is listed last in the instead rulebook.
 
 
 
@@ -2301,6 +2313,8 @@ Test glitter2alt with "test day2alt / test waiting / talk to him / x checklist /
 
 Test startday2 with "test day2 / test waiting / ask about glitter / take checklist / x checklist".
 
-Test food with "test startday2 / e / d / take food / give chicken to buzz / give tuna to collins / give salad to armstrong / give chicken to photographer / u / s / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test food with "test startday2 / e / d / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / u / s / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+
+Test drugs with "test startday2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
 
 Test day3 with "test food / n / report".
