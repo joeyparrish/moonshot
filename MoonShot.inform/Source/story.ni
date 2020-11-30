@@ -2083,7 +2083,10 @@ After giving a thing which is a drug to an astronaut:
 		[You gave them the container.  You didn't pour it into their mouth for them.]
 		now the holder of the noun is nowhere;
 	otherwise:
-		now the noun is nowhere.
+		now the noun is nowhere;
+	if the astronauts are prepared:
+		say "The crew looks 'ready' for filming.";
+		now drug-astronauts is checked.
 
 
 
@@ -2109,17 +2112,23 @@ To add page effect (X - text) for (N - a number) turns with message (Z - text):
 
 A space-cake is a kind of thing.  A space-cake is edible and a drug.
 [TODO: describe space-cake]
-[TODO: space-cake status effects for the astronaut]
+An astronaut can be high.
 Understand "cake", "space cake", and "spacecake" as space-cake.
 Carry out giving a space-cake to an astronaut:
-	say "[The second noun] eats the cake, slowly at first, but then more quickly.  [They] [are] looking quite pensive."
+	say "[The second noun] eats the cake, slowly at first, but then more quickly.  [They] [are] looking quite pensive.";
+	now the second noun is high.
 Instead of eating a space-cake:
-	say "You eat the whole thing.  Beforehand, this game was kind of obnoxious.  With a space-cake in your belly, you're starting to think it's actually pretty amusing.";
+	say "You eat the whole thing.  Up until now, this game was kind of obnoxious.  With a space-cake in your belly, you're starting to think it's actually pretty amusing.";
 	now the noun is nowhere.
+[TODO: space-cake status effects for the astronaut
+Instead of quizzing a high astronaut about anything:
+	say "";
+]
 
 
 LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
 [TODO: describe LSD]
+An astronaut can be tripping.
 Before dropping LSD, say "(Assuming you mean 'put down'...) [run paragraph on]".
 After reading a command:
 	if the player's command includes "lysergic acid diethylamide":
@@ -2127,48 +2136,57 @@ After reading a command:
 Instead of quizzing the chemist about LSD:
 	say "'LSD is short for lysergic acid diethylamide.  It's a hallucinogenic, and can alter your thoughts, feelings, and experience of your surroundings.  A CIA classic!'"
 Carry out giving LSD to an astronaut:
-	say "[The second noun] pops the LSD into [their] mouth.  Before long, [they] [are] staring at the cheap paint of the sound stage, convinced [they] [are] on the actual moon."
-[TODO: LSD status effects for the astronaut]
+	say "[The second noun] pops the LSD into [their] mouth.  Before long, [they] [are] staring at the cheap paint of the sound stage, convinced [they] [are] on the actual moon.";
+	now the second noun is tripping.
 Instead of eating LSD:
 	say "You don't feel any different.";
 	now the noun is nowhere;
 	add page effect "lsd" for 10 turns with message "(You no longer don't feel any different.)".
 
 
-Valium is a kind of thing.  Valium is edible, swallowable, and a drug.
-[TODO: describe valium]
-Instead of quizzing the chemist about valium:
-	say "'Valium is the brand name of Diazepam, which produces a calming effect and can make you sleepy.'"
-Carry out giving valium to an astronaut:
-	say "[The second noun] swallows the pill and instantly looks calmer."
-[TODO: valium status effects for the astronaut]
-[TODO: taking valium yourself]
-
-
 Librium is a kind of thing.  Librium is edible, swallowable, and a drug.
 [TODO: describe librium]
+An astronaut can be good at chess.
 Instead of quizzing the chemist about librium:
 	say "'Librium is a powerful hypnotic.  [one of]If I were you, I'd save [']em up for the night time.  Otherwise, they turn off right when you need them to turn on.  If you know what I mean.'  You are sure you don't.[or]Some people think it makes you better at chess, but actually, it just makes you hallucinate being good at chess.'[purely at random][line break]".
 Carry out giving librium to an astronaut:
-	say "[The second noun] swallows the pill.  [They] get pretty quiet, but you think you can hear [them] mumbling something like '[one of]knight to queen's bishop 3[or]rook to bishop 4[or]pawn to e4[or]bishop to knight 4[or]bishop to c4[purely at random]' under [their] breath."
-[TODO: librium status effects for the astronaut]
+	say "[The second noun] swallows the pill.  [They] get pretty quiet, but you think you can hear [them] mumbling something like '[one of]knight to queen's bishop 3[or]rook to bishop 4[or]pawn to e4[or]bishop to knight 4[or]bishop to c4[purely at random]' under [their] breath.";
+	now the second noun is good at chess.
 [TODO: taking librium yourself]
+[TODO: librium status effects for the astronaut
+Instead of quizzing a tripping astronaut about anything:
+	say "";
+]
 
 
 A mysterious silver liquid is a kind of drink.  A mysterious silver liquid is a drug.
 [TODO: describe silver liquid]
+An astronaut can be zonked.
 Instead of quizzing the chemist about a mysterious silver liquid:
 	say "'Um... we don't exactly know what it is, because, like, epistemology is pretty hard.  I mean, what do any of us truly [italic type]know[roman type], right?'  She zones out again, then comes to.  'Anyway, that used to be a vial of aardvark blood, and then one day, poof!  It's all silver...  It's a little spooky.'"
 Instead of quizzing the chemist about the tapir:
 	say "'That poor defenseless creature.  Animals don't, like, [italic type]deserve[roman type] being in cages, right?'  She looks profoundly sad for a moment.  'What were we talking about again?'"
 Carry out giving a mysterious silver liquid to an astronaut:
-	say "[The second noun] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately."
-[TODO: silver liquid status effects for the astronaut]
+	say "[The second noun] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately.";
+	now the second noun is zonked.
 Instead of drinking a mysterious silver liquid:
 	say "...";
 	pause;
-	add page effect "alien-paper" for 3 turns with message "... What [italic type]was[roman type] that?";
+	add page effect "alien-paper" for 3 turns with message "(... What [italic type]was[roman type] that?)";
 	now the noun is nowhere.
+[TODO: silver liquid status effects for the astronaut
+Instead of quizzing a zonked astronaut about anything:
+	say "";
+]
+
+
+
+To decide if the astronauts are prepared:
+	repeat with X running through the sub-items of choose-crew:
+		if X is not tripping and X is not zonked:
+			decide no;
+	decide yes.
+
 
 
 
@@ -2183,10 +2201,9 @@ Rule for printing the name of a vial (called the flask) while not inserting or r
 
 
 
-
-In the chemistry lab is a space-cake, LSD, three valium, and two librium.
+In the chemistry lab is four space-cakes, four LSD, and four librium.
 The small vial is a vial in the chemistry lab.  In the small vial is a mysterious silver liquid.
-[TODO: replenish stock when the player leaves?]
+[TODO: replenish stock when the player leaves?  prevent any one person (including self) from having anything twice?]
 
 
 
