@@ -2232,13 +2232,12 @@ To decide if the astronauts are prepared:
 
 A vial is a kind of liquid-safe container.
 The description of a vial is "It's a small glass vial[if the noun contains nothing]which appears to be empty.[otherwise].[end if]".
-Rule for printing the name of a vial (called the flask) while not inserting or removing:
+Rule for printing the name of a vial (called the flask) while not inserting or removing or examining:
 	if the flask contains nothing:
 		say "empty vial";
 	otherwise:
 		say "vial of [list of objects contained by the flask]";
 	omit contents in listing.
-[TODO: This is buggy, IMO.  ">x vial  ... In the vial of mysterious silver liquid is a mysterious silver liquid."]
 
 
 
