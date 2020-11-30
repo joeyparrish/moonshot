@@ -2061,7 +2061,9 @@ Instead of quizzing the director about drugs:
 
 Instead of taking drugs:
 	let T be the list of things which are a drug in the location;
-	add the list of things which contain a drug in the location to T;
+	repeat with V running through the list of containers in the location:
+		if V contains a thing which is a drug:
+			add V to T;
 	let U be the list of things which are a drug carried by the player;
 	if the player's command includes "take":
 		if the player's command matches the regular expression "\ball (?:the )?drugs\b":
