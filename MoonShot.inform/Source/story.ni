@@ -1682,11 +1682,22 @@ Instead of going to the engineering department while day one has ended:
 
 
 The description of Buzz Aldrin is "Buzz has a receding hairline and flyaway ears; he flashes you with a goofy smile, but there appears to be a tuft of fur stuck in his teeth."
+Buzz Aldrin is wearing a tuft of fur.
+
 The description of Neil Armstrong is "Neil's prominent front teeth make him look like a friendly, gullible beaver.  Even from a distance you can see that his arms, ironically, are woefully underdeveloped."
+Front teeth are part of Neil Armstrong.
+
 The description of Michael Collins is "Michael is strutting around and muttering to himself about freedom in a strong Irish accent.  You catch a whiff of boiled cabbage."
+
 The description of Lisa Nowak is "Lisa's got a handsome profile with her adorable turn-up nose, and her chestnut hair is hanging loose in a wave perm.  You can see an industrial-sized can of pepper spray sticking out of her pocket."
+Lisa Nowak wears an industrial-sized can of pepper spray.
+
 The description of Ijon Tichy is "Ijon has chosen casual attire compared to the others.  He's sporting a white tank top that's partially tucked into his wrinkled slacks.  His sideburns are present and accounted for."
+Ijon Tichy wears a white tank top and wrinkled slacks.
+The sideburns are part of Ijon Tichy.
+
 The description of Clifford McBride is "Clifford is explaining in a gruff voice to no one in particular the importance of discovering intelligent non-human life.  His eyebrows protrude a full inch from his face."
+The eyebrows are part of Clifford McBride.
 
 
 
@@ -2365,3 +2376,4 @@ Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give 
 
 Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list".
 [TODO: not quite able to complete day2 yet.]
+[TODO: easter egg about pod bay doors]
