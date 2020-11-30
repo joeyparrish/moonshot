@@ -2097,7 +2097,7 @@ Before giving a thing which is a drug to an astronaut:
 		say "[The second noun] takes [the noun] from you.  'Is this some kind of pre-flight vitamin?'[paragraph break]";
 		say "'Um, yes, I think so,' you lie unconvincingly.[paragraph break]";
 		if the noun is a space-cake:
-			say "[The second noun] smiles.  'Vitamins in cake form?  What will they think of next?'";
+			say "[regarding the second noun][They] smiles.  'Vitamins in cake form?  What will they think of next?'";
 	otherwise:
 		say "'Hang on, kid,' says [the second noun], 'I need to eat lunch first.'";
 		stop the action.
@@ -2150,13 +2150,13 @@ Understand "cake", "space cake", and "spacecake" as space-cake.
 Instead of quizzing the chemist about space-cake:
 	say "'I baked these myself.  I tried calling them [']NASA-cakes['], but it didn't catch on.  They're chocolate and Acapulco Gold.'"
 Carry out giving a space-cake to an astronaut:
-	say "[The second noun] eats the cake, slowly at first, but then more quickly.  [They] [are] looking quite pensive.";
+	say "[regarding the second noun][They] eats the cake, slowly at first, but then more quickly.  [They] [are] looking quite pensive.";
 	now the second noun is high.
 Instead of eating a space-cake:
 	say "You eat the whole thing.  Up until now, this game was kind of obnoxious.  With a space-cake in your belly, you're starting to think it's actually pretty amusing.";
 	now the noun is in the chemistry lab.  [Replenish stocks.]
 Instead of quizzing a high astronaut about anything (this is the high astronaut rule):
-	say "[They] [don't] seem to have heard you.  'Waaaiit.  Wait a sec.  We choose to go to the moon because [italic type]it's hard??[roman type]  I mean, can't we do something else right now?'"
+	say "[regarding the second noun][They] [don't] seem to have heard you.  'Waaaiit.  Wait a sec.  We choose to go to the moon because [italic type]it's hard??[roman type]  I mean, can't we do something else right now?'"
 
 
 LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
@@ -2169,7 +2169,7 @@ After reading a command:
 Instead of quizzing the chemist about LSD:
 	say "'LSD is short for lysergic acid diethylamide.  It's a hallucinogenic, and can alter your thoughts, feelings, and experience of your surroundings.  A CIA classic!'"
 Carry out giving LSD to an astronaut:
-	say "[The second noun] pops the LSD into [their] mouth.  Before long, [they] [are] staring at the cheap paint of the sound stage, convinced [they] [are] on the actual moon.";
+	say "[regarding the second noun][They] pops the LSD into [their] mouth.  Before long, [they] [are] staring at the cheap paint of the sound stage, convinced [they] [are] on the actual moon.";
 	now the second noun is tripping.
 Instead of eating LSD:
 	say "You don't feel any different.";
@@ -2183,7 +2183,7 @@ An astronaut can be good at chess.
 Instead of quizzing the chemist about librium:
 	say "'Librium is a powerful hypnotic.  [one of]If I were you, I'd save [']em up for the night time.  Otherwise, they turn off right when you need them to turn on.  If you know what I mean.'  You are sure you don't.[or]Some people think it makes you better at chess, but actually, it just makes you hallucinate being good at chess.'[purely at random][line break]".
 Carry out giving librium to an astronaut:
-	say "[The second noun] swallows the pill.  [They] gets pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
+	say "[regarding the second noun][They] swallows the pill.  [They] gets pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
 	now the second noun is good at chess.
 Instead of eating librium:
 	[TODO: chess animation?]
@@ -2208,8 +2208,8 @@ Instead of quizzing the chemist about a mysterious silver liquid:
 	say "'Um... we don't exactly know what it is, because, like, epistemology is pretty hard.  I mean, what do any of us truly [italic type]know[roman type], right?'  She zones out again, then comes to.  'Anyway, that used to be a vial of aardvark blood, and then one day, poof!  It's all silver...  It's a little spooky.'"
 Instead of quizzing the chemist about the tapir:
 	say "'That poor defenseless creature.  Animals don't, like, [italic type]deserve[roman type] being in cages, right?'  She looks profoundly sad for a moment.  'What were we talking about again?'"
-Carry out giving a mysterious silver liquid to an astronaut:
-	say "[The second noun] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately.";
+Carry out giving a container which contains a mysterious silver liquid to an astronaut:
+	say "[regarding the second noun][They] drinks the mysterious liquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately.";
 	now the second noun is zonked.
 Instead of drinking a mysterious silver liquid:
 	say "...";
@@ -2346,6 +2346,8 @@ Test startday2 with "test day2 / test waiting / ask about glitter / take checkli
 Test food with "test startday2 / e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
 
 Test drugs with "test startday2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
+
+Test drugorder with "test startday2 / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa".
 
 Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list".
 [TODO: not quite able to complete day2 yet.]
