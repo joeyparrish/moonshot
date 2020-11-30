@@ -2032,6 +2032,7 @@ Instead of quizzing the director about drugs:
 
 Instead of taking drugs:
 	let T be the list of things which are a drug in the location;
+	add the list of things which contain a drug in the location to T;
 	let U be the list of things which are a drug carried by the player;
 	if the player's command includes "take":
 		if the player's command matches the regular expression "\ball (?:the )?drugs\b":
@@ -2142,10 +2143,6 @@ Instead of eating LSD:
 	say "You don't feel any different.";
 	now the noun is nowhere;
 	add page effect "lsd" for 10 turns with message "(You no longer don't feel any different.)".
-[TODO: LSD conversations for the astronaut
-Instead of quizzing a tripping astronaut about anything:
-	say "";
-]
 
 
 A librium is a kind of thing.  A librium is edible, swallowable, and a drug.
@@ -2156,7 +2153,9 @@ Instead of quizzing the chemist about librium:
 Carry out giving librium to an astronaut:
 	say "[The second noun] swallows the pill.  [They] get pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
 	now the second noun is good at chess.
-[TODO: taking librium yourself]
+Instead of eating librium:
+	[TODO: chess animation?]
+	say "You don't feel any different, or any better at chess."
 Instead of quizzing a good at chess astronaut about anything (this is the astronaut chess rule):
 	if the noun is high:
 		say "[They] [don't] seem to have heard you.  'Whoa.... On a regulation board, a queen-sized bed would only be 8.5 cm.'";
@@ -2170,7 +2169,7 @@ To say random chess move:
 
 
 A mysterious silver liquid is a kind of drink.  A mysterious silver liquid is a drug.
-[TODO: describe silver liquid]
+The description of a mysterious silver liquid is "You aren't quite sure if the silver liquid is shining or glowing, but it's definitely crawling up the sides of the container in a rhythmic pattern of some kind."
 An astronaut can be zonked.
 Instead of quizzing the chemist about a mysterious silver liquid:
 	say "'Um... we don't exactly know what it is, because, like, epistemology is pretty hard.  I mean, what do any of us truly [italic type]know[roman type], right?'  She zones out again, then comes to.  'Anyway, that used to be a vial of aardvark blood, and then one day, poof!  It's all silver...  It's a little spooky.'"
@@ -2184,10 +2183,9 @@ Instead of drinking a mysterious silver liquid:
 	pause;
 	add page effect "alien-paper" for 3 turns with message "(... What [italic type]was[roman type] that?)";
 	now the noun is nowhere.
-[TODO: silver liquid status effects for the astronaut
-Instead of quizzing a zonked astronaut about anything:
-	say "";
-]
+Instead of quizzing a zonked astronaut about anything (this is the zonked astronaut rule):
+	say "[The noun] just stares at you.  [Their] eyes seem to indicate that [they] understands you, but you don't get a reply."
+The zonked astronaut rule is listed first in the instead rulebook.
 
 
 
@@ -2201,13 +2199,14 @@ To decide if the astronauts are prepared:
 
 
 A vial is a kind of liquid-safe container.
-The description of a vial is "A small glass vial[if the noun contains nothing]which appears to be empty.[otherwise].[end if]".
+The description of a vial is "It's a small glass vial[if the noun contains nothing]which appears to be empty.[otherwise].[end if]".
 Rule for printing the name of a vial (called the flask) while not inserting or removing:
 	if the flask contains nothing:
 		say "empty vial";
 	otherwise:
 		say "vial of [list of objects contained by the flask]";
 	omit contents in listing.
+[TODO: This is buggy, IMO.  ">x vial  ... In the vial of mysterious silver liquid is a mysterious silver liquid."]
 
 
 
