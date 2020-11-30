@@ -2114,6 +2114,8 @@ A space-cake is a kind of thing.  A space-cake is edible and a drug.
 [TODO: describe space-cake]
 An astronaut can be high.
 Understand "cake", "space cake", and "spacecake" as space-cake.
+Instead of quizzing the chemist about space-cake:
+	say "'I baked these myself.  I tried calling them [']NASA-cakes['], but it didn't catch on.  They're chocolate and Acapulco Gold.'"
 Carry out giving a space-cake to an astronaut:
 	say "[The second noun] eats the cake, slowly at first, but then more quickly.  [They] [are] looking quite pensive.";
 	now the second noun is high.
