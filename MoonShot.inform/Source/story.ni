@@ -1262,14 +1262,12 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be some kind of mad bomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'"
 
-
 Instead of quizzing the head of personnel about the photographer:
-	say "'How many Stanley Kubricks does it take to screw in a lightbulb?' Franklin looks at you expectantly, then goes on, 'Just one, but he needs 127 takes.' Franklin guffaws, then notices your lack of reaction.  'It's funnier if you know the guy.'";
+	say "'How many Stanley Kubricks does it take to screw in a lightbulb?'  [The head of personnel] looks at you expectantly, then goes on, 'Just one, but he needs 127 takes.'  [The head of personnel] guffaws, then notices your lack of reaction.  'It's funnier if you know the guy.'";
 	now the photographer is known.
 
-
 Instead of quizzing the head of personnel about the chemist:
-	say "''Every time I'm around Molly, I just feel so close to her, you know?  Like we really understand each other and we're all just trying to get through this crazy exquisitely heartbreaking beautiful world.  Then, about three to six hours later, I can't even remember why I went to see her in the first place.'";
+	say "'Every time I'm around Molly, I just feel so close to her, you know?  Like we really understand each other, and we're all just trying to get through this crazy, exquisitely-heartbreaking, beautiful world.  Then, about three to six hours later, I can't even remember why I went to see her in the first place.'";
 	now the chemist is known.
 
 
@@ -1728,6 +1726,17 @@ Instead of quizzing the photographer about the photographer:
 Instead of quizzing the photographer about name:
 	say "He offers his hand and says, 'Kubrick.  Stanley Kubrick.  Nice to meet you.'"
 
+[TODO: Kubrick on NASA
+Instead of quizzing the photographer about NASA:
+	say ""
+]
+
+Instead of quizzing the photographer about anything:
+	try talking to the photographer.
+
+Instead of talking to the photographer:
+	say "He looks annoyed.  'Look, I'm very busy.  Can you please give me some space?'"
+
 
 
 A truth-table-value is a kind of value.  The truth-table-values are T, F, X, and Z.
@@ -1982,15 +1991,28 @@ To start photographer illness:
 
 
 
-The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large table with a smorgasbord of vials, droppers, Bunsen burners, jars of powders, graduated cylinders, and what appears to be a taxidermied marmot.  In the corner, a long haired black cat peers at you through slitted yellow eyes and goes back to sleep."
+The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large lab bench with a smorgasbord of vials, droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a taxidermied marmot[end if].  In the corner, a long-haired black cat peers at you through slitted yellow eyes and goes back to sleep."
 The printed name of the chemistry lab is "NASA Chemistry Lab".
-The table is scenery in the chemistry lab.  "You don't dare touch anything on the table.  Some things are bubbling and hissing menacingly."
-The cat is scenery in the chemistry lab.  "The cat stretches out in the corner next to the laboratory's fume hood, and you wonder, is this cat fat or just really fluffy?"
+The lab bench is scenery in the chemistry lab.  "You don't dare touch anything on the bench.  Some things are bubbling and hissing menacingly."
+The cat is portable-scenery in the chemistry lab.  "The cat stretches out in the corner next to the laboratory's fume hood, and you wonder, is this cat fat or just really fluffy?"
+The droppers are portable-scenery in the chemistry lab.
+The Bunsen burners are portable-scenery in the chemistry lab.
+The jars of powders are portable-scenery in the chemistry lab.
+The graduated cylinders are portable-scenery in the chemistry lab.
+The smorgasbord is scenery in the chemistry lab.  "A smorgasbord is a buffet offering a variety of hot and cold meats, salads, hors d'oeuvres, etc.  In this case, it was a metaphor for the large array of things on the lab bench.  Why are you so literal?"
+
+The taxidermied marmot is in the chemistry lab.  The description of the taxidermied marmot is "It looks just like every other taxidermied marmot [if the taxidermied marmot is carried by the player]in your collection[otherwise]you've ever seen[end if]."
+The taxidermied marmot is undescribed.  [Mentioned in the scenery, so don't list it again.]
+After taking the taxidermied marmot:
+	now the taxidermied marmot is described;
+	continue the action.
 
 The chemist is a stranger in the chemistry lab.  The chemist is female.
 The real name of the chemist is "Molly". 
 Understand "Molly" as the chemist.
-The description of the chemist is "[The chemist]'s oversized tortoiseshell glasses make her eyes look enormous in her heart shaped face.  She's wearing a lab coat that sports an impressive array of pins, with sentiments like 'Humphrey-Muskie,' 'Tune In, Turn On, & Drop Out' and 'I CAN GIVE IT! CAN YOU TAKE IT?'"
+The description of the chemist is "[The chemist]'s oversized tortoiseshell glasses make her eyes look enormous in her heart-shaped face.  She's wearing a lab coat that sports an impressive array of pins, with sentiments like 'Humphrey-Muskie,' 'Tune In, Turn On, & Drop Out' and 'I CAN GIVE IT! CAN YOU TAKE IT?'"
+The chemist wears tortoiseshell glasses, a lab coat, the pins.
+The description of the pins is "You've never seen quite so many pins on one lab coat."
 
 Instead of quizzing the chemist about the chemist:
 	try quizzing the chemist about name.
@@ -2020,6 +2042,11 @@ Instead of quizzing the chemist about brain-washing:
 		say "You carefully relay to [the chemist] what [the director] told you about this part of the operation.  'Whoa,' she finally responds.  'That's heavy.'  She zones out for a moment, then comes back to herself.  'Manipulating memories is pretty a new field, so you may just have to [italic type]experiment[roman type] a bit.  Take whatever you like, man.'";
 	otherwise:
 		say "She looks confused.  'I don't know anything about that.  Did [the director] send you?  You might want to ask him first.'"
+
+[TODO: Molly on NASA
+Instead of quizzing the chemist about NASA:
+	say ""
+]
 
 
 
