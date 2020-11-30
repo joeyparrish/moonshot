@@ -2087,11 +2087,13 @@ Before taking a thing which is a drug:
 
 
 
-Instead of giving a thing (called the flask) which contains a drink (called the potion) which is a drug to an astronaut (called the space-hero):
-	try giving the potion to the space-hero.
+Before giving a drink (called the potion) to an astronaut (called the space-hero):
+	try giving the holder of the potion to the space-hero instead.
 
-Before giving a thing which is a drug to an astronaut:
-	if the second noun is Ijon Tichy:
+Before giving a thing (called the thingy) to an astronaut:
+	if the thingy is not a drug and the thingy is not a container which contains a drug:
+		do nothing;  [Other rules will take over]
+	otherwise if the second noun is Ijon Tichy:
 		do nothing;  [more specific rules below]
 	otherwise if the second noun is fed:
 		say "[The second noun] takes [the noun] from you.  'Is this some kind of pre-flight vitamin?'[paragraph break]";
@@ -2102,18 +2104,19 @@ Before giving a thing which is a drug to an astronaut:
 		say "'Hang on, kid,' says [the second noun], 'I need to eat lunch first.'";
 		stop the action.
 
-Before giving a thing which is a drug to Ijon Tichy:
-	if the second noun is fed:
+Before giving a thing (called the thingy) to Ijon Tichy:
+	if the thingy is not a drug and the thingy is not a container which contains a drug:
+		do nothing;  [Other rules will take over]
+	otherwise if the second noun is fed:
 		say "[The second noun] takes [the noun] from you.  He raises an eyebrow at you, and you smile and nod.";
 	otherwise:
 		say "[The second noun] complains at you in some slavic-sounding language.  Realizing you don't understand, he breathes a heavy sigh.  Finally, he shakes his head, points to his stomach, then raises his eyebrows meaningfully.";
 		stop the action.
 
-After giving a thing which is a drug to an astronaut:
+After giving a thing to an astronaut:
 	[The "carry out" rules for each drug describe the action, but the astronaut consumes it immediately.]
-	if the noun is a drink:
-		[You gave them the container.  You didn't pour it into their mouth for them.]
-		now the holder of the noun is in the chemistry lab;  [Replenish stocks.]
+	if the noun is a vial:
+		now the noun is nowhere;
 	otherwise:
 		now the noun is in the chemistry lab;  [Replenish stocks.]
 	if the astronauts are prepared:
@@ -2125,6 +2128,8 @@ After giving a thing which is a drug to an astronaut:
 The block giving rule is not listed in the check giving it to rules.
 Check giving a thing to someone:
 	if the noun is a drug and the second noun is an astronaut:
+		do nothing;
+	otherwise if the noun is a container which contains a drug and the second noun is an astronaut:
 		do nothing;
 	otherwise:
 		say "[The second noun] [don't] seem interested.";
