@@ -2247,8 +2247,15 @@ Rule for printing the name of a vial (called the flask) while not inserting or r
 
 
 
+[TODO: mysterious silver coffee?]
+
+
+
 In the chemistry lab is four space-cakes, four LSD, and four librium.
-The small vial is a vial in the chemistry lab.  In the small vial is a mysterious silver liquid.
+The small vial is a vial.  In the small vial is a mysterious silver liquid.
+When day two begins:
+	if the player has alien-equations:
+		now the small vial is in the chemistry lab.
 
 
 
@@ -2304,41 +2311,41 @@ Test waiting with "z / z / z / z / z / n";
 
 Test nameplate with "test waiting / x nameplate / x desk / take nameplate / i / x nameplate / g / g / g / g / l / x desk / drop nameplate / l / x desk / put nameplate on desk / l / x desk / open nameplate / l / x toblerone / eat toblerone".
 
-Test startday1 with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
+Test start1 with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
-Test nobody with "test startday1 / e / ask about nasa".
+Test nobody with "test start1 / e / ask about nasa".
 
-Test tasks with "test startday1 / ask about blueprints / ask about equations / ask about crew".
+Test tasks with "test start1 / ask about blueprints / ask about equations / ask about crew".
 
-Test blueprints with "test startday1 / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
+Test blueprints with "test start1 / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
 
-Test coffee with "test startday1 / e / e / x coffee pot / take pot / i / take coffee / i / put checklist in pot / i".
+Test coffee with "test start1 / e / e / x coffee pot / take pot / i / take coffee / i / put checklist in pot / i".
 
-Test plaque with "test startday1 / e / x plaque".
+Test plaque with "test start1 / e / x plaque".
 
-Test equations with "test startday1 / e / n / ask about name / ask about work / ask about equations / ask about rocket equations / ask about rockets / x board / take chalkboard / s / n / e / w / n / ask them about him / talk to him / l / x them / x checklist".
+Test equations with "test start1 / e / n / ask dr about name / ask dr about work / ask dr about equations / ask dr about rocket equations / ask dr about rockets / x board / take chalkboard / s / n / e / w / n / ask dr them about him / talk to him / l / x them / x checklist".
 
-Test key with "test startday1 / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
+Test key with "test start1 / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
 
-Test tapir with "test startday1 / e / n / ask about tapir / ask about brizzleby / ask them about brizzleby / ask about rocket equations / ask about brizzleby / ask about nasa / ask about tapir / ask about brizzleby / ask about nasa".
+Test tapir with "test start1 / e / n / ask dr about tapir / ask dr about brizzleby / ask them about brizzleby / ask dr about rocket equations / ask dr about brizzleby / ask dr about nasa / ask dr about tapir / ask dr about brizzleby / ask dr about nasa".
 
 Test aliens with "test key / x tapir / ask tapir about name / x cage / open cage / x cage / s / x tapir / ask about nasa / ask about apollo / ask about dr / ask about rocket equations / x checklist".
 
-Test others with "test startday1 / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
+Test others with "test start1 / e / n / talk to other scientists / talk to scientists / talk to others / talk to them / talk to scientist / talk to him / talk to head / talk to head scientist / talk to rocket scientist / talk to doctor".
 
-Test shoe with "test startday1 / e / n / ask about rocket equations / sorry / w".
+Test shoe with "test start1 / e / n / ask dr about rocket equations / sorry / w".
 
-Test crew with "test startday1 / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
+Test crew with "test start1 / e / s / choose donna / x file 1 / wake him / ask him about name / ask him about files / take files / drop file 1 / choose aldrin / choose donna / x checklist / choose aldrin / choose collins / x checklist / choose armstrong / x checklist / choose nowak".
 
-Test wake with "test startday1 / wake him / sorry / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
+Test wake with "test start1 / wake him / sorry / wake him / e / s / x him / open drawer / l / x him / n / s / wake him / n / s / talk / ask about crew / i / ask about crew / ask about files".
 
-Test files with "test startday1 / e / s / take files / x file 1 / x file 2 / x file 3 / x file 4 / x file 5 / x file 6 / i".
+Test files with "test start1 / e / s / take files / x file 1 / x file 2 / x file 3 / x file 4 / x file 5 / x file 6 / i".
 
-Test drawer with "test startday1 / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
+Test drawer with "test start1 / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
 Test day2 with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / take chalkboard / w / give checklist to director".
 
-Test day2alt with "test blueprints / w / s / take files / choose aldrin / choose collins / choose armstrong / n / n / x dr / take key / n / ask about tapir / take key / n / ask about tapir / take key / ask tapir about name / open cage / s / ask about rocket equations / w / give checklist to director".
+Test day2alt with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / x dr / take key / n / ask dr about tapir / take key / n / ask dr about tapir / take key / ask tapir about name / open cage / s / ask about rocket equations / w / give checklist to director".
 
 Test glitter1 with "test waiting / ask about glitter".
 
@@ -2346,13 +2353,15 @@ Test glitter2 with "test day2 / test waiting / talk to him / x checklist / talk 
 
 Test glitter2alt with "test day2alt / test waiting / talk to him / x checklist / talk to him / ask about glitter".
 
-Test startday2 with "test day2 / test waiting / ask about glitter / take checklist / x checklist".
+Test start2 with "test day2 / test waiting / ask about glitter / take checklist / x checklist".
 
-Test food with "test startday2 / e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test start2alt with "test day2alt / test waiting / ask about glitter / take checklist / x checklist".
 
-Test drugs with "test startday2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
+Test food with "test start2 / e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
 
-Test drugorder with "test startday2 / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa".
+Test drugs with "test start2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
+
+Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa".
 
 Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list".
 [TODO: not quite able to complete day2 yet.]
