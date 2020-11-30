@@ -2082,9 +2082,9 @@ After giving a thing which is a drug to an astronaut:
 	[The "carry out" rules for each drug describe the action, but the astronaut consumes it immediately.]
 	if the noun is a drink:
 		[You gave them the container.  You didn't pour it into their mouth for them.]
-		now the holder of the noun is nowhere;
+		now the holder of the noun is in the chemistry lab;  [Replenish stocks.]
 	otherwise:
-		now the noun is nowhere;
+		now the noun is in the chemistry lab;  [Replenish stocks.]
 	if the astronauts are prepared:
 		say "The crew looks 'ready' for filming.";
 		now drug-astronauts is checked.
@@ -2122,7 +2122,7 @@ Carry out giving a space-cake to an astronaut:
 	now the second noun is high.
 Instead of eating a space-cake:
 	say "You eat the whole thing.  Up until now, this game was kind of obnoxious.  With a space-cake in your belly, you're starting to think it's actually pretty amusing.";
-	now the noun is nowhere.
+	now the noun is in the chemistry lab.  [Replenish stocks.]
 Instead of quizzing a high astronaut about anything (this is the high astronaut rule):
 	say "[They] [don't] seem to have heard you.  'Waaaiit.  Wait a sec.  We choose to go to the moon because [italic type]it's hard??[roman type]  I mean, can't we do something else right now?'"
 
@@ -2141,7 +2141,7 @@ Carry out giving LSD to an astronaut:
 	now the second noun is tripping.
 Instead of eating LSD:
 	say "You don't feel any different.";
-	now the noun is nowhere;
+	now the noun is in the chemistry lab;  [Replenish stocks.]
 	add page effect "lsd" for 10 turns with message "(You no longer don't feel any different.)".
 
 
@@ -2155,7 +2155,8 @@ Carry out giving librium to an astronaut:
 	now the second noun is good at chess.
 Instead of eating librium:
 	[TODO: chess animation?]
-	say "You don't feel any different, or any better at chess."
+	say "You don't feel any different, or any better at chess.";
+	now the noun is in the chemistry lab.  [Replenish stocks.]
 Instead of quizzing a good at chess astronaut about anything (this is the astronaut chess rule):
 	if the noun is high:
 		say "[They] [don't] seem to have heard you.  'Whoa.... On a regulation board, a queen-sized bed would only be 8.5 cm.'";
@@ -2182,7 +2183,7 @@ Instead of drinking a mysterious silver liquid:
 	say "...";
 	pause;
 	add page effect "alien-paper" for 3 turns with message "(... What [italic type]was[roman type] that?)";
-	now the noun is nowhere.
+	now the noun is nowhere.  [There's only one.]
 Instead of quizzing a zonked astronaut about anything (this is the zonked astronaut rule):
 	say "[The noun] just stares at you.  [Their] eyes seem to indicate that [they] understands you, but you don't get a reply."
 The zonked astronaut rule is listed first in the instead rulebook.
@@ -2212,7 +2213,6 @@ Rule for printing the name of a vial (called the flask) while not inserting or r
 
 In the chemistry lab is four space-cakes, four LSD, and four librium.
 The small vial is a vial in the chemistry lab.  In the small vial is a mysterious silver liquid.
-[TODO: replenish stock when the player leaves?  prevent any one person (including self) from having anything twice?]
 
 
 
