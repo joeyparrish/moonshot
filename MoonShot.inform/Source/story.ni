@@ -1262,15 +1262,16 @@ Instead of quizzing the head of personnel about Ijon Tichy:
 Instead of quizzing the head of personnel about Clifford McBride:
 	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be some kind of mad bomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'"
 
-[TODO: Ask Franklin about Stanley
-Instead of quizzing the head of personnel about the photographer:
-	say "'...'"
-]
 
-[TODO: Ask Franklin about Molly
+Instead of quizzing the head of personnel about the photographer:
+	say "'How many Stanley Kubricks does it take to screw in a lightbulb?' Franklin looks at you expectantly, then goes on, 'Just one, but he needs 127 takes.' Franklin guffaws, then notices your lack of reaction.  'It's funnier if you know the guy.'";
+	now the photographer is known.
+
+
 Instead of quizzing the head of personnel about the chemist:
-	say "'...'"
-]
+	say "''Every time I'm around Molly, I just feel so close to her, you know?  Like we really understand each other and we're all just trying to get through this crazy exquisitely heartbreaking beautiful world.  Then, about three to six hours later, I can't even remember why I went to see her in the first place.'";
+	now the chemist is known.
+
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
@@ -1646,7 +1647,7 @@ Instead of quizzing the director about lunch:
 
 Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts".
 Brain-washing is a concept.  The allowed-scene of the brain-washing is day two.
-[So much euphamism, and so many variations in phrasing.  Phrasing!]
+[So much euphemism, and so many variations in phrasing.  Phrasing!]
 Understand "prepare", "preparing", "prepare astronauts", "preparing astronauts", "prepare crew", and "preparing crew" as brain-washing.
 Understand "interview", "interviews", and "interviewing" as brain-washing.
 Understand "brainwash", "brainwashing", "brain wash", "brain washing", "brain-wash", and "brain-washing" as brain-washing.
@@ -1681,13 +1682,13 @@ Instead of going to the engineering department while day one has ended:
 	say "The door to the engineering department appears to be locked.  There is a sign on it which says 'deserted'.  (You were [italic type]sure[roman type] they were never going to do that...)[line break]".
 
 
-[TODO: describe all the astronauts]
-The description of Buzz Aldrin is "".
-The description of Neil Armstrong is "".
-The description of Michael Collins is "".
-The description of Lisa Nowak is "".
-The description of Ijon Tichy is "".
-The description of Clifford McBride is "".
+
+The description of Buzz Aldrin is "Buzz has a receding hairline and flyaway ears; he flashes you with a goofy smile, but there appears to be a tuft of fur stuck in his teeth.".
+The description of Neil Armstrong is "Neil's prominent front teeth make him look like a friendly, gullible beaver.  Even from a distance you can see that his arms, ironically, are woefully underdeveloped.".
+The description of Michael Collins is "Michael is strutting around and muttering to himself about freedom in a strong Irish accent.  You catch a whiff of boiled cabbage.".
+The description of Lisa Nowak is "Lisa's got a handsome profile with her adorable turn up nose, and her chestnut hair is hanging loose in a wave perm.  You can see an industrial size can of pepper spray sticking out of her pocket.".
+The description of Ijon Tichy is "Ijon has chosen casual attire compared to the others.  He's sporting a white tank top that's partially tucked into his wrinkled slacks.  His sideburns are present and accounted for.".
+The description of Clifford McBride is "Clifford is explaining in a gruff voice to no one in particular the importance of discovering intelligent non-human life.  His eyebrows protrude a full inch from his face.".
 
 
 
@@ -1981,14 +1982,15 @@ To start photographer illness:
 
 
 
-[TODO: Describe the chemistry lab, add scenery.]
-The chemistry lab is west of the basement.  "Another room!?"
+The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large table with a smorgasbord of vials, droppers, Bunsen burners, jars of powders, graduated cylinders, and what appears to be a taxidermied marmot.  In the corner, a long haired black cat peers at you through slitted yellow eyes and goes back to sleep."
 The printed name of the chemistry lab is "NASA Chemistry Lab".
+The table is scenery in the chemistry lab.  "You don't dare touch anything on the table.  Some things are bubbling and hissing menacingly."
+The cat is scenery in the chemistry lab.  "The cat stretches out in the corner next to the laboratory's fume hood, and you wonder, is this cat fat or just really fluffy?"
 
 The chemist is a stranger in the chemistry lab.  The chemist is female.
-The real name of the chemist is "Molly".
+The real name of the chemist is "Molly". 
 Understand "Molly" as the chemist.
-[TODO: Describe Molly.]
+The description of the chemist is "[The chemist]'s oversized tortoiseshell glasses make her eyes look enormous in her heart shaped face.  She's wearing a lab coat that sports an impressive array of pins, with sentiments like 'Humphrey-Muskie,' 'Tune In, Turn On, & Drop Out' and 'I CAN GIVE IT! CAN YOU TAKE IT?'"
 
 Instead of quizzing the chemist about the chemist:
 	try quizzing the chemist about name.
