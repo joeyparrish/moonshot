@@ -63,7 +63,7 @@ Instead of putting a thing on the floor:
 A container can be liquid-safe.
 Instead of inserting a drink (called the potion) into a thing (called the flask):
 	if the flask is a person:
-		say "You know, you really should let [the flask] decide if they want to drink [the potion].";
+		say "You know, you really should let [the flask] decide if [they] want[s] to drink [the potion].";
 	otherwise if the flask is not liquid-safe:
 		say "You pour [the potion] into [the flask], but it doesn't look like it was made to hold liquid.  [The potion] leaks out all over the place.";
 		now the potion is nowhere;
@@ -95,68 +95,77 @@ Pouring out is an action applying to one thing.  Understand "pour out [thing]" a
 Mixing is an action applying to one things.  Understand "mix [thing]" as mixing.
 Mixing it into is an action applying to two things.  Understand "mix [thing] into [thing]" and "mix [thing] in [thing]" as mixing it into.
 
-Check pouring a drink (called the potion):
-	say "What do you want to pour [the potion] into?"
+Check pouring a thing (called the potion):
+	if the potion is not a drink and the potion is not a container:
+		say "That isn't something you can pour.";
+		stop the action.
 
-Check pouring a container (called the flask):
-	say "What do you want to pour [the flask] into?"
+Carry out pouring a thing (called the potion):
+	say "What do you want to pour [the potion] into?";
 
-Check pouring a thing:
-	say "That isn't something you can pour."
+Check pouring a thing (called the potion) into something (called the destination):
+	if the potion is not a drink and the potion is not a container:
+		say "That isn't something you can pour.";
+		stop the action.
 
-Check pouring a drink (called the potion) into something (called the destination):
-	try inserting the potion into the destination.
+Carry out pouring a thing (called the potion) into something (called the destination):
+	if the potion is a drink:
+		try inserting the potion into the destination;
+	otherwise if the potion is a container:
+		if the potion contains nothing:
+			say "[The potion] appears to be empty.";
+		repeat with X running through the list of things contained by the potion:
+			try inserting X into the destination.
 
-Check pouring a container (called the flask) into something (called the destination):
-	if the flask contains nothing:
-		say "[The flask] appears to be empty.";
-	repeat with X running through the list of things contained by the flask:
-		try inserting X into the destination.
+Check pouring a thing (called the potion) onto a thing (called the surface):
+	if the potion is not a drink and the potion is not a container:
+		say "That isn't something you can pour.";
+		stop the action.
 
-Check pouring a thing into a thing:
-	say "That isn't something you can pour."
+Carry out pouring a thing (called the potion) onto a thing (called the surface):
+	if the potion is a drink:
+		try putting the potion on the surface;
+	otherwise if the potion is a container:
+		if the potion contains nothing:
+			say "[The potion] appears to be empty.";
+		repeat with X running through the list of things contained by the potion:
+			try putting X on the surface.
 
-Check pouring a drink (called the potion) onto a thing (called the surface):
-	try putting the potion on the surface.
+Check pouring out a thing (called the potion):
+	if the potion is not a drink and the potion is not a container:
+		say "That isn't something you can pour.";
+		stop the action.
 
-Check pouring a container (called the flask) onto something (called the surface):
-	if the flask contains nothing:
-		say "[The flask] appears to be empty.";
-	repeat with X running through the list of things contained by the flask:
-		try putting X on the surface.
+Carry out pouring out a thing (called the potion):
+	if the potion is a drink:
+		try dropping the potion;
+	otherwise if the potion is a container:
+		if the potion contains nothing:
+			say "[The potion] appears to be empty.";
+		repeat with X running through the list of things contained by the potion:
+			try dropping X.
 
-Check pouring a thing onto a thing:
-	say "That isn't something you can pour."
+Check mixing a thing (called the potion):
+	if the potion is not a drink and the potion is not a container:
+		say "That isn't something you can mix.";
+		stop the action.
 
-Check pouring out a drink (called the potion):
-	try dropping the potion.
-
-Check pouring out a container (called the flask):
-	if the flask contains nothing:
-		say "[The flask] appears to be empty.";
-	repeat with X running through the list of things contained by the flask:
-		try dropping X.
-
-Check pouring out a thing:
-	say "That isn't something you can pour."
-
-Check mixing a drink (called the potion):
+Carry out mixing a thing (called the potion):
 	say "You swirl [the potion] around in [the holder of the potion], but nothing happens."
 
-Check mixing a thing:
-	say "That isn't something you can mix."
+Check mixing a thing (called the potion) into something (called the destination):
+	if the potion is not a drink and the potion is not a container:
+		say "That isn't something you can mix.";
+		stop the action.
 
-Check mixing a drink (called the potion) into something (called the destination):
-	try inserting the potion into the destination.
-
-Check mixing a container (called the flask) into something (called the destination):
-	if the flask contains nothing:
-		say "[The flask] appears to be empty.";
-	repeat with X running through the list of things contained by the flask:
-		try mixing X into the destination.
-
-Check mixing a thing into a thing:
-	say "That isn't something you can mix."
+Carry out mixing a thing (called the potion) into something (called the destination):
+	if the potion is a drink:
+		try inserting the potion into the destination;
+	otherwise if the potion is a container:
+		if the potion contains nothing:
+			say "[The potion] appears to be empty.";
+		repeat with X running through the list of things contained by the potion:
+			try mixing X into the destination.
 
 Drinks ends here.
 
