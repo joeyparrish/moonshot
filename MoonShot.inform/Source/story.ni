@@ -2143,7 +2143,8 @@ To add page effect (X - text) for (N - a number) turns with message (Z - text):
 
 
 A space-cake is a kind of thing.  A space-cake is edible and a drug.
-[TODO: describe space-cake]
+
+The description of a space-cake is "The space cake looks like a 2x2 inch brownie square wrapped in cling wrap.  On the top is a sticker with an image of a tie dyed peace sign and text reading 'Open and consume for treatment of oppressive sobriety.'"
 An astronaut can be high.
 Understand "cake", "space cake", and "spacecake" as space-cake.
 Instead of quizzing the chemist about space-cake:
@@ -2159,7 +2160,7 @@ Instead of quizzing a high astronaut about anything (this is the high astronaut 
 
 
 LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
-[TODO: describe LSD]
+The description of LSD is "The LSD is a piece of paper with an image of the spiraling Milky Way, covered in intersecting perforations."
 An astronaut can be tripping.
 Before dropping LSD, say "(Assuming you mean 'put down'...) [run paragraph on]".
 After reading a command:
