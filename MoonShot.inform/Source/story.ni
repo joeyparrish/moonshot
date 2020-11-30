@@ -2343,8 +2343,9 @@ Test glitter2alt with "test day2alt / test waiting / talk to him / x checklist /
 
 Test startday2 with "test day2 / test waiting / ask about glitter / take checklist / x checklist".
 
-Test food with "test startday2 / e / d / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / u / s / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test food with "test startday2 / e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
 
 Test drugs with "test startday2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
 
-Test day3 with "test food / n / report".
+Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list".
+[TODO: not quite able to complete day2 yet.]
