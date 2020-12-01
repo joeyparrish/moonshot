@@ -2395,6 +2395,12 @@ When day three begins:
 	say "The director looks tired when you walk in; his usually immaculately styled hair looks limp.  His bloodshot eyes speak of sacrifice and loss.  He motions to the chair across from his desk.  His voice seems strangely tender as he says, 'Have a seat, Intern.'  He takes a long pause.  'You did a damn fine job, Intern.  Not only did you ensure America won the Space Race in the minds of the whole world, [if the player has alien-equations]you helped us protect our darkest secret.  Maybe.  Maybe second-darkest or third-darkest.[run paragraph on][otherwise]you saved us so much money, hell, we might actually be able to go to the moon some day![run paragraph on][end if]  Anyway...  Damn fine work.'  You have trouble reconciling his upbeat words with his downtrodden demeanor.  You're just about to ask him what's wrong when he continues, 'Damn fine work.  Head over to the [interesting]sound stage[/interesting] to get your [interesting]Official NASA Medal of Distinction[/interesting].'  You think you see a tear in his eye as he shakes your hand on the way out.";
 	say paragraph break;
 	now the sound stage is dark;
+	now Buzz Aldrin is nowhere;
+	now Neil Armstrong is nowhere;
+	now Michael Collins is nowhere;
+	now Lisa Nowak is nowhere;
+	now Ijon Tichy is nowhere;
+	now Clifford McBride is nowhere;
 	now the player is in the hallway.
 
 [Starting on day three, we lock the doors to these rooms.]
