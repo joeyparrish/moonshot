@@ -67,6 +67,8 @@ ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
 nameplate-card is a Vorple style.
 alien-paper is a Vorple style.
+script-page is a Vorple style.
+script-line is a Vorple style.
 continue is a Vorple style.
 
 This is the fancy room description heading rule:
@@ -1663,9 +1665,10 @@ Instead of quizzing the director about brain-washing:
 Film-moon-landing is a checklist-item.  The printed name of film-moon-landing is "Film 'moon landing'".
 The filming is a concept.  Understand "film", "moon landing", and "landing" as the filming.
 Instead of quizzing the director about the filming:
-	say "'Oh, you'll do fine.  Thankfully, Stanley left behind his script for the moon landing.'"
-[TODO: Sketch filming]
-
+	say "'Oh, you'll do fine.  Thankfully, Stanley left behind his script for the moon landing.'  He hands you the script.";
+	now the player has the moon landing script.
+Instead of quizzing the photographer about the filming:
+	say "'I'm not signing autographs,' he says with a sly grin.  'In fact, I'm not even here.  What we're doing today never leaves this building.'"
 
 
 The items of checklist-2 are {get-lunch, drug-astronauts}.  [Initially, we hide the filming and reveal it later when Stanley gets sick.]
@@ -2267,6 +2270,73 @@ The small vial is a vial.  In the small vial is a mysterious silver liquid.
 When day two begins:
 	if the player has alien-equations:
 		now the small vial is in the chemistry lab.
+
+
+
+The moon landing script is a critical thing.
+Carry out examining the moon landing script:
+	say fixed letter spacing;
+	say script-page style;
+	say paragraph break;
+	say paragraph break;
+	say paragraph break;
+	center "APOLLO 11 MOON LANDING";
+	say paragraph break;
+	say paragraph break;
+	center "Written by";
+	say line break;
+	center "Stanley Kubrick";
+	say paragraph break;
+	say paragraph break;
+	say paragraph break;
+	say end style;
+	say script-page style;
+	say paragraph break;
+	say underlined font style;
+	center "THE EAGLE HAS LANDED";
+	say end style;
+	say line break;
+	say "FADE IN:";
+	say paragraph break;
+	say "EXT. LUNAR SURFACE - DAY";
+	say paragraph break;
+	let A1 be entry 1 of the sub-items of choose-crew;
+	let A2 be entry 2 of the sub-items of choose-crew;
+	let A3 be entry 3 of the sub-items of choose-crew;
+	let N1 be "[A1]" in upper case;
+	let N2 be "[A2]" in upper case;
+	say "A lonely lunar landing module sits on the barren landscape of the actual moon.  Nothing happens for seven long hours.  Slowly, the door opens, and [A1] descends from the module to the surface.";
+	say paragraph break;
+	center N1;
+	say script-line style;
+	say "That's one small step for man; one giant leap for mankind.";
+	say end style;
+	say paragraph break;
+	say end style;
+	say script-page style;
+	say paragraph break;
+	say "[A1] dicks around for a while by [themselves], feeling pretty good about that killer quote, before [A2] descends the ladder and brings out an overly-starched American flag.  They hammer it in to the lunar regolith and step back to look at it.";
+	say paragraph break;
+	center N2;
+	say script-line style;
+	say "Beautiful, just beautiful.";
+	say end style;
+	say paragraph break;
+	say "They both hang out on the surface hitting golf balls and stuff for twenty-one more hours, while [A3] sits alone in the command module, crying.";
+	say paragraph break;
+	say end style;
+	say script-page style;
+	say paragraph break;
+	say "As the astronauts climb back into the lunar landing module, a twenty-foot steel monolith descends from the heavens.  Their heads rattle in their helmets, straining under the sheer psychic force of the alien monolith.  The astronauts are pulled into a vortex of coloured light.  The audience [underlined font style]definitely[end style] knows what is happening and why.  It all makes perfect sense.";
+	say paragraph break;
+	say "INT. LARGE NEOCLASSICAL BEDROOM";
+	say paragraph break;
+	say "[A3] is standing alone in a creepy bedroom, middle-aged and still in [their] spacesuit, then dressed in leisure attire and eating dinner, and finally as an old person lying on a bed.  A monolith appears at the foot of the bed, and as [A3] reaches for it, [they] [are] transformed into a fetus in a bubble of some kind.  The audience is still [underlined font style]definitely[end style] with us and it all still [underlined font style]definitely[end style] makes sense.";
+	say paragraph break;
+	say "THE END";
+	say paragraph break;
+	say end style;
+	stop the action.
 
 
 

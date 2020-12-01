@@ -264,3 +264,23 @@ span.alien-paper:empty {
 body.alien-paper .alien-paper {
   font-family: 'Roboto', sans-serif;
 }
+
+.script-page {
+  /* Make it stand out, and look like paper. */
+  display: block;
+  background-color: aliceblue;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em;
+
+  /* Max out at 30 characters or so. */
+  max-width: 30em;
+
+  /* TODO: find a typewriter font to replace monospace? */
+  font-family: monospace;
+}
+
+.script-line {
+  padding: 0 7em;
+  display: block;
+}
