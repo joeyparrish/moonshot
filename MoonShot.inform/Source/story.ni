@@ -312,7 +312,7 @@ The potted houseplant is in the waiting room.  "It's some kind of... ivy?  Maybe
 Understand "plant" and "pot" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
 
-Instead of dropping the houseplant:
+Instead of dropping the houseplant while the player is in the waiting room:
 	say "You carefully hang the [houseplant] from the ceiling again, eliciting strange looks from [the secretary].";
 	now the houseplant is in the waiting room;
 	now the houseplant is undescribed.  [Don't mention it again as in the room.  The room description covers it.]
