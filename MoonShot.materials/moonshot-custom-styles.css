@@ -288,3 +288,9 @@ body.alien-paper .alien-paper {
   padding: 0 7em;
   display: block;
 }
+
+/* Sometimes, when a command results in lots of text, it is difficult to find
+ * your last command to start reading.  This makes it stand out some. */
+.lineinput {
+  background-color: #eee;
+}
