@@ -2276,10 +2276,10 @@ When day two begins:
 Day three is a scene.
 Day two ends when checklist-2 is held by the director.
 Day three begins when day two ends.
-[TODO: day three (epilogue) - darkness, locked rooms, dirk meets you in the waiting room
+[TODO: day three (epilogue) - darkness, locked rooms, dirk meets you in the waiting room]
 When day three begins:
-]
-
+	say "The director looks tired when you walk in; his usually immaculately styled hair looks limp.  His bloodshot eyes speak of sacrifice and loss.  He motions to the chair across from his desk.  His voice seems strangely tender as he says, 'Have a seat, Intern.'  He takes a long pause.  'You did a damn fine job, Intern.  Not only did you ensure America won the Space Race in the minds of the whole world, [if the player has alien-equations]you helped us protect our darkest secret.[otherwise]you saved us so much money, hell, we might actually be able to go to the moon someday![end if]  Damn fine work.'  You have trouble reconciling his upbeat words with his downtrodden demeanor.  You're just about to ask him what's wrong when he continues, 'Damn fine work.  Head over to the Sound Stage to get your Official NASA Medal of Distinction.'  You think you see a tear in his eye as he shakes your hand on the way out.";
+	now the player is in the director's office.
 
 
 The Tichy default conversation rule is listed last in the instead rulebook.
