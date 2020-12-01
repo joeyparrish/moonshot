@@ -2086,7 +2086,7 @@ Instead of taking drugs:
 			add V to T;
 	let U be the list of things which are a drug carried by the player;
 	if the player's command includes "take":
-		if the player's command matches the regular expression "\ball (?:the )?drugs\b":
+		if the player's command matches the regular expression "\ball\s+(?:the\s+)?drugs\b":
 			say "Whoa, slow down, there![paragraph break]";
 			repeat with D running through T:
 				say "[D]: Taken.";
