@@ -1607,7 +1607,7 @@ Instead of quizzing the director about Apollo during day two:
 		say "[The director] shifts uncomfortably in his chair, as if trying to cope physically with the mental burden he's carrying.  'When we tried to touch down on the surface... it was all wrong.  Up close, the moon was flat, almost two-dimensional.  And then the command module just... went right through, like a ghost.  Now we know what no other human knows: it's not real.  The moon is a projection, put there for a reason, we think, but we could study it for a thousand more years and never truly understand.'[paragraph break]";
 		say "'This,' he says somberly, 'is a secret we must keep at all costs.  The American people must not know.  The Ruskies must not know.  We need to show them a perfectly successful moon landing.  So that's exactly where Operation Glitter comes in.'";
 	otherwise:
-		say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting yesterday.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on Operation Glitter.'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
+		say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on Operation Glitter.'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
 	now Apollo is day-two-discussed.
 
 Instead of quizzing the director about checklist-2:
