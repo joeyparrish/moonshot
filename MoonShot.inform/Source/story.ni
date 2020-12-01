@@ -947,7 +947,8 @@ Instead of talking to the tapir:
 	say "The [tapir-aardvark] says in a low whisper: 'Hey, kid!  You gotta get me out of here.'"
 
 Instead of quizzing the tapir about the brass key while the tapir is in the cage:
-	say "The [tapir-aardvark] says in a low whisper: 'Von Braun has it.  Now be quick!'"
+	say "The [tapir-aardvark] says in a low whisper: 'Von Braun has it.  Now be quick!'";
+	now the head scientist is known.
 
 Instead of quizzing the tapir about anything while the tapir is in the cage:
 	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
@@ -1256,7 +1257,8 @@ Instead of quizzing the head of personnel about the head scientist:
 	now the head scientist is known.
 
 Instead of quizzing the head of personnel about the other scientists:
-	say "'I call those empty headed lackeys [']The Chorus.[']  All they do is say [']Yes, Herr Doktor von Braun, whatever you say, sir!['] no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say [']Yes, Herr Doktor Frankenpants, whatever you say, sir![']  What a bunch of ninnies.'"
+	say "'I call those empty headed lackeys [']The Chorus.[']  All they do is say [']Yes, Herr Doktor von Braun, whatever you say, sir!['] no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say [']Yes, Herr Doktor Frankenpants, whatever you say, sir![']  What a bunch of ninnies.'";
+	now the head scientist is known.
 
 Instead of quizzing the head of personnel about Buzz Aldrin:
 	say "'Don't get close enough to that guy to smell his breath, or you [italic type]will[roman type] regret it.'"
