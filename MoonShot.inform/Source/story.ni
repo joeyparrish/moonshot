@@ -723,6 +723,7 @@ Instead of taking the blueprints:
 		now the engineer is sad;
 		now get-blueprints is checked;
 		now the player has the blueprints;
+		deactivate blueprints-hint;
 	otherwise:
 		try quizzing the engineer about blueprints.
 
@@ -819,6 +820,7 @@ Instead of taking the chalkboard:
 		now the chalkboard is described;  [It will show up in room descriptions again.]
 		now the chalkboard is critical;  [You can't leave it behind; see below]
 		now get-equations is checked;  [Woohoo!]
+		deactivate equations-hint;
 		if the tapir is in the hallway:
 			now the tapir is in purgatory;  [Never to be seen again.]
 		now the chalkboard is in the hallway;
