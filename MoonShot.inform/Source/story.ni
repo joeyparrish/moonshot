@@ -3,7 +3,7 @@
 
 [Bibliographic Information]
 The story genre is "Comedy".
-The release number is 4.
+The release number is 5.
 The story description is "A NASA intern in the 1960s scrambles to make Apollo 11 a success."
 The story creation year is 2020.
 
