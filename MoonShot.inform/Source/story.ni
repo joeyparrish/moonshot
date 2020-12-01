@@ -1737,10 +1737,10 @@ Instead of quizzing the photographer about the photographer:
 Instead of quizzing the photographer about name:
 	say "He offers his hand and says, 'Kubrick.  Stanley Kubrick.  Nice to meet you.'"
 
-[TODO: Kubrick on NASA
+
 Instead of quizzing the photographer about NASA:
-	say ""
-]
+	say "This really pushes the boundaries, you know what I mean?  They say film reflects life but really, it's our thoughts that create reality, so if we think the film is real, it is real.  This NASA shoot is gonna be my master opus."
+
 
 Instead of quizzing the photographer about anything:
 	try talking to the photographer.
@@ -2054,10 +2054,10 @@ Instead of quizzing the chemist about brain-washing:
 	otherwise:
 		say "She looks confused.  'I don't know anything about that.  Did [the director] send you?  You might want to ask him first.'"
 
-[TODO: Molly on NASA
+
 Instead of quizzing the chemist about NASA:
-	say ""
-]
+	say "I put the SPACE in the National Agency of SPACE Artisans.  That's why they gave me this sweet lab to cook up all sorts of interesting chemical cocktails.  I *love* this job."
+
 
 
 
