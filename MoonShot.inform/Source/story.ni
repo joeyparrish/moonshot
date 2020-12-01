@@ -1499,7 +1499,7 @@ Every turn when the remainder after dividing the turn count by 10 is 0 and the p
 		show hint "Use 'choose so-and-so' to choose someone for the Apollo 11 crew.  Read the personnel files for details on each crew candidate.";
 
 Every turn when the remainder after dividing the turn count by 3 is 0 and a checklist (called X) held by the player is complete:
-	say "[X] is complete now.  You should report back to [the director] and give him the checklist.";
+	say "([X] is complete now.  You should report back to [the director] and give him the checklist.)";
 
 
 
@@ -2337,6 +2337,7 @@ Carry out examining the moon landing script:
 	say "THE END";
 	say paragraph break;
 	say end style;
+	say variable letter spacing;
 	stop the action.
 
 
