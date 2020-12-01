@@ -1694,11 +1694,12 @@ The description of Lisa Nowak is "Lisa's got a handsome profile with her adorabl
 Lisa Nowak wears an industrial-sized can of pepper spray.
 
 The description of Ijon Tichy is "Ijon has chosen casual attire compared to the others.  He's sporting a white tank top that's partially tucked into his wrinkled slacks.  His sideburns are present and accounted for."
-Ijon Tichy wears a white tank top and wrinkled slacks.
+Ijon Tichy wears a white tank top and the wrinkled slacks.
 The sideburns are part of Ijon Tichy.
 
 The description of Clifford McBride is "Clifford is explaining in a gruff voice to no one in particular the importance of discovering intelligent non-human life.  His eyebrows protrude a full inch from his face."
 The eyebrows are part of Clifford McBride.
+The description of the eyebrows is "They are like living caterpillars on the man's face."
 
 
 
@@ -2239,7 +2240,14 @@ The zonked astronaut rule is listed first in the instead rulebook.
 
 
 
-[TODO: make the astronauts look different when they are tripping or zonked.]
+After examining an astronaut:
+	if the noun is zonked:
+		say "[regarding the noun][They] looks like a malleable zombie, ready to do whatever is required for the film.";
+	otherwise if the noun is tripping:
+		say "[regarding the noun][They] appears to be in complete awe of the cheaply-painted set.  Does [they] think [they] is really on the moon?"
+
+
+
 To decide if the astronauts are prepared:
 	repeat with X running through the sub-items of choose-crew:
 		if X is not tripping and X is not zonked:
@@ -2499,7 +2507,7 @@ Test foodalt with "test start2alt / test foodonly".
 
 Test drugs with "test start2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
 
-Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa".
+Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa / give chicken to buzz / give lsd to buzz / x nowak / x buzz".
 
 Test drugnfilm with "e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list / x script / action / w / u / w / report".
 Test day3 with "test food / test drugnfilm".
