@@ -903,7 +903,7 @@ After opening the cage while the tapir is in the cage:
 			show ending 5 the "trampling" ending;
 		otherwise:
 			say "As soon as the cage door opens, the [tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
-			say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'";
+			say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'[line break]";
 			now the head scientist is enraged;
 			now the tapir is in purgatory;  [never to be seen again]
 	otherwise:
