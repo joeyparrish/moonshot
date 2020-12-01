@@ -162,10 +162,12 @@ The weather is a concept.
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
 
 [You can ask anyone about their name.  It's only polite.]
-Name is a concept.  Understand "her name", "his name", "their name", "your name", and "the name" as name.
+Name is a concept.  Name is everywhere.
+Understand "her name", "his name", "their name", "your name", and "the name" as name.
 Name-asking is an action applying to nothing.
-Understand "ask her name", "ask his name", "ask for her name", "ask for his name", and "ask for name" as name-asking.
+Understand "ask her name", "ask his name", and "ask for name" as name-asking.
 Instead of name-asking: try quizzing generally name.
+Instead of asking someone for name: try quizzing the noun about name.
 
 NASA is a concept.
 Understand "second a" and "second a in NASA" as NASA.
