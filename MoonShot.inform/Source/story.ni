@@ -536,7 +536,7 @@ Instead of going from the director's office during day one:
 	otherwise if checklist-1 is not ready:
 		try taking checklist-1;  [So that the director will ask you to stop and talk first.]
 	otherwise:
-		say "'Hang on!' says [the director].  'You're gonna need this!'.  He indicates the checklist[if a checklist is on the director's desk] laying on his desk[end if].  'Get all of that done, ASAP.'"
+		say "'Hang on!' says [the director].  'You're gonna need this!'.  He indicates the [interesting]checklist[/interesting][if a checklist is on the director's desk] laying on his desk[end if].  'Get all of that done, ASAP.'"
 
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-1:
@@ -1605,9 +1605,9 @@ Instead of quizzing the director about Apollo during day two:
 	if the player has alien-equations:
 		say "'Now, listen, we haven't told anyone this, and we think this would be best kept within these four walls.'  He leans forward and lowers his voice.  'We did it.  We launched Apollo 11 last night, while everyone was asleep.  Those strange equations you showed us were... well... we don't know what they were exactly, but we were able to accomplish the trip much faster than we had originally planned.  But what we found was... disturbing.'[paragraph break]";
 		say "[The director] shifts uncomfortably in his chair, as if trying to cope physically with the mental burden he's carrying.  'When we tried to touch down on the surface... it was all wrong.  Up close, the moon was flat, almost two-dimensional.  And then the command module just... went right through, like a ghost.  Now we know what no other human knows: it's not real.  The moon is a projection, put there for a reason, we think, but we could study it for a thousand more years and never truly understand.'[paragraph break]";
-		say "'This,' he says somberly, 'is a secret we must keep at all costs.  The American people must not know.  The Ruskies must not know.  We need to show them a perfectly successful moon landing.  So that's exactly where Operation Glitter comes in.'";
+		say "'This,' he says somberly, 'is a secret we must keep at all costs.  The American people must not know.  The Ruskies must not know.  We need to show them a perfectly successful moon landing.  So that's exactly where [interesting]Operation Glitter[/interesting] comes in.'";
 	otherwise:
-		say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on Operation Glitter.'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
+		say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on [interesting]Operation Glitter[/interesting].'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
 	now Apollo is day-two-discussed.
 
 Instead of quizzing the director about checklist-2:
@@ -2016,7 +2016,7 @@ To start photographer illness:
 
 
 
-The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large lab bench with a smorgasbord of vials, droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a taxidermied marmot[end if].  In the corner, a long-haired black cat peers at you through slitted yellow eyes and goes back to sleep."
+The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large [interesting]lab bench[/interesting] with a smorgasbord of vials, droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a [interesting]taxidermied marmot[/interesting][end if].  In the corner, a long-haired black [interesting]cat[/interesting] peers at you through slitted yellow eyes and goes back to sleep."
 The printed name of the chemistry lab is "NASA Chemistry Lab".
 The lab bench is scenery in the chemistry lab.  "You don't dare touch anything on the bench.  Some things are bubbling and hissing menacingly."
 The cat is portable-scenery in the chemistry lab.  "The cat stretches out in the corner next to the laboratory's fume hood, and you wonder, is this cat fat or just really fluffy?"
