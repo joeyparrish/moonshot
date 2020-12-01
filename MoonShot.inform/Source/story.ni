@@ -86,7 +86,7 @@ To show ending (N - number) the (T - text) ending:
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 8 (the [T] ending) after [turn count] turns!";
+	say "You have discovered ending #[N] of 9 (the [T] ending) after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -2417,8 +2417,13 @@ Instead of going from the sound stage while day two has ended:
 	say "The door is locked...[paragraph break]";
 	if the player has alien-equations:
 		say "You hear the distinct sound of a hungry aardvark, and it's getting closer.[paragraph break]";
-		say "Loose lips sink ships.";
-		show ending 8 the "aardvark" ending;
+		if the player has the toblerone:
+			say "You realize that you still have the toblerone in your pocket, so you throw it across the room, drawing the attention of the ravenous aardvark.  With one swift kick, the door comes off its frame and you flee as fast as your legs will carry you.[paragraph break]";
+			say "After escaping the building, you try to go to the police and the press, but no one will believe what you've seen.  You spend the rest of your life in hiding from the National Agency of Space Astronauts.";
+			show ending 9 the "super-secret" ending;
+		otherwise:
+			say "Loose lips sink ships.";
+			show ending 8 the "aardvark" ending;
 	otherwise:
 		say "You don't hear or see anything else, ever again.[paragraph break]";
 		say "Loose lips sink ships.";
