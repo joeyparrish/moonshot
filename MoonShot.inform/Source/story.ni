@@ -2364,7 +2364,7 @@ Check filming the moon landing:
 
 
 Carry out filming the moon landing: 
-	say "You begin rolling the film as the astronauts pretend to pilot the lunar lander down to the 'surface.'  You call out to the astronauts to walk as though gravity has little effect on them.  They prove very receptive to direction and bounce happily around the stage in their chemically enhanced state, like kittens in tumbling around with springs on their paws.  They giggle manically as they hit golf balls around the stage; those drugs sure did the job.  One of the astronauts rips a comically loud fart, but you're sure you can edit it out in post.";
+	say "You begin rolling the film as the astronauts pretend to pilot the lunar lander down to the 'surface.'  You call out to the astronauts to walk as though gravity has little effect on them.  They prove very receptive to direction and bounce happily around the stage in their chemically-enhanced state, like kittens tumbling around with springs on their paws.  They giggle manically as they hit golf balls around the stage; those drugs sure did the job.  One of the astronauts rips a comically loud fart, but you're sure you can edit it out in post.";
 	now film-moon-landing is checked.
 
 
