@@ -3,7 +3,7 @@
 
 [Bibliographic Information]
 The story genre is "Comedy".
-The release number is 1.
+The release number is 2.
 The story description is "A NASA intern in the 1960s scrambles to make Apollo 11 a success."
 The story creation year is 2020.
 
@@ -59,6 +59,7 @@ room-name is a Vorple style.
 direction-name is a Vorple style.
 author-line is a Vorple style.
 title-line is a Vorple style.
+version-line is a Vorple style.
 copyright-line is a Vorple style.
 created-with-line is a Vorple style.
 hint is a Vorple style.
@@ -133,10 +134,11 @@ This is the fancy banner rule:
 	say paragraph break;
 	[Note that there is a requirement in the Inform license that we mention Inform somewhere, so we do so here.]
 	if Vorple is supported:
-		center "[blockquote style][title-line style][italic type]MoonShot[roman type][end style][line break][author-line style]Story by Joey & Charity Parrish[end style][line break][copyright-line style]Copyright (C) 2020[end style][line break][created-with-line style]Created with Inform 7[end style][end style]";
+		center "[blockquote style][title-line style][italic type]MoonShot[roman type][end style][line break][version-line style]Version [release number][end style][line break][author-line style]Story by Joey & Charity Parrish[end style][line break][copyright-line style]Copyright (C) 2020[end style][line break][created-with-line style]Created with Inform 7[end style][end style]";
 		say line break;
 	otherwise:
 		center "[italic type]MoonShot[roman type]";
+		center "Version [release number]";
 		center "Story by Joey & Charity Parrish";
 		center "Copyright (C) 2020";
 		center "Created with Inform 7";

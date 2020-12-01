@@ -18,6 +18,10 @@
   font-size: 130%;
 }
 
+.version-line {
+  font-size: 80%;
+}
+
 .author-line, .copyright-line {
   font-size: 90%;
 }
