@@ -1998,6 +1998,8 @@ To start photographer illness:
 	now the player is in the director's office;
 	now the photographer is in purgatory;
 	say "[The director] looks at you somberly from across the desk.  'I'm not sure if you met Stanley, the photographer, but he seems to have eaten something he shouldn't have.'  You try to act nonchalant.  'He's going to be okay, but he'll be in the hospital for a while, so we'll need you to take over filming and shooting photos downstairs.  I've updated your checklist.'";
+	now the moon landing script is in the sound stage;
+	now the description of the cameras is "You notice a small note taped to the side of one camera.  The note says [italic type][one of][interesting]'FILM MOON LANDING'[/interesting][or]SAY '[interesting]ACTION[/interesting]'[or]TYPE THE EXACT PHRASE 'FILM MOON LANDING' TO SOLVE THE PUZZLE[cycling][roman type].  Maybe it's a clue!";
 	now the items of checklist-2 are {get-lunch, drug-astronauts, film-moon-landing}.
 
 
@@ -2176,6 +2178,7 @@ Instead of quizzing a high astronaut about anything (this is the high astronaut 
 
 
 LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
+Understand "lysergic acid diethylamide" as LSD.
 The description of LSD is "The LSD is a piece of paper with an image of the spiraling Milky Way, covered in intersecting perforations."
 An astronaut can be tripping.
 Before dropping LSD, say "(Assuming you mean 'put down'...) [run paragraph on]".
@@ -2238,6 +2241,7 @@ The zonked astronaut rule is listed first in the instead rulebook.
 
 
 
+[TODO: make the astronauts look different when they are tripping or zonked.]
 To decide if the astronauts are prepared:
 	repeat with X running through the sub-items of choose-crew:
 		if X is not tripping and X is not zonked:
@@ -2336,6 +2340,34 @@ Carry out examining the moon landing script:
 	stop the action.
 
 
+Filming the moon landing is an action applying to nothing.
+Understand "film", "film moon landing", and "film landing" as filming the moon landing.
+Understand "start filming", "start filming moon landing", and "start filming landing" as filming the moon landing.
+Understand "action" as filming the moon landing.
+
+Check filming the moon landing:
+	if day one is happening:
+		say "I didn't understand that sentence.";
+		stop the action;
+	otherwise if day three is happening:
+		say "You already did that.  [one of]Time to move on[or]There's no point in reliving the glory days[or]Today is a brand new day[cycling].";
+		stop the action;
+	otherwise if the player is not in the sound stage:
+		say "You'll need to be in the sound stage for that.";
+		stop the action;
+	otherwise if the astronauts are prepared:
+		continue the action;
+	otherwise:
+		say "The astronauts are not all 'prepared' yet.  You need to get them ready for filming first.";
+		show hint "Have you been to the chemist yet?";
+		stop the action.
+
+[TODO: describe filming]
+Carry out filming the moon landing:
+	say "You did it!";
+	now film-moon-landing is checked.
+
+
 
 
 [---------- DAY 3 ----------]
@@ -2351,6 +2383,12 @@ When day three begins:
 
 The Tichy default conversation rule is listed last in the instead rulebook.
 The default conversation rule is listed last in the instead rulebook.
+
+After reading a command:
+	if the player's command includes "open the pod bay doors":
+		say "I'm sorry, Dave.  I'm afraid I can't do that.";
+		reject the player's command.
+
 
 
 
@@ -2441,6 +2479,4 @@ Test drugs with "test start2 / e / d / w / take all drugs / e / e / give lsd to 
 
 Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa".
 
-Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list".
-[TODO: not quite able to complete day2 yet.]
-[TODO: easter egg about pod bay doors]
+Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list / action / w / u / w / report".
