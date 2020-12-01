@@ -2016,10 +2016,11 @@ To start photographer illness:
 
 
 
-The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large [interesting]lab bench[/interesting] with a smorgasbord of vials, droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a [interesting]taxidermied marmot[/interesting][end if].  In the corner, a long-haired black [interesting]cat[/interesting] peers at you through slitted yellow eyes and goes back to sleep."
+The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large [interesting]lab bench[/interesting] with a smorgasbord of [if the small vial is in the chemistry lab]vials, [end if]droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a [interesting]taxidermied marmot[/interesting][end if].  In the corner, a long-haired black [interesting]cat[/interesting] peers at you through slitted yellow eyes and goes back to sleep."
 The printed name of the chemistry lab is "NASA Chemistry Lab".
+The exposed fluorescent tubes are scenery in the chemistry lab.
 The lab bench is scenery in the chemistry lab.  "You don't dare touch anything on the bench.  Some things are bubbling and hissing menacingly."
-The cat is portable-scenery in the chemistry lab.  "The cat stretches out in the corner next to the laboratory's fume hood, and you wonder, is this cat fat or just really fluffy?"
+The cat is a person in the chemistry lab.  "The cat stretches out in the corner next to the laboratory's fume hood, and you wonder, is this cat fat or just really fluffy?"
 The droppers are portable-scenery in the chemistry lab.
 The Bunsen burners are portable-scenery in the chemistry lab.
 The jars of powders are portable-scenery in the chemistry lab.
@@ -2031,6 +2032,17 @@ The taxidermied marmot is undescribed.  [Mentioned in the scenery, so don't list
 After taking the taxidermied marmot:
 	now the taxidermied marmot is described;
 	continue the action.
+
+The cat is not default-talkable.  ["Talk" without specifying will never assume the cat.  But the cat is still a "person" and you can talk to the cat explicitly.]
+Instead of talking to the cat:
+	say "Are you lonely?";
+	stop the action.
+Instead of quizzing the cat about:
+	say "Are you lonely?";
+	stop the action.
+Instead of asking the cat about:
+	say "Are you lonely?";
+	stop the action.
 
 The chemist is a stranger in the chemistry lab.  The chemist is female.
 The real name of the chemist is "Molly". 

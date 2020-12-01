@@ -5,6 +5,12 @@ Include Concepts by Joey Parrish.
 
 Non-existent-concept is a concept.  [That the game won't use, and therefore we can use to trigger defaults when another concept is out of bounds because of allowed-scene.]
 
+A person can be default-talkable.  A person is usually default-talkable.
+To decide what list of people is the people to talk to:
+	let occupants be the list of people who are default-talkable in the location;
+	remove yourself from occupants;
+	decide on occupants.
+
 [NOTE: "anything" matches distant objects, whereas "something" only matches objects in scope (in the room).]
 
 Quizzing it about is an action applying to two things.  Understand "ask [someone] about [anything]" and "quiz [someone] about [anything]" as quizzing it about.
@@ -21,22 +27,20 @@ Quizzing non-nouns is an action applying to one topic.  Understand "ask about [t
 [This is how we handle "ask about [text that isn't a noun]" by chaining to the default rules for unknown objects.  We convert it to a dummy noun.]
 whatsit is a backdrop.  whatsit is everywhere.
 Check quizzing non-nouns:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to ask.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to ask?  You see [occupants with definite articles].";
+		say "Whom do you mean to ask?  You see [occupants with definite articles].";
 	otherwise:
 		try quizzing entry 1 of occupants about whatsit.
 
 Check quizzing generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to ask.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to ask?  You see [occupants with definite articles].";
+		say "Whom do you mean to ask?  You see [occupants with definite articles].";
 	otherwise:
 		try quizzing entry 1 of occupants about the noun.
 
@@ -44,12 +48,11 @@ Check quizzing generally:
 Begging generally is an action applying to one thing.  Understand "ask for [anything]" as begging generally.
 
 Check begging generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to ask.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to ask?  You see [occupants with definite articles].";
+		say "Whom do you mean to ask?  You see [occupants with definite articles].";
 	otherwise:
 		try asking entry 1 of occupants for the noun.
 
@@ -71,12 +74,11 @@ Check informing it about:
 Informing generally is an action applying to one thing.  Understand "tell about [anything]" as informing generally.
 
 Check informing generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to tell.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to tell?  You see [occupants with definite articles].";
+		say "Whom do you mean to tell?  You see [occupants with definite articles].";
 	otherwise:
 		try informing entry 1 of occupants about the noun.
 
@@ -101,24 +103,22 @@ Check talking to it about:
 
 Talking about generally is an action applying to one thing.  Understand "talk about [anything]" as talking about generally.
 Check talking about generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to talk to.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to talk to?  You see [occupants with definite articles].";
+		say "Whom do you mean to talk to?  You see [occupants with definite articles].";
 	otherwise:
 		try quizzing entry 1 of occupants about the noun.
 [Now "talk about thingy" is the same "ask about thingy".]
 
 Talking generally is an action applying to nothing.  Understand "talk" as talking generally.
 Check talking generally:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to talk to.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to talk to?  You see [occupants with definite articles].";
+		say "Whom do you mean to talk to?  You see [occupants with definite articles].";
 	otherwise:
 		try talking to entry 1 of occupants.
 [Now "talk" in a room with Bob is the same as "talk to Bob".]
@@ -132,22 +132,20 @@ Rule for reaching inside a room while quizzing or quizzing generally or informin
 [The built-in default for asking someone about an unknown thing is "There is no reply."  We'd prefer a different default for topics we haven't coded explicitly.  Use "non-existent-concept" defined in the Concepts extension to chain to the default quizzing rule.]
 
 Instead of asking someone (called the person) about:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to ask.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to ask?  You see [occupants with definite articles].";
+		say "Whom do you mean to ask?  You see [occupants with definite articles].";
 	otherwise:
 		try quizzing entry 1 of occupants about non-existent-concept.
 
 Instead of asking about:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
 		say "There's nobody here to ask.";
 	otherwise if the number of entries in occupants > 1:
-		say "Who do you mean to ask?  You see [occupants with definite articles].";
+		say "Whom do you mean to ask?  You see [occupants with definite articles].";
 	otherwise:
 		try quizzing entry 1 of occupants about non-existent-concept.
 
