@@ -713,7 +713,9 @@ Instead of asking the engineer for whiteprints:
 
 [TODO: Is there an alternate solution we could add here?]
 Instead of taking the blueprints:
-	if the player's command includes "steal":
+	if the player has the blueprints:
+		say "You already have the blueprints.";
+	otherwise if the player's command includes "steal":
 		say "It doesn't look like you'll be able to sneak up on [the engineer].  He's looking right at you.";
 		show hint "You could ask for them instead.";
 	otherwise if the blueprints are discussed:
