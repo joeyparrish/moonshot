@@ -954,6 +954,10 @@ Instead of quizzing the tapir about anything while the tapir is in the cage:
 	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
 
 The tapir can be revealed.  When day one begins, now the tapir is not revealed.
+[HACK: This works around "the cage isn't open" if you "ask tapir for name".]
+Before asking the tapir for name while the tapir is in the cage:
+	try quizzing the tapir about name;
+	stop the action.
 Instead of quizzing the tapir about name while the tapir is in the cage:
 	say "The [tapir-aardvark] glances side to side to make sure the scientists are distracted before hissing in a low voice, 'Brizzleby, of the Galactic Federation of Aardvarks.  Now get me the hell out of here!'";
 	now the real name of the tapir is "Brizzleby";
