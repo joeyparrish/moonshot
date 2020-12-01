@@ -82,11 +82,11 @@ Rule for printing the name of a direction (called whither):
 	say "[direction-name style][printed name of whither][end style]".
 
 The print obituary headline rule is not listed in any rulebook.
-To show ending (N - number):
+To show ending (N - number) the (T - text) ending:
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
-	say "You have discovered ending #[N] of 7 after [turn count] turns!";
+	say "You have discovered ending #[N] of 8 (the [T] ending) after [turn count] turns!";
 	say end style;
 	end the story.
 
@@ -229,7 +229,7 @@ Instead of dropping something critical:
 [This seems unlikely to come up in practice, but now that we are creating "enterable" game objects such as chairs, I thought I'd throw this in.  You can get this by the phrases "enter" or "sit on".]
 Instead of entering a person:
 	say "[The noun] looks shocked that you should even try it!  [bold type][italic type]'SECURITY!'[roman type]  NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for sexual harassment in 1969, in spite of the term not being coined until 1975.  But then, you always [italic type]did[roman type] consider yourself ahead of your time.";
-	show ending 2.
+	show ending 2 the "harassment" ending.
 
 [As if the above wasn't risque enough...]
 Instead of entering yourself:
@@ -320,7 +320,7 @@ Instead of dropping the houseplant:
 The houseplant is edible.
 Instead of eating the houseplant:
 	say "The houseplant tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, [if day one is happening]Apollo 11 fails miserably,[otherwise]Operation Glitter fails and is exposed,[end if] and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-	show ending 1.
+	show ending 1 the "houseplant" ending.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
 Understand "telephone" as the phone.
@@ -892,7 +892,7 @@ After opening the cage while the tapir is in the cage:
 	if the tapir is not revealed:
 		if a random chance of 1 in 10 succeeds:
 			say "As soon as the cage door opens, the [tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
-			show ending 5;
+			show ending 5 the "trampling" ending;
 		otherwise:
 			say "As soon as the cage door opens, the [tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
 			say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'";
@@ -1083,7 +1083,7 @@ Instead of saying sorry while the player is in the propulsion lab and the head s
 		now the player is in the hallway;
 	otherwise:
 		say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-		show ending 3;
+		show ending 3 the "shoe" ending;
 
 
 
@@ -1529,9 +1529,7 @@ When day two begins:
 	now the secretary is not mad;
 	now the player is in the waiting room;
 	activate secretary-warns in 1 turns;
-	activate director-yells-2 in 5 turns;
-	[Work in progress - while getting feedback, end the story here, but only in the release build.  When we run the testing version, we will continue on into the incomplete day two.]
-	maybe end the game.
+	activate director-yells-2 in 5 turns.
 
 
 
@@ -1867,7 +1865,7 @@ After eating a food:
 	increase the snack count by 1;
 	if the snack count is 10:
 		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-		show ending 4;
+		show ending 4 the "gluttony" ending;
 	otherwise if the snack count is 3:
 		say "You eat [the noun].  You are starting to feel unwell.";
 	otherwise if the snack count >= 4:
@@ -1977,7 +1975,7 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 			otherwise:
 				say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
 			say "NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for gross craft-services negligence, and Operation Glitter fails miserably.  NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Not only have you failed your country, but you are banned by the International Alliance of Theatrical Stage Employees and you never work in Hollywood again.";
-			show ending 6;
+			show ending 6 the "poisoning" ending;
 		otherwise:
 			if the recipient is Ijon Tichy:
 				say "[The recipient] looks at [the snack] and shakes his head slowly.  You feel a little foolish.";
@@ -2376,10 +2374,43 @@ Carry out filming the moon landing:
 Day three is a scene.
 Day two ends when checklist-2 is held by the director.
 Day three begins when day two ends.
-[TODO: day three (epilogue) - darkness, locked rooms, dirk meets you in the waiting room]
 When day three begins:
-	say "The director looks tired when you walk in; his usually immaculately styled hair looks limp.  His bloodshot eyes speak of sacrifice and loss.  He motions to the chair across from his desk.  His voice seems strangely tender as he says, 'Have a seat, Intern.'  He takes a long pause.  'You did a damn fine job, Intern.  Not only did you ensure America won the Space Race in the minds of the whole world, [if the player has alien-equations]you helped us protect our darkest secret.[otherwise]you saved us so much money, hell, we might actually be able to go to the moon someday![end if]  Damn fine work.'  You have trouble reconciling his upbeat words with his downtrodden demeanor.  You're just about to ask him what's wrong when he continues, 'Damn fine work.  Head over to the Sound Stage to get your Official NASA Medal of Distinction.'  You think you see a tear in his eye as he shakes your hand on the way out.";
-	now the player is in the director's office.
+	say "[room-heading style]Intermission: End of day two[end style]";
+	say line break;
+	say "You head home, exhausted from a long day at the most important administration (affiliation? alliance?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
+	say "[room-heading style]NASA Headquarters, day three of your internship (Epilogue)[end style]";
+	say line break;
+	say "You return to NASA headquarters, wondering what else they could possibly throw at you next.  You wonder how long you'll have to wait to see the director this time...[paragraph break]";
+	pause;
+	now checklist-2 is nowhere;
+	say "You arrive to find that [the secretary] is not in the waiting room.  [The director] is waiting to receive you himself.  'Come on in.'  He guides you directly into his office.[paragraph break]";
+	say "The director looks tired when you walk in; his usually immaculately styled hair looks limp.  His bloodshot eyes speak of sacrifice and loss.  He motions to the chair across from his desk.  His voice seems strangely tender as he says, 'Have a seat, Intern.'  He takes a long pause.  'You did a damn fine job, Intern.  Not only did you ensure America won the Space Race in the minds of the whole world, [if the player has alien-equations]you helped us protect our darkest secret.  Maybe.  Maybe second-darkest or third-darkest.[run paragraph on][otherwise]you saved us so much money, hell, we might actually be able to go to the moon some day![run paragraph on][end if]  Anyway...  Damn fine work.'  You have trouble reconciling his upbeat words with his downtrodden demeanor.  You're just about to ask him what's wrong when he continues, 'Damn fine work.  Head over to the [interesting]sound stage[/interesting] to get your [interesting]Official NASA Medal of Distinction[/interesting].'  You think you see a tear in his eye as he shakes your hand on the way out.";
+	say paragraph break;
+	now the sound stage is dark;
+	now the player is in the hallway.
+
+[Starting on day three, we lock the doors to these rooms.]
+Instead of going to the director's office while day two has ended:
+	say "The door to the office is locked.  'The sound stage is downstairs, kid,' says [the director] through the door.  'Go on, now.'"
+
+Instead of going to the chemistry lab while day two has ended:
+	say "The door to the chemistry lab is locked.  A sign on the door says 'took a road trip'."
+
+Instead of going to the personnel department while day two has ended:
+	say "The door to the personnel department is locked.  The lights appear to be out, and you hear a soft snoring coming from inside."
+
+Instead of going from the sound stage while day two has ended:
+	say "The door is locked...[paragraph break]";
+	if the player has alien-equations:
+		say "You hear the distinct sound of a hungry aardvark, and it's getting closer.[paragraph break]";
+		say "Loose lips sink ships.";
+		show ending 8 the "aardvark" ending;
+	otherwise:
+		say "You don't hear or see anything else, ever again.[paragraph break]";
+		say "Loose lips sink ships.";
+		show ending 7 the "basic" ending.
+
+
 
 
 The Tichy default conversation rule is listed last in the instead rulebook.
@@ -2393,19 +2424,7 @@ After reading a command:
 
 
 
-Section 2 - WIP release mode - For release only
-
-To maybe end the game:
-	say paragraph break;
-	say ending-card style;
-	say "Well, folks, that's all for now!  Thank you for trying out this work in progress.";
-	say end style;
-	show ending 7;
-
-Section 3 - WIP testing mode - Not for release
-
-To maybe end the game:
-	do nothing.
+Section 2 - WIP testing mode - Not for release
 
 Teleporting to is an action out of world applying to one thing.  Understand "teleport to [anywhere]" and "teleport [anywhere]" as teleporting to.
 Check teleporting to a room (called the destination):
@@ -2474,10 +2493,17 @@ Test start2 with "test day2 / test waiting / ask about glitter / take checklist 
 
 Test start2alt with "test day2alt / test waiting / ask about glitter / take checklist / x checklist".
 
-Test food with "test start2 / e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test foodonly with "e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test food with "test start2 / test foodonly".
+Test foodalt with "test start2alt / test foodonly".
 
 Test drugs with "test start2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
 
 Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa".
 
-Test day3 with "test food / e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list / action / w / u / w / report".
+Test drugnfilm with "e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list / x script / action / w / u / w / report".
+Test day3 with "test food / test drugnfilm".
+Test day3alt with "test foodalt / test drugnfilm".
+
+Test end with "test day3 / d / e / w".
+Test endalt with "test day3alt / d / e / w".
