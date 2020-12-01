@@ -981,7 +981,7 @@ The description of alien-equations is "A small slip of paper written in an alien
 Mix high-quality bourbon whiskey with lemon juice and maple syrup, then garnish with orange peel and a cocktail cherry.  Shake with ice and serve.
 [end style][end if]"
 
-Understand "equations" and "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
+Understand "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
 The printed name of alien-equations is "alien equations".
 Understand "paper" as alien-equations.
 
