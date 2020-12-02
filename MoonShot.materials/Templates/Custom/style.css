@@ -72,6 +72,10 @@ h2 {
   max-width: 50em;
 }
 
+.tips {
+  font-size: 170%;
+}
+
 .bug-link {
   font-size: 170%;
 }
