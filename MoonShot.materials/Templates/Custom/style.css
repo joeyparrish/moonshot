@@ -67,6 +67,10 @@ h2 {
   font-size: 75%;
 }
 
+.bug-link {
+  font-size: 170%;
+}
+
 /* For mobile browsers, change to a one-column layout. */
 @media screen and (max-device-width: 480px) {
   .container {
