@@ -19,7 +19,7 @@ Check sitting on:
 	otherwise:
 		say "That's not something you can sit down on."
 
-Sitting generally is an action applying to nothing.  Understand "sit" as sitting generally.
+Sitting generally is an action applying to nothing.  Understand "sit" and "sit down" as sitting generally.
 
 Check sitting generally:
 	let good-seats be the list of chairs in the location;
