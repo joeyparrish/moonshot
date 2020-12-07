@@ -177,6 +177,8 @@ Understand "ask her name", "ask his name", and "ask for name" as name-asking.
 Instead of name-asking: try quizzing generally name.
 Instead of asking someone for name: try quizzing the noun about name.
 
+Understand "examine room" as looking.
+
 NASA is a concept.
 Understand "second a" and "second a in NASA" as NASA.
 
