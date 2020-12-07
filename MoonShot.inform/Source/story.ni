@@ -402,7 +402,7 @@ Instead of going to the director's office while the director is not ready:
 	if yourself is told-to-wait:
 		[If the player has been told at least once before, they are perhaps having trouble with this waiting thing, so offer a hint.]
 		say line break;
-		show hint "You can explore the room, talk to [the secretary], examine things, or just type 'wait' to wait patiently.";
+		show hint "You can talk to [the secretary], examine things, or just type 'wait' to wait patiently.";
 	now yourself is told-to-wait.
 
 [In this language "in/inside" is actually a direction you could use to relate places to one another.  But in context of this room, we'd like "go in" to send you into the director's office.]
