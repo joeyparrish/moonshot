@@ -338,6 +338,8 @@ Instead of taking the phone:
 	now the secretary is mad.
 
 Instead of saying sorry while the player is in the waiting room and the secretary is mad:
+	try saying sorry to the secretary.
+Instead of saying sorry to the secretary while the secretary is mad:
 	say "She doesn't look ready to forgive you."
 
 The description of the secretary is "[if the secretary is mad]She glares at you and says 'Keep your eyes to yourself, you nut job.'[otherwise][The noun] is a youngish woman, possibly in her 30s, with a beehive haircut and horn-rimmed glasses.  She notices you looking and smiles."
@@ -666,6 +668,8 @@ The tears are scenery in the engineering department.
 
 
 Instead of saying sorry while the player is in the engineering department and the engineer is sad:
+	try saying sorry to the engineer.
+Instead of saying sorry to the engineer while the engineer is sad:
 	say "He sniffs a little, then says 'Um, yeah, okay.  Apology accepted.'";
 	now the engineer is not sad.
 
@@ -1094,6 +1098,8 @@ Instead of quizzing the head scientist about anything while the head scientist i
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
 
 Instead of saying sorry while the player is in the propulsion lab and the head scientist is enraged:
+	try saying sorry to the head scientist.
+Instead of saying sorry to the head scientist while the head scientist is enraged:
 	say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
 	if a random chance of 9 in 10 succeeds:
 		say "You barely escape un-swatted.[line break]";
@@ -1292,6 +1298,8 @@ Instead of quizzing the head of personnel about the chemist:
 
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
+	try saying sorry to the head of personnel.
+Instead of saying sorry to the head of personnel while the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
 	now the head of personnel is asleep;
 
