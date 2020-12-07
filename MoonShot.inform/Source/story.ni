@@ -2041,13 +2041,13 @@ After taking the taxidermied marmot:
 
 The cat is not default-talkable.  ["Talk" without specifying will never assume the cat.  But the cat is still a "person" and you can talk to the cat explicitly.]
 Instead of talking to the cat:
-	say "Are you lonely?";
+	say "2020 [italic type]has[roman type] been pretty lonely, hasn't it?";
 	stop the action.
 Instead of quizzing the cat about:
-	say "Are you lonely?";
+	say "2020 [italic type]has[roman type] been pretty lonely, hasn't it?";
 	stop the action.
 Instead of asking the cat about:
-	say "Are you lonely?";
+	say "2020 [italic type]has[roman type] been pretty lonely, hasn't it?";
 	stop the action.
 
 The chemist is a stranger in the chemistry lab.  The chemist is female.
