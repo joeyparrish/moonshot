@@ -3,7 +3,7 @@ Version 1 of Better Sitting by Joey Parrish begins here.
 Understand the command "sit" as something new.
 
 [NOTE: "anything" matches distant objects, whereas "something" only matches objects in scope (in the room).]
-Sitting on is an action applying to one thing.  Understand "sit on [something]" as sitting on.
+Sitting on is an action applying to one thing.  Understand "sit in [something]" and "sit on [something]" as sitting on.
 
 [An enterable supporter is a general thing that can hold your body.]
 A chair is a kind of enterable supporter.
