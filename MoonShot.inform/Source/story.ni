@@ -164,7 +164,15 @@ Instead of examining the weather, say "Hrm... why are there no windows in this b
 [You can ask anyone about their name.  It's only polite.]
 Name is a concept.  Name is everywhere.
 Understand "her name", "his name", "their name", "your name", and "the name" as name.
-Name-asking is an action applying to nothing.
+
+Name-asking-generally is an action applying to nothing.
+Name-asking is an action applying to one thing.
+Understand "ask her name", "ask his name", and "ask for name" as name-asking-generally.
+Understand "ask [someone] name" as name-asking.
+Instead of name-asking-generally: try quizzing generally name.
+Instead of name-asking someone: try quizzing the noun about name.
+Instead of asking someone for name: try quizzing the noun about name.
+
 Understand "ask her name", "ask his name", and "ask for name" as name-asking.
 Instead of name-asking: try quizzing generally name.
 Instead of asking someone for name: try quizzing the noun about name.
