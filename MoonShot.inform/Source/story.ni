@@ -45,6 +45,7 @@ Release along with the file "LovecraftsDiary.woff".
 Release along with the file "LovecraftsDiary.woff2".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
+Release along with the file "Map.svg".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
 Use American dialect.

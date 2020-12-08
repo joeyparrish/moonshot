@@ -28,6 +28,7 @@ Carry out helping:
 	say "  south (s)[line break]";
 	say "  down (d)[line break]";
 	say "  up (u)[line break]";
+	say "  map[line break]";
 	say "  wait (z)[line break]";
 	say "  save[line break]";
 	say "  restore[line break]";
@@ -53,8 +54,16 @@ Carry out showing verb reference:
 	say line break;
 	say "You can also use the following 'out-of-world' commands to manipulate the game outside of controlling your character.";
 	say line break;
-	say "[italic type]     brief, easy mode, hard mode, help, medium mode, options, restore, save, verbose, verbs[roman type][line break]";
+	say "[italic type]     brief, easy mode, hard mode, help, map, medium mode, options, restore, save, verbose, verbs[roman type][line break]";
 	say end style.
+
+Showing map is an action out of world applying to nothing.  Understand "map" as showing map.
+Carry out showing map:
+	if Vorple is supported:
+		place a link to web site "Map.svg" reading "Click here to read the map.";
+		say line break;
+	otherwise:
+		say "Check out 'Map.svg' in the release."
 
 Help ends here.
 

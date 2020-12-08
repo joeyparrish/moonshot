@@ -1,0 +1,67 @@
+<svg version="1.1"
+     width="680" height="1020"
+     font-family="Arial, Helvetica, sans-serif"
+     font-weight="bold"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <g transform="translate(0, 50)">
+    <text x="340" font-size="50" text-anchor="middle" fill="darkseagreen" stroke="rgba(0, 0, 0, 0.6)">Ground Floor</text>
+
+    <g transform="translate(20, 240)">
+      <rect x="90" y="190" width="20" height="40" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect x="190" y="90" width="40" height="20" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Director's</tspan><tspan x="100" dy="1em">Office</tspan></text>
+    </g>
+
+    <g transform="translate(20, 460)">
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Waiting</tspan><tspan x="100" dy="1em">Room</tspan></text>
+    </g>
+
+    <g transform="translate(240, 240)">
+      <rect x="90" y="-30" width="20" height="40" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect x="90" y="190" width="20" height="40" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect x="190" y="90" width="40" height="20" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Hallway</tspan><tspan x="100" dy="3em" stroke-width="0.5" font-size="20">(stairs down)</tspan></text>
+    </g>
+
+    <g transform="translate(240, 20)">
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Propulsion</tspan><tspan x="100" dy="1em">Lab</tspan></text>
+    </g>
+
+    <g transform="translate(240, 460)">
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Personnel</tspan><tspan x="100" dy="1em">Department</tspan></text>
+    </g>
+
+    <g transform="translate(460, 240)">
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Engineering</tspan><tspan x="100" dy="1em">Department</tspan></text>
+    </g>
+  </g>
+
+  <g transform="translate(0, 780)">
+    <text x="340" font-size="50" text-anchor="middle" fill="darkseagreen" stroke="rgba(0, 0, 0, 0.6)">Basement</text>
+
+    <g transform="translate(20, 20)">
+      <rect x="190" y="90" width="40" height="20" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Chemistry</tspan><tspan x="100" dy="1em">Lab</tspan></text>
+    </g>
+
+    <g transform="translate(240, 20)">
+      <rect x="190" y="90" width="40" height="20" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Hallway</tspan><tspan x="100" dy="3em" stroke-width="0.5" font-size="20">(stairs up)</tspan></text>
+    </g>
+
+    <g transform="translate(460, 20)">
+      <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
+      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Sound</tspan><tspan x="100" dy="1em">Stage</tspan><tspan x="100" dy="2.5em" stroke-width="0.5" font-size="20">(spoiler!)</tspan></text>
+    </g>
+  </g>
+
+</svg>
