@@ -6,9 +6,9 @@ Include Concepts by Joey Parrish.
 Non-existent-concept is a concept.  [That the game won't use, and therefore we can use to trigger defaults when another concept is out of bounds because of allowed-scene.]
 
 A person can be default-talkable.  A person is usually default-talkable.
+Yourself is not default-talkable.
 To decide what list of people is the people to talk to:
 	let occupants be the list of people who are default-talkable in the location;
-	remove yourself from occupants;
 	decide on occupants.
 
 [NOTE: "anything" matches distant objects, whereas "something" only matches objects in scope (in the room).]

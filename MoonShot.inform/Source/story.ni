@@ -171,7 +171,7 @@ Understand "her name", "his name", "their name", "your name", and "the name" as 
 
 Name-asking-generally is an action applying to nothing.
 Name-asking is an action applying to one thing.
-Understand "ask her name", "ask his name", and "ask for name" as name-asking-generally.
+Understand "ask her name", "ask his name", "ask name", and "ask for name" as name-asking-generally.
 Understand "ask [someone] name" as name-asking.
 Instead of name-asking-generally: try quizzing generally name.
 Instead of name-asking someone: try quizzing the noun about name.
@@ -251,8 +251,7 @@ Instead of entering a person:
 
 [As if the above wasn't risque enough...]
 Instead of entering yourself:
-	let occupants be the list of people in the location;
-	remove yourself from occupants;
+	let occupants be the people to talk to;
 	if occupants is empty:
 		[At least the player is alone, but still...]
 		say "Please don't.  This is a place of business.";
