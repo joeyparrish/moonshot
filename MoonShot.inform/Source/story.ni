@@ -39,6 +39,7 @@ Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "pause.js".
+Release along with the file "events.js".
 Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
 Release along with the file "LovecraftsDiary.woff".
@@ -85,6 +86,8 @@ Rule for printing the name of a direction (called whither):
 
 The print obituary headline rule is not listed in any rulebook.
 To show ending (N - number) the (T - text) ending:
+	if Vorple is supported:
+		execute JavaScript code "logEvent('ending[N]')";
 	say paragraph break;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
@@ -291,6 +294,8 @@ Understand "downstairs" and "down stairs" as down.
 Day one is a scene.
 Day one begins when play begins.
 When day one begins:
+	if Vorple is supported:
+		execute JavaScript code "logEvent('day1')";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
 	say "You did it!  You finally landed an internship at NASA, the National Aeronautics and Space ... Association?  Agency?  Authority?  You're not really sure what the last A stands for, but it's only your first day.  You're pretty certain you'll figure it out soon enough.[paragraph break]";
@@ -1548,6 +1553,8 @@ Day two begins when day one ends.
 
 Director-yells-2 is an event.
 When day two begins:
+	if Vorple is supported:
+		execute JavaScript code "logEvent('day2')";
 	say "[room-heading style]Intermission: End of day one[end style]";
 	say line break;
 	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
@@ -2432,6 +2439,8 @@ Day three is a scene.
 Day two ends when checklist-2 is held by the director.
 Day three begins when day two ends.
 When day three begins:
+	if Vorple is supported:
+		execute JavaScript code "logEvent('day3')";
 	say "[room-heading style]Intermission: End of day two[end style]";
 	say line break;
 	say "You head home, exhausted from a long day at the most important administration (affiliation? alliance?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
