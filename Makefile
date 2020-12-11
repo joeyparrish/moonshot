@@ -21,15 +21,15 @@ release: clean
 	docker run \
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
-	  /bin/sh -c 'i7 -r /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
+		/bin/sh -c 'i7 -r /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
 
 # Create a debug build, which supports "test" commands.
 debug: clean
 	docker run \
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
-	  /bin/sh -c 'i7 -c /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
+		/bin/sh -c 'i7 -c /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
 
-# Create the zip file needed by itch.io.
+# Create the zip file needed by itch.io for the contest.
 dist: clean release
 	cd MoonShot.materials/Release/; zip -r9 ../../Release.zip *
