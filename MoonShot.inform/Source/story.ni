@@ -95,6 +95,22 @@ To show ending (N - number) the (T - text) ending:
 	say end style;
 	end the story.
 
+Carry out taking inventory (this is the print inventory using HTML lists rule):
+	if Vorple is supported:
+		say "[We] [are] carrying:[line break]" (A);
+		open HTML tag "ul" called "inventory";
+		repeat with item running through things carried by the player:
+			place "li" element reading "[item]";
+			if the item contains something:
+				open HTML tag "ul";
+				repeat with content running through things contained by the item:
+					place "li" element reading "[content]";
+				close HTML tag;
+		close HTML tag;
+	otherwise:
+		follow the print standard inventory rule.
+
+The print inventory using HTML lists rule is listed instead of the print standard inventory rule in the carry out taking inventory rules.
 
 
 [Other tweaks]

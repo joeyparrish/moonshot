@@ -294,3 +294,9 @@ body.alien-paper .alien-paper {
 .lineinput {
   background-color: #eee;
 }
+
+ul.inventory {
+  /* The UA default is to have top & bottom margins, but I like the list to
+   * look more compact in inventory. */
+  margin: 0;
+}
