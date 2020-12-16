@@ -220,7 +220,8 @@ Instead of quizzing someone (called the person) about (this is the default conve
 Understand "say sorry", "apologize", "apologise", and "console" as saying sorry.
 [Some folks naturally want to apologize to the person specifically.]
 Saying sorry to is an action applying to one thing.
-Understand "say sorry to [someone]", "apologize to [someone]", "apologise to [someone]", and "console [someone]" as saying sorry to.
+Understand the command "hug" as something new.  [There is a default which maps it to "kiss".  We'll separate the two and map "hug" to "console" or "apologize to".]
+Understand "say sorry to [someone]", "apologize to [someone]", "apologise to [someone]", "console [someone]", and "hug [someone]" as saying sorry to.
 Instead of saying sorry:
 	say "Nobody here is upset at the moment."
 Instead of saying sorry to a person:
