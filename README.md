@@ -1,4 +1,4 @@
-[![MoonShot cover art: an image of a camera reflected in an astronaut's helmet](MoonShot.materials/Cover.png)](https://cashpipeplusplus.github.io/moonshot/)
+[![MoonShot cover art: an image of a camera reflected in an astronaut's helmet](MoonShot.materials/Cover.png)](https://joeyparrish.github.io/moonshot/)
 
 # MoonShot
 
@@ -18,7 +18,7 @@ Everything goes very well, and you have no difficulties at all.  :grin:
 ## Playing in a browser
 
 To play the official release version, visit
-https://cashpipeplusplus.github.io/moonshot/
+https://joeyparrish.github.io/moonshot/
 
 
 ## Compilation
