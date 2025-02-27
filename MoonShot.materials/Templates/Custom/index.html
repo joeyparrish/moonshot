@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>[TITLE] by [AUTHOR]</title>
+  <title>MoonShot by Joey &amp; Charity Parrish</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="author" content="[AUTHOR]">
-  <meta name="description" content="[TITLE] by [AUTHOR]">
+  <meta name="author" content="Joey &amp; Charity Parrish">
+  <meta name="description" content="MoonShot by Joey &amp; Charity Parrish">
   <link rel="icon" type="image/png" href="Icon.png">
   <link rel="stylesheet" href="roboto.css">
   <link rel="stylesheet" href="style.css">
@@ -22,67 +22,28 @@
       'app_version': '[RELEASE]',
     });
   </script>
+  <script>
+    const play = () => { location.href = 'play.html'; }
+    document.addEventListener('DOMContentLoaded', () => {
+      // Move on after 9 seconds, or a click, or escape, or enter.
+      // The CSS fade-in/fade-out animation lasts 8s total.
+      setTimeout(play, 9000);
+      document.addEventListener('click', play);
+      document.addEventListener('keypress', (event) => {
+        if (event.key === "Escape" || event.key === "Enter") {
+          play();
+        }
+      });
+    });
+  </script>
 </head>
 <body>
-<div class="container">
-
-  <div class="left-side">
-    <div class="coverimage"><a href="Cover.png"><img src="Cover.png"></a></div>
+  <div class="coverimage">
+    <img src="Cover.png" alt="[TITLE]">
   </div>
-
-  <div class="right-side">
-    <div class="introduction">
-      <h1>[TITLE]</h1>
-      <h2>By [AUTHOR]</h2>
-      <div class="version">Release [RELEASE]</div>
-    </div>
-
-    <div class="synopsis">[BLURB]</div>
-
-    <div class="giantplaylink">
-      <a href="play.html">Click to Play</a>
-    </div>
-
-    <div class="playinfo">
-      <p>
-        <i>[TITLE]</i> was created with <a href="http://inform7.com/">Inform</a>
-        and has IFID [IFID].
-      </p>
-      <p>
-        We recommend you <a href="play.html">play in a browser</a>, since
-        everyone has one of those, and we spent a lot of effort styling the
-        game for that environment.
-      </p>
-      <p>
-        But if you are an Interactive Fiction enthusiast, you may also
-        <a href="MoonShot.gblorb">download the Blorb file</a> to play in the
-        <a href="http://ifwiki.org/index.php/Glulx#Implementations">Glulx
-        interpreter of your choice</a>.
-      </p>
-      <p class="tips">
-        Tips:
-      </p>
-      <ul class="tips">
-        <li>If you have never played an old-school text-based adventure game or a MUD, type <tt>help</tt> to get a gentle introduction to the sorts of things you can do.
-        <li>Type <tt>verbs</tt> to get a quick reference list of the actions you might need to complete the game.  Nobody likes solving the puzzle of "what exact phrase should I type".
-        <li>For casual play, try typing <tt>easy mode</tt>, and the game will highlight interesting objects for you.
-        <li>Everyone has a name!  Get to know the characters by typing <tt>ask about name</tt> or <tt>talk</tt> for suggestions on topics to ask them about.
-        <li>Some actions involve luck.  Feel free to try something more than once if you don't succeed.
-        <li>You can type <tt>undo</tt> to undo any action, including one that results in the game ending.
-        <li>You can also type <tt>save</tt> to save your game and <tt>restore</tt> to load a save.
-        <li>The game takes place over three days, the third of which is a sort of epilogue.
-        <li>There are 9 ways to end the game, 3 of which count as winning.  You can even die before you leave the first room if you're dedicated.  :-)
-        <li>There are many hidden items and fun extras, so explore and try things!
-        <li>If you get lost, there is <a href="Map.svg">a map</a>.
-      </ul>
-      <p class="bug-link">
-        If you have issues with the game or would like to leave us feedback,
-        please visit
-        <a href="https://github.com/joeyparrish/moonshot/issues">our GitHub issues page</a>.
-      </p>
-    </div>
+  <div class="covertext">
+    <div class="author">By [AUTHOR]</div>
+    <div class="version">Version [RELEASE]</div>
   </div>
-
-</div>
 </body>
 </html>

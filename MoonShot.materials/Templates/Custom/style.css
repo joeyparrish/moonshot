@@ -1,107 +1,55 @@
 body {
-  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
-  background-color: white;
-  color: black;
-}
+  font-family: Roboto, sans-serif;
+  background-color: black;
+  color: white;
 
-.container {
-  margin: 2em;
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: column;
+  align-items: center;
 
-a {
-  text-decoration: none;
-  color: #03f;
-}
+  padding: 2vh;
+  overflow: hidden;
 
-a:visited {
-  text-decoration: none;
-  color: #03f;
-}
+  opacity: 0;
+  animation-name: fadeInFadeOut;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 8s;
 
-a:hover {
-  text-decoration: underline;
-  color: #c03;
+  user-select: none;
 }
-
-.coverimage {
-  margin: 2em;
-} 
 
 .coverimage img {
-  width: 300px;
   min-width: 100px;
-  max-width: 100%;
-  border: 3px double black;
+  max-width: 80vw;
+  max-height: 77vh;
 }
 
-.introduction { 
-}
-
-h1 {
-  font-size: 200%;
-  font-style: italic;
-}
-
-h2 {
-  font-size: 150%;
-}
-
-.synopsis {
-  margin: 1em;
-  font-size: 130%;
-}
-
-.giantplaylink {
-  font-size: 150%;
+.covertext {
   text-align: center;
-  margin: 2em 0;
 }
 
-.giantplaylink a {
-  border: 3px dashed black;
-  padding: 0.5em;
+.author {
+  font-size: 5vh;
+  margin: 1vh 0;
 }
 
-.playinfo {
-  font-size: 75%;
+.version {
+  font-size: 3vh;
+  margin: 1vh 0;
 }
 
-.right-side {
-  max-width: 50em;
-}
-
-.tips {
-  font-size: 170%;
-}
-
-ul.tips {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.2;
-}
-
-ul.tips li {
-  margin-bottom: 1em;
-  font-size: 80%;
-}
-
-ul.tips tt {
-  background-color: lavender;
-  font-weight: bold;
-}
-
-.bug-link {
-  font-size: 170%;
-}
-
-/* For mobile browsers, change to a one-column layout. */
-@media screen and (max-device-width: 480px) {
-  .container {
-    flex-direction: column;
+@keyframes fadeInFadeOut {
+  0% {
+    opacity: 0;
   }
-
-  .coverimage {
-    text-align: center;
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
