@@ -103,6 +103,10 @@ guess and a link to their page on fontspace:
 
 It took so long to find this font, and it's a perfect fit.  Thank you, Khrys!
 
+-----
+
+This also includes web fonts for Roboto, Copyright 2011 [The Roboto Project Authors](https://github.com/googlefonts/roboto-classic), under the SIL Open Font License v1.1, and Roboto Mono, designed by Christian Robertson, under the Apache license v2.0.  See also [`LICENSE.Roboto.md`](LICENSE.Roboto.md) and [`LICENSE.RobotoMono.md`](LICENSE.RobotoMono.md).
+
 
 ## Cover Art
 

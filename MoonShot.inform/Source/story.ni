@@ -44,6 +44,16 @@ Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
 Release along with the file "LovecraftsDiary.woff".
 Release along with the file "LovecraftsDiary.woff2".
+Release along with the file "LovecraftsDiary.woff2".
+Release along with the file "roboto-bold-italic.woff2".
+Release along with the file "roboto-bold-normal.woff2".
+Release along with the file "roboto-mono-bold-italic.woff2".
+Release along with the file "roboto-mono-bold-normal.woff2".
+Release along with the file "roboto-mono-regular-italic.woff2".
+Release along with the file "roboto-mono-regular-normal.woff2".
+Release along with the file "roboto-regular-italic.woff2".
+Release along with the file "roboto-regular-normal.woff2".
+Release along with the file "roboto.css".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with the file "Map.svg".

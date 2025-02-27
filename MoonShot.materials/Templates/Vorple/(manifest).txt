@@ -47,7 +47,6 @@ g
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="interpreter/roboto.css">
     <link rel="stylesheet" type="text/css" href="interpreter/jquery.powertip.css">
     <link rel="stylesheet" type="text/css" href="interpreter/toastr.css">
     <link rel="stylesheet" type="text/css" href="interpreter/vex.css">
@@ -130,57 +129,12 @@ vorple.haven.setBase64StoryFile('
 ! Non-comment lines are the names of files which are copied across when the
 ! release is made. Anything not listed here won't be copied.
 
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-900.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-900italic.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100italic.woff
-roboto.css
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-regular.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700italic.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-900.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100italic.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-italic.woff
 vex.css
 vorple.min.js.map
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300italic.woff2
 vorple.css
 vex-theme-plain.css
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700italic.woff
 haven.css
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-regular.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700.woff2
 toastr.css
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700italic.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300italic.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-regular.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-regular.woff
 jquery.powertip.css
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500italic.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300italic.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300.woff
 vorple.min.js
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-italic.woff2
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-italic.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-100.woff2
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-700.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500italic.woff
 LICENSE.txt
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-900italic.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500.woff
-roboto-mono-v5-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-300italic.woff
-roboto-v18-greek_latin-ext_latin_vietnamese_cyrillic_cyrillic-ext_greek-ext-500.woff2
