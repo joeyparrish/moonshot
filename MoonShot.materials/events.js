@@ -17,4 +17,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       logEvent('turn', /* userInput */ true);
     }
   });
+
+  vorple.addEventListener('quit', () => {
+    window.close();
+  });
 });
