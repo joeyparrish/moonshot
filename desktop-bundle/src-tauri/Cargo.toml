@@ -1,6 +1,6 @@
 [package]
 name = "MoonShot"
-version = "0.1.0"
+version = "9.0.0"
 description = "Interactive fiction: A NASA intern in the 1960s scrambles to make Apollo 11 a success."
 authors = ["Joey Parrish <joey.parrish@gmail.com>"]
 edition = "2021"

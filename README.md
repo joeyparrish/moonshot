@@ -17,7 +17,7 @@ Everything goes very well, and you have no difficulties at all.  :grin:
 
 ## Playing in a browser
 
-To play the official release version, visit
+To play the latest official release version, visit
 https://joeyparrish.github.io/moonshot/
 
 
