@@ -29,6 +29,7 @@ release: clean
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
 		/bin/sh -c 'i7 -r /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
+	rm -f MoonShot.materials/Release/interpreter/vorple.min.js.map
 
 # Create a debug build, which supports "test" commands.
 debug: clean
