@@ -9,7 +9,14 @@ TAG := sha256:30ca124ab768d12edc90c8d6f0267607e95cf1b8e7b56eecf491125110d21eb9
 UID := $(shell id -u $$USER)
 
 # This Docker image leaves files owned by root, as well as some garbage.
-CLEANUP_AFTER_DOCKER := chown -R $(UID) /tmp/MoonShot.materials/Release; rm -f Inftemp*.tmp
+CLEANUP_AFTER_DOCKER := rm -f Inftemp*.tmp; chown -R $(UID) \
+    /tmp/MoonShot.materials/Release \
+    /tmp/MoonShot.inform/Build \
+    /tmp/MoonShot.inform/Index \
+    /tmp/MoonShot.inform/Metadata.iFiction \
+    /tmp/MoonShot.inform/Release.blurb \
+    /tmp/MoonShot.inform/manifest.plist \
+    /tmp/MoonShot.inform/gameinfo.dbg
 
 # Wipe out the output.
 clean:
