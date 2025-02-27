@@ -22,6 +22,12 @@
       'app_version': '[RELEASE]',
     });
   </script>
+  <script>
+    // Prevent the right-click context menu in desktop bundles.
+    if (window.__TAURI__) {
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    }
+  </script>
 
   [INTERPRETERHEAD]
 
