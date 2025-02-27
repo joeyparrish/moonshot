@@ -19,6 +19,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
   vorple.addEventListener('quit', () => {
-    window.close();
+    if (window.__TAURI__) {
+      window.__TAURI__.window.getCurrentWindow().destroy();
+    } else {
+      window.close();
+    }
   });
 });

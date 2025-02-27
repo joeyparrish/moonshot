@@ -1,0 +1,15 @@
+{
+  "name": "moonshot",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri",
+    "build": "tauri build",
+    "dev": "tauri dev",
+    "clean": "rm -rf node_modules src-tauri/gen src-tauri/target"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

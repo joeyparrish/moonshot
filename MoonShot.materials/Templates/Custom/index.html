@@ -23,7 +23,12 @@
     });
   </script>
   <script>
-    const play = () => { location.href = 'play.html'; }
+    // Prevent the right-click context menu in desktop bundles.
+    if (window.__TAURI__) {
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    }
+
+    const play = () => { location.href = 'play.html'; };
     document.addEventListener('DOMContentLoaded', () => {
       // Move on after 9 seconds, or a click, or escape, or enter.
       // The CSS fade-in/fade-out animation lasts 8s total.
