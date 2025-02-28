@@ -3,17 +3,37 @@ name: Publish
 on: push
 
 jobs:
-  publish:
-    name: Publish latest version
+  build:
+    name: Build latest version
     runs-on: ubuntu-20.04
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
       - name: Build with Inform 7
         run: make
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./MoonShot.materials/Release/
 
+      - name: Upload Pages Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./MoonShot.materials/Release/
+
+  deploy:
+    name: Deploy latest version
+    runs-on: ubuntu-latest
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment.
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment origin
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
