@@ -28,8 +28,18 @@ body {
   position: absolute;
 }
 
-.cover {
+.logo {
   animation-delay: 0s;
+}
+
+.logo img {
+  min-width: 100px;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.cover {
+  animation-delay: 9s;
 }
 
 .cover img {
