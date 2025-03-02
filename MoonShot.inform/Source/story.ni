@@ -165,14 +165,13 @@ This is the fancy banner rule:
 	say paragraph break;
 	[Note that there is a requirement in the Inform license that we mention Inform somewhere, so we do so here.]
 	if Vorple is supported:
-		center "[blockquote style][title-line style][italic type]MoonShot[roman type][end style][line break][version-line style]Version [release number][end style][line break][author-line style]Story by Joey & Charity Parrish[end style][line break][copyright-line style]Copyright (C) 2020-2025[end style][line break][created-with-line style]Created with Inform 7[end style][end style]";
+		center "[blockquote style][title-line style][italic type]MoonShot[roman type][end style][line break][version-line style]Version [release number][end style][line break][author-line style]Story by Joey & Charity Parrish[end style][line break][copyright-line style]Copyright (C) 2020-2025[end style][end style]";
 		say line break;
 	otherwise:
 		center "[italic type]MoonShot[roman type]";
 		center "Version [release number]";
 		center "Story by Joey & Charity Parrish";
 		center "Copyright (C) 2020-2025";
-		center "Created with Inform 7";
 	pause;
 	say paragraph break;
 	say paragraph break.
