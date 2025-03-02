@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "moonshot",
+  "productName": "MoonShot",
   "version": "9.0.0",
   "identifier": "io.github.joeyparrish.moonshot",
   "build": {
