@@ -30,9 +30,9 @@
 
     const play = () => { location.href = 'play.html'; };
     document.addEventListener('DOMContentLoaded', () => {
-      // Move on after 9 seconds, or a click, or escape, or enter.
-      // The CSS fade-in/fade-out animation lasts 8s total.
-      setTimeout(play, 9000);
+      // Move on after 18 seconds, or a click, or escape, or enter.
+      // The CSS fade-in/fade-out animations last 17s total.
+      setTimeout(play, 18000);
       document.addEventListener('click', play);
       document.addEventListener('keypress', (event) => {
         if (event.key === "Escape" || event.key === "Enter") {
@@ -43,6 +43,9 @@
   </script>
 </head>
 <body>
+  <div class="logo fade-in-fade-out">
+    <img src="Chicken Noodle Soap.jpg" alt="Chicken Noodle Soap">
+  </div>
   <div class="cover fade-in-fade-out">
     <img src="Cover.jpg" alt="[TITLE]">
     <div class="covertext">
