@@ -6,22 +6,35 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  padding: 2vh;
+  margin: 0;
+  padding: 2vh 2vw;
+  height: 96vh;
+  width: 96vw;
+
   overflow: hidden;
+  user-select: none;
 
+  position: relative;
+}
+
+.fade-in-fade-out {
   opacity: 0;
   animation-name: fadeInFadeOut;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 8s;
-
-  user-select: none;
+  position: absolute;
 }
 
-.coverimage img {
+.cover {
+  animation-delay: 0s;
+}
+
+.cover img {
   min-width: 100px;
-  max-width: 80vw;
+  max-width: 90vw;
   max-height: 77vh;
 }
 
