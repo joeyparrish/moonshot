@@ -1,4 +1,4 @@
-[![MoonShot cover art: an image of a camera reflected in an astronaut's helmet](MoonShot.materials/Cover.png)](https://joeyparrish.github.io/moonshot/)
+[![MoonShot cover art: an image of a camera reflected in an astronaut's helmet](MoonShot.materials/Cover.jpg)](https://joeyparrish.github.io/moonshot/)
 
 # MoonShot
 
