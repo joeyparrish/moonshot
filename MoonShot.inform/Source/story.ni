@@ -135,7 +135,7 @@ To pause:
 	if Vorple is supported:
 		center "[continue style](click or tap to continue)[end style]";
 		execute JavaScript code "pauseGame()";
-		wait for any key;  [This doesn't work somehow with the keyboard, but the pauseGame() function can simulate a keypress directly into the prompt to unblock the interpreter.]
+		wait for any key;  [unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
 	otherwise:
 		say "[paragraph break]Please press SPACE to continue[line break]";
 		wait for the SPACE key;
