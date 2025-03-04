@@ -2210,6 +2210,10 @@ Instead of asking the chemist for a thing:
 	otherwise:
 		say "'Sorry, I don't have that.  We've got [list of things which are a drug in the location], though.  Just [interesting]take[/interesting] whatever you need, man.'"
 
+[TODO: What happens when this list is empty?]
+Instead of quizzing the chemist about drugs:
+	say "'We've got [list of things which are a drug in the location].  Just [interesting]take[/interesting] whatever you need, man.'"
+
 Instead of giving a food to the chemist:
 	try quizzing the chemist about food-preferences.  [We already wrote a response there.]
 
