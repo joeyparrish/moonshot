@@ -300,3 +300,14 @@ ul.inventory {
    * look more compact in inventory. */
   margin: 0;
 }
+
+/* The form containing the input field and auto-complete. */
+#lineinput {
+  position: relative;
+}
+
+/* The auto-complete elements, positioned in an overlay over the input field. */
+#auto-complete {
+  position: absolute;
+  display: none;
+}

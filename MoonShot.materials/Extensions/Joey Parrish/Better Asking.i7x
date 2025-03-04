@@ -63,6 +63,8 @@ Before quizzing someone (called the person) about a concept (called thingy):
 		try quizzing the person about non-existent-concept;
 		stop the action.
 
+After quizzing someone (called the person) about a concept (called thingy):
+	make thingy known.
 
 
 Informing it about is an action applying to two things.  Understand "tell [someone] about [anything]" and "inform [someone] about [anything]" as informing it about.
@@ -84,6 +86,7 @@ Check informing generally:
 
 Before informing someone (called the person) about a concept (called thingy):
 	if the allowed-scene of thingy is happening:
+		make thingy known;
 		continue the action;
 	otherwise:
 		try informing the person about non-existent-concept;
