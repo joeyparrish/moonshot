@@ -113,7 +113,7 @@ Carry out taking inventory (this is the print inventory using HTML lists rule):
 		open HTML tag "ul" called "inventory";
 		repeat with item running through things carried by the player:
 			place "li" element reading "[item]";
-			if the item contains something:
+			if the item contains something and the item is not opaque:
 				open HTML tag "ul";
 				repeat with content running through things contained by the item:
 					place "li" element reading "[content]";
@@ -508,7 +508,7 @@ The tracks are scenery in the director's office.
 The balls are portable-scenery in the director's office.
 The bobblehead dolls are portable-scenery in the director's office.
 
-The triangular nameplate is an openable, closed, undescribed thing on the director's desk.
+The triangular nameplate is an openable, closed, opaque, undescribed thing on the director's desk.
 Instead of examining the triangular nameplate:
 	say "A small, wooden, triangular prism with an engraved metal plate attached that reads:[line break]";
 	if Vorple is supported:
