@@ -40,6 +40,8 @@ Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "pause.js".
 Release along with the file "events.js".
+Release along with the file "textarea-caret.min.js".
+Release along with the file "auto-complete.js".
 Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
 Release along with the file "LovecraftsDiary.woff".
@@ -192,7 +194,7 @@ The weather is a concept.
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
 
 [You can ask anyone about their name.  It's only polite.]
-Name is a concept.  Name is everywhere.
+Name is a concept.
 Understand "her name", "his name", "their name", "your name", and "the name" as name.
 
 Name-asking-generally is an action applying to nothing.
@@ -320,6 +322,14 @@ Understand "downstairs" and "down stairs" as down.
 Day one is a scene.
 Day one begins when play begins.
 When day one begins:
+	[Add default concepts for the beginning of the game]
+	make "name" known;
+	make weather known;
+	make NASA known;
+	make Apollo known;
+	make internship known;
+	make "secretary" known;
+	make "director" known;
 	if Vorple is supported:
 		execute JavaScript code "logEvent('day1')";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
@@ -393,7 +403,7 @@ Instead of talking to the secretary:
 
 Instead of quizzing the secretary about name:
 	say "'It's Donna,' she says.  'Nice to meet you!'";
-	now the secretary is known.
+	make the secretary known.
 
 Instead of quizzing the secretary about the secretary:
 	try quizzing the secretary about name.
@@ -437,7 +447,7 @@ Carry out triggering director-yells-1:
 
 Instead of quizzing the secretary about the director:
 	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely on top of every aspect of this project.  I don't know how he does it!'";
-	now the director is known.
+	make the director known.
 
 Instead of going to the director's office while the director is not ready:
 	say "[The secretary] jumps up and runs for the door, stopping you in your tracks.  'You can't go in there!  Just [interesting]wait[/interesting], please, and the director will be with you as soon as he is ready.'";
@@ -478,6 +488,9 @@ The director can be visited.  When day one begins, now the director is not visit
 
 After going to the director's office:
 	now the director is visited;
+	make "checklist" known;
+	if day two is happening:
+		make "Operation Glitter" known;
 	deactivate director-yells-1;
 	deactivate director-yells-2;
 	continue the action.
@@ -498,7 +511,7 @@ Instead of examining the triangular nameplate:
 	otherwise:
 		center "[bold type]Dirk Furtwangler[roman type]";
 		center "Director";
-	now the director is known;
+	make the director known;
 	if the player has the triangular nameplate:
 		if a random chance of 3 in 10 succeeds:
 			say "The nameplate rattles a bit as you turn it."
@@ -539,7 +552,7 @@ Instead of quizzing the director about name:
 
 Instead of quizzing the director about the director:
 	say "'Furtwangler.  Dirk Furtwangler.  Boy am I glad you're here!'";
-	now the director is known.
+	make the director known.
 
 The internship is a concept.  The internship is everywhere.
 Instead of taking the internship:
@@ -592,6 +605,14 @@ Instead of taking checklist-1:
 	else:
 		say "'Not so fast!' says [the director].  'We need to talk first.'";
 		show hint "You can 'talk to director' for suggestions on topics.";
+
+After examining checklist-1:
+	make crew known;
+	make rocket known;
+	make "rocket equations" known;
+	make command module known;
+	make "blueprints" known;
+	continue the action.
 
 Reporting to is an action applying to one thing.  Understand "report to [someone]" as reporting to.
 Check reporting to someone:
@@ -722,7 +743,7 @@ Understand "badge" and "name badge" as name-badge.  [To disambiguate with the "n
 
 The description of the name-badge is "It says 'Rick' at the top.  The bottom says 'Apollo Systems Technician, Launch Enablement Yroup.'  ... Huh.  Must be a typo."
 
-After examining the name-badge, now the engineer is known.
+After examining the name-badge, make the engineer known.
 
 Rule for writing a paragraph about the engineer:
 	if the engineer is unknown, say "[interesting]An engineer[/interesting] is standing around[if the coffee-pot is in the location] by the [interesting]coffee pot[/interesting][end if], [if the engineer is sad]crying.[otherwise]doing nothing.";
@@ -742,6 +763,7 @@ Instead of quizzing the engineer about the engineer:
 
 Instead of quizzing the engineer about the blueprints:
 	say "[The noun] looks both smug and offended at once.  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The cyanotype [italic type]blueprint[roman type] began to be supplanted by [italic type]diazo prints[roman type], also known as [italic type][interesting]whiteprints[/interesting][roman type].'";
+	make "whiteprints" known;
 	now the printed name of get-blueprints is "Get command module whiteprints".
 
 [Give this concept a location, so we can have rules about "taking" it.]
@@ -811,6 +833,7 @@ Blueprints-hint is an event.
 After going to the engineering department:
 	if get-blueprints is not checked:
 		activate blueprints-hint in 8 turns;
+	make "engineer" known;
 	continue the action.
 After going from the engineering department:
 	deactivate blueprints-hint;
@@ -887,6 +910,9 @@ Equations-hint is an event.
 After going to the propulsion lab:
 	if get-equations is not checked:
 		activate equations-hint in 8 turns;
+	make "head scientist" known;
+	make "other scientsts" known;
+	make "tapir" known;
 	continue the action.
 After going from the propulsion lab:
 	deactivate equations-hint;
@@ -922,6 +948,7 @@ To say tapir-aardvark:
 
 After examining the head scientist:
 	now the brass key is noticed;
+	make "key" known;
 	continue the action.
 
 Understand "steal [something]" as taking.
@@ -990,11 +1017,12 @@ Instead of quizzing someone about the tapir:
 	say "[The noun] looks confused.  'Who?'";
 
 Instead of talking to the tapir:
-	say "The [tapir-aardvark] says in a low whisper: 'Hey, kid!  You gotta get me out of here.'"
+	say "The [tapir-aardvark] says in a low whisper: 'Hey, kid!  You gotta get me out of here.'";
+	make "key" known.
 
 Instead of quizzing the tapir about the brass key while the tapir is in the cage:
 	say "The [tapir-aardvark] says in a low whisper: 'Von Braun has it.  Now be quick!'";
-	now the head scientist is known.
+	make the head scientist known.
 
 Instead of quizzing the tapir about anything while the tapir is in the cage:
 	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
@@ -1008,14 +1036,17 @@ Instead of quizzing the tapir about name while the tapir is in the cage:
 	say "The [tapir-aardvark] glances side to side to make sure the scientists are distracted before hissing in a low voice, 'Brizzleby, of the Galactic Federation of Aardvarks.  Now get me the hell out of here!'";
 	now the real name of the tapir is "Brizzleby";
 	now the tapir is revealed;
-	now the tapir is known.
+	now the tapir is known;
+	make "aardvark" known;
+	make "Brizzleby" known.
 Understand "Brizzleby", "space-aardvark", "space-ardvark", and "Brizzleby the space-aardvark" as the tapir.
 
 Instead of quizzing the tapir about name:
 	say "'Brizzleby, of the Galactic Federation of Aardvarks, at your service.'";
 	now the real name of the tapir is "Brizzleby";
 	now the tapir is revealed;
-	now the tapir is known.
+	now the tapir is known;
+	make "Brizzleby" known.
 
 After printing the name of the tapir while the tapir is revealed:
 	say " (the space-aardvark)".
@@ -1087,7 +1118,7 @@ Instead of talking to the head scientist:
 
 Instead of quizzing the head scientist about name:
 	say "He stops what is doing and considers you as if noticing you for the first time.  'Herr Doktor Wernher Magnus Maximilian Freiherr von Braun, chief scientist of the NASA propulsion lab.'  Then, without making it a true question and without any apparent interest in the answer, adds, 'How do you do.'";
-	now the head scientist is known.
+	make the head scientist known.
 
 Instead of quizzing the head scientist about the head scientist:
 	try quizzing the head scientist about name.
@@ -1107,6 +1138,7 @@ Instead of quizzing the head scientist about the tapir:
 		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
 	otherwise if the player's command includes "tapir":
 		say "'Ist no tapir', replies [the head scientist] cooly.  'Ist an [interesting]aardvark[/interesting], obviously.  What else would you find here at the National Agency of Space Aardvarks?'";
+		make "aardvark" known;
 		now the tapir is known;
 	otherwise:
 		say "[The head scientist] looks at you quizzically.  'What else would you find here at the National Agency of Space Aardvarks?'";
@@ -1128,6 +1160,7 @@ Instead of quizzing the head scientist about equations:
 
 Instead of quizzing the head scientist about rocket-equations:
 	say "He turns to you very suddenly.  '[italic type]Rocket equations?[roman type]  You sound ridiculous!  What buffoon would say such a thing?  [bold type]Stop wasting my time![roman type]'[line break]";
+	make "equations" known;
 	now the head scientist is enraged.
 
 Instead of quizzing the head scientist about Apollo:
@@ -1167,7 +1200,7 @@ After reading a command:
 
 Instead of quizzing the other scientists about the head scientist:
 	say "The other scientists glance warily in the direction of [the head scientist], who [if the head scientist is enraged]glares at them with fire in his eyes[otherwise]looks back with calm surety[end if].  In unison, the scientists chant, 'Dr. von Braun is the best boss a scientist could ask for.  His work in the field is unparalleled, and we are lucky to be in his lab.'  [The head scientist] looks pleased about this, and turns back to his work at the [interesting]chalkboards[/interesting].";
-	now the head scientist is known;
+	make the head scientist known;
 	now the head scientist is not enraged;
 
 Instead of quizzing the other scientists about the tapir:
@@ -1175,7 +1208,8 @@ Instead of quizzing the other scientists about the tapir:
 		say "The scientists don't seem to know who that is.";
 	otherwise:
 		say "The scientists throw each other sideways glances, then look to see if [the head scientist] is watching.  Then one of them says under her breath, '[if the tapir is not known]It's an [interesting]aardvark[/interesting], actually.  [end if]He's obsessed.  Nobody around here gets it.  He raves about the [interesting]aardvarks[/interesting] all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives [the head scientist] a look that is both mystified and compassionate.";
-		now the tapir is known.
+		make the director known;
+		make the tapir known.
 
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
@@ -1220,6 +1254,8 @@ The cheap desk is an enterable supporter.
 
 The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one [interesting]drawer[/interesting] in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
 The metallic filing cabinet is an enterable supporter.
+After examining the metallic filing cabinet:
+	make "files" known.
 
 An openable closed container called the drawer is part of the metallic filing cabinet.  "The drawer is labeled 'Crew Candidate Personnel Files'."
 [We don't get told automatically what is inside an open container if it's part of another thing.  Fix this for the open drawer.]
@@ -1270,7 +1306,7 @@ Instead of talking to the head of personnel:
 
 Instead of quizzing the head of personnel about name:
 	say "'Franklin, Franklin Stanford.  What the hell do you want?  Spit it out.'";
-	now the head of personnel is known.
+	make the head of personnel known.
 
 Instead of quizzing the head of personnel about the head of personnel:
 	try quizzing the head of personnel about name.
@@ -1295,22 +1331,23 @@ Instead of quizzing the head of personnel about NASA:
 
 Instead of quizzing the head of personnel about the secretary:
 	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
-	now the secretary is known.
+	make the director known;
+	make the secretary known.
 
 Instead of quizzing the head of personnel about the director:
 	say "'Furtwangler... more like SkirtTangler!' he exclaims, looking at you to see if you're laughing. 'He's more interested in Earth women than extraterrestrial glory.  Word around the Tang cooler is that he's in trouble with the Missus on account of the Miss, if you know what I mean.'";
-	now the director is known.
+	make the director known.
 
 Instead of quizzing the head of personnel about the engineer:
 	say "'Now that's a guy who's never gonna tell a lie and hurt you.'  When [the head of personnel] notices your confusion, he goes on, 'Well, he certainly never let [bold type]me[roman type] down.'";
 
 Instead of quizzing the head of personnel about the head scientist:
 	say "'Von Braun is a genius, and as you may know, 100% bazonkers.  He actually thinks that some anteaters are aliens.  Sure knows his way around a rocket, though.'";
-	now the head scientist is known.
+	make the head scientist known.
 
 Instead of quizzing the head of personnel about the other scientists:
 	say "'I call those empty headed lackeys [']The Chorus.[']  All they do is say [']Yes, Herr Doktor von Braun, whatever you say, sir!['] no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say [']Yes, Herr Doktor Frankenpants, whatever you say, sir![']  What a bunch of ninnies.'";
-	now the head scientist is known.
+	make the head scientist known.
 
 Instead of quizzing the head of personnel about Buzz Aldrin:
 	say "'Don't get close enough to that guy to smell his breath, or you [italic type]will[roman type] regret it.'"
@@ -1332,11 +1369,11 @@ Instead of quizzing the head of personnel about Clifford McBride:
 
 Instead of quizzing the head of personnel about the photographer:
 	say "'How many Stanley Kubricks does it take to screw in a lightbulb?'  [The head of personnel] looks at you expectantly, then goes on, 'Just one, but he needs 127 takes.'  [The head of personnel] guffaws, then notices your lack of reaction.  'It's funnier if you know the guy.'";
-	now the photographer is known.
+	make the photographer known.
 
 Instead of quizzing the head of personnel about the chemist:
 	say "'Every time I'm around Molly, I just feel so close to her, you know?  Like we really understand each other, and we're all just trying to get through this crazy, exquisitely-heartbreaking, beautiful world.  Then, about three to six hours later, I can't even remember why I went to see her in the first place.'";
-	now the chemist is known.
+	make the chemist known.
 
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
@@ -1407,6 +1444,10 @@ Instead of opening the drawer:
 		now the head of personnel is not asleep;
 	continue the action.
 
+After going to the personnel department:
+	make "head of personnel" known;
+	continue the action.
+
 After going from the personnel department:
 	now the head of personnel is asleep;
 	continue the action.
@@ -1428,6 +1469,9 @@ Psychological profile:
 [line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion
 [line break][end style][variable letter spacing]".
 
+After examining personnel file 1:
+	make "Buzz Aldrin" known.
+
 
 The employee of personnel file 2 is Neil Armstrong.
 The description of personnel file 2 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
@@ -1447,6 +1491,9 @@ Psychological profile:
 [line break]   * Refuses to wear socks inside his spacesuit
 [line break][end style][variable letter spacing]".
 
+After examining personnel file 2:
+	make "Neil Armstrong" known.
+
 
 The employee of personnel file 3 is Michael Collins.
 The description of personnel file 3 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
@@ -1462,6 +1509,9 @@ Psychological profile:
 [line break]   * Does not consult with others on decisions
 [line break]   * Has not attended official NASA meetings since his assassination in August 1922
 [line break][end style][variable letter spacing]".
+
+After examining personnel file 3:
+	make "Michael Collin" known.
 
 
 The employee of personnel file 4 is Lisa Nowak.
@@ -1479,6 +1529,9 @@ Psychological profile:
 
 [line break][end style][variable letter spacing]".
 
+After examining personnel file 4:
+	make "Lisa Nowak" known.
+
 
 The employee of personnel file 5 is Ijon Tichy.
 The description of personnel file 5 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
@@ -1495,6 +1548,9 @@ Psychological profile:
 [line break]   * Lives in a messy, three-bedroom rocket
 
 [line break][end style][variable letter spacing]".
+
+After examining personnel file 5:
+	make "Ijon Tichy" known.
 
 
 The employee of personnel file 6 is Clifford McBride.
@@ -1514,6 +1570,8 @@ Psychological profile:
 
 [line break][end style][variable letter spacing]".
 
+After examining personnel file 6:
+	make "Clifford McBride" known.
 
 
 Choosing for crew is an action applying to one thing.  Understand "choose [anyone]" as choosing for crew.
@@ -1652,6 +1710,9 @@ Instead of taking checklist-2:
 Glitter can be known.
 After examining checklist-2:
 	now glitter is known;
+	make "preparing astronauts" known;
+	make "lunch" known;
+	make "food" known;
 	continue the action.
 
 Instead of talking to the director during day two:
@@ -1666,6 +1727,7 @@ Instead of quizzing the director about Apollo during day two:
 		say "'This,' he says somberly, 'is a secret we must keep at all costs.  The American people must not know.  The Ruskies must not know.  We need to show them a perfectly successful moon landing.  So that's exactly where [interesting]Operation Glitter[/interesting] comes in.'";
 	otherwise:
 		say "'Now, we've got a bit of a change of plan on Apollo,' says [the director], his brow furrowed.  'You did good yesterday, but I had a little meeting with the folks in accounting.  Turns out we don't have $25.4 billion to spend on this shindig, so we're scrappin['] it and getting started on [interesting]Operation Glitter[/interesting].'  He grins from ear to ear.  'The Ruskies won't know what to think!'";
+	make "Operation Glitter" known;
 	now Apollo is day-two-discussed.
 
 Instead of quizzing the director about checklist-2:
@@ -1682,6 +1744,7 @@ Instead of quizzing the director about glitter:
 	if Apollo is not day-two-discussed:
 		try quizzing the director about Apollo;
 	say "'If you haven't seen the sound stage in the basement, you might want to start down there.  Get to know the photographer, the crew, and make sure everything goes smoothly.'  He leans forward across his desk and looks you directly in the eyes.  'I shouldn't have to say this, but if this project fails, we all go down with it.  Don't screw this up, kid.'";
+	make "photographer" known;
 	now checklist-2 is ready.
 
 Instead of quizzing the director about the internship during day two:
@@ -1726,6 +1789,9 @@ Understand "brainwash astronaut", "brainwashing astronaut", "brain wash astronau
 Brain-washing can be discussed.
 Instead of quizzing the director about brain-washing:
 	say "'Yes, well, here's the thing,' he begins carefully.  'There are sure to be interviews with these astronauts after the operation is over, and well, loose lips sink ships.  So head downstairs to the [interesting]chemistry lab[/interesting] and get something to... [italic type]massage[roman type] the crew's memory a bit.  As far as they are concerned, today's photo shoot is [bold type]the real thing[roman type].'  [The director] looks a bit uncomfortable with the subject.  'Just ask [interesting]the chemist[/interesting] for details.'";
+	make "chemist" known;
+	make "brain-washing" known;
+	make "drugs" known;
 	now brain-washing is discussed.
 
 
@@ -1734,6 +1800,7 @@ Film-moon-landing is a checklist-item.  The printed name of film-moon-landing is
 The filming is a concept.  Understand "film", "moon landing", and "landing" as the filming.
 Instead of quizzing the director about the filming:
 	say "'Oh, you'll do fine.  Thankfully, Stanley left behind his script for the moon landing.'  He hands you the script.";
+	make photographer known;
 	now the player has the moon landing script.
 Instead of quizzing the photographer about the filming:
 	say "'I'm not signing autographs,' he says with a sly grin.  'In fact, I'm not even here.  What we're doing today never leaves this building.'"
@@ -1793,6 +1860,9 @@ Instead of going to the basement during day one:
 
 The sound stage is east of the basement.  "You find yourself in a large, hangar-like structure, painted in the black and gray tones of a desolate lunar surface.  [if the photographer is in the sound stage][A photographer] with dark hair and an intense look is flitting around between cameras, double-checking everything for the shoot.[otherwise]There are cameras, tripods, and lights standing around, waiting to be used.[end if]  Against the side wall away from the set is a [interesting]craft services table[/interesting][if food is on the craft services table] covered in food[end if]."
 The printed name of the sound stage is "NASA's Secret Underground Sound Stage".
+
+After going to the sound stage:
+	make "photographer" known.
 
 The photographer is a stranger in the sound stage.  The photographer is male.
 The real name of the photographer is "Stanley".
@@ -2067,6 +2137,7 @@ To start photographer illness:
 	now the player is in the director's office;
 	now the photographer is in purgatory;
 	say "[The director] looks at you somberly from across the desk.  'I'm not sure if you met Stanley, the photographer, but he seems to have eaten something he shouldn't have.'  You try to act nonchalant.  'He's going to be okay, but he'll be in the hospital for a while, so we'll need you to take over filming and shooting photos downstairs.  I've updated your checklist.'";
+	make "filming" known;
 	now the moon landing script is in the sound stage;
 	now the description of the cameras is "You notice a small note taped to the side of one camera.  The note says [italic type][one of][interesting]'FILM MOON LANDING'[/interesting][or]SAY '[interesting]ACTION[/interesting]'[or]TYPE THE EXACT PHRASE 'FILM MOON LANDING' TO SOLVE THE PUZZLE[cycling][roman type].  Maybe it's a clue!";
 	now the items of checklist-2 are {get-lunch, drug-astronauts, film-moon-landing}.
@@ -2084,6 +2155,13 @@ The Bunsen burners are portable-scenery in the chemistry lab.
 The jars of powders are portable-scenery in the chemistry lab.
 The graduated cylinders are portable-scenery in the chemistry lab.
 The smorgasbord is scenery in the chemistry lab.  "A smorgasbord is a buffet offering a variety of hot and cold meats, salads, hors d'oeuvres, etc.  In this case, it was a metaphor for the large array of things on the lab bench.  Why are you so literal?"
+
+After going to the chemistry lab:
+	make "chemist" known;
+	make "space-cake" known;
+	make "LSD" known;
+	make "librium" known;
+	make "mysterious silver liquid" known.
 
 The taxidermied marmot is in the chemistry lab.  The description of the taxidermied marmot is "It looks just like every other taxidermied marmot [if the taxidermied marmot is carried by the player]in your collection[otherwise]you've ever seen[end if]."
 The taxidermied marmot is undescribed.  [Mentioned in the scenery, so don't list it again.]
@@ -2114,7 +2192,7 @@ Instead of quizzing the chemist about the chemist:
 
 Instead of quizzing the chemist about name:
 	say "'They call me Molly,' she says with a grin.";
-	now the chemist is known.
+	make the chemist known.
 
 Instead of talking to the chemist:
 	say "'What can I get you?' asks [the chemist].  'We've got [list of things which are a drug in the location].'"
