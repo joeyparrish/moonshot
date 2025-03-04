@@ -1000,7 +1000,7 @@ After opening the cage while the tapir is in the cage:
 The tapir is a stranger [animals are people, too, in Inform] in the cage.
 The description of the tapir is "[The tapir] is a bit larger than your average [tapir-aardvark], with intelligent eyes, rabbit-like ears, strong front claws, and a flat, round nose that protrudes from its head.  [if the tapir is in the cage]It lays sadly on the bottom of [the cage], looking distinctly sad and uncomfortable.[otherwise]It stands upright on its rear legs, thought it doesn't look like it has much practice.[end if]".
 
-The real name of the tapir is "aardvark".
+The real name of the tapir is "The aardvark".
 Understand "aardvark", "aardvarks", "ardvark", "ardvarks", and "animal" as the tapir.
 
 Every turn when a random chance of 3 in 10 succeeds and the player is in the propulsion lab and the tapir is in the cage:
@@ -1138,7 +1138,7 @@ Before quizzing the head scientist about the tapir:
 
 Instead of quizzing the head scientist about the tapir:
 	if the player's command includes "Brizzleby":  [This name is secret.]
-		say "The scientists don't seem to know who that is.";
+		say "[The head scientist] doesn't seem to know who that is.";
 	otherwise if the tapir is not in the cage:
 		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
 	otherwise if the player's command includes "tapir":
@@ -1977,13 +1977,13 @@ Instead of quizzing the chemist about food-preferences:
 
 
 
-The toblerone is a candy inside the triangular nameplate.
-Understand "candy" and "box" and "candy box" as the toblerone.
-The description of the toblerone is "It's a pale yellow, triangular box that says 'TOBLERONE', 'THE FIRST PATENTED SWISS MILK CHOCOLATE [italic type]with[roman type] ALMONDS & HONEY'.".
+The Toblerone is a candy inside the triangular nameplate.
+Understand "candy" and "box" and "candy box" as the Toblerone.
+The description of the Toblerone is "It's a pale yellow, triangular box that says 'TOBLERONE', 'THE FIRST PATENTED SWISS MILK CHOCOLATE [italic type]with[roman type] ALMONDS & HONEY'.".
 After opening the triangular nameplate:
-	if the toblerone is in the triangular nameplate:
+	if the Toblerone is in the triangular nameplate:
 		say "You open a small, concealed hatch on one side of the nameplate, and a pale yellow, triangular [interesting]candy box[/interesting] falls out.";
-		now the toblerone is in the location;
+		now the Toblerone is in the location;
 	otherwise:
 		say "You open a small, concealed hatch on one side of the nameplate."
 
@@ -2584,8 +2584,8 @@ Instead of going from the sound stage while day two has ended:
 	say "The door is locked...[paragraph break]";
 	if the player has alien-equations:
 		say "You hear the distinct sound of a hungry aardvark, and it's getting closer.[paragraph break]";
-		if the player has the toblerone:
-			say "You realize that you still have the toblerone in your pocket, so you throw it across the room, drawing the attention of the ravenous aardvark.  With one swift kick, the door comes off its frame and you flee as fast as your legs will carry you.[paragraph break]";
+		if the player has the Toblerone:
+			say "You realize that you still have the Toblerone in your pocket, so you throw it across the room, drawing the attention of the ravenous aardvark.  With one swift kick, the door comes off its frame and you flee as fast as your legs will carry you.[paragraph break]";
 			say "After escaping the building, you try to go to the police and the press, but no one will believe what you've seen.  You spend the rest of your life in hiding from the National Agency of Space Astronauts.";
 			show ending 9 the "super-secret" ending;
 		otherwise:
