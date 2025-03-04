@@ -22,7 +22,6 @@ please do so before you read the source code, to avoid spoilers.
 
 [Configuration]
 Include the Standard Rules by Graham Nelson.
-Include Punctuation Removal by Emily Short.
 Include Locksmith by Emily Short.
 Include Exit Lister by Gavin Lambert.
 Include Vorple Screen Effects by Juhana Leinonen.
@@ -128,9 +127,15 @@ The print inventory using HTML lists rule is listed instead of the print standar
 
 [Other tweaks]
 After reading a command:
-	Resolve punctuated titles.
+	let T be "[the player's command]";
+	replace the regular expression "(?i)mrs\." in T with "mrs";
+	replace the regular expression "(?i)mr\." in T with "mr";
+	replace the regular expression "(?i)ms\." in T with "ms";
+	replace the regular expression "(?i)dr\." in T with "dr";
+	change the text of the player's command to T.
 [This is so that things like "examine Mr. Furtwangler" are understood.
-Otherwise, the period ends the player's command command.]
+Otherwise, the period ends the player's command command.
+"Punctuation Removal" by Emily Short doesn't seem to function in Vorple.]
 
 [I don't like how Emily Short's "pause the game" rule clears the screen after continuing. Here's my own definition built on some of hers.]
 To pause:
