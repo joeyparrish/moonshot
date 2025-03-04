@@ -194,7 +194,7 @@ The detect interpreter's Vorple support rule is listed before the fancy banner r
 
 [General]
 
-The weather is a concept.
+The weather is a concept.  The weather is everywhere.
 [We can talk about it or ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
 
