@@ -39,6 +39,7 @@ Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
 Release along with the file "pause.js".
 Release along with the file "events.js".
+Release along with the file "popups.js".
 Release along with the file "textarea-caret.min.js".
 Release along with the file "auto-complete.js".
 Release along with the file "KBKinderWrite.woff".
@@ -59,6 +60,7 @@ Release along with the file "Chicken Noodle Soap.jpg".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with the file "Map.svg".
+Release along with the file "map-icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
 Use American dialect.
@@ -345,9 +347,7 @@ When day one begins:
 Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
 Before reading a command while the turn count is 1:
 	if intro hints shown is false:
-		show hint "If you have never played interactive fiction before, you can type 'help' to get some basic instruction.";
 		show hint "This game comes with a few options.  You can type 'options' to find out about them.";
-		show hint "You can type 'verbs' to get a very brief reference of useful verbs.";
 		show hint "You can talk to everyone, and everyone has a name.  Try 'talk to so-and-so' for suggestions on topics, or 'ask about name'.";
 		now intro hints shown is true;
 

@@ -8,6 +8,8 @@
   <link rel="icon" type="image/png" href="Icon.png">
   <link rel="stylesheet" href="roboto.css">
   <script src="pause.js"></script>
+  <script src="events.js"></script>
+  <script src="popups.js"></script>
   <script src="auto-complete.js"></script>
   <script src="textarea-caret.min.js"></script>
 
@@ -38,13 +40,105 @@
 
   [INTERPRETERHEAD]
 
-  <script src="events.js"></script>
 </head>
 <body class="play">
 
   <div id="gameport">[INTERPRETERBODY]</div>
 
-<span id="auto-complete">... <select></select></span>
+  <button id="help-button" data-popup-container-id="help-card-container" class="popup-open floating-button" title="help">?</button>
+  <button id="map-button" data-popup-container-id="map-card-container" class="popup-open floating-button" title="map"><img src="map-icon.png"></button>
 
+  <div id="help-card-container" class="hidden popup-container">
+    <div id="help-card" class="popup">
+      <button class="popup-close floating-button" title="close">X</button>
+      <p class="title">Help!</p>
+
+      <p>
+        Not sure how to play?  That's understandable.  This style of text adventure game was popular in the 1980's, but isn't so common now.  We'll help you get started.
+      </p>
+
+      <p>
+        The game is a story, and you are the main character!  Simply type what you want to do.  For example, you can <tt>look</tt> to see what's in the room, you can <tt>examine</tt> a thing to look more closely at it (such as <tt>examine clock</tt>), you can <tt>take</tt> certain objects, and you can move <tt>east</tt>, <tt>west</tt>, etc. to move from room to room.
+      </p>
+
+      <p>
+        To get the most out of this story, you should explore and talk to people (<tt>ask about ...</tt>) and look closely at objects of interest (<tt>examine ...</tt>)
+      </p>
+
+      <p>
+        The game won't understand every possible sentence, so here is a quick guide to the commands and patterns you should know.  Some commands have single-letter aliases you can use (shown here in parentheses):
+      </p>
+
+      <ul>
+        <li class="top">
+          <b>Moving</b>
+          <ul>
+            <li>east (e) / west (w) / north (n) / south (s)</li>
+            <li>down (d) / up (u)</li>
+            <li>map</li>
+            <li>wait (z)</li>
+          </ul>
+        </li>
+
+        <li class="top">
+          <b>Searching</b>
+          <ul>
+            <li>look (l) / look at ...</li>
+            <li>examine (x) ...</li>
+            <li>inventory (i)</li>
+          </ul>
+        </li>
+
+        <li class="top">
+          <b>Objects</b>
+          <ul>
+            <li>take ... / take all</li>
+            <li>give ... / give ... to ...</li>
+            <li>drop ...</li>
+            <li>open ...</li>
+            <li>drink ... / eat ...</li>
+          </ul>
+        </li>
+
+        <li class="top">
+          <b>People</b>
+          <ul>
+            <li>talk / talk to ...</li>
+            <li>ask about ... / ask ... about ...</li>
+            <li>wake ...</li>
+            <li>apologize / apologize to ...</li>
+          </ul>
+        </li>
+
+        <li class="top">
+          <b>Game</b>
+          <ul>
+            <li>help</li>
+            <li>options</li>
+            <li>save / restore</li>
+            <li>quit (q)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>
+        These are the most important things for this game, but feel free to use your imagination and see what happens!
+      </p>
+
+      <button class="popup-close floating-button-text">Close Help</button>
+      <p>
+        <b><i>Enjoy!</i></b>
+      </p>
+    </div>
+  </div>
+
+  <div id="map-card-container" class="hidden popup-container">
+    <div id="map-card" class="popup">
+      <button class="popup-close floating-button" title="close">X</button>
+      <img src="Map.svg">
+    </div>
+  </div>
+
+  <span id="auto-complete">... <select></select></span>
 </body>
 </html>

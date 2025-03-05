@@ -56,19 +56,6 @@
   background-color: linen;
 }
 
-.help-card {
-  /* Offsets the block from the page. */
-  background-color: beige;
-  border: 2px ridge grey;
-
-  /* Makes the border stay back from the edge of the text, which is nice. */
-  padding: 0.5em;
-
-  /* Vorpal is creating a span for this, but to have the border and background
-   * work the way we want, we style it as a block. */
-  display: block;
-}
-
 .plaque-card {
   /* Offsets the block from the page. */
   background-color: palegoldenrod;
@@ -310,4 +297,134 @@ ul.inventory {
 #auto-complete {
   position: absolute;
   display: none;
+}
+
+body {
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.floating-button {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  font-weight: bold;
+
+  background: powderblue;
+  cursor: pointer;
+}
+
+.floating-button img {
+  height: 1em;
+  vertical-align: middle;
+}
+
+.floating-button-text {
+  height: 2em;
+  border-radius: 0.2em;
+  font-weight: bold;
+
+  background: powderblue;
+  cursor: pointer;
+}
+
+.floating-button:active {
+  background: turquoise;
+}
+
+.popup-container {
+  /* Position in the middle of the page, overlaying everything else. */
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Place a scrim behind the card */
+  background: radial-gradient(black, transparent);
+
+  /* Place the card container above the "uiblock" used during pause. */
+  z-index: 123456789;
+}
+
+.popup {
+  /* Offsets the block from the page. */
+  border: 2px ridge grey;
+
+  /* Makes the border stay back from the edge of the text, which is nice. */
+  padding: 0.5em;
+
+  /* Limit the size of the card. */
+  max-width: 800px;
+  max-height: 80vh;
+  max-width: calc(min(100vw - 6em, 800px));
+  max-height: calc(100vh - 6em);
+  margin: 3em;
+  overflow-y: scroll;
+}
+
+.popup p {
+  /* Keep the paragraph margins the same on all sides. */
+  margin: 1rem;
+}
+
+.popup p.title {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.popup-close {
+  float: right;
+  margin: 1em;
+}
+
+#help-button {
+  position: fixed;
+  right: 2em;
+  top: 2em;
+}
+
+#map-button {
+  position: fixed;
+  right: 2em;
+  top: 5em;
+}
+
+#help-card {
+  background-color: aliceblue;
+}
+
+#help-card p, #help-card li {
+  /* Space out the help to make it easier to read. */
+  word-spacing: 0.15em;
+  line-height: 1.5;
+}
+
+#help-card li.top {
+  margin-top: 1em;
+}
+
+#help-card tt {
+  background: seashell;
+  border: 1px inset lightgray;
+  padding: 0 0.3em;
+}
+
+#map-card {
+  background-color: aliceblue;
+  position: relative;
+}
+
+#map-card .popup-close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
 }
