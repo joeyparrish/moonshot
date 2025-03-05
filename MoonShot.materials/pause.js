@@ -7,6 +7,8 @@ function unpauseGame() {
   vorple.layout.unblock();
   // The pause command in Inform is waiting for this.
   vorple.prompt.queueKeypress(' ');
+  // Show buttons again.
+  showPopupButtons();
 }
 
 function pauseGame() {
@@ -17,8 +19,19 @@ function pauseGame() {
 
   // Wait for a click or keypress on the window, just once, and in capture
   // phase so it isn't stolen by some other element.
-  window.addEventListener('click', unpauseGame,
+  const listener = () => {
+    unpauseGame();
+
+    // Either event is enough to cancel listening for the other.
+    // Because of this, we don't use "once" in the listener setup.
+    window.removeEventListener('click', listener);
+    window.removeEventListener('keydown', listener);
+  };
+  window.addEventListener('click', listener,
       {capture: true, passive: true, once: true});
-  window.addEventListener('keydown', unpauseGame,
+  window.addEventListener('keydown', listener,
       {capture: true, passive: true, once: true});
+
+  // Hide the buttons, which are partially hidden by the "uiblock" element.
+  hidePopupButtons();
 }
