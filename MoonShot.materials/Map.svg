@@ -60,7 +60,11 @@
 
     <g transform="translate(460, 20)">
       <rect width="200" height="200" fill="bisque" stroke="rgba(0, 0, 0, 0.3)" stroke-width="2" />
-      <text y="100" font-size="30" text-anchor="middle" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.7"><tspan x="100">Sound</tspan><tspan x="100" dy="1em">Stage</tspan><tspan x="100" dy="2.5em" stroke-width="0.5" font-size="20">(spoiler!)</tspan></text>
+      <text y="100" font-size="30" text-anchor="middle" fill="bisque" stroke="bisque" stroke-width="0.7">
+        <tspan x="100">Sound</tspan>
+        <tspan x="100" dy="1em">Stage</tspan>
+        <tspan x="100" dy="2.5em" fill="steelblue" stroke="rgba(0, 0, 0, 0.3)" stroke-width="0.5" font-size="20">(spoiler!)</tspan>
+      </text>
     </g>
   </g>
 
