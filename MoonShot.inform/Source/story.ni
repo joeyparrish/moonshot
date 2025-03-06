@@ -171,20 +171,8 @@ This is the fancy banner rule:
 		center "to postpone...'";
 		center "[line break]";
 		center "-- U.S. President John Fitzgerald Kennedy";
-	say paragraph break;
-	say paragraph break;
-	[Note that there is a requirement in the Inform license that we mention Inform somewhere, so we do so here.]
-	if Vorple is supported:
-		center "[blockquote style][title-line style][italic type]MoonShot[roman type][end style][line break][version-line style]Version [release number][end style][line break][author-line style]Story by Joey & Charity Parrish[end style][line break][copyright-line style]Copyright (C) 2020-2025[end style][end style]";
-		say line break;
-	otherwise:
-		center "[italic type]MoonShot[roman type]";
-		center "Version [release number]";
-		center "Story by Joey & Charity Parrish";
-		center "Copyright (C) 2020-2025";
-	pause;
-	say paragraph break;
-	say paragraph break.
+	say line break;
+	pause.
 
 The display banner rule is not listed in the startup rulebook.
 The fancy banner rule is listed before the start in the correct scenes rule in the startup rulebook.
@@ -344,6 +332,7 @@ When day one begins:
 	say line break;
 	say "You did it!  You finally landed an internship at NASA, the National Aeronautics and Space ... Association?  Agency?  Authority?  You're not really sure what the last A stands for, but it's only your first day.  You're pretty certain you'll figure it out soon enough.[paragraph break]";
 	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarcely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.[paragraph break]";
+	pause.
 
 Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
 Before reading a command while the turn count is 1:
@@ -1648,6 +1637,7 @@ When day two begins:
 	say "[room-heading style]Intermission: End of day one[end style]";
 	say line break;
 	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
+	pause;
 	say "[room-heading style]NASA Headquarters, day two of your internship[end style]";
 	say line break;
 	say "You return to NASA headquarters, brimming with pride over the good work you've done so far.  What challenges await today?  You can hardly contain your excitement as you wait to see the director again.[paragraph break]";
@@ -2558,6 +2548,7 @@ When day three begins:
 	say "[room-heading style]Intermission: End of day two[end style]";
 	say line break;
 	say "You head home, exhausted from a long day at the most important administration (affiliation? alliance?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
+	pause;
 	say "[room-heading style]NASA Headquarters, day three of your internship (Epilogue)[end style]";
 	say line break;
 	say "You return to NASA headquarters, wondering what else they could possibly throw at you next.  You wonder how long you'll have to wait to see the director this time...[paragraph break]";

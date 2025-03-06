@@ -26,6 +26,7 @@ body {
   animation-timing-function: ease-in;
   animation-duration: 8s;
   position: absolute;
+  text-align: center;
 }
 
 .logo {
@@ -45,11 +46,7 @@ body {
 .cover img {
   min-width: 100px;
   max-width: 90vw;
-  max-height: 77vh;
-}
-
-.covertext {
-  text-align: center;
+  max-height: 81vh;
 }
 
 .author {
@@ -59,6 +56,11 @@ body {
 
 .version {
   font-size: 3vh;
+  margin: 1vh 0;
+}
+
+.inform {
+  font-size: 2vh;
   margin: 1vh 0;
 }
 
