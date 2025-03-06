@@ -53,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function initializeAutoComplete() {
+    // Set our preferred prefix, with a little extra space.
+    vorple.prompt.setPrefix('>&nbsp;', /* isHtmlSafe= */ true);
+
     // Watch input field changes.  The field didn't exist earlier than this.
     inputField = document.getElementById('lineinput-field');
     inputField.addEventListener('input', onInput);
