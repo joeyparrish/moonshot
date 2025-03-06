@@ -47,6 +47,7 @@
 
   <button id="help-button" data-popup-container-id="help-card-container" class="popup-open floating-button" title="help">?</button>
   <button id="map-button" data-popup-container-id="map-card-container" class="popup-open floating-button" title="map"><img src="map-icon.png"></button>
+  <button id="settings-button" data-popup-container-id="settings-card-container" class="popup-open floating-button" title="settings"><img src="settings-icon.png"></button>
 
   <div id="help-card-container" class="hidden popup-container">
     <div id="help-card" class="popup">
@@ -136,6 +137,17 @@
     <div id="map-card" class="popup">
       <button class="popup-close floating-button" title="close">X</button>
       <img src="Map.svg">
+    </div>
+  </div>
+
+  <div id="settings-card-container" class="hidden popup-container">
+    <div id="settings-card" class="popup">
+      <button class="popup-close floating-button" title="close">X</button>
+
+      <label for="easy-mode-toggle">
+        Easy mode: <span class="interesting-highlight">highlight text</span> you should pay attention to
+      </label>
+      <input id="easy-mode-toggle" class="toggle" type="checkbox">
     </div>
   </div>
 

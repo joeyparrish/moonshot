@@ -1,9 +1,6 @@
 Version 1 of Help by Joey Parrish begins here.
 
 Include Vorple Screen Effects by Juhana Leinonen.
-Include Vorple Hyperlinks by Juhana Leinonen.
-
-help-card is a Vorple style.
 
 Helping is an action out of world applying to nothing.  Understand "help" as helping.
 

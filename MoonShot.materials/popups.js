@@ -8,7 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
   for (const button of closeButtons) {
     button.addEventListener('click', hidePopup);
   }
+
+  const EASY_MODE_KEY = 'chicken-noodle-soap--easy-mode';
+  const easyModeToggle = document.getElementById('easy-mode-toggle');
+  const easyModeString = localStorage.getItem(EASY_MODE_KEY) || 'true';
+  setEasyMode(easyModeString == 'true');
+
+  function setEasyMode(easyMode) {
+    localStorage.setItem(EASY_MODE_KEY, easyMode);
+    document.body.classList.toggle('difficulty-easy', easyMode);
+    easyModeToggle.checked = easyMode;
+  }
+
+  easyModeToggle.addEventListener('change', (event) => {
+    setEasyMode(event.target.checked);
+  });
 });
+
+function showSettings() {
+  document.getElementById('settings-button').click();
+}
 
 function showHelp() {
   document.getElementById('help-button').click();

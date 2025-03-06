@@ -25,6 +25,7 @@ Include the Standard Rules by Graham Nelson.
 Include Locksmith by Emily Short.
 Include Exit Lister by Gavin Lambert.
 Include Vorple Screen Effects by Juhana Leinonen.
+Include Vorple Hyperlinks by Juhana Leinonen.
 Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
@@ -61,6 +62,7 @@ Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with the file "Map.svg".
 Release along with the file "map-icon.png".
+Release along with the file "settings-icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
 Use American dialect.
@@ -78,7 +80,6 @@ title-line is a Vorple style.
 version-line is a Vorple style.
 copyright-line is a Vorple style.
 created-with-line is a Vorple style.
-hint is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
@@ -347,9 +348,8 @@ When day one begins:
 Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
 Before reading a command while the turn count is 1:
 	if intro hints shown is false:
-		show hint "This game comes with a few options.  You can type 'options' to find out about them.";
-		show hint "You can talk to everyone, and everyone has a name.  Try 'talk to so-and-so' for suggestions on topics, or 'ask about name'.";
-		now intro hints shown is true;
+		show hint "See the 'help' button in the top-right corner if you get stuck or if you need an introduction.";
+		now intro hints shown is true.
 
 
 
