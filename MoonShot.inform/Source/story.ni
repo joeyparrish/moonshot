@@ -155,32 +155,11 @@ To pause:
 Understand "exa [thing]" as examining.
 
 
-
-[Intro]
-This is the fancy banner rule:
-	if Vorple is supported:
-		[The HTML-based Vorple interpreter can handle centering a large block of text very well.]
-		center "[blockquote style]'We choose to go to the moon in this decade... because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone...'[line break][line break]-- U.S. President John Fitzgerald Kennedy[end style]";
-	otherwise:
-		[In other interpreters, it looks better broken up into explicit lines, with each one centered.]
-		center "'We choose to go to the moon in this decade...";
-		center "because that goal will serve to organize and";
-		center "measure the best of our energies and skills,";
-		center "because that challenge is one that we are";
-		center "willing to accept, one we are unwilling";
-		center "to postpone...'";
-		center "[line break]";
-		center "-- U.S. President John Fitzgerald Kennedy";
-	say line break;
-	pause.
-
+[Disable the initial banner.  We show our own at the start of day 1.  Showing the banner early, before the prompt was set up created bugs in the pause functionality at the end of the banner.  Better to move it to day 1.]
 The display banner rule is not listed in the startup rulebook.
-The fancy banner rule is listed before the start in the correct scenes rule in the startup rulebook.
-[Subtle difference in timing: we want our intro shown first, not right before the initial room description where the typical banner rule goes.  This means that our intro happens before "when play begins", which is when our first scene begins.  It was really tricky to work out how to time this correctly.]
 
-The detect interpreter's Vorple support rule is listed before the fancy banner rule in the startup rulebook.
-[This would normally happen when play begins, but we need to detect Vorple support earlier for use in the fancy banner.]
-
+[Start Vorple a little early.  This is important for our banner and other early setup to work correctly.]
+The detect interpreter's Vorple support rule is listed before the start in the correct scenes rule in the startup rulebook.
 
 
 [General]
@@ -326,6 +305,21 @@ When day one begins:
 	make internship known;
 	make "secretary" known;
 	make "director" known;
+	if Vorple is supported:
+		[The HTML-based Vorple interpreter can handle centering a large block of text very well.]
+		center "[blockquote style]'We choose to go to the moon in this decade... because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone...'[line break][line break]-- U.S. President John Fitzgerald Kennedy[end style]";
+	otherwise:
+		[In other interpreters, it looks better broken up into explicit lines, with each one centered.]
+		center "'We choose to go to the moon in this decade...";
+		center "because that goal will serve to organize and";
+		center "measure the best of our energies and skills,";
+		center "because that challenge is one that we are";
+		center "willing to accept, one we are unwilling";
+		center "to postpone...'";
+		center "[line break]";
+		center "-- U.S. President John Fitzgerald Kennedy";
+	say line break;
+	pause;
 	if Vorple is supported:
 		execute JavaScript code "logEvent('day1')";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
