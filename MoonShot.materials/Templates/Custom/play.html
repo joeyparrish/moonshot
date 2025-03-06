@@ -45,9 +45,16 @@
 
   <div id="gameport">[INTERPRETERBODY]</div>
 
-  <button id="help-button" data-popup-container-id="help-card-container" class="popup-open floating-button" title="help">?</button>
-  <button id="map-button" data-popup-container-id="map-card-container" class="popup-open floating-button" title="map"><img src="map-icon.png"></button>
-  <button id="settings-button" data-popup-container-id="settings-card-container" class="popup-open floating-button" title="settings"><img src="settings-icon.png"></button>
+  <!-- These are hidden by default, but we start with a pause.  When the initial "title" pause ends, these will be shown. -->
+  <button
+      id="help-button" data-popup-container-id="help-card-container"
+      class="popup-open floating-button hidden" title="help">?</button>
+  <button
+      id="map-button" data-popup-container-id="map-card-container"
+      class="popup-open floating-button hidden" title="map"><img src="map-icon.png"></button>
+  <button
+      id="settings-button" data-popup-container-id="settings-card-container"
+      class="popup-open floating-button hidden" title="settings"><img src="settings-icon.png"></button>
 
   <div id="help-card-container" class="hidden popup-container">
     <div id="help-card" class="popup">
