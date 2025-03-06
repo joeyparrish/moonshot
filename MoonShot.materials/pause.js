@@ -9,6 +9,8 @@ function unpauseGame() {
   vorple.prompt.queueKeypress(' ');
   // Show buttons again.
   showPopupButtons();
+  // Drop the "click to continue" card.
+  document.querySelector('.continue')?.remove();
 }
 
 function pauseGame() {
