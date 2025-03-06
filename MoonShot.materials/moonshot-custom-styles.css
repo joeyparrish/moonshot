@@ -175,8 +175,9 @@
 
 /* This will be used to highlight interesting words in room descriptions in
  * easy mode. */
-.interesting-highlight {
-  background-color: aquamarine;
+body.difficulty-easy .interesting-highlight,
+#settings-card .interesting-highlight {
+  background-color: paleturquoise;
 }
 
 /* Don't highlight within the checklist. */
@@ -312,6 +313,7 @@ body {
   height: 2em;
   border-radius: 50%;
   font-weight: bold;
+  padding: 0;
 
   background: powderblue;
   cursor: pointer;
@@ -368,7 +370,15 @@ body {
   max-width: calc(min(100vw - 6em, 800px));
   max-height: calc(100vh - 6em);
   margin: 3em;
-  overflow-y: scroll;
+
+  /* Scroll if needed, otherwise, no scroll bar. */
+  overflow-y: auto;
+
+  /* Set background. */
+  background-color: aliceblue;
+
+  /* Allow positioning elements within the popup. */
+  position: relative;
 }
 
 .popup p {
@@ -398,8 +408,10 @@ body {
   top: 5em;
 }
 
-#help-card {
-  background-color: aliceblue;
+#settings-button {
+  position: fixed;
+  right: 2em;
+  top: 8em;
 }
 
 #help-card p, #help-card li {
@@ -418,13 +430,85 @@ body {
   padding: 0 0.3em;
 }
 
-#map-card {
-  background-color: aliceblue;
-  position: relative;
-}
-
 #map-card .popup-close {
   position: absolute;
   right: 1em;
   top: 1em;
+}
+
+#settings-card label {
+  /* Override the haven default for labels */
+  background: none;
+}
+
+#settings-card label,
+#settings-card input {
+  /* Space these apart a bit */
+  display: block;
+  margin: 1em;
+}
+
+.toggle {
+  /* Hide the actual toggle, but give it space. */
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+  width: 4.5em;
+  height: 2em;
+  padding: 0.2em;
+  border: none;
+  border-radius: 1.5em;
+  overflow: hidden;
+
+  /* Make it clickable still. */
+  cursor: pointer;
+
+  /* Background when off. */
+  background-color: dimgray;
+
+  /* Animate! */
+  transition: background ease 0.3s;
+}
+
+.toggle:checked {
+  /* Background when on. */
+  background-color: forestgreen;
+}
+
+.toggle:before {
+  /* A label, "on" or "off". */
+  content: "on off";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  font-family: 'Roboto';
+  font-weight: bold;
+  text-transform: uppercase;
+
+  /* Space it so that only one label shows at a time. */
+  text-indent: -2em;
+  word-spacing: 2.55em;
+  white-space: nowrap;
+
+  /* The color and shape of the ball. */
+  background: #fff;
+  border-radius: 50%;
+
+  /* The color of the label. */
+  color: #fff;
+
+  /* Make the text pop a bit. */
+  text-shadow: -1px -1px rgba(0,0,0,0.15);
+
+  /* Animate! */
+  transition: transform cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.toggle:checked:before {
+  /* Move everything over. */
+  transform: translateX(2.5em);
 }
