@@ -25,7 +25,7 @@ clean:
 
 # Create a release build.
 release: clean
-	docker run \
+	docker run --rm \
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
 		/bin/sh -c 'i7 -r /tmp/MoonShot.inform; $(CLEANUP_AFTER_DOCKER)'
