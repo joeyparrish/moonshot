@@ -57,7 +57,7 @@ Release along with the file "roboto-mono-regular-normal.woff2".
 Release along with the file "roboto-regular-italic.woff2".
 Release along with the file "roboto-regular-normal.woff2".
 Release along with the file "roboto.css".
-Release along with the file "Chicken Noodle Soap.jpg".
+Release along with the file "Chicken-Noodle-Soap.jpg".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with the file "Map.svg".
