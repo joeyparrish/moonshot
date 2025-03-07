@@ -317,6 +317,9 @@ body {
 
   background: powderblue;
   cursor: pointer;
+
+  /* This really matters in Tauri.  In Chrome, the default is fine. */
+  border: 2px solid black;
 }
 
 .floating-button img {
