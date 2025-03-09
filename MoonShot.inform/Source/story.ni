@@ -61,6 +61,7 @@ Release along with the file "Chicken-Noodle-Soap.jpg".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with the file "Map.svg".
+Release along with the file "help-icon.png".
 Release along with the file "map-icon.png".
 Release along with the file "settings-icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
