@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     inputField = document.getElementById('lineinput-field');
     inputField.addEventListener('input', onInput);
 
+    inputField.addEventListener('keydown', (event) => {
+      // Don't let the user press enter when there's nothing in the input field.
+      if (event.key == 'Enter' && /^\s*$/.exec(inputField.value)) {
+        event.preventDefault();
+      }
+    });
+
     inputForm = document.getElementById('lineinput');
 
     // Space taken up by the prompt prefix:
