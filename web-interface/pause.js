@@ -21,7 +21,13 @@ function pauseGame() {
 
   // Wait for a click or keypress on the window, just once, and in capture
   // phase so it isn't stolen by some other element.
-  const listener = () => {
+  const listener = (event) => {
+    if (event.type == 'keydown' && event.key != ' ' && event.key != 'Enter') {
+      // Ignore keys other than space or enter.  Especially, say Alt+Tab.  So
+      // annoyed by having the pause dismissed by modifier keys.
+      return;
+    }
+
     unpauseGame();
 
     // Either event is enough to cancel listening for the other.
