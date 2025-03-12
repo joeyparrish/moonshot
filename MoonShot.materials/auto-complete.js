@@ -30,27 +30,77 @@ document.addEventListener('DOMContentLoaded', () => {
   let promptOffset = 0;
   let endCommandAfterAutoComplete = false;
 
-  // Don't let the input field steal keystrokes from the auto-complete
-  // suggestions, which should be keyboard navigable and accessible by default.
-  select.addEventListener('keydown', (event) => {
+  // Select elements have a "change" event, but this fires when using up/down
+  // arrows to flip through items without "choosing" one.  Instead, we use a
+  // combination of other events (very inconsistent across platforms) to
+  // process the change in a select element's value in these user scenarios:
+  //  1. tab in, arrows to select, tab out
+  //  2. tab in, arrows to select, enter/space to choose
+  //  3. tab in, enter/space to open, hover to select, click to choose
+  //  4. tab in, enter/space to open, hover to select, enter/space to choose
+  //  5. tab in, enter/space to open, arrows to select, enter/space to choose
+  //  6. click to open, hover to select, click to choose
+  //  7. click to open, hover to select, enter/space to choose
+  //  8. click to open, arrows to select, enter/space to choose
+  // The "click to choose" scenarios (3 & 6) don't work in Linux Tauri without
+  // hitting Enter again.
+  function processSelectChange(event) {
+    // This event is meant solely for the auto-complete element, and should not
+    // go to any other element or handler.
     event.stopPropagation();
-  });
 
-  // When focus leaves the auto-complete selection, if it's not blank, we adopt
-  // it right away and send it to the command prompt.
-  select.addEventListener('blur', () => {
+    // For key events, we're only watching Enter and Space.
+    if (event.key && event.key != 'Enter' && event.key != ' ') {
+      return;
+    }
+
+    // When any of these events happen, if the auto-complete selection is not
+    // blank, we adopt it right away and send it to the command prompt.
     if (select.value) {
       if (endCommandAfterAutoComplete) {
         // Add this value to the input field and submit it.
-        vorple.prompt.submit(inputField.value + select.value);
+        const fullCommand = inputField.value + select.value;
         inputField.value = '';
+        // Delaying the submit avoids a double-enter effect on the input field.
+        setTimeout(() => vorple.prompt.submit(fullCommand), 0);
       } else {
         // Add this value to the input field only.
         inputField.value += select.value;
-        hideAutoComplete();
       }
+      hideAutoComplete();
+
+      // Bring focus back to the input field after auto-complete is done.
+      // If this isn't deferred for a tick, it causes duplicate input in Vorple.
+      setTimeout(() => inputField.focus(), 0);
+
+      // Make sure multiple "select change" events don't cause duplicate items
+      // to be sent to the input.
+      select.value = '';
     }
-  });
+  }
+
+  // Without this handler, the input field steals keystrokes from
+  // auto-complete, and we can't use enter or space to open the select element.
+  // We want to keep keyboard navigation and accessibility.  This also lets us
+  // get the enter key when someone chooses from an open select element with
+  // the keyboard.
+  select.addEventListener('keydown', processSelectChange);
+
+  // Without this handler, you can't tab in, arrow to something, then tab out.
+  // This is also the handler that fires for most scenarios in Chrome, but not
+  // Linux Tauri.
+  select.addEventListener('blur', processSelectChange);
+
+  // Without this handler, choosing something with the keyboard doesn't work in
+  // Linux Tauri.
+  select.addEventListener('keyup', processSelectChange);
+
+  // Without this handler, the select element doesn't stay open when you click
+  // it.  That's because Vorple has a click handler on document that sends
+  // focus immediately to the input element.  Our stopPropagation fixes that.
+  // This is also needed to process changes when you select something purely
+  // with the mouse.
+  select.addEventListener('click', processSelectChange);
 
   function initializeAutoComplete() {
     // Set our preferred prefix, with a little extra space.
