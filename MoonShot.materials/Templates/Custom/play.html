@@ -158,6 +158,10 @@
     </div>
   </div>
 
-  <span id="auto-complete">... <select></select></span>
+  <!--
+    The tabable span after select allows you to tab out without leaving the
+    page.  JS will bring focus back to the input field after that.
+  -->
+  <span id="auto-complete">... <select></select><span tabindex="0"></span></span>
 </body>
 </html>
