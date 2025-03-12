@@ -60,11 +60,6 @@ blockquote is a Vorple style.
 room-heading is a Vorple style.
 room-name is a Vorple style.
 direction-name is a Vorple style.
-author-line is a Vorple style.
-title-line is a Vorple style.
-version-line is a Vorple style.
-copyright-line is a Vorple style.
-created-with-line is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
