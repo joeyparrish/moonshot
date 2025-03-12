@@ -35,35 +35,19 @@ Include Checklists by Joey Parrish.
 Include Help by Joey Parrish.
 Include Options by Joey Parrish.
 Include Events by Joey Parrish.
+
+
 Release along with a "Custom" website. [See MoonShot.materials/Templates/Custom]
 Release along with the "Vorple" interpreter.
 Release along with the style sheet "moonshot-custom-styles.css".
-Release along with the file "pause.js".
-Release along with the file "events.js".
-Release along with the file "popups.js".
-Release along with the file "textarea-caret.min.js".
-Release along with the file "auto-complete.js".
 Release along with the file "KBKinderWrite.woff".
 Release along with the file "KBKinderWrite.woff2".
 Release along with the file "LovecraftsDiary.woff".
 Release along with the file "LovecraftsDiary.woff2".
-Release along with the file "LovecraftsDiary.woff2".
-Release along with the file "roboto-bold-italic.woff2".
-Release along with the file "roboto-bold-normal.woff2".
-Release along with the file "roboto-mono-bold-italic.woff2".
-Release along with the file "roboto-mono-bold-normal.woff2".
-Release along with the file "roboto-mono-regular-italic.woff2".
-Release along with the file "roboto-mono-regular-normal.woff2".
-Release along with the file "roboto-regular-italic.woff2".
-Release along with the file "roboto-regular-normal.woff2".
-Release along with the file "roboto.css".
 Release along with the file "Chicken-Noodle-Soap.jpg".
 Release along with the file "Icon.png".
 Release along with the file "unicorn.jpg".
 Release along with the file "Map.svg".
-Release along with the file "help-icon.png".
-Release along with the file "map-icon.png".
-Release along with the file "settings-icon.png".
 Release along with cover art ("An camera reflected in an astronaut's helmet").
 [The text associated with the cover art is a description for the blind.]
 Use American dialect.

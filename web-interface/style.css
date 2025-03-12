@@ -1,5 +1,10 @@
 body {
   font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#splash {
   background-color: black;
   color: white;
 
@@ -19,7 +24,7 @@ body {
   position: relative;
 }
 
-.fade-in-fade-out {
+#splash .fade-in-fade-out {
   opacity: 0;
   animation-name: fadeInFadeOut;
   animation-iteration-count: 1;
@@ -29,37 +34,37 @@ body {
   text-align: center;
 }
 
-.logo {
+#splash .logo {
   animation-delay: 0s;
 }
 
-.logo img {
+#splash .logo img {
   min-width: 100px;
   max-width: 90vw;
   max-height: 90vh;
 }
 
-.cover {
+#splash .cover {
   animation-delay: 9s;
 }
 
-.cover img {
+#splash .cover img {
   min-width: 100px;
   max-width: 90vw;
   max-height: 81vh;
 }
 
-.author {
+#splash .author {
   font-size: 5vh;
   margin: 1vh 0;
 }
 
-.version {
+#splash .version {
   font-size: 3vh;
   margin: 1vh 0;
 }
 
-.inform {
+#splash .inform {
   font-size: 2vh;
   margin: 1vh 0;
 }
@@ -77,4 +82,14 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+#vorple, #uiblock, #menus{
+  display: none;
+}
+body.play #vorple, body.play #uiblock, body.play #menus {
+  display: block;
+}
+body.play #splash {
+  display: none;
 }
