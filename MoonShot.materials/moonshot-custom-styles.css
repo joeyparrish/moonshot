@@ -14,22 +14,6 @@
   display: block;
 }
 
-.title-line {
-  font-size: 130%;
-}
-
-.version-line {
-  font-size: 80%;
-}
-
-.author-line, .copyright-line {
-  font-size: 90%;
-}
-
-.created-with-line {
-  font-size: 80%;
-}
-
 .continue {
   background-color: khaki;
   padding: 0.5em;
