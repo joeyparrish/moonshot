@@ -125,7 +125,10 @@ To pause:
 	if Vorple is supported:
 		center "[continue style](click or tap to continue)[end style]";
 		execute JavaScript code "pauseGame()";
-		wait for any key;  [unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
+		[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
+		wait for any key;
+		[If I don't do this twice, it behaves poorly in Tauri on Linux and skips some.  Not sure why.]
+		wait for any key;
 	otherwise:
 		say "[paragraph break]Please press SPACE to continue[line break]";
 		wait for the SPACE key;
