@@ -23,8 +23,20 @@ resetTopics();
 
 // The "vorple" global doesn't exist until DOMContentLoaded.
 document.addEventListener('DOMContentLoaded', () => {
-  const autoComplete = document.getElementById('auto-complete');
-  const select = autoComplete.querySelector('select');
+  // These are the auto-complete interface elements.
+  const select = document.createElement('select');
+  const autoComplete = document.createElement('span');
+  autoComplete.id = 'auto-complete';
+  autoComplete.appendChild(document.createTextNode('... '));
+  autoComplete.appendChild(select);
+  document.body.appendChild(autoComplete);
+
+  // This extra span at the end allows you to tab out without leaving the page.
+  // JS code from Vorple will bring focus back to the input field after that.
+  const extraSpan = document.createElement('span');
+  extraSpan.tabIndex = 0;
+  document.body.appendChild(extraSpan);
+
   let inputField = null;
   let inputForm = null;
   let promptOffset = 0;
@@ -124,8 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         inputField.getBoundingClientRect().x -
         inputForm.getBoundingClientRect().x;
 
-    // Move the auto-complete object inside the form where it can overlay.
+    // Move the auto-complete elements inside the form where they can overlay.
     inputForm.appendChild(autoComplete);
+    inputForm.appendChild(extraSpan)
   }
 
   function onExpectCommand() {
