@@ -670,7 +670,7 @@ The blueprints are critical.  [You can't drop them.]
 The blueprints are plural-named.  [Don't call them "a blueprints".]
 Understand "drawing", "drawings", "command module drawing", "command module drawings", and "command module drawings formerly known as blueprints" as blueprints.
 
-In the engineering department is a liquid-safe container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
+In the engineering department is a liquid-safe transparent container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
 [Accept a few misspellings of coffee.]
 Understand "coffee pot", "cofee pot", "coffe pot", "cafe pot", "cofe pot", and "pot" as the coffee-pot.
 
@@ -2345,7 +2345,7 @@ To say random chess move:
 
 
 
-A mysterious silver liquid is a kind of drink.  A mysterious silver liquid is a drug.
+A mysterious silver liquid is a drink.  A mysterious silver liquid is a drug.
 The description of a mysterious silver liquid is "You aren't quite sure if the silver liquid is shining or glowing, but it's definitely crawling up the sides of the container in a rhythmic pattern of some kind."
 An astronaut can be zonked.
 Instead of quizzing the chemist about a mysterious silver liquid:
@@ -2363,6 +2363,32 @@ Instead of drinking a mysterious silver liquid:
 Instead of quizzing a zonked astronaut about anything (this is the zonked astronaut rule):
 	say "[The noun] just stares at you.  [Their] eyes seem to indicate that [they] understands you, but you don't get a reply."
 The zonked astronaut rule is listed first in the instead rulebook.
+
+
+
+The mysterious silver coffee is a drink.  A mysterious silver liquid is a drug.
+The description of the mysterious silver coffee is "It looks like a vaguely shimmery latte, and smells like licorice.  Every so often, you notice a silver bubble float down from the edge of your vision toward the coffee, then settle on the surface and slowly collapse into the drink."
+Instead of inserting the coffee into a mysterious silver liquid:
+	now the mysterious silver coffee is in the holder of a mysterious silver liquid;
+	report new latte art.
+Instead of inserting a mysterious silver liquid into the holder of the coffee (this is the mystery coffee rule):
+	now the mysterious silver coffee is in the holder of the coffee;
+	report new latte art.
+[The mystery coffee rule is listed first in the instead rulebook.]
+To report new latte art:
+	now the coffee is nowhere;
+	now a mysterious silver liquid is nowhere;
+	say "The mysterious silver liquid mixes languidly into the coffee, occasionally running in reverse, but ultimately forming a consistent silvery-brown color."
+Instead of quizzing the chemist about the mysterious silver coffee:
+	say "'Whoa, is that soy milk?  ...  Is it [italic type]singing?[roman type]'".
+Carry out giving a container which contains the mysterious silver coffee to an astronaut:
+	say "[regarding the second noun][They] sip the coffee slowly, iquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately.";
+	now the second noun is zonked.
+Instead of drinking the mysterious silver coffee:
+	say "...";
+	pause;
+	add page effect "alien-paper" for 3 turns with message "(... What [italic type]was[roman type] that?)";
+	now the noun is nowhere.  [There's only one.]
 
 
 
@@ -2384,17 +2410,13 @@ To decide if the astronauts are prepared:
 
 
 A vial is a kind of liquid-safe container.
-The description of a vial is "It's a small glass vial[if the noun contains nothing]which appears to be empty.[otherwise].[end if]".
+The description of a vial is "It's a small glass vial[if the noun contains nothing] which appears to be empty.[otherwise].[end if]".
 Rule for printing the name of a vial (called the flask) while not inserting or removing or examining:
 	if the flask contains nothing:
 		say "empty vial";
 	otherwise:
 		say "vial of [list of objects contained by the flask]";
 	omit contents in listing.
-
-
-
-[TODO: mysterious silver coffee?]
 
 
 

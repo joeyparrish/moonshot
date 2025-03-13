@@ -38,6 +38,9 @@ Instead of drinking a drink (called the potion):
 	otherwise:
 		say "You have a drink.";
 
+Instead of giving a drink (called the potion) to a person (called the recipient):
+	try giving the holder of the potion to the recipient.
+
 [If you try to "take" a drink, rather than its container...]
 Instead of taking a drink (called the potion):
 	try taking the holder of the potion instead.
@@ -151,7 +154,10 @@ Check mixing a thing (called the potion):
 		stop the action.
 
 Carry out mixing a thing (called the potion):
-	say "You swirl [the potion] around in [the holder of the potion], but nothing happens."
+	if the holder of the potion is the player:
+		say "You swirl [the potion] around, but nothing happens.";
+	otherwise:
+		say "You swirl [the potion] around in [the holder of the potion], but nothing happens."
 
 Check mixing a thing (called the potion) into something (called the destination):
 	if the potion is not a drink and the potion is not a container:
