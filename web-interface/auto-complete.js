@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function onInput() {
     const input = inputField.value;
 
-    if (/^ask (.*)\babout +$/.exec(input)) {
+    if (/^ *ask (.*)\babout +$/.exec(input)) {
       showAutoComplete(knownTopics.values(), /* endOfCommand= */ true);
     } else {
       hideAutoComplete();
