@@ -30,6 +30,7 @@ release: clean
 		jkmatila/inform7-docker@$(TAG) \
 		/bin/sh -c 'i7 -r /tmp/MoonShot.inform && $(CLEANUP_AFTER_DOCKER)'
 	cp -a web-interface/* MoonShot.materials/Release/
+	cp MoonShot.materials/*.* MoonShot.materials/Release/
 	rm -f MoonShot.materials/Release/interpreter/vorple.min.js.map
 	cat MoonShot.materials/Release/index.html.template | sed \
 		-e 's/\[TITLE\]/MoonShot/g' \
@@ -48,4 +49,5 @@ debug: clean
 		jkmatila/inform7-docker@$(TAG) \
 		/bin/sh -c 'i7 -c /tmp/MoonShot.inform && $(CLEANUP_AFTER_DOCKER)'
 	cp -a web-interface/* MoonShot.materials/Release/
-	mv MoonShot.materials/Release/index.html{.template,}
+	cp MoonShot.materials/*.* MoonShot.materials/Release/
+	mv MoonShot.materials/Release/index.html.template MoonShot.materials/Release/index.html
