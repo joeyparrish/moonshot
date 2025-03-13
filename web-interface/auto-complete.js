@@ -23,20 +23,8 @@ resetTopics();
 
 // The "vorple" global doesn't exist until DOMContentLoaded.
 document.addEventListener('DOMContentLoaded', () => {
-  // These are the auto-complete interface elements.
-  const select = document.createElement('select');
-  const autoComplete = document.createElement('span');
-  autoComplete.id = 'auto-complete';
-  autoComplete.appendChild(document.createTextNode('... '));
-  autoComplete.appendChild(select);
-  document.body.appendChild(autoComplete);
-
-  // This extra span at the end allows you to tab out without leaving the page.
-  // JS code from Vorple will bring focus back to the input field after that.
-  const extraSpan = document.createElement('span');
-  extraSpan.tabIndex = 0;
-  document.body.appendChild(extraSpan);
-
+  let select;
+  let autoComplete;
   let inputField = null;
   let inputForm = null;
   let promptOffset = 0;
@@ -91,30 +79,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Without this handler, the input field steals keystrokes from
-  // auto-complete, and we can't use enter or space to open the select element.
-  // We want to keep keyboard navigation and accessibility.  This also lets us
-  // get the enter key when someone chooses from an open select element with
-  // the keyboard.
-  select.addEventListener('keydown', processSelectChange);
-
-  // Without this handler, you can't tab in, arrow to something, then tab out.
-  // This is also the handler that fires for most scenarios in Chrome, but not
-  // Linux Tauri.
-  select.addEventListener('blur', processSelectChange);
-
-  // Without this handler, choosing something with the keyboard doesn't work in
-  // Linux Tauri.
-  select.addEventListener('keyup', processSelectChange);
-
-  // Without this handler, the select element doesn't stay open when you click
-  // it.  That's because Vorple has a click handler on document that sends
-  // focus immediately to the input element.  Our stopPropagation fixes that.
-  // This is also needed to process changes when you select something purely
-  // with the mouse.
-  select.addEventListener('click', processSelectChange);
-
   function initializeAutoComplete() {
+    // These are the auto-complete interface elements.
+    select = document.createElement('select');
+    autoComplete = document.createElement('span');
+    autoComplete.id = 'auto-complete';
+    autoComplete.appendChild(document.createTextNode('... '));
+    autoComplete.appendChild(select);
+    document.body.appendChild(autoComplete);
+
+    // This extra span at the end allows you to tab out without leaving the page.
+    // JS code from Vorple will bring focus back to the input field after that.
+    const extraSpan = document.createElement('span');
+    extraSpan.tabIndex = 0;
+    document.body.appendChild(extraSpan);
+
+    // Without this handler, the input field steals keystrokes from
+    // auto-complete, and we can't use enter or space to open the select element.
+    // We want to keep keyboard navigation and accessibility.  This also lets us
+    // get the enter key when someone chooses from an open select element with
+    // the keyboard.
+    select.addEventListener('keydown', processSelectChange);
+
+    // Without this handler, you can't tab in, arrow to something, then tab out.
+    // This is also the handler that fires for most scenarios in Chrome, but not
+    // Linux Tauri.
+    select.addEventListener('blur', processSelectChange);
+
+    // Without this handler, choosing something with the keyboard doesn't work in
+    // Linux Tauri.
+    select.addEventListener('keyup', processSelectChange);
+
+    // Without this handler, the select element doesn't stay open when you click
+    // it.  That's because Vorple has a click handler on document that sends
+    // focus immediately to the input element.  Our stopPropagation fixes that.
+    // This is also needed to process changes when you select something purely
+    // with the mouse.
+    select.addEventListener('click', processSelectChange);
+
     // Set our preferred prefix, with a little extra space.
     vorple.prompt.setPrefix('>&nbsp;', /* isHtmlSafe= */ true);
 
