@@ -19,7 +19,7 @@ INTERMEDIATE_FILES := \
 	MoonShot.inform/gameinfo.dbg
 
 # This Docker image leaves files owned by root, as well as some garbage.
-CLEANUP_AFTER_DOCKER := rm -f Inftemp*.tmp && chown -R $(UID) MoonShot.materials/Release $(INTERMEDIATE_FILES)
+CLEANUP_AFTER_DOCKER := rm -f Inftemp*.tmp && chown -R $(UID) MoonShot.materials/Release $(INTERMEDIATE_FILES) 2>/dev/null
 
 # Wipe out the output.
 clean:
@@ -30,14 +30,14 @@ i7-release:
 	docker run --rm \
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
-		/bin/sh -c 'i7 -r /tmp/MoonShot.inform && $(CLEANUP_AFTER_DOCKER)'
+		/bin/sh -c 'i7 -r /tmp/MoonShot.inform; rv=$$?; $(CLEANUP_AFTER_DOCKER); exit "$$rv"'
 
 # Create a debug build, which supports "test" commands.
 i7-debug:
 	docker run --rm \
 		--mount type=bind,source="$(SOURCE_DIR)",target=/tmp \
 		jkmatila/inform7-docker@$(TAG) \
-		/bin/sh -c 'i7 -c /tmp/MoonShot.inform && $(CLEANUP_AFTER_DOCKER)'
+		/bin/sh -c 'i7 -c /tmp/MoonShot.inform; rv=$$?; $(CLEANUP_AFTER_DOCKER); exit "$$rv"'
 
 web-interface:
 	cp -a web-interface/* MoonShot.materials/Release/
@@ -57,4 +57,4 @@ release: clean i7-release web-interface
 	rm -f MoonShot.materials/Release/interpreter/vorple.min.js.map
 
 debug: clean i7-debug web-interface
-	true
+	@true
