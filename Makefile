@@ -44,6 +44,7 @@ web-interface:
 	cp MoonShot.materials/*.* MoonShot.materials/Release/
 	cat MoonShot.materials/Release/index.html.template | sed \
 		-e 's/\[TITLE\]/MoonShot/g' \
+		-e 's/\[TITLE_FILENAME\]/MoonShot/g' \
 		-e 's/\[AUTHOR\]/Joey \&amp; Charity Parrish/g' \
 		-e 's/\[RELEASE\]/9/g' \
 		-e 's/\[GA_KEY\]/G-K4EXJ8VT8V/g' \
