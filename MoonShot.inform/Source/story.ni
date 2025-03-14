@@ -116,12 +116,9 @@ To pause:
 		execute JavaScript code "pauseGame()";
 		[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
 		wait for any key;
-		[If I don't do this twice, it behaves poorly in Tauri on Linux and skips some.  Not sure why.]
-		wait for any key;
 	otherwise:
 		say "[paragraph break]Please press SPACE to continue[line break]";
 		wait for the SPACE key;
-	say line break;
 
 [One play tester kept using "exa" instead of "x" or "examine" because that alias works in some common MUD games.  Support it here.]
 Understand "exa [thing]" as examining.
@@ -290,7 +287,7 @@ When day one begins:
 		center "to postpone...'";
 		center "[line break]";
 		center "-- U.S. President John Fitzgerald Kennedy";
-	say line break;
+	say paragraph break;
 	pause;
 	if Vorple is supported:
 		execute JavaScript code "logEvent('day1')";
