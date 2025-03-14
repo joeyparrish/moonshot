@@ -1,5 +1,8 @@
 // These are exposed to the window for the game to call into.
 const knownTopics = new Map();
+let knownObjects = [];
+let knownInventory = [];
+let knownPeople = [];
 
 const DEFAULT_TOPICS = [''];
 
@@ -19,7 +22,34 @@ function addTopic(topic) {
   }
 }
 
+function resetObjects() {
+  knownObjects = [''];
+}
+
+function addObject(object) {
+  knownObjects.push(object);
+}
+
+function resetInventory() {
+  knownInventory = [''];
+}
+
+function addInventory(object) {
+  knownInventory.push(object);
+}
+
+function resetPeople() {
+  knownPeople = [''];
+}
+
+function addPerson(person) {
+  knownPeople.push(person);
+}
+
 resetTopics();
+resetObjects();
+resetInventory();
+resetPeople();
 
 // The "vorple" global doesn't exist until DOMContentLoaded.
 document.addEventListener('DOMContentLoaded', () => {
@@ -157,6 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (/^ *ask (.*)\babout +$/.exec(input)) {
       showAutoComplete(knownTopics.values(), /* endOfCommand= */ true);
+    } else if (/^ *(x|exa|examine|take|open|drink|eat) +$/.exec(input)) {
+      showAutoComplete(knownObjects.values(), /* endOfCommand= */ true);
+    } else if (/^ *(give|drop) +$/.exec(input)) {
+      showAutoComplete(knownInventory.values(), /* endOfCommand= */ true);
+    } else if (/^ *(ask|wake) +$/.exec(input)) {
+      showAutoComplete(knownPeople.values(), /* endOfCommand= */ false);
     } else {
       hideAutoComplete();
     }

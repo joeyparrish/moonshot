@@ -136,7 +136,7 @@ The detect interpreter's Vorple support rule is listed before the start in the c
 
 [General]
 
-The weather is a concept.  The weather is everywhere.
+The weather is a concept.  The weather is everywhere.  The weather is physical.
 [We can talk about it or ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
 
@@ -324,7 +324,7 @@ The secretary's desk is an enterable supporter.  [You can put things on it or si
 The orange chair is a chair in the director's waiting room.
 The description of the orange chair is "A simple office chair, with classy orange upholstery.  Not too comfy, though."
 
-The potted houseplant is in the waiting room.  "It's some kind of... ivy?  Maybe?"
+The potted houseplant is in the waiting room.  The description of the potted houseplant is "It's some kind of... ivy?  Maybe?"
 Understand "plant" and "pot" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
 
@@ -2592,6 +2592,31 @@ After reading a command:
 		reject the player's command.
 
 
+To decide what list of things is the available objects:
+	let L be a list of things;
+	repeat with item running through things:
+		if item is yourself:
+			do nothing;
+		otherwise if item is a visible physical concept:
+			add item to L;
+		otherwise if item is visible and item is not a concept:
+			if the description of item is not "":
+				add item to L;
+	decide on L.
+
+Before reading a command:
+	if Vorple is supported:
+		execute JavaScript code "resetObjects()";
+		repeat with item running through the available objects:
+			execute JavaScript code "addObject('[item]')";
+		execute JavaScript code "resetInventory()";
+		repeat with item running through things carried by the player:
+			execute JavaScript code "addInventory('[item]')";
+		execute JavaScript code "resetPeople()";
+		repeat with person running through people in the location:
+			if person is not yourself:
+				execute JavaScript code "addPerson('[person]')";
+
 
 
 Section 2 - WIP testing mode - Not for release
@@ -2604,6 +2629,21 @@ Teleporting it to is an action out of world applying to two things.  Understand 
 Check teleporting it to:
 	say "Thanks to testing mode, you teleport [the noun] to [the second noun].  With great power comes great responsibility!";
 	now the noun is in the second noun;
+
+
+Showing stuff is an action applying to nothing.
+Understand "stuff" as showing stuff.
+Carry out showing stuff:
+	say "Stuff:[line break]";
+	if Vorple is supported:
+		open HTML tag "ul";
+		repeat with item running through the available objects:
+			place "li" element reading "[item]";
+		close HTML tag;
+	otherwise:
+		repeat with item running through the available objects:
+			say " * [item][line break]";
+	say "End of stuff."
 
 
 
