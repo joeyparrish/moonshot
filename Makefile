@@ -4,7 +4,7 @@
 # Default build rule, which builds a release version
 all: release
 
-.PHONY: all clean i7-release i7-debug web-interface release debug
+.PHONY: all clean i7-release i7-debug web-interface release debug serve
 
 SOURCE_DIR := $(abspath $(shell dirname "$(MAKEFILE_LIST)"))
 TAG := sha256:30ca124ab768d12edc90c8d6f0267607e95cf1b8e7b56eecf491125110d21eb9
@@ -58,3 +58,6 @@ release: clean i7-release web-interface
 
 debug: clean i7-debug web-interface
 	@true
+
+serve:
+	cd MoonShot.materials/Release/; python3 -m http.server
