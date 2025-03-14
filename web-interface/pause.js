@@ -18,6 +18,8 @@ function pauseGame() {
   vorple.layout.block();
   // Hide the prompt.
   vorple.prompt.hide();
+  // Hide the buttons, which are partially covered by the "uiblock" element.
+  hidePopupButtons();
 
   // Wait for a click or keypress on the window, just once, and in capture
   // phase so it isn't stolen by some other element.
@@ -28,18 +30,18 @@ function pauseGame() {
       return;
     }
 
-    unpauseGame();
+    // Defer unpausing, to make sure this event is dead before the interpreter
+    // moves again.  This allows us to pause immediately after unpausing if we
+    // have a series of screens we want to pause on.
+    setTimeout(() => unpauseGame(), 100);
 
     // Either event is enough to cancel listening for the other.
     // Because of this, we don't use "once" in the listener setup.
-    window.removeEventListener('click', listener);
-    window.removeEventListener('keydown', listener);
+    window.removeEventListener('click', listener, {capture: true});
+    window.removeEventListener('keydown', listener, {capture: true});
   };
   window.addEventListener('click', listener,
-      {capture: true, passive: true, once: true});
+      {capture: true, passive: true});
   window.addEventListener('keydown', listener,
-      {capture: true, passive: true, once: true});
-
-  // Hide the buttons, which are partially hidden by the "uiblock" element.
-  hidePopupButtons();
+      {capture: true, passive: true});
 }
