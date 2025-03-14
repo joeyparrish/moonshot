@@ -25,7 +25,7 @@ Quizzing generally is an action applying to one thing.  Understand "ask about [a
 Quizzing non-nouns is an action applying to one topic.  Understand "ask about [text]" as quizzing non-nouns.
 
 [This is how we handle "ask about [text that isn't a noun]" by chaining to the default rules for unknown objects.  We convert it to a dummy noun.]
-whatsit is a backdrop.  whatsit is everywhere.
+whatsit is a concept.  whatsit is everywhere.
 Check quizzing non-nouns:
 	let occupants be the people to talk to;
 	if the number of entries in occupants is 0:
