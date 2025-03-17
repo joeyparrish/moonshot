@@ -503,6 +503,8 @@ The printed name of checklist-1 is "Apollo 11 checklist".
 The description of checklist-1 is "The checklist is [if checklist-1 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
 Understand "Apollo 11 checklist" as checklist-1.
+Understand "checklist" as checklist-1.
+Checklist-1 is privately-named.  [Only aliases can be used.]
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
 
@@ -567,7 +569,7 @@ Instead of going from the director's office during day one:
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-1:
 	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
-	if the player is in the director's office:
+	if the player is in the director's office and the player does not have checklist-1:
 		if checklist-1 is ready:
 			say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'";
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
@@ -1666,15 +1668,15 @@ The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
 Understand "Operation Glitter checklist" as checklist-2.
+Understand "checklist" as checklist-2.
+Checklist-2 is privately-named.  [Only aliases can be used.]
 
-[HACK: "checklist" is a type, so it could refer to any object of that type.  Sadly, when "asking about", because we are allowed to talk about things in other places, we get a disambiguation prompt for "ask about checklist", even before day two.  This causes a spoiler about Operation Glitter.  I have not managed to fix it with "understand" rules, or "reaching" rules, or anything else, because Inform is frustratingly opaque and has a syntax which is far too expansive for good solutions to be discoverable.  So this hack edits a user's commands to replace "checklist" with a scene-specific individual checklist.]
-After reading a command:
-	let T be "[the player's command]";
-	if day one is happening:
-		replace the regular expression "\b(?:check)?list\b" in T with "Apollo 11 checklist";
-	otherwise:
-		replace the regular expression "\b(?:check)?list\b" in T with "Operation Glitter checklist";
-	change the text of the player's command to T.
+[HACK: "checklist" is a type, so it could refer to any object of that type.  Sadly, when "asking about", because we are allowed to talk about things in other places, we get a disambiguation prompt for "ask about checklist", even before day two.  This causes a spoiler about Operation Glitter.  These "does the player mean" rules help to disambiguate the checklists based on the scene.]
+Does the player mean doing something with checklist-1 when day one is happening:
+	it is very likely.
+Does the player mean doing something with checklist-2 when day two is happening:
+	it is very likely.
+
 
 
 [Keep the player from leaving without the checklist.]
@@ -1689,7 +1691,7 @@ Instead of going from the director's office during day two:
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-2:
 	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
-	if the player is in the director's office:
+	if the player is in the director's office and the player does not have checklist-2:
 		if checklist-2 is ready:
 			say "[The director] looks relieved and says, 'Now, you did good work for us yesterday.  Keep it up, and Nixon might let us all see our families again.  Heh heh.'  His chuckle is not at all comforting.";
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
