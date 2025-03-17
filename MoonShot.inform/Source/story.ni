@@ -535,6 +535,9 @@ Instead of quizzing the director about checklist-1:
 Instead of quizzing the director about crew:
 	say "[The director] beams proudly.  'Fine folks, those astronauts.  Finest, best, most American astronauts that America ever produced.'  His brow furrows for a moment before adding, [if day one is happening]'Well, most of [']em.  Anyway, you can get all the particulars down in personnel.'[otherwise]'Well, most of [']em.  I shouldn't get into it.'[end if][line break]".
 
+Instead of quizzing the director about command module:
+	try quizzing the director about blueprints.
+
 Instead of quizzing the director about blueprints:
 	say "[The director] starts shaking his head before you even finish asking.  'No, no, not my department.  Go down to engineering, talk to that what's-his-name.  The one who's too cool for school.'";
 
