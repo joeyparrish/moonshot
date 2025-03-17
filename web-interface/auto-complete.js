@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let inputForm = null;
   let promptOffset = 0;
   let endCommandAfterAutoComplete = false;
+  let continuationAfterAutoComplete = '';
 
   // Select elements have a "change" event, but this fires when using up/down
   // arrows to flip through items without "choosing" one.  Instead, we use a
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => vorple.prompt.submit(fullCommand), 0);
       } else {
         // Add this value to the input field only.
-        inputField.value += select.value;
+        inputField.value += select.value + continuationAfterAutoComplete;
       }
       hideAutoComplete();
 
@@ -106,6 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Make sure multiple "select change" events don't cause duplicate items
       // to be sent to the input.
       select.value = '';
+
+      // This suggestion may trigger another, so check again.
+      onInput();
     }
   }
 
@@ -191,7 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
       showAutoComplete(knownObjects.values(), /* endOfCommand= */ true);
     } else if (/^ *(give|drop) +$/.exec(input)) {
       showAutoComplete(knownInventory.values(), /* endOfCommand= */ true);
-    } else if (/^ *(ask|wake) +$/.exec(input)) {
+    } else if (/^ *ask +$/.exec(input)) {
+      showAutoComplete(knownPeople.values(), /* endOfCommand= */ false, ' about ');
+    } else if (/^ *wake +$/.exec(input)) {
       showAutoComplete(knownPeople.values(), /* endOfCommand= */ false);
     } else {
       hideAutoComplete();
@@ -201,8 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // a command.
   vorple.addEventListener('expectCommand', onInput);
 
-  function showAutoComplete(options, endOfCommand) {
+  function showAutoComplete(options, endOfCommand, continuation = '') {
     endCommandAfterAutoComplete = endOfCommand;
+    continuationAfterAutoComplete = continuation;
 
     // Where the caret is within the input field:
     const caret = getCaretCoordinates(inputField, inputField.value.length);
