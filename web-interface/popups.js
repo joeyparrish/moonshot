@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setEasyMode(easyMode) {
     localStorage.setItem(EASY_MODE_KEY, easyMode);
-    document.body.classList.toggle('difficulty-easy', easyMode);
+    document.body.dataset.difficulty = easyMode ? 'easy' : 'medium';
     easyModeToggle.checked = easyMode;
   }
 

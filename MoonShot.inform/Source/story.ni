@@ -2294,12 +2294,11 @@ Check giving a thing to someone:
 
 
 Remove-page-effect is an event.
-Carry out triggering remove-page-effect:
-	[By default, the page class is just "play".  Remove all possible page effects by setting the class name back to "play".]
-	execute JavaScript code "document.body.className = 'play'";
 To add page effect (X - text) for (N - a number) turns with message (Z - text):
-	execute JavaScript code "document.body.classList.add('[X]')";
+	execute JavaScript code "document.body.dataset.effect = '[X]'";
 	activate remove-page-effect in N turns with message Z.
+Carry out triggering remove-page-effect:
+	execute JavaScript code "document.body.dataset.effect = ''";
 
 
 

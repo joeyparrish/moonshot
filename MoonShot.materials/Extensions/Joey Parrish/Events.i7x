@@ -4,17 +4,17 @@ An event is a kind of object.
 An event has a number called the countdown.
 An event has text called the message.
 An event can be pending.  A event is usually not pending.
-An event has a number called the count.  The count of a event is usually 0.
+An event has a number called the count.  The count of an event is usually 0.
 
-To activate (X - a event) in (Y - a number) turns:
+To activate (X - an event) in (Y - a number) turns:
 	activate X in Y turns with message "".
 
-To activate (X - a event) in (Y - a number) turns with message (Z - text):
+To activate (X - an event) in (Y - a number) turns with message (Z - text):
 	now the countdown of X is Y;
 	now the message of X is Z;
 	now X is pending.
 
-To deactivate (X - a event):
+To deactivate (X - an event):
 	now the message of X is "";
 	now X is not pending.
 
