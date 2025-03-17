@@ -204,10 +204,15 @@ Instead of saying sorry to a person:
 After examining a person (called Bob):
 	let stuff be the list of things carried by Bob;
 	repeat with X running through stuff:
-		if X is worn by Bob, remove X from stuff;
-		if X is not interesting, remove X from stuff;
+		if X is worn by Bob:
+			now X is not marked for listing;
+			remove X from stuff;
+		otherwise:
+			now X is marked for listing;
 	if stuff is not empty:
-		say "[The Bob] is carrying [stuff].";
+		say "[The Bob] is carrying ";
+		list the contents of Bob, as a sentence, including contents, giving brief inventory information, tersely, not listing concealed items, listing marked items only;
+		say "."
 
 [By default, we don't seem to get a description of what rooms are adjacent to the current room, and in what direction.  This is something I'm used to seeing in IF, and I'd like to avoid writing it explicitly in every room.  Including the "Exit Lister" extension solves that.  But it needs a little configuration for this game.  We want to always tell the user what the names of nearby rooms are, even if we have not yet been to them.  For this, we use:]
 A room memory rule:
@@ -671,7 +676,7 @@ In the engineering department is a stranger called the engineer.  The real name 
 The engineer is carrying the blueprints.  The description of the blueprints is "The blueprints, which are distinctly white, say '[bold type]Apollo 11 Command Module[roman type]' on the top.  [if the player has the blueprints]They are looking a little worse for wear, to say the least.[otherwise]The drawing of the command module is surprisingly lifelike.  You've never seen a more beautiful rendering of a truncated cone."
 
 The blueprints can be discussed.  [Only when you've asked about them can you take them.]
-The blueprints are critical.  [You can't drop them.]
+The blueprints are interesting and critical.  [You can't drop them.]
 The blueprints are plural-named.  [Don't call them "a blueprints".]
 Understand "drawing", "drawings", "command module drawing", "command module drawings", and "command module drawings formerly known as blueprints" as blueprints.
 
@@ -904,7 +909,9 @@ Carry out triggering equations-hint:
 
 The cage is scenery in the propulsion lab.
 The cage is an openable, transparent, lockable, locked container in the propulsion lab.
-The brass key unlocks the cage.  The head scientist carries the brass key.
+The head scientist carries a brass key.
+The brass key unlocks the cage.
+The brass key is critical.
 The brass key can be noticed or unnoticed.  When day one begins, now the brass key is unnoticed.
 The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting]The [tapir-aardvark][/interesting] inside looks distressed.[end if]".
 
@@ -923,6 +930,7 @@ To say tapir-aardvark:
 		say "tapir".
 
 After examining the head scientist:
+	now the brass key is interesting;
 	now the brass key is noticed;
 	make "key" known;
 	continue the action.
@@ -949,7 +957,6 @@ Instead of taking the brass key:
 		increase the steal-attempts of the brass key by 1;
 		now the head scientist is enraged;
 		now the player is in the hallway.
-
 After opening the cage while the tapir is in the cage:
 	if the tapir is not revealed:
 		if a random chance of 1 in 10 succeeds:
@@ -2691,6 +2698,8 @@ Test coffee with "test start1 / e / e / x coffee pot / take pot / i / take coffe
 Test plaque with "test start1 / e / x plaque".
 
 Test equations with "test start1 / e / n / ask dr about name / ask dr about work / ask dr about equations / ask dr about rocket equations / ask dr about rockets / x board / take chalkboard / s / n / e / w / n / ask dr them about him / talk to him / l / x them / x checklist".
+
+Test dr with "test start1 / e / n / x dr / l".
 
 Test key with "test start1 / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
 
