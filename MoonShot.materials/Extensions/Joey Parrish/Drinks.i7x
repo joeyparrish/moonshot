@@ -47,7 +47,8 @@ Instead of taking a drink (called the potion):
 
 Instead of dropping a thing (called the flask) containing a drink (called the potion):
 	try dropping the potion;
-	now the flask is in the location.
+	[Important: Just moving the flask means we never run any "after" rules for it.  Instead we drop the (now empty) flask, and silently to avoid the "dropped" message running after the "dropping a drink" message below.]
+	silently try dropping the flask.
 
 Instead of dropping a drink (called the potion):
 	say "[The potion] spills everywhere[if the potion is staining], staining the floors terribly[end if].";

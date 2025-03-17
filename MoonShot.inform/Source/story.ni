@@ -704,7 +704,18 @@ After examining the name-badge, make the engineer known.
 
 Rule for writing a paragraph about the engineer:
 	if the engineer is unknown, say "[interesting]An engineer[/interesting] is standing around[if the coffee-pot is in the location] by the [interesting]coffee pot[/interesting][end if], [if the engineer is sad]crying.[otherwise]doing nothing.";
-	otherwise say "[interesting]Rick[/interesting] is still here, still [if the engineer is sad]crying.[otherwise]doing nothing.";
+	otherwise say "[interesting]Rick[/interesting] is still here[if the coffee-pot is in the location] by [interesting]the coffee pot[/interesting][end if], still [if the engineer is sad]crying.[otherwise]doing nothing.";
+
+[Make sure the coffee pot doesn't show up in the room listing, as well as in the engineer paragraph.]
+The coffee-pot is undescribed.
+After taking the coffee-pot:
+	now the coffee-pot is described;
+	continue the action.
+
+After dropping the coffee-pot:
+	if the location is the engineering department:
+		now the coffee-pot is undescribed;  [It goes back to being described in the room, so don't duplicate it in the room's contents.]
+		continue the action.
 
 Instead of talking to the engineer:
 	say "Perhaps you could ask [the noun] about the weather, the command module blueprints, or himself."
