@@ -20,12 +20,12 @@ To say /interesting:
 	if Vorple is supported:
 		say end style;
 
-A thing can be uninteresting.  Things are usually not uninteresting.
+A thing can be interesting or uninteresting.  Things are usually uninteresting.
 Before printing the name of a thing (called the thingy):
-	if the thingy is not uninteresting:
+	if the thingy is interesting:
 		say interesting.
 After printing the name of a thing (called the thingy):
-	if the thingy is not uninteresting:
+	if the thingy is interesting:
 		say /interesting.
 
 Showing options is an action out of world applying to nothing.  Understand "options" and "settings" as showing options.
