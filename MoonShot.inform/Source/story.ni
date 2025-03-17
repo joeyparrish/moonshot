@@ -2640,6 +2640,10 @@ Check teleporting it to:
 	say "Thanks to testing mode, you teleport [the noun] to [the second noun].  With great power comes great responsibility!";
 	now the noun is in the second noun;
 
+Report teleporting to:
+	deactivate secretary-warns;
+	deactivate director-yells-1;
+	deactivate director-yells-2.
 
 Showing stuff is an action applying to nothing.
 Understand "stuff" as showing stuff.
