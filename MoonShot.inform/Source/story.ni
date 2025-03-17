@@ -23,32 +23,22 @@ please do so before you read the source code, to avoid spoilers.
 [Configuration]
 Include the Standard Rules by Graham Nelson.
 Include Locksmith by Emily Short.
-Include Exit Lister by Gavin Lambert.
-Include Vorple Screen Effects by Juhana Leinonen.
-Include Vorple Hyperlinks by Juhana Leinonen.
+Include Chicken Noodle Soap Setup by Joey Parrish.
 Include Concepts by Joey Parrish.
+Include Critical Things by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
-Include Better Asking by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
-Include Help by Joey Parrish.
-Include Options by Joey Parrish.
 Include Events by Joey Parrish.
 
-
-Release along with the "Vorple" interpreter.
-[The text associated with the cover art is a description for the blind.]
-Use American dialect.
-Use serial comma.
-
+[FIXME: move to setup?]
+Include Help by Joey Parrish.
+Include Options by Joey Parrish.
 
 
 [Styling]
 blockquote is a Vorple style.
-room-heading is a Vorple style.
-room-name is a Vorple style.
-direction-name is a Vorple style.
 plaque-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
@@ -56,79 +46,7 @@ nameplate-card is a Vorple style.
 alien-paper is a Vorple style.
 script-page is a Vorple style.
 script-line is a Vorple style.
-continue is a Vorple style.
 
-This is the fancy room description heading rule:
-	say "[room-heading style][bold type][Location][roman type][end style]".
-The fancy room description heading rule substitutes for the room description heading rule.
-
-Rule for printing the name of a room (called the place):
-	say "[room-name style][printed name of place][end style]";
-
-Rule for printing the name of a direction (called whither):
-	say "[direction-name style][printed name of whither][end style]".
-
-The print obituary headline rule is not listed in any rulebook.
-To show ending (N - number) the (T - text) ending:
-	if Vorple is supported:
-		execute JavaScript code "logEvent('ending[N]')";
-	say paragraph break;
-	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
-	say ending-card style;
-	say "You have discovered ending #[N] of 9 (the [T] ending) after [turn count] turns!";
-	say end style;
-	end the story.
-
-Carry out taking inventory (this is the print inventory using HTML lists rule):
-	if Vorple is supported:
-		say "[We] [are] carrying:[line break]" (A);
-		open HTML tag "ul" called "inventory";
-		repeat with item running through things carried by the player:
-			place "li" element reading "[item]";
-			if the item contains something and the item is not opaque:
-				open HTML tag "ul";
-				repeat with content running through things contained by the item:
-					place "li" element reading "[content]";
-				close HTML tag;
-		close HTML tag;
-	otherwise:
-		follow the print standard inventory rule.
-
-The print inventory using HTML lists rule is listed instead of the print standard inventory rule in the carry out taking inventory rules.
-
-
-[Other tweaks]
-After reading a command:
-	let T be "[the player's command]";
-	replace the regular expression "(?i)mrs\." in T with "mrs";
-	replace the regular expression "(?i)mr\." in T with "mr";
-	replace the regular expression "(?i)ms\." in T with "ms";
-	replace the regular expression "(?i)dr\." in T with "dr";
-	change the text of the player's command to T.
-[This is so that things like "examine Mr. Furtwangler" are understood.
-Otherwise, the period ends the player's command command.
-"Punctuation Removal" by Emily Short doesn't seem to function in Vorple.]
-
-[I don't like how Emily Short's "pause the game" rule clears the screen after continuing. Here's my own definition built on some of hers.]
-To pause:
-	if Vorple is supported:
-		center "[continue style](click or tap to continue)[end style]";
-		execute JavaScript code "pauseGame()";
-		[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
-		wait for any key;
-	otherwise:
-		say "[paragraph break]Please press SPACE to continue[line break]";
-		wait for the SPACE key;
-
-[One play tester kept using "exa" instead of "x" or "examine" because that alias works in some common MUD games.  Support it here.]
-Understand "exa [thing]" as examining.
-
-
-[Disable the initial banner.  We show our own at the start of day 1.  Showing the banner early, before the prompt was set up created bugs in the pause functionality at the end of the banner.  Better to move it to day 1.]
-The display banner rule is not listed in the startup rulebook.
-
-[Start Vorple a little early.  This is important for our banner and other early setup to work correctly.]
-The detect interpreter's Vorple support rule is listed before the start in the correct scenes rule in the startup rulebook.
 
 
 [General]
@@ -136,24 +54,6 @@ The detect interpreter's Vorple support rule is listed before the start in the c
 The weather is a concept.  The weather is everywhere.  The weather is physical.
 [We can talk about it or ask about it in any room.  But if you try to look at it...]
 Instead of examining the weather, say "Hrm... why are there no windows in this building?"
-
-[You can ask anyone about their name.  It's only polite.]
-Name is a concept.
-Understand "her name", "his name", "their name", "your name", and "the name" as name.
-
-Name-asking-generally is an action applying to nothing.
-Name-asking is an action applying to one thing.
-Understand "ask her name", "ask his name", "ask name", and "ask for name" as name-asking-generally.
-Understand "ask [someone] name" as name-asking.
-Instead of name-asking-generally: try quizzing generally name.
-Instead of name-asking someone: try quizzing the noun about name.
-Instead of asking someone for name: try quizzing the noun about name.
-
-Understand "ask her name", "ask his name", and "ask for name" as name-asking.
-Instead of name-asking: try quizzing generally name.
-Instead of asking someone for name: try quizzing the noun about name.
-
-Understand "examine room" as looking.
 
 NASA is a concept.
 Understand "second a" and "second a in NASA" as NASA.
@@ -187,7 +87,6 @@ Understand "rocket equations" as rocket-equations.  [If I give the object its na
 Instead of quizzing someone (called the person) about (this is the default conversation rule):
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
 
-
 [By default, only "sorry" triggers this action.]
 Understand "say sorry", "apologize", "apologise", and "console" as saying sorry.
 [Some folks naturally want to apologize to the person specifically.]
@@ -214,22 +113,10 @@ After examining a person (called Bob):
 		list the contents of Bob, as a sentence, including contents, giving brief inventory information, tersely, not listing concealed items, listing marked items only;
 		say "."
 
-[By default, we don't seem to get a description of what rooms are adjacent to the current room, and in what direction.  This is something I'm used to seeing in IF, and I'd like to avoid writing it explicitly in every room.  Including the "Exit Lister" extension solves that.  But it needs a little configuration for this game.  We want to always tell the user what the names of nearby rooms are, even if we have not yet been to them.  For this, we use:]
-A room memory rule:
-	rule succeeds.
-
-Things can be critical.
-Before dropping something critical:
-	say "No, you're going to need that.";
-	stop the action.
-Before dropping something that contains something critical:
-	say "No, you're going to need that.";
-	stop the action.
-
 [This seems unlikely to come up in practice, but now that we are creating "enterable" game objects such as chairs, I thought I'd throw this in.  You can get this by the phrases "enter" or "sit on".]
 Instead of entering a person:
 	say "[The noun] looks shocked that you should even try it!  [bold type][italic type]'SECURITY!'[roman type]  NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for sexual harassment in 1969, in spite of the term not being coined until 1975.  But then, you always [italic type]did[roman type] consider yourself ahead of your time.";
-	show ending 2 the "harassment" ending.
+	show ending 2 of 9 aka the "harassment" ending.
 
 [As if the above wasn't risque enough...]
 Instead of entering yourself:
@@ -251,11 +138,6 @@ Carry out waking:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep;
 
-[Sometimes, we have a piece of scenery that is technically portable, but that we don't want the player to take.  The default for taking scenery is "that's hardly portable", but sometimes, that isn't true.  So this type prints a different message.]
-Portable-scenery is a kind of thing.
-Portable-scenery is scenery.
-Instead of taking portable-scenery:
-	say "It's probably best if you leave that alone."
 
 [Clothing that is repeated among multiple characters must be a "kind" first.]
 A tie is a kind of wearable thing.
@@ -265,9 +147,6 @@ A lab coat is a kind of wearable thing.
 [We'd like to add a door as scenery, in case the player wants to examine the door.  However, "door" is a built-in kind in Inform, so we give it a hyphenated name in the source.]
 The-door is a backdrop.  Understand "door" and "the door" as the-door.  The printed name of the-door is "the door".
 The-door is everywhere.  [Every room has a door, but they are not interesting.]
-
-Understand "upstairs" and "up stairs" as up.
-Understand "downstairs" and "down stairs" as down.
 
 
 
@@ -298,8 +177,7 @@ When day one begins:
 		center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	pause;
-	if Vorple is supported:
-		execute JavaScript code "logEvent('day1')";
+	log event "day1";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
 	say "You did it!  You finally landed an internship at NASA, the National Aeronautics and Space ... Association?  Agency?  Authority?  You're not really sure what the last A stands for, but it's only your first day.  You're pretty certain you'll figure it out soon enough.[paragraph break]";
@@ -342,7 +220,7 @@ Instead of dropping the houseplant while the player is in the waiting room:
 The houseplant is edible.
 Instead of eating the houseplant:
 	say "The houseplant tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, [if day one is happening]Apollo 11 fails miserably,[otherwise]Operation Glitter fails and is exposed,[end if] and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-	show ending 1 the "houseplant" ending.
+	show ending 1 of 9 aka the "houseplant" ending.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
 Understand "telephone" as the phone.
@@ -925,9 +803,16 @@ The description of the cage is "It's a wide cage made of thick metal bars, with 
 The locking mechanism is scenery in the propulsion lab.
 Understand "lock" as the locking mechanism.
 
-The welder is scenery in the propulsion lab.  "You try to watch them working, but you don't have one of those protective helmets, so you quickly think better of it."
+The welder is a person in the propulsion lab.  "You try to watch them working, but you don't have one of those protective helmets, so you quickly think better of it."
+Instead of talking to the welder:
+	say "They look busy."
+Instead of quizzing the welder about something:
+	say "They look busy."
 
 The waste is scenery in the propulsion lab.  "Eww."  Understand "animal waste" as the waste.
+Instead of taking waste:
+	say "Eww, eww, ewwww!!!";
+	stop the action.
 
 [This will say tapir or aardvark, but never Brizzleby.]
 To say tapir-aardvark:
@@ -968,7 +853,7 @@ After opening the cage while the tapir is in the cage:
 	if the tapir is not revealed:
 		if a random chance of 1 in 10 succeeds:
 			say "As soon as the cage door opens, the [tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
-			show ending 5 the "trampling" ending;
+			show ending 5 of 9 aka the "trampling" ending;
 		otherwise:
 			say "As soon as the cage door opens, the [tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
 			say "Noticing the commotion, [the head scientist] turns around and becomes apoplectic at what has happened.  '[bold type]MEIN ERDFERKEL!  What have you done?![roman type]'[line break]";
@@ -1172,7 +1057,7 @@ Instead of saying sorry to the head scientist while the head scientist is enrage
 		now the player is in the hallway;
 	otherwise:
 		say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-		show ending 3 the "shoe" ending;
+		show ending 3 of 9 aka the "shoe" ending;
 
 
 
@@ -1628,8 +1513,7 @@ Day two begins when day one ends.
 
 Director-yells-2 is an event.
 When day two begins:
-	if Vorple is supported:
-		execute JavaScript code "logEvent('day2')";
+	log event "day2";
 	say "[room-heading style]Intermission: End of day one[end style]";
 	say line break;
 	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
@@ -2000,7 +1884,7 @@ After eating a food:
 	increase the snack count by 1;
 	if the snack count is 10:
 		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
-		show ending 4 the "gluttony" ending;
+		show ending 4 of 9 aka the "gluttony" ending;
 	otherwise if the snack count is 3:
 		say "You eat [the noun].  You are starting to feel unwell.";
 	otherwise if the snack count >= 4:
@@ -2110,7 +1994,7 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 			otherwise:
 				say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
 			say "NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for gross craft-services negligence, and Operation Glitter fails miserably.  NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Not only have you failed your country, but you are banned by the International Alliance of Theatrical Stage Employees and you never work in Hollywood again.";
-			show ending 6 the "poisoning" ending;
+			show ending 6 of 9 aka the "poisoning" ending;
 		otherwise:
 			if the recipient is Ijon Tichy:
 				say "[The recipient] looks at [the snack] and shakes his head slowly.  You feel a little foolish.";
@@ -2562,8 +2446,7 @@ Day three is a scene.
 Day two ends when checklist-2 is held by the director.
 Day three begins when day two ends.
 When day three begins:
-	if Vorple is supported:
-		execute JavaScript code "logEvent('day3')";
+	log event "day3";
 	say "[room-heading style]Intermission: End of day two[end style]";
 	say line break;
 	say "You head home, exhausted from a long day at the most important administration (affiliation? alliance?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
@@ -2602,14 +2485,14 @@ Instead of going from the sound stage while day two has ended:
 		if the player has the Toblerone:
 			say "You realize that you still have the Toblerone in your pocket, so you throw it across the room, drawing the attention of the ravenous aardvark.  With one swift kick, the door comes off its frame and you flee as fast as your legs will carry you.[paragraph break]";
 			say "After escaping the building, you try to go to the police and the press, but no one will believe what you've seen.  You spend the rest of your life in hiding from the National Agency of Space Astronauts.";
-			show ending 9 the "super-secret" ending;
+			show ending 9 of 9 aka the "super-secret" ending;
 		otherwise:
 			say "Loose lips sink ships.";
-			show ending 8 the "aardvark" ending;
+			show ending 8 of 9 aka the "aardvark" ending;
 	otherwise:
 		say "You don't hear or see anything else, ever again.[paragraph break]";
 		say "Loose lips sink ships.";
-		show ending 7 the "basic" ending.
+		show ending 7 of 9 aka the "basic" ending.
 
 
 
@@ -2621,32 +2504,6 @@ After reading a command:
 	if the player's command includes "open the pod bay doors":
 		say "I'm sorry, Dave.  I'm afraid I can't do that.";
 		reject the player's command.
-
-
-To decide what list of things is the available objects:
-	let L be a list of things;
-	repeat with item running through things:
-		if item is yourself:
-			do nothing;
-		otherwise if item is a visible physical concept:
-			add item to L;
-		otherwise if item is visible and item is not a concept:
-			if the item is interesting or the description of item is not "":
-				add item to L;
-	decide on L.
-
-Before reading a command:
-	if Vorple is supported:
-		execute JavaScript code "resetObjects()";
-		repeat with item running through the available objects:
-			execute JavaScript code "addObject('[item]')";
-		execute JavaScript code "resetInventory()";
-		repeat with item running through things carried by the player:
-			execute JavaScript code "addInventory('[item]')";
-		execute JavaScript code "resetPeople()";
-		repeat with person running through people in the location:
-			if person is not yourself:
-				execute JavaScript code "addPerson('[person]')";
 
 
 
