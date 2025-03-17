@@ -214,8 +214,12 @@ A room memory rule:
 	rule succeeds.
 
 Things can be critical.
-Instead of dropping something critical:
-	say "No, you're going to need that."
+Before dropping something critical:
+	say "No, you're going to need that.";
+	stop the action.
+Before dropping something that contains something critical:
+	say "No, you're going to need that.";
+	stop the action.
 
 [This seems unlikely to come up in practice, but now that we are creating "enterable" game objects such as chairs, I thought I'd throw this in.  You can get this by the phrases "enter" or "sit on".]
 Instead of entering a person:
@@ -557,14 +561,16 @@ Instead of going from the director's office during day one:
 
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-1:
-	if checklist-1 is ready:
-		say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'";
-		show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
-		now the director is relaxed;
-		continue the action;
-	else:
-		say "'Not so fast!' says [the director].  'We need to talk first.'";
-		show hint "You can 'talk to director' for suggestions on topics.";
+	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
+	if the player is in the director's office:
+		if checklist-1 is ready:
+			say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'";
+			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
+			now the director is relaxed;
+			continue the action;
+		else:
+			say "'Not so fast!' says [the director].  'We need to talk first.'";
+			show hint "Try 'ask about' to talk to the director about various topics.";
 
 After examining checklist-1:
 	make "astronauts" known;
@@ -1670,14 +1676,16 @@ Instead of going from the director's office during day two:
 
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-2:
-	if checklist-2 is ready:
-		say "[The director] looks relieved and says, 'Now, you did good work for us yesterday.  Keep it up, and Nixon might let us all see our families again.  Heh heh.'  His chuckle is not at all comforting.";
-		show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
-		now the director is relaxed;
-		continue the action;
-	else:
-		say "'Not so fast!' says [the director].  'We need to talk first.'";
-		show hint "You can 'talk to director' for suggestions on topics.";
+	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
+	if the player is in the director's office:
+		if checklist-2 is ready:
+			say "[The director] looks relieved and says, 'Now, you did good work for us yesterday.  Keep it up, and Nixon might let us all see our families again.  Heh heh.'  His chuckle is not at all comforting.";
+			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
+			now the director is relaxed;
+			continue the action;
+		else:
+			say "'Not so fast!' says [the director].  'We need to talk first.'";
+			show hint "Try 'ask about' to talk to the director about various topics.";
 
 Glitter can be known.
 After examining checklist-2:
@@ -2679,7 +2687,7 @@ Test tasks with "test start1 / ask about blueprints / ask about equations / ask 
 
 Test blueprints with "test start1 / e / e / ask about blueprints / ask about whiteprints / x engineer / take blueprints / i / x checklist".
 
-Test coffee with "test start1 / e / e / x coffee pot / take pot / i / take coffee / i / put checklist in pot / i".
+Test coffee with "test start1 / e / e / x coffee pot / take pot / i / take coffee / i / put checklist in pot / i / drop pot".
 
 Test plaque with "test start1 / e / x plaque".
 
