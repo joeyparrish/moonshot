@@ -1,5 +1,7 @@
 Version 1 of Strangers by Joey Parrish begins here.
 
+Include Better Asking by Joey Parrish.
+
 A stranger is a kind of person.  A stranger can be known or unknown.  A stranger has some text called the real name.
 
 Rule for printing the name of a stranger (called Bob) while Bob is known:
@@ -12,6 +14,24 @@ Every turn:
 			now the printed name of Bob is "[real name of Bob]";
 			now Bob is proper-named.
 [This last rule eliminates articles before the person's name.]
+
+
+[You can ask anyone about their name.  It's only polite.]
+Name is a concept.
+Understand "her name", "his name", "their name", "your name", and "the name" as name.
+
+Name-asking-generally is an action applying to nothing.
+Name-asking is an action applying to one thing.
+Understand "ask her name", "ask his name", "ask name", and "ask for name" as name-asking-generally.
+Understand "ask [someone] name" as name-asking.
+Instead of name-asking-generally: try quizzing generally name.
+Instead of name-asking someone: try quizzing the noun about name.
+Instead of asking someone for name: try quizzing the noun about name.
+
+Understand "ask her name", "ask his name", and "ask for name" as name-asking.
+Instead of name-asking: try quizzing generally name.
+Instead of asking someone for name: try quizzing the noun about name.
+
 
 Strangers ends here.
 
