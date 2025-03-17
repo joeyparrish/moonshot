@@ -648,7 +648,7 @@ The diagrams are interesting scenery in the engineering department.
 Understand "diagram" as the diagrams.
 Instead of examining the diagrams:
 	if Vorple is supported:
-		place a link to web site "https://xkcd.com/730/" reading "You can't make any sense of it.";
+		place a link to web site "https://imgs.xkcd.com/comics/circuit_diagram.png" reading "You can't make any sense of them.";
 		say line break;
 	otherwise:
 		say "You can't make any sense of them."
