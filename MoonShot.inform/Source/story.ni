@@ -567,7 +567,7 @@ Instead of taking checklist-1:
 		show hint "You can 'talk to director' for suggestions on topics.";
 
 After examining checklist-1:
-	make crew known;
+	make "astronauts" known;
 	make rocket known;
 	make "rocket equations" known;
 	make command module known;
