@@ -470,8 +470,7 @@ Instead of examining the triangular nameplate:
 		center "Director";
 	make the director known;
 	if the player has the triangular nameplate:
-		if a random chance of 3 in 10 succeeds:
-			say "The nameplate rattles a bit as you turn it."
+		say "The nameplate rattles a bit as you turn it."
 
 Rule for printing the name of the triangular nameplate:
 	say "triangular nameplate";
