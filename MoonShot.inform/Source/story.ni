@@ -205,7 +205,7 @@ After examining a person (called Bob):
 	let stuff be the list of things carried by Bob;
 	repeat with X running through stuff:
 		if X is worn by Bob, remove X from stuff;
-		if X is uninteresting, remove X from stuff;
+		if X is not interesting, remove X from stuff;
 	if stuff is not empty:
 		say "[The Bob] is carrying [stuff].";
 
@@ -305,7 +305,7 @@ Before reading a command while the turn count is 1:
 
 
 
-The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her [interesting]desk[/interesting].  [if the houseplant is in the waiting room]There's a [interesting]houseplant[/interesting] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
+The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her desk.  [if the houseplant is in the waiting room]There's a [interesting]houseplant[/interesting] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
 The printed name of director's waiting room is "NASA Director's Waiting Room".
 
 The bubblegum is portable-scenery in the waiting room.  Understand "gum" as the bubblegum.
@@ -420,7 +420,7 @@ Instead of going inside while in the waiting room:
 
 
 
-The director's office is north of the waiting room.  "The director's office has a full wall of [interesting]windows[/interesting] overlooking the hangar.  [The director] is drumming his fingers on the [interesting]desk[/interesting] and humming 'California Dreamin' in double time.  He's wearing a baby-blue, collared, short-sleeved shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
+The director's office is north of the waiting room.  "The director's office has a full wall of windows overlooking the hangar.  [The director] is drumming his fingers on the desk and humming 'California Dreamin' in double time.  He's wearing a baby-blue, collared, short-sleeved shirt and about 8 oz of hair pomade.[if the triangular nameplate is on the director's desk]  On his desk is a small, triangular [interesting]nameplate[/interesting].[end if]".
 The printed name of the director's office is "NASA Director's Office".
 
 The director wears a baby-blue collared short-sleeved shirt, a tie, and pomade.
@@ -460,7 +460,7 @@ The tracks are scenery in the director's office.
 The balls are portable-scenery in the director's office.
 The bobblehead dolls are portable-scenery in the director's office.
 
-The triangular nameplate is an openable, closed, opaque, undescribed thing on the director's desk.
+The triangular nameplate is an interesting, openable, closed, opaque, undescribed thing on the director's desk.
 Instead of examining the triangular nameplate:
 	say "A small, wooden, triangular prism with an engraved metal plate attached that reads:[line break]";
 	if Vorple is supported:
@@ -490,6 +490,7 @@ Understand "chair" as the wooden armchair.  [Duh.]
 The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
 
 There is a checklist on the director's desk called checklist-1.
+Checklist-1 is interesting and critical.  [You can't drop it.]
 The printed name of checklist-1 is "Apollo 11 checklist".
 The description of checklist-1 is "The checklist is [if checklist-1 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
@@ -497,7 +498,7 @@ Understand "Apollo 11 checklist" as checklist-1.
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
 
-The director is holding a coffee-cup.  The printed name of the coffee-cup is "coffee cup".  Coffee-cup is uninteresting.
+The director is holding a coffee-cup.  The printed name of the coffee-cup is "coffee cup".
 The description of the coffee-cup is "Where does someone even find such a gigantic cup?"
 Understand "cup", "coffee cup", "cup of coffee", "large cup", "large cup of coffee", "comically large cup", "comically large coffee cup", and "comically large cup of coffee" as the coffee-cup.
 
@@ -516,7 +517,7 @@ Instead of taking the internship:
 	say "(You've already been hired.)"
 
 Instead of quizzing the director about the internship:
-	say "'Well you know how these things are.  We're terribly busy here at NASA.  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy Apollo 11 business.'  He indicates the [interesting]checklist[/interesting][if checklist-1 is on the director's desk] on his desk[end if].  'Get started, kid!'";
+	say "'Well you know how these things are.  We're terribly busy here at [interesting]NASA[/interesting].  Just an unreasonable amount of space out there.  Downright oppressive, when you start to think about how much of it there is!  So much space to analyze....' His voice trails off into a troubled hum until he notices you looking at him.  He continues, 'Which is exactly why we need you, the intern, to take care of this whole messy [interesting]Apollo 11[/interesting] business.'  He indicates the [interesting]checklist[/interesting][if checklist-1 is on the director's desk] on his desk[end if].  'Get started, kid!'";
 	now checklist-1 is ready.
 
 Instead of quizzing the director about NASA:
@@ -589,11 +590,10 @@ Instead of giving a checklist (called proof of your good work) to the director:
 
 
 
-Checklist-1 is critical.  [You can't drop it.]
 Get-blueprints is a checklist-item.  The printed name of get-blueprints is "Get command module blueprints".
 Get-equations is a checklist-item.  The printed name of get-equations is "Get rocket equations".
 Choose-crew is a checklist-item.  The printed name of choose-crew is "Choose astro nots (sp?)".
-TBD is a thing.  The printed name of TBD is "__________".  TBD is uninteresting.
+TBD is a thing.  The printed name of TBD is "__________".
 The sub-items of choose-crew are {TBD, TBD, TBD}.
 The items of checklist-1 are {get-blueprints, get-equations, choose-crew}.
 
@@ -601,7 +601,7 @@ The items of checklist-1 are {get-blueprints, get-equations, choose-crew}.
 
 The Main Hallway is east of the director's office.  "A long, blank hallway, with several doors branching off in various directions and a stairwell leading down.  A bronze [interesting]plaque[/interesting] is hanging on the wall in the center of the hallway."
 
-A bronze plaque is scenery in the hallway.
+A bronze plaque is interesting scenery in the hallway.
 Instead of taking the bronze plaque:
 	say "The plaque is bolted to the wall."
 
@@ -615,10 +615,10 @@ Instead of examining the plaque:
 
 
 
-The engineering department is east of the hallway.  "It's filled with grey upholstered cubicles and smells like pencil shavings and burned coffee.  At the end of the room is a large whiteboard, at the top of which is written APOLLO 11.  Underneath the heading are some inscrutable diagrams, and in the bottom right corner, someone has drawn a unicorn."
+The engineering department is east of the hallway.  "It's filled with grey upholstered cubicles and smells like pencil shavings and burned coffee.  At the end of the room is a large [interesting]whiteboard[/interesting], at the top of which is written APOLLO 11.  Underneath the heading are some inscrutable [interesting]diagrams[/interesting], and in the bottom right corner, someone has drawn a [interesting]unicorn[/interesting]."
 The printed name of the engineering department is "NASA Engineering Department".
 
-The unicorn is scenery in the engineering department.
+The unicorn is interesting scenery in the engineering department.
 Instead of examining the unicorn:
 	if Vorple is supported:
 		place an "img" element called "unicorn";
@@ -642,14 +642,14 @@ Instead of examining the unicorn:
 Instead of taking the unicorn:
 	say "Only the pure of heart may approach a unicorn."
 
-The diagram is scenery in the engineering department.
-Understand "diagrams" as the diagram.
-Instead of examining the diagram:
+The diagrams are interesting scenery in the engineering department.
+Understand "diagram" as the diagrams.
+Instead of examining the diagrams:
 	if Vorple is supported:
 		place a link to web site "https://xkcd.com/730/" reading "You can't make any sense of it.";
 		say line break;
 	otherwise:
-		say "You can't make any sense of it."
+		say "You can't make any sense of them."
 
 The cubicles are scenery in the engineering department.  "These are standard cubicles for standard engineers.  They are precisely measured, in imperial units.  America!"
 
@@ -827,7 +827,7 @@ The chalkboard is undescribed.  [Mentioned in the scenery, but not in the room.]
 The chalkboard is pushable between rooms.
 Understand "chalk board" and "board" as the chalkboard.
 
-Equations and rocket-equations are parts of the chalkboard.
+Equations and rocket-equations are interesting parts of the chalkboard.
 [To allow them to be examined while you're in any room with the chalkboard.]
 Instead of examining equations:
 	say "You can't make heads or tails of them, but the [interesting]wheeled chalkboards[/interesting] are covered in them.";
@@ -1641,7 +1641,7 @@ Carry out triggering director-yells-2:
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
 
-Checklist-2 is a critical checklist.
+Checklist-2 is an interesting, critical checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
@@ -2608,7 +2608,7 @@ To decide what list of things is the available objects:
 		otherwise if item is a visible physical concept:
 			add item to L;
 		otherwise if item is visible and item is not a concept:
-			if the description of item is not "":
+			if the item is interesting or the description of item is not "":
 				add item to L;
 	decide on L.
 
