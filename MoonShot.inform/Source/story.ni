@@ -180,7 +180,7 @@ After reading a command:
 	replace the regular expression "\bastronauts\b" in N with "crew";
 	change the text of the player's command to N.
 
-Equations is a concept.
+Equations are a physical concept.  The printed name of equations is "equations".
 Rocket-equations is a concept.
 Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
 
@@ -846,6 +846,11 @@ Instead of examining equations:
 	say "You can't make heads or tails of them, but the [interesting]wheeled chalkboards[/interesting] are covered in them.";
 Instead of examining rocket-equations:
 	try examining equations.
+Instead of taking equations:
+	say "You aren't sure you'd be able to copy them correctly, even if you tried.  If only you could somehow get the originals...";
+	stop the action.
+Instead of taking rocket-equations:
+	try taking equations.
 
 Copying is an action applying to one thing.  Understand "copy [thing]" and "copy down [thing]" and "make copy of [thing]" as copying.
 Check copying equations:
@@ -1172,7 +1177,7 @@ Instead of saying sorry to the head scientist while the head scientist is enrage
 In the propulsion lab is a person called the other scientists.
 The other scientists are plural-named.
 Understand "others", and "them" as the other scientists.
-The description of the other scientists is "They scurry around busily in white lab coats, occasionally looking back at [the head scientist] to see if he is noticing their industriousness.  (He is most certainly not.)"
+The description of the other scientists is "They scurry around busily in white lab coats, occasionally looking back at [the head scientist] to see if he is noticing their industriousness.  (He most certainly is not.)"
 
 The other scientists wear white lab coats.
 
