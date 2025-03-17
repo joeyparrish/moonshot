@@ -35,11 +35,6 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', '[GA_KEY]');
-      gtag('event', 'screen_view', {
-        'app_name': '[GA_APP]',
-        'screen_name': 'play',
-        'app_version': '[RELEASE]',
-      });
     </script>
     <script>
       // Prevent the right-click context menu in desktop bundles.
