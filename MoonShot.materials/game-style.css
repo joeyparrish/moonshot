@@ -159,7 +159,7 @@
 
 /* This will be used to highlight interesting words in room descriptions in
  * easy mode. */
-body.difficulty-easy .interesting-highlight,
+body[data-difficulty="easy"] .interesting-highlight,
 #settings-card .interesting-highlight {
   background-color: paleturquoise;
 }
@@ -177,7 +177,7 @@ img.unicorn {
 }
 
 /* Based on https://codepen.io/thetypebeast/pen/KWNGGd by Jennifer */
-body.lsd::before {
+body[data-effect="lsd"]::before {
   content: ""; /* required for ::before */
   position: fixed; /* don't scroll with page */
   z-index: -100; /* place behind elements on page */
@@ -209,7 +209,7 @@ body.lsd::before {
   font-style: normal;
 }
 
-/* The alien paper uses this strange font.  Can also be applied to body.*/
+/* The alien paper uses this strange font. */
 .alien-paper {
   font-family: 'LovecraftsDiary';
 }
@@ -235,9 +235,12 @@ span.alien-paper:empty {
   display: none;
 }
 
-/* When the whole page is in alien paper mode, the alien paper reads in plain
- * English. */
-body.alien-paper .alien-paper {
+/* When the whole page is in alien paper mode, everything is crazy, except the
+ * alien paper itself, which reads in plain English. */
+body[data-effect="alien-paper"] {
+  font-family: 'LovecraftsDiary';
+}
+body[data-effect="alien-paper"] .alien-paper {
   font-family: 'Roboto', sans-serif;
 }
 
