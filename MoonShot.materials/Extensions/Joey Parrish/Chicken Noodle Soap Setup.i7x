@@ -160,6 +160,8 @@ To decide what list of things is the available objects:
 				add item to L;
 	decide on L.
 
+Can-sit-on-people is a truth state that varies.  Can-sit-on-people is false.
+[Apps can declare "When play begins: now can-sit-on-people is true." to enable that.]
 Before reading a command:
 	if Vorple is supported:
 		execute JavaScript code "resetPeople()";
@@ -173,11 +175,14 @@ Before reading a command:
 			let is-edible be "false";
 			let is-potable be "false";
 			let is-openable be "false";
+			let is-sittable be "false";
 			if item is carried by the player:
 				now is-takeable is "false";
 				now is-inventory is "true";
 			if item is a person:
 				now is-takeable is "false";
+				if can-sit-on-people is true:
+					now is-sittable is "true";
 			if item is a concept:
 				now is-takeable is "false";
 			if item is edible:
@@ -186,13 +191,16 @@ Before reading a command:
 				now is-potable is "true";
 			if item is openable:
 				now is-openable is "true";
+			if item is an enterable supporter:
+				now is-sittable is "true";
 			execute JavaScript code "addObject({
 				name: '[item]',
+				inventory: [is-inventory],
 				takeable: [is-takeable],
 				edible: [is-edible],
 				potable: [is-potable],
 				openable: [is-openable],
-				inventory: [is-inventory],
+				sittable: [is-sittable],
 			})";
 
 
