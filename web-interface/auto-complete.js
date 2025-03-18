@@ -1,7 +1,6 @@
 // These are exposed to the window for the game to call into.
 const knownTopics = new Map();
 let knownObjects = [];
-let knownInventory = [];
 let knownPeople = [];
 
 const DEFAULT_TOPICS = [''];
@@ -23,19 +22,28 @@ function addTopic(topic) {
 }
 
 function resetObjects() {
-  knownObjects = [''];
+  knownObjects = [];
 }
 
-function addObject(object) {
-  knownObjects.push(object);
+function addObject(properties) {
+  knownObjects.push(properties);
 }
 
-function resetInventory() {
-  knownInventory = [''];
-}
-
-function addInventory(object) {
-  knownInventory.push(object);
+function objectsMatching(properties) {
+  const matches = [''];
+  for (const item of knownObjects) {
+    let match = true;
+    for (const [field, value] of Object.entries(properties)) {
+      if (item[field] != value) {
+        match = false;
+        break;
+      }
+    }
+    if (match && !matches.includes(item.name)) {
+      matches.push(item.name);
+    }
+  }
+  return matches;
 }
 
 function resetPeople() {
@@ -48,7 +56,6 @@ function addPerson(person) {
 
 resetTopics();
 resetObjects();
-resetInventory();
 resetPeople();
 
 // The "vorple" global doesn't exist until DOMContentLoaded.
@@ -191,14 +198,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (/^ *ask (.*)\babout +$/.exec(input)) {
       showAutoComplete(knownTopics.values(), /* endOfCommand= */ true);
-    } else if (/^ *(x|exa|examine|take|open|drink|eat) +$/.exec(input)) {
-      showAutoComplete(knownObjects.values(), /* endOfCommand= */ true);
-    } else if (/^ *(give|drop) +$/.exec(input)) {
-      showAutoComplete(knownInventory.values(), /* endOfCommand= */ true);
+    } else if (/^ *(x|exa|examine) +$/.exec(input)) {
+      // Everything
+      showAutoComplete(objectsMatching({}), /* endOfCommand= */ true);
+    } else if (/^ *take +$/.exec(input)) {
+      // Takeable
+      showAutoComplete(objectsMatching({takeable: true}), /* endOfCommand= */ true);
+    } else if (/^ *eat +$/.exec(input)) {
+      // Edible inventory
+      showAutoComplete(objectsMatching({edible: true}), /* endOfCommand= */ true);
+    } else if (/^ *drink +$/.exec(input)) {
+      // Potable inventory
+      showAutoComplete(objectsMatching({potable: true}), /* endOfCommand= */ true);
+    } else if (/^ *open +$/.exec(input)) {
+      // Openable
+      showAutoComplete(objectsMatching({openable: true}), /* endOfCommand= */ true);
+    } else if (/^ *drop +$/.exec(input)) {
+      // All inventory
+      showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ true);
+    } else if (/^ *give +$/.exec(input)) {
+      // All inventory
+      showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ true, ' to ');
+    } else if (/^ *give (.*)\bto +$/.exec(input)) {
+      showAutoComplete(knownPeople, /* endOfCommand= */ false);
     } else if (/^ *ask +$/.exec(input)) {
-      showAutoComplete(knownPeople.values(), /* endOfCommand= */ false, ' about ');
+      showAutoComplete(knownPeople, /* endOfCommand= */ false, ' about ');
     } else if (/^ *wake +$/.exec(input)) {
-      showAutoComplete(knownPeople.values(), /* endOfCommand= */ false);
+      showAutoComplete(knownPeople, /* endOfCommand= */ false);
     } else {
       hideAutoComplete();
     }
