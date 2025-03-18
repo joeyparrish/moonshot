@@ -30,9 +30,6 @@ Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
-[FIXME: move to setup?]
-Include Help by Joey Parrish.
-Include Options by Joey Parrish.
 
 
 [Styling]

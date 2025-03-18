@@ -173,4 +173,53 @@ Before reading a command:
 				execute JavaScript code "addPerson('[person]')";
 
 
+[Add commands to invoke UI dialogs.  These commands used to be in MoonShot before we had the corresponding UI elements, so we should maybe keep them for backward compatibility.]
+Helping is an action out of world applying to nothing.  Understand "help", "verb", and "verbs" as helping.
+Carry out helping:
+	if Vorple is supported:
+		execute JavaScript code "showHelp()";
+	otherwise:
+		say "Sorry, in-game help requires the web interpreter.".
+
+Showing map is an action out of world applying to nothing.  Understand "map" as showing map.
+Carry out showing map:
+	if Vorple is supported:
+		execute JavaScript code "showMap()";
+	otherwise:
+		say "Sorry, in-game maps require the web interpreter.".
+
+Showing options is an action out of world applying to nothing.  Understand "options" and "settings" as showing options.
+Carry out showing options:
+	if Vorple is supported:
+		execute JavaScript code "showSettings()";
+	otherwise:
+		say "Sorry, in-game options require the web interpreter.".
+
+
+[Add hooks for hints and highlights for interesting objects.]
+hint is a Vorple style.
+To show hint (T - text):
+	if Vorple is supported:
+		say hint style;
+	say "(Hint: [T])[line break]";
+	if Vorple is supported:
+		say end style;
+
+interesting-highlight is a Vorple style.
+To say interesting:
+	if Vorple is supported:
+		say interesting-highlight style;
+To say /interesting:
+	if Vorple is supported:
+		say end style;
+
+A thing can be interesting or uninteresting.  Things are usually uninteresting.
+Before printing the name of a thing (called the thingy):
+	if the thingy is interesting:
+		say interesting.
+After printing the name of a thing (called the thingy):
+	if the thingy is interesting:
+		say /interesting.
+
+
 Chicken Noodle Soap Setup ends here.
