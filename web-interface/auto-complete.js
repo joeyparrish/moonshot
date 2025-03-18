@@ -8,24 +8,23 @@ let includeBasicVerbs = true;
 const BASIC_VERBS = [
   'ask ',
   'examine ',
-  'inventory',
-  'wait',
+  'inventory\n',
+  'wait\n',
   'sit on ',
-  'north',
-  'south',
-  'east',
-  'west',
-  'up',
-  'down',
+  'north\n',
+  'south\n',
+  'east\n',
+  'west\n',
+  'up\n',
+  'down\n',
   'take ',
   'give ',
   'open ',
   'drop ',
   'drink ',
   'eat ',
-  'apologize',
-  'save',
-  'restore',
+  'save\n',
+  'restore\n',
 ];
 
 function resetVerbs(includeBasic = true) {
@@ -127,9 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // When any of these events happen, if the auto-complete selection is not
     // blank, we adopt it right away and send it to the command prompt.
     if (select.value) {
-      if (endCommandAfterAutoComplete) {
+      // Ending the command is forced when the select value ends with '\n'.
+      if (endCommandAfterAutoComplete || select.value.endsWith('\n')) {
         // Add this value to the input field and submit it.
-        const fullCommand = inputField.value + select.value;
+        const fullCommand = inputField.value + select.value.trim();
         inputField.value = '';
         // Delaying the submit avoids a double-enter effect on the input field.
         setTimeout(() => vorple.prompt.submit(fullCommand), 0);
@@ -241,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = inputField.value;
 
     if (/^ *$/.exec(input)) {
-      // FIXME: Can this endOfCommand differ per verb?
       let verbs = specialVerbs;
       if (includeBasicVerbs) {
         verbs = verbs.concat(BASIC_VERBS);
