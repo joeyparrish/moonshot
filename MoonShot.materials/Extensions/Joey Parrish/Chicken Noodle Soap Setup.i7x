@@ -5,6 +5,7 @@ Version 1 of Chicken Noodle Soap Setup by Joey Parrish begins here.
 Include Exit Lister by Gavin Lambert.
 Include Vorple Screen Effects by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
+Include Events by Joey Parrish.
 
 
 [Always output HTML.]
@@ -134,6 +135,15 @@ Instead of taking portable-scenery:
 To log event (NAME - text):
 	if Vorple is supported:
 		execute JavaScript code "logEvent('[NAME]')";
+
+
+[Page effects, defined in CSS.]
+Remove-page-effect is an event.
+To add page effect (X - text) for (N - a number) turns with message (Z - text):
+	execute JavaScript code "document.body.dataset.effect = '[X]'";
+	activate remove-page-effect in N turns with message Z.
+Carry out triggering remove-page-effect:
+	execute JavaScript code "document.body.dataset.effect = ''".
 
 
 [Autocomplete hooks.]
