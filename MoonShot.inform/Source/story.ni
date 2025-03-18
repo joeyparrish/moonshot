@@ -816,7 +816,7 @@ Instead of taking waste:
 
 [This will say tapir or aardvark, but never Brizzleby.]
 To say tapir-aardvark:
-	if the tapir is known:
+	if the tapir is an aardvark:
 		say "aardvark";
 	otherwise:
 		say "tapir".
@@ -851,7 +851,7 @@ Instead of taking the brass key:
 		now the head scientist is enraged;
 		now the player is in the hallway.
 After opening the cage while the tapir is in the cage:
-	if the tapir is not revealed:
+	if the tapir is not known:
 		if a random chance of 1 in 10 succeeds:
 			say "As soon as the cage door opens, the [tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
 			show ending 5 of 9 aka the "trampling" ending;
@@ -870,9 +870,15 @@ After opening the cage while the tapir is in the cage:
 
 
 The tapir is a stranger [animals are people, too, in Inform] in the cage.
+The tapir can be an aardvark.
 The description of the tapir is "[The tapir] is a bit larger than your average [tapir-aardvark], with intelligent eyes, rabbit-like ears, strong front claws, and a flat, round nose that protrudes from its head.  [if the tapir is in the cage]It lays sadly on the bottom of [the cage], looking distinctly sad and uncomfortable.[otherwise]It stands upright on its rear legs, thought it doesn't look like it has much practice.[end if]".
+Rule for printing the name of the tapir:
+	if the tapir is known:
+		say "Brizzleby";
+	otherwise:
+		say "[tapir-aardvark]".
 
-The real name of the tapir is "The aardvark".
+The real name of the tapir is "Brizzleby".
 Understand "aardvark", "aardvarks", "ardvark", "ardvarks", and "animal" as the tapir.
 
 Every turn when a random chance of 3 in 10 succeeds and the player is in the propulsion lab and the tapir is in the cage:
@@ -904,15 +910,12 @@ Instead of quizzing the tapir about the brass key while the tapir is in the cage
 Instead of quizzing the tapir about anything while the tapir is in the cage:
 	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
 
-The tapir can be revealed.  When day one begins, now the tapir is not revealed.
 [HACK: This works around "the cage isn't open" if you "ask tapir for name".]
 Before asking the tapir for name while the tapir is in the cage:
 	try quizzing the tapir about name;
 	stop the action.
 Instead of quizzing the tapir about name while the tapir is in the cage:
 	say "The [tapir-aardvark] glances side to side to make sure the scientists are distracted before hissing in a low voice, 'Brizzleby, of the Galactic Federation of Aardvarks.  Now get me the hell out of here!'";
-	now the real name of the tapir is "Brizzleby";
-	now the tapir is revealed;
 	now the tapir is known;
 	make "aardvark" known;
 	make "Brizzleby" known.
@@ -920,13 +923,8 @@ Understand "Brizzleby", "space-aardvark", "space-ardvark", and "Brizzleby the sp
 
 Instead of quizzing the tapir about name:
 	say "'Brizzleby, of the Galactic Federation of Aardvarks, at your service.'";
-	now the real name of the tapir is "Brizzleby";
-	now the tapir is revealed;
 	now the tapir is known;
 	make "Brizzleby" known.
-
-After printing the name of the tapir while the tapir is revealed:
-	say " (the space-aardvark)".
 
 Instead of quizzing the tapir about the tapir:
 	try quizzing the tapir about name.
@@ -1016,7 +1014,7 @@ Instead of quizzing the head scientist about the tapir:
 	otherwise if the player's command includes "tapir":
 		say "'Ist no tapir', replies [the head scientist] cooly.  'Ist an [interesting]aardvark[/interesting], obviously.  What else would you find here at the National Agency of Space Aardvarks?'";
 		make "aardvark" known;
-		now the tapir is known;
+		now the tapir is an aardvark;
 	otherwise:
 		say "[The head scientist] looks at you quizzically.  'What else would you find here at the National Agency of Space Aardvarks?'";
 
