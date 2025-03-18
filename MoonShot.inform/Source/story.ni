@@ -802,7 +802,8 @@ The description of the cage is "It's a wide cage made of thick metal bars, with 
 The locking mechanism is scenery in the propulsion lab.
 Understand "lock" as the locking mechanism.
 
-The welder is a person in the propulsion lab.  "You try to watch them working, but you don't have one of those protective helmets, so you quickly think better of it."
+The welder is a person in the propulsion lab.  The description of the welder is "You try to watch them working, but you don't have one of those protective helmets, so you quickly think better of it."
+The welder is undescribed.  [Already in room description.]
 Instead of talking to the welder:
 	say "They look busy."
 Instead of quizzing the welder about something:
