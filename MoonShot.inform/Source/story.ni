@@ -840,7 +840,7 @@ Instead of taking the brass key:
 		continue the action;
 	otherwise if the head scientist is enraged:
 		say "You try to sneak over and reach into [the head scientist]'s coat pocket, but at your first step, his head snaps around and he stares you down until you take a step back again.";
-		show hint "Maybe you can find a topic that will calm him down...";
+		show hint "Maybe there's something you can say to calm him down...";
 	otherwise if a random chance of 5 in 10 succeeds or the steal-attempts of the brass key is 1:
 		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You manage to lift the brass key out of his pocket without him noticing!";
 		now the player has the brass key;
