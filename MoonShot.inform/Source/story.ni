@@ -111,6 +111,10 @@ After examining a person (called Bob):
 Instead of entering a person:
 	say "[The noun] looks shocked that you should even try it!  [bold type][italic type]'SECURITY!'[roman type]  NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for sexual harassment in 1969, in spite of the term not being coined until 1975.  But then, you always [italic type]did[roman type] consider yourself ahead of your time.";
 	show ending 2 of 9 aka the "harassment" ending.
+Check sitting on a person:
+	try entering the noun.
+[Make sure this is auto-completable.]
+When play begins: now can-sit-on-people is true.
 
 [As if the above wasn't risque enough...]
 Instead of entering yourself:

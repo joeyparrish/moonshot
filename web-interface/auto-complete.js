@@ -3,13 +3,9 @@ const knownTopics = new Map();
 let knownObjects = [];
 let knownPeople = [];
 
-const DEFAULT_TOPICS = [''];
-
 function resetTopics() {
   knownTopics.clear();
-  for (const topic of DEFAULT_TOPICS) {
-    addTopic(topic);
-  }
+  addTopic('');
 }
 
 function addTopic(topic) {
@@ -218,7 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
       showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ true);
     } else if (/^ *give +$/.exec(input)) {
       // All inventory
-      showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ true, ' to ');
+      showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ false, ' to ');
+    } else if (/^ *sit on +$/.exec(input)) {
+      showAutoComplete(objectsMatching({sittable: true}), /* endOfCommand= */ true);
     } else if (/^ *give (.*)\bto +$/.exec(input)) {
       showAutoComplete(knownPeople, /* endOfCommand= */ false);
     } else if (/^ *ask +$/.exec(input)) {
