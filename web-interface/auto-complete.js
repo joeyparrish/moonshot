@@ -205,6 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key == 'Enter' && /^\s*$/.exec(inputField.value)) {
         event.preventDefault();
       }
+
+      // When scrolling back through old history, we should recompute
+      // auto-complete.
+      if (event.key == 'ArrowUp' || event.key == 'ArrowDown') {
+        onInput();
+      }
     });
 
     inputForm = document.getElementById('lineinput');
