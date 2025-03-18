@@ -30,7 +30,6 @@ Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
-Include Events by Joey Parrish.
 [FIXME: move to setup?]
 Include Help by Joey Parrish.
 Include Options by Joey Parrish.
@@ -2187,15 +2186,6 @@ Check giving a thing to someone:
 	otherwise:
 		say "[The second noun] [don't] seem interested.";
 		stop the action.
-
-
-
-Remove-page-effect is an event.
-To add page effect (X - text) for (N - a number) turns with message (Z - text):
-	execute JavaScript code "document.body.dataset.effect = '[X]'";
-	activate remove-page-effect in N turns with message Z.
-Carry out triggering remove-page-effect:
-	execute JavaScript code "document.body.dataset.effect = ''";
 
 
 
