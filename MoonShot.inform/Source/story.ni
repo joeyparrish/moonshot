@@ -845,6 +845,7 @@ Instead of taking the brass key:
 		now the player has the brass key;
 	otherwise:
 		say "You sneak up on [the head scientist] carefully, and reach into his coat pocket.  You fumble the key, and he whips around at the clanging sound.  There is a brief moment of shock upon his face, but it rapidly dissolves into rage as he screams '[bold type]SCHWEINHUND![roman type]' and chases you from the room.";
+		show hint "Maybe you could be successful if you try again, or maybe you could find another solution...";
 		increase the steal-attempts of the brass key by 1;
 		now the head scientist is enraged;
 		now the player is in the hallway.
