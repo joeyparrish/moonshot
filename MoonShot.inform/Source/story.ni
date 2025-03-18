@@ -146,6 +146,16 @@ A lab coat is a kind of wearable thing.
 The-door is a backdrop.  Understand "door" and "the door" as the-door.  The printed name of the-door is "the door".
 The-door is everywhere.  [Every room has a door, but they are not interesting.]
 
+[Sometimes, we should consider saying we're sorry.]
+Extra autocomplete verbs rule:
+	if the player is in the waiting room and the secretary is mad:
+		add "apologize" to extra-verbs;
+	if the player is in the engineering department and the engineer is sad:
+		add "apologize" to extra-verbs;
+	if the player is in the propulsion lab and the head scientist is enraged:
+		add "apologize" to extra-verbs;
+	if the player is in the personnel department and the head of personnel is not asleep:
+		add "apologize" to extra-verbs;
 
 
 [---------- DAY 1 ----------]
@@ -286,6 +296,10 @@ Carry out triggering director-yells-1:
 	now the director is ready;
 	[Give periodic reminders to get into the director's office if the player misses the first yell.]
 	activate director-yells-1 in 3 turns.
+
+Extra autocomplete verbs rule:
+	if the player is in the waiting room and the director is ready:
+		add "go in" to extra-verbs;
 
 Instead of quizzing the secretary about the director:
 	say "'Oh, Mr. Furtwangler is a visionary!' she says.  'He is completely on top of every aspect of this project.  I don't know how he does it!'";

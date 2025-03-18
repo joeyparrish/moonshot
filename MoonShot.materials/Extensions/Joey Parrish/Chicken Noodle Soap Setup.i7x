@@ -160,10 +160,26 @@ To decide what list of things is the available objects:
 				add item to L;
 	decide on L.
 
-Can-sit-on-people is a truth state that varies.  Can-sit-on-people is false.
 [Apps can declare "When play begins: now can-sit-on-people is true." to enable that.]
-Before reading a command:
+Can-sit-on-people is a truth state that varies.  Can-sit-on-people is false.
+Extra autocomplete verbs rules is a rulebook.
+Extra-verbs is a list of text that varies.
+Autocomplete update rules is a rulebook.
+Autocomplete update rule:
 	if Vorple is supported:
+		if the story has ended:
+			execute JavaScript code "resetVerbs(false)"; [Remove basic verbs.]
+			add "restart" to extra-verbs;
+			add "restore" to extra-verbs;
+			add "quit" to extra-verbs;
+			add "undo" to extra-verbs;
+			[Do not call story rules for verbs.]
+		otherwise:
+			execute JavaScript code "resetVerbs(true)"; [Include basic verbs.]
+			[Call story rules for verbs.]
+			follow the extra autocomplete verbs rules;
+		repeat with verb-name running through extra-verbs:
+			execute JavaScript code "addVerb('[verb-name]')";
 		execute JavaScript code "resetPeople()";
 		repeat with person running through people in the location:
 			if person is not yourself:
@@ -202,6 +218,17 @@ Before reading a command:
 				openable: [is-openable],
 				sittable: [is-sittable],
 			})";
+
+Before reading a command:
+	follow autocomplete update rules.
+
+[The "final question" prompt after the game ends is distinct from "reading a command".]
+Before handling the final question:
+	follow autocomplete update rules.
+
+[Reset any extra verbs after each command.]
+After reading a command:
+	now extra-verbs is {}.
 
 
 [Add commands to invoke UI dialogs.  These commands used to be in MoonShot before we had the corresponding UI elements, so we should maybe keep them for backward compatibility.]

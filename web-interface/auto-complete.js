@@ -2,6 +2,40 @@
 const knownTopics = new Map();
 let knownObjects = [];
 let knownPeople = [];
+let specialVerbs = [];
+let includeBasicVerbs = true;
+
+const BASIC_VERBS = [
+  'ask ',
+  'examine ',
+  'inventory',
+  'wait',
+  'sit on ',
+  'north',
+  'south',
+  'east',
+  'west',
+  'up',
+  'down',
+  'take ',
+  'give ',
+  'open ',
+  'drop ',
+  'drink ',
+  'eat ',
+  'apologize',
+  'save',
+  'restore',
+];
+
+function resetVerbs(includeBasic = true) {
+  includeBasicVerbs = includeBasic;
+  specialVerbs = [''];
+}
+
+function addVerb(verb) {
+  specialVerbs.push(verb);
+}
 
 function resetTopics() {
   knownTopics.clear();
@@ -50,6 +84,7 @@ function addPerson(person) {
   knownPeople.push(person);
 }
 
+resetVerbs();
 resetTopics();
 resetObjects();
 resetPeople();
@@ -58,6 +93,7 @@ resetPeople();
 document.addEventListener('DOMContentLoaded', () => {
   let select;
   let autoComplete;
+  let ellipsis;
   let inputField = null;
   let inputForm = null;
   let promptOffset = 0;
@@ -121,7 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     select = document.createElement('select');
     autoComplete = document.createElement('span');
     autoComplete.id = 'auto-complete';
-    autoComplete.appendChild(document.createTextNode('... '));
+    ellipsis = document.createElement('span');
+    ellipsis.id = 'ellipsis';
+    ellipsis.textContent = '... ';
+    autoComplete.appendChild(ellipsis);
     autoComplete.appendChild(select);
     document.body.appendChild(autoComplete);
 
@@ -155,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     select.addEventListener('click', processSelectChange);
 
     // Set our preferred prefix, with a little extra space.
-    vorple.prompt.setPrefix('>&nbsp;', /* isHtmlSafe= */ true);
+    vorple.prompt.setPrefix('>&nbsp; ', /* isHtmlSafe= */ true);
 
     // Watch input field changes.  The field didn't exist earlier than this.
     inputField = document.getElementById('lineinput-field');
@@ -177,7 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Move the auto-complete elements inside the form where they can overlay.
     inputForm.appendChild(autoComplete);
-    inputForm.appendChild(extraSpan)
+    inputForm.appendChild(extraSpan);
+
+    // Check the initial auto-complete state.
+    onInput();
   }
 
   function onExpectCommand() {
@@ -192,7 +234,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function onInput() {
     const input = inputField.value;
 
-    if (/^ *ask (.*)\babout +$/.exec(input)) {
+    if (/^ *$/.exec(input)) {
+      // FIXME: Can this endOfCommand differ per verb?
+      let verbs = specialVerbs;
+      if (includeBasicVerbs) {
+        verbs = verbs.concat(BASIC_VERBS);
+      }
+      showAutoComplete(verbs, /* endOfCommand= */ false);
+    } else if (/^ *ask (.*)\babout +$/.exec(input)) {
       showAutoComplete(knownTopics.values(), /* endOfCommand= */ true);
     } else if (/^ *(x|exa|examine) +$/.exec(input)) {
       // Everything
@@ -237,6 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Where the caret is within the input field:
     const caret = getCaretCoordinates(inputField, inputField.value.length);
+
+    // Special case: if the input is blank, hide the ellipsis and move over a little.
+    ellipsis.style.display = inputField.value ? 'inline' : 'none';
+    caret.left += inputField.value ? 0 : 5;
 
     // Remove any old options from the select field:
     while (select.firstChild) {
