@@ -31,7 +31,6 @@ Include Strangers by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
 Include Events by Joey Parrish.
-
 [FIXME: move to setup?]
 Include Help by Joey Parrish.
 Include Options by Joey Parrish.
@@ -560,7 +559,7 @@ The blueprints are interesting and critical.  [You can't drop them.]
 The blueprints are plural-named.  [Don't call them "a blueprints".]
 Understand "drawing", "drawings", "command module drawing", "command module drawings", and "command module drawings formerly known as blueprints" as blueprints.
 
-In the engineering department is a liquid-safe transparent container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
+In the engineering department is an interesting, liquid-safe, transparent container called a coffee-pot.  The printed name of coffee-pot is "coffee pot".
 [Accept a few misspellings of coffee.]
 Understand "coffee pot", "cofee pot", "coffe pot", "cafe pot", "cofe pot", and "pot" as the coffee-pot.
 
@@ -716,7 +715,7 @@ The moon buggy skeleton is scenery in the propulsion lab.  The description of th
 
 
 The chalkboard is in the propulsion lab.  The description of the chalkboard is "A large, slate black, wheeled chalkboard covered in inscrutable [interesting]equations[/interesting]."
-The chalkboard is undescribed.  [Mentioned in the scenery, but not in the room.]
+The chalkboard is interesting and undescribed.  [Mentioned in the scenery, but not in the room.]
 The chalkboard is pushable between rooms.
 Understand "chalk board" and "board" as the chalkboard.
 
@@ -792,11 +791,11 @@ Carry out triggering equations-hint:
 
 
 
-The cage is scenery in the propulsion lab.
+The cage is interesting scenery in the propulsion lab.
 The cage is an openable, transparent, lockable, locked container in the propulsion lab.
 The head scientist carries a brass key.
 The brass key unlocks the cage.
-The brass key is critical.
+The brass key is interesting and critical.
 The brass key can be noticed or unnoticed.  When day one begins, now the brass key is unnoticed.
 The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting]The [tapir-aardvark][/interesting] inside looks distressed.[end if]".
 
@@ -1129,11 +1128,11 @@ The cheap desk is scenery in the personnel department.  The description of the c
 The cheap desk is an enterable supporter.
 
 The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one [interesting]drawer[/interesting] in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
-The metallic filing cabinet is an enterable supporter.
+The metallic filing cabinet is an interesting, enterable supporter.
 After examining the metallic filing cabinet:
 	make "files" known.
 
-An openable closed container called the drawer is part of the metallic filing cabinet.  "The drawer is labeled 'Crew Candidate Personnel Files'."
+An interesting, openable, closed container called the drawer is part of the metallic filing cabinet.  "The drawer is labeled 'Crew Candidate Personnel Files'."
 [We don't get told automatically what is inside an open container if it's part of another thing.  Fix this for the open drawer.]
 Before listing exits:
 	if the player is in the personnel department:
@@ -1729,7 +1728,7 @@ The printed name of the basement is "NASA Headquarters Basement Level".
 
 The stairwell is a backdrop.  The stairwell is in the hallway and in the basement.
 
-The paper sign is scenery in the basement.  "It says 'AUTHORIZED PERSONNEL ONLY', hand-drawn in black marker."
+The paper sign is interesting scenery in the basement.  "It says 'AUTHORIZED PERSONNEL ONLY', hand-drawn in black marker."
 
 Instead of going to the basement during day one:
 	say "The stairwell door appears to be locked.  You begin to wonder what they keep down there.";
@@ -2200,7 +2199,7 @@ Carry out triggering remove-page-effect:
 
 
 
-A space-cake is a kind of thing.  A space-cake is edible and a drug.
+A space-cake is a kind of interesting thing.  A space-cake is edible and a drug.
 
 The description of a space-cake is "The space-cake looks like a 2x2 inch brownie square wrapped in cling wrap.  On the top is a sticker with an image of a tie dyed peace sign and text reading 'Open and consume for treatment of oppressive sobriety.'"
 An astronaut can be high.
@@ -2217,7 +2216,7 @@ Instead of quizzing a high astronaut about anything (this is the high astronaut 
 	say "[regarding the second noun][They] [don't] seem to have heard you.  'Waaaiit.  Wait a sec.  We choose to go to the moon because [italic type]it's hard??[roman type]  I mean, can't we do something else right now?'"
 
 
-LSD is a kind of thing.  LSD is edible, swallowable, and a drug.
+LSD is a kind of interesting thing.  LSD is edible, swallowable, and a drug.
 Understand "lysergic acid diethylamide" as LSD.
 The description of LSD is "The LSD is a piece of paper with an image of the spiraling Milky Way, covered in intersecting perforations."
 An astronaut can be tripping.
@@ -2236,7 +2235,7 @@ Instead of eating LSD:
 	add page effect "lsd" for 10 turns with message "(You no longer don't feel any different.)".
 
 
-A librium is a kind of thing.  A librium is edible, swallowable, and a drug.
+A librium is a kind of interesting thing.  A librium is edible, swallowable, and a drug.
 The description of a librium is "It's a tiny, green capsule with some inscrutable print on one end."
 An astronaut can be good at chess.
 Instead of quizzing the chemist about librium:
@@ -2260,7 +2259,7 @@ To say random chess move:
 
 
 
-A mysterious silver liquid is a drink.  A mysterious silver liquid is a drug.
+A mysterious silver liquid is an interesting drink.  A mysterious silver liquid is a drug.
 The description of a mysterious silver liquid is "You aren't quite sure if the silver liquid is shining or glowing, but it's definitely crawling up the sides of the container in a rhythmic pattern of some kind."
 An astronaut can be zonked.
 Instead of quizzing the chemist about a mysterious silver liquid:
@@ -2281,7 +2280,7 @@ The zonked astronaut rule is listed first in the instead rulebook.
 
 
 
-The mysterious silver coffee is a drink.  A mysterious silver liquid is a drug.
+The mysterious silver coffee is an interesting drink.  The mysterious silver coffee is a drug.
 The description of the mysterious silver coffee is "It looks like a vaguely shimmery latte, and smells like licorice.  Every so often, you notice a silver bubble float down from the edge of your vision toward the coffee, then settle on the surface and slowly collapse into the drink."
 Instead of inserting the coffee into a mysterious silver liquid:
 	now the mysterious silver coffee is in the holder of a mysterious silver liquid;
@@ -2336,14 +2335,14 @@ Rule for printing the name of a vial (called the flask) while not inserting or r
 
 
 In the chemistry lab is four space-cakes, four LSD, and four librium.
-The small vial is a vial.  In the small vial is a mysterious silver liquid.
+The small vial is an interesting vial.  In the small vial is a mysterious silver liquid.
 When day two begins:
 	if the player has alien-equations:
 		now the small vial is in the chemistry lab.
 
 
 
-The moon landing script is a critical thing.
+The moon landing script is an interesting, critical thing.
 Carry out examining the moon landing script:
 	say fixed letter spacing;
 	say script-page style;
@@ -2523,19 +2522,55 @@ Report teleporting to:
 	deactivate director-yells-1;
 	deactivate director-yells-2.
 
-Showing stuff is an action applying to nothing.
-Understand "stuff" as showing stuff.
-Carry out showing stuff:
-	say "Stuff:[line break]";
-	if Vorple is supported:
-		open HTML tag "ul";
-		repeat with item running through the available objects:
-			place "li" element reading "[item]";
+Showing available stuff is an action out of world applying to nothing.
+Understand "show available stuff" as showing available stuff.
+Carry out showing available stuff:
+	say "Available stuff:[line break]";
+	open HTML tag "ul";
+	repeat with item running through the available objects:
+		place "li" element reading "[item]";
+	close HTML tag;
+	say "End of available stuff."
+
+Showing interesting stuff is an action out of world applying to nothing.
+Understand "show interesting stuff" as showing interesting stuff.
+Carry out showing interesting stuff:
+	say "Interesting stuff:[line break]";
+	open HTML tag "ul";
+	repeat with item running through interesting things:
+		place "li" element reading "[item]";
+	close HTML tag;
+	say "End of interesting stuff."
+
+Showing all stuff is an action out of world applying to nothing.
+Understand "show all stuff" as showing all stuff.
+Carry out showing all stuff:
+	say "All stuff:[line break]";
+	open HTML tag "ul";
+	repeat with item running through things:
+		open HTML tag "li";
+		say "[item]";
+		if item is a concept:
+			if item is a physical concept:
+				say ", a physical concept";
+			otherwise:
+				say ", a concept";
+		if item is scenery and item is not a concept:
+			say ", scenery";
+		if item is visible:
+			say ", visible";
+		if item is a person:
+			say ", person";
+		if item is interesting:
+			say ", [interesting]interesting[/interesting]";
+		if item is critical:
+			say ", [interesting]critical[/interesting]";
+		if the description of item is not "":
+			say ", [interesting]with description[/interesting]";
+		say ", in [location of item]";
 		close HTML tag;
-	otherwise:
-		repeat with item running through the available objects:
-			say " * [item][line break]";
-	say "End of stuff."
+	close HTML tag;
+	say "End of all stuff."
 
 
 
