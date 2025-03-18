@@ -1053,6 +1053,7 @@ Instead of saying sorry to the head scientist while the head scientist is enrage
 	say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
 	if a random chance of 9 in 10 succeeds:
 		say "You barely escape un-swatted.[line break]";
+		show hint "Maybe there's a topic he will find soothing...";
 		now the player is in the hallway;
 	otherwise:
 		say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
