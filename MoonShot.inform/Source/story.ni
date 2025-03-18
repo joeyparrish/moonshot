@@ -26,7 +26,6 @@ Include Locksmith by Emily Short.
 Include Chicken Noodle Soap Setup by Joey Parrish.
 Include Concepts by Joey Parrish.
 Include Critical Things by Joey Parrish.
-Include Drinks by Joey Parrish.
 Include Strangers by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
@@ -342,7 +341,7 @@ The tracks are scenery in the director's office.
 The balls are portable-scenery in the director's office.
 The bobblehead dolls are portable-scenery in the director's office.
 
-The triangular nameplate is an interesting, openable, closed, opaque, undescribed thing on the director's desk.
+The triangular nameplate is an interesting, closed, opaque, undescribed thing on the director's desk.
 Instead of examining the triangular nameplate:
 	say "A small, wooden, triangular prism with an engraved metal plate attached that reads:[line break]";
 	if Vorple is supported:
@@ -352,6 +351,7 @@ Instead of examining the triangular nameplate:
 		center "Director";
 	make the director known;
 	if the player has the triangular nameplate:
+		now the triangular nameplate is openable;
 		say "The nameplate rattles a bit as you turn it."
 
 Rule for printing the name of the triangular nameplate:

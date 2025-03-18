@@ -5,6 +5,7 @@ Version 1 of Chicken Noodle Soap Setup by Joey Parrish begins here.
 Include Exit Lister by Gavin Lambert.
 Include Vorple Screen Effects by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
+Include Drinks by Joey Parrish.
 Include Events by Joey Parrish.
 
 
@@ -161,16 +162,38 @@ To decide what list of things is the available objects:
 
 Before reading a command:
 	if Vorple is supported:
-		execute JavaScript code "resetObjects()";
-		repeat with item running through the available objects:
-			execute JavaScript code "addObject('[item]')";
-		execute JavaScript code "resetInventory()";
-		repeat with item running through things carried by the player:
-			execute JavaScript code "addInventory('[item]')";
 		execute JavaScript code "resetPeople()";
 		repeat with person running through people in the location:
 			if person is not yourself:
 				execute JavaScript code "addPerson('[person]')";
+		execute JavaScript code "resetObjects()";
+		repeat with item running through the available objects:
+			let is-takeable be "true";
+			let is-inventory be "false";
+			let is-edible be "false";
+			let is-potable be "false";
+			let is-openable be "false";
+			if item is carried by the player:
+				now is-takeable is "false";
+				now is-inventory is "true";
+			if item is a person:
+				now is-takeable is "false";
+			if item is a concept:
+				now is-takeable is "false";
+			if item is edible:
+				now is-edible is "true";
+			if item is a drink:
+				now is-potable is "true";
+			if item is openable:
+				now is-openable is "true";
+			execute JavaScript code "addObject({
+				name: '[item]',
+				takeable: [is-takeable],
+				edible: [is-edible],
+				potable: [is-potable],
+				openable: [is-openable],
+				inventory: [is-inventory],
+			})";
 
 
 [Add commands to invoke UI dialogs.  These commands used to be in MoonShot before we had the corresponding UI elements, so we should maybe keep them for backward compatibility.]
