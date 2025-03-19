@@ -1276,6 +1276,10 @@ Instead of saying sorry to the head of personnel while the head of personnel is 
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
 	now the head of personnel is asleep;
 
+[Instead of taking them one-by-one, as the autocomplete system would have you do, take them all at once, which sets the "puzzle ready" flag.]
+Instead of taking a personnel-file:
+	try taking the personnel files;
+
 Instead of quizzing the head of personnel about the crew:
 	if the personnel puzzle is not ready:
 		say "[The noun] snorts.  'A bunch of prima donnas, every one of [']em.  You can have your pick.'  He reaches into the [interesting]filing cabinet[/interesting] and produces a set of six [interesting]files[/interesting] for you.  'Here you go,' he says, handing you the files.  'Anything else?'";
