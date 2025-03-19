@@ -169,91 +169,91 @@ Autocomplete update rule:
 	if Vorple is supported:
 		if the story has ended:
 			execute JavaScript code "resetVerbs(false)"; [Remove basic verbs.]
-			add "restart" to extra-verbs;
-			add "restore" to extra-verbs;
-			add "quit" to extra-verbs;
-			add "undo" to extra-verbs;
-			[Do not call story rules for verbs.]
+			execute JavaScript code "addVerb('restart\n')";
+			execute JavaScript code "addVerb('restore\n')";
+			execute JavaScript code "addVerb('quit\n')";
+			execute JavaScript code "addVerb('undo\n')";
+			[Do not check story rules for verbs.]
 		otherwise:
 			execute JavaScript code "resetVerbs(true)"; [Include basic verbs.]
 			[Call story rules for verbs.]
 			follow the extra autocomplete verbs rules;
-		repeat with verb-name running through extra-verbs:
-			execute JavaScript code "addVerb('[verb-name]')";
-		repeat with dir running through directions:
-			if the room dir from the location is a room:
-				execute JavaScript code "addVerb('[dir]\n')";
-		execute JavaScript code "resetPeople()";
-		repeat with person running through people in the location:
-			if person is not yourself:
-				execute JavaScript code "addPerson('[person]')";
-		execute JavaScript code "resetObjects()";
-		let can-ask be false;
-		let can-take be false;
-		let can-drop be false;
-		let can-eat be false;
-		let can-drink be false;
-		let can-open be false;
-		let can-sit be false;
-		repeat with item running through the available objects:
-			let is-takeable be true;
-			let is-inventory be false;
-			let is-edible be false;
-			let is-potable be false;
-			let is-openable be false;
-			let is-sittable be false;
-			if item is carried by the player:
-				now is-takeable is false;
-				now is-inventory is true;
-				now can-drop is true;
-			if item is a person:
-				now is-takeable is false;
-				now can-ask is true;
-				if can-sit-on-people is true:
+			repeat with verb-name running through extra-verbs:
+				execute JavaScript code "addVerb('[verb-name]')";
+			repeat with dir running through directions:
+				if the room dir from the location is a room:
+					execute JavaScript code "addVerb('[dir]\n')";
+			execute JavaScript code "resetPeople()";
+			repeat with person running through people in the location:
+				if person is not yourself:
+					execute JavaScript code "addPerson('[person]')";
+			execute JavaScript code "resetObjects()";
+			let can-ask be false;
+			let can-take be false;
+			let can-drop be false;
+			let can-eat be false;
+			let can-drink be false;
+			let can-open be false;
+			let can-sit be false;
+			repeat with item running through the available objects:
+				let is-takeable be true;
+				let is-inventory be false;
+				let is-edible be false;
+				let is-potable be false;
+				let is-openable be false;
+				let is-sittable be false;
+				if item is carried by the player:
+					now is-takeable is false;
+					now is-inventory is true;
+					now can-drop is true;
+				if item is a person:
+					now is-takeable is false;
+					now can-ask is true;
+					if can-sit-on-people is true:
+						now is-sittable is true;
+				if item is a concept:
+					now is-takeable is false;
+				if item is edible:
+					now is-edible is true;
+					now can-eat is true;
+				if item is a drink:
+					now is-potable is true;
+					now can-drink is true;
+				if item is openable:
+					now is-openable is true;
+					now can-open is true;
+				if item is an enterable supporter:
 					now is-sittable is true;
-			if item is a concept:
-				now is-takeable is false;
-			if item is edible:
-				now is-edible is true;
-				now can-eat is true;
-			if item is a drink:
-				now is-potable is true;
-				now can-drink is true;
-			if item is openable:
-				now is-openable is true;
-				now can-open is true;
-			if item is an enterable supporter:
-				now is-sittable is true;
-				now can-sit is true;
-			execute JavaScript code "addObject({
-				name: '[item]',
-				inventory: [is-inventory],
-				takeable: [is-takeable],
-				edible: [is-edible],
-				potable: [is-potable],
-				openable: [is-openable],
-				sittable: [is-sittable],
-			})";
-			if is-takeable is true:
-				now can-take is true;
-		if can-ask is true:
-			execute JavaScript code "addVerb('ask ')";
-		if can-take is true:
-			execute JavaScript code "addVerb('take ')";
-		if can-drop is true:
-			[if you have something, you can drop it.]
-			execute JavaScript code "addVerb('drop ')";
-			["give" also requires a person, so...]
+					now can-sit is true;
+				execute JavaScript code "addObject({
+					name: '[item]',
+					inventory: [is-inventory],
+					takeable: [is-takeable],
+					edible: [is-edible],
+					potable: [is-potable],
+					openable: [is-openable],
+					sittable: [is-sittable],
+				})";
+				if is-takeable is true:
+					now can-take is true;
 			if can-ask is true:
-				execute JavaScript code "addVerb('give ')";
-		if can-eat is true:
-			execute JavaScript code "addVerb('eat ')";
-		if can-drink is true:
-			execute JavaScript code "addVerb('drink ')";
-		if can-open is true:
-			execute JavaScript code "addVerb('open ')";
-		if can-sit is true:
-			execute JavaScript code "addVerb('sit on ')";
+				execute JavaScript code "addVerb('ask ')";
+			if can-take is true:
+				execute JavaScript code "addVerb('take ')";
+			if can-drop is true:
+				[if you have something, you can drop it.]
+				execute JavaScript code "addVerb('drop ')";
+				["give" also requires a person, so...]
+				if can-ask is true:
+					execute JavaScript code "addVerb('give ')";
+			if can-eat is true:
+				execute JavaScript code "addVerb('eat ')";
+			if can-drink is true:
+				execute JavaScript code "addVerb('drink ')";
+			if can-open is true:
+				execute JavaScript code "addVerb('open ')";
+			if can-sit is true:
+				execute JavaScript code "addVerb('sit on ')";
 
 Before reading a command:
 	follow autocomplete update rules.
