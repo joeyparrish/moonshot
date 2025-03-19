@@ -99,3 +99,7 @@ body.play #vorple, body.play #uiblock, body.play #menus {
 body.play #splash {
   display: none;
 }
+
+body[data-auto-complete="false"] #auto-complete {
+  visibility: hidden;
+}

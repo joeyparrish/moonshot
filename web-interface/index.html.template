@@ -198,7 +198,16 @@
           <label for="easy-mode-toggle">
             Easy mode: <span class="interesting-highlight">highlight text</span> you should pay attention to
           </label>
-          <input id="easy-mode-toggle" class="toggle" type="checkbox">
+          <input id="easy-mode-toggle" class="toggle" type="checkbox"
+              data-settings-key="chicken-noodle-soap--easy-mode"
+              onapply="document.body.dataset.difficulty = event.target.checked ? 'easy' : 'medium';">
+
+          <label for="auto-complete-toggle">
+            Auto-complete: offer suggestions of verbs, objects, people, and topics based on context
+          </label>
+          <input id="auto-complete-toggle" class="toggle" type="checkbox"
+              data-settings-key="chicken-noodle-soap--auto-complete"
+              onapply="document.body.dataset.autoComplete = event.target.checked;">
         </div>
       </div>
 

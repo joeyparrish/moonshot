@@ -9,20 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', hidePopup);
   }
 
-  const EASY_MODE_KEY = 'chicken-noodle-soap--easy-mode';
-  const easyModeToggle = document.getElementById('easy-mode-toggle');
-  const easyModeString = localStorage.getItem(EASY_MODE_KEY) || 'true';
-  setEasyMode(easyModeString == 'true');
+  const settingsElements = document.querySelectorAll('[data-settings-key]');
+  for (const element of settingsElements) {
+    const key = element.dataset.settingsKey;
+    const settingString = localStorage.getItem(key) || 'true';
+    setSetting(element, key, settingString == 'true');
 
-  function setEasyMode(easyMode) {
-    localStorage.setItem(EASY_MODE_KEY, easyMode);
-    document.body.dataset.difficulty = easyMode ? 'easy' : 'medium';
-    easyModeToggle.checked = easyMode;
+    element.addEventListener('change', (event) => {
+      setSetting(element, key, event.target.checked);
+    });
   }
 
-  easyModeToggle.addEventListener('change', (event) => {
-    setEasyMode(event.target.checked);
-  });
+  function setSetting(element, key, value) {
+    localStorage.setItem(key, value);
+    element.checked = value;
+
+    // Run custom "onapply" hook from the element.
+    // This differs from "change" events, which are triggered by the user
+    // changing the UI.  In contrast, this can be triggered by us loading the
+    // initial settings, as well.
+    const onApply = element.getAttribute('onapply');
+    console.log({element, key, value, onApply});
+    if (onApply) {
+      window.event = { target: element };
+      eval(onApply);
+      delete window.event;
+    }
+  }
 });
 
 function showSettings() {
