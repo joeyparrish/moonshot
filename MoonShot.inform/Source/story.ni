@@ -160,6 +160,12 @@ Extra autocomplete verbs rule:
 	if the player is in the personnel department and the head of personnel is not asleep:
 		add "apologize\n" to extra-verbs;
 
+Before handling the final question:
+	execute JavaScript code "stopBackgroundMusic()";
+Vorple interface update rule:
+	if day one is happening:
+		execute JavaScript code "setBackgroundMusic('day1.mp4', 5.861, 'by BackgroundMusicForVideo via Pixabay', 'https://pixabay.com/music/comedy-funny-comedy-music-humor-fool-joke-smile-background-intro-theme-261165/')";
+
 
 [---------- DAY 1 ----------]
 Day one is a scene.
@@ -188,7 +194,6 @@ When day one begins:
 		center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	pause;
-	execute JavaScript code "setBackgroundMusic('day1.mp4', 5.861, 'by BackgroundMusicForVideo via Pixabay', 'https://pixabay.com/music/comedy-funny-comedy-music-humor-fool-joke-smile-background-intro-theme-261165/')";
 	log event "day1";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
