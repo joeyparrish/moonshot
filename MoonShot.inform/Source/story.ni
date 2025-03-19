@@ -2513,6 +2513,10 @@ Instead of going to the chemistry lab while day two has ended:
 Instead of going to the personnel department while day two has ended:
 	say "The door to the personnel department is locked.  The lights appear to be out, and you hear a soft snoring coming from inside."
 
+[Somehow, there's no automatic "look" entering a dark room.]
+After going to the sound stage while day two has ended:
+	try looking.
+
 Instead of going from the sound stage while day two has ended:
 	say "The door is locked...[paragraph break]";
 	if the player has alien-equations:
