@@ -196,6 +196,7 @@ Intro hints shown is initially false.  [Sadly, if the first command fails, the t
 Before reading a command while the turn count is 1:
 	if intro hints shown is false:
 		show hint "See the 'help' button in the top-right corner if you get stuck or if you need an introduction.";
+		show hint "You can also use the 'gear' button to change the game's settings.";
 		now intro hints shown is true.
 
 
