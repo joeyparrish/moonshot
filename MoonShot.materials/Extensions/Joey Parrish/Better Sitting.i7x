@@ -30,7 +30,7 @@ Check sitting generally:
 		if good-enough-seats is not empty:
 			try sitting on entry 1 of good-enough-seats;
 		otherwise:
-			say "You don't see anything good to sit on, so you sit on the floor.";
+			say "You don't see anything good to sit on."
 
 [The default behavior of "stand" is weird, and I don't like it.  I don't like the response phrasing, and it prints the room description again, which seems inappropriate for leaving chairs and tables.  And if you aren't sitting, the default is "you aren't *in* anything", which seems really weird, too.]
 Understand the command "stand" as something new.
@@ -56,7 +56,7 @@ Has _this_ ever happened to you?
 
 Then _you_ need Better Sitting!
 
-With Better Sitting, you will no longer have players accidentally sitting on the first object in their inventory, the first person in the room, etc.  Saying "sit" (without specifying on what) will intelligently choose a specific sittable thing, or else have the player just sit on the floor instead.
+With Better Sitting, you will no longer have players accidentally sitting on the first object in their inventory, the first person in the room, etc.  Saying "sit" (without specifying on what) will intelligently choose a specific sittable thing.
 
 You can also mark specific things as "chairs", meaning that the player will naturally prefer to sit on those instead of other enterable supporters.
 
