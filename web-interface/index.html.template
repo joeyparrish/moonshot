@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="game-style.css">
   
+    <script src="music.js"></script>
     <script src="pause.js"></script>
     <script src="events.js"></script>
     <script src="popups.js"></script>
@@ -87,6 +88,8 @@
         </div>
       </div>
     </div>
+
+    <audio id="backgroundMusic"></audio>
   
     <div id="menus">
       <!-- These are hidden by default, but we start with a pause.  When the initial "title" pause ends, these will be shown. -->
@@ -195,6 +198,13 @@
         <div id="settings-card" class="popup">
           <button class="popup-close floating-button" title="close">X</button>
   
+          <label for="music-toggle">
+            Music: <a id="backgroundMusicLink" target="_blank">Current background music <span id="backgroundMusicCredit"></span></a>
+          </label>
+          <input id="music-toggle" class="toggle" type="checkbox"
+              data-settings-key="chicken-noodle-soap--music"
+              onapply="backgroundMusic.muted = !event.target.checked;">
+
           <label for="easy-mode-toggle">
             Easy mode: <span class="interesting-highlight">highlight text</span> you should pay attention to
           </label>
