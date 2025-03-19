@@ -6,17 +6,9 @@ let specialVerbs = [];
 let includeBasicVerbs = true;
 
 const BASIC_VERBS = [
-  'ask ',
   'examine ',
   'inventory\n',
   'wait\n',
-  'sit on ',
-  'take ',
-  'give ',
-  'open ',
-  'drop ',
-  'drink ',
-  'eat ',
   'save\n',
   'restore\n',
 ];
