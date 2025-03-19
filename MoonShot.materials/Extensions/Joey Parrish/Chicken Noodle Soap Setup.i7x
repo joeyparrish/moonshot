@@ -255,10 +255,11 @@ Autocomplete update rule:
 			if can-sit is true:
 				execute JavaScript code "addVerb('sit on ')";
 
-Before reading a command:
+[This occurs before each normal game prompt, whereas "before reading a command" fails to fire after an "undo".]
+Vorple interface update rule:
 	follow autocomplete update rules.
 
-[The "final question" prompt after the game ends is distinct from "reading a command".]
+[The "final question" prompt after the game ends is distinct from "reading a command" or "vorple interface update".]
 Before handling the final question:
 	follow autocomplete update rules.
 
