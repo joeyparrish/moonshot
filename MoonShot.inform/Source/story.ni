@@ -135,6 +135,9 @@ Carry out waking:
 	else:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep;
+Extra autocomplete verbs rule:
+	if a person in the location is asleep:
+		add "wake " to extra-verbs;
 
 
 [Clothing that is repeated among multiple characters must be a "kind" first.]
