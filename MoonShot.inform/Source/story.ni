@@ -188,6 +188,7 @@ When day one begins:
 		center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	pause;
+	execute JavaScript code "setBackgroundMusic('day1.mp4', 5.861, 'by BackgroundMusicForVideo via Pixabay', 'https://pixabay.com/music/comedy-funny-comedy-music-humor-fool-joke-smile-background-intro-theme-261165/')";
 	log event "day1";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
@@ -199,7 +200,7 @@ Intro hints shown is initially false.  [Sadly, if the first command fails, the t
 Before reading a command while the turn count is 1:
 	if intro hints shown is false:
 		show hint "See the 'help' button in the top-right corner if you get stuck or if you need an introduction.";
-		show hint "You can also use the 'gear' button to change the game's settings.";
+		show hint "You can also use the 'gear' button to change the game's settings, including music.";
 		now intro hints shown is true.
 
 

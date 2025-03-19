@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // changing the UI.  In contrast, this can be triggered by us loading the
     // initial settings, as well.
     const onApply = element.getAttribute('onapply');
-    console.log({element, key, value, onApply});
     if (onApply) {
       window.event = { target: element };
       eval(onApply);

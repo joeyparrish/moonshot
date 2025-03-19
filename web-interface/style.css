@@ -90,6 +90,10 @@ body.play {
   }
 }
 
+#backgroundMusic {
+  display: none;
+}
+
 #vorple, #uiblock, #menus{
   display: none;
 }
