@@ -180,6 +180,9 @@ Autocomplete update rule:
 			follow the extra autocomplete verbs rules;
 		repeat with verb-name running through extra-verbs:
 			execute JavaScript code "addVerb('[verb-name]')";
+		repeat with dir running through directions:
+			if the room dir from the location is a room:
+				execute JavaScript code "addVerb('[dir]\n')";
 		execute JavaScript code "resetPeople()";
 		repeat with person running through people in the location:
 			if person is not yourself:
