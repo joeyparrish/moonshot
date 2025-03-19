@@ -93,6 +93,9 @@ body.play {
 #backgroundMusic {
   display: none;
 }
+#noMusic {
+  display: none;
+}
 
 #vorple, #uiblock, #menus{
   display: none;
