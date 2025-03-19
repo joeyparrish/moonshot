@@ -160,11 +160,27 @@ Extra autocomplete verbs rule:
 	if the player is in the personnel department and the head of personnel is not asleep:
 		add "apologize\n" to extra-verbs;
 
+
 Before handling the final question:
+	execute JavaScript code "stopBackgroundMusic()";
+When day one ends:
+	execute JavaScript code "stopBackgroundMusic()";
+When day two ends:
 	execute JavaScript code "stopBackgroundMusic()";
 Vorple interface update rule:
 	if day one is happening:
 		execute JavaScript code "setBackgroundMusic('day1.mp4', 5.861, 'by BackgroundMusicForVideo via Pixabay', 'https://pixabay.com/music/comedy-funny-comedy-music-humor-fool-joke-smile-background-intro-theme-261165/')";
+	otherwise if day two is happening:
+		if the player has alien-equations:
+			execute JavaScript code "setBackgroundMusic('day2alt.mp4', 0, 'by Lexin_Music via Pixabay', 'https://pixabay.com/music/modern-classical-marionettes-124709/')";
+		otherwise:
+			execute JavaScript code "setBackgroundMusic('day2.mp4', 0, 'by Serge Quadrado Music via Pixabay', 'https://pixabay.com/music/happy-childrens-tunes-life-of-a-wandering-wizard-15549/')";
+	otherwise if day three is happening:
+		if the player is in the sound stage:
+			execute JavaScript code "setBackgroundMusic('day3final.mp4', 0, 'by Mikhail Smusev via Pixabay', 'https://pixabay.com/music/suspense-horror-258261/')";
+		otherwise:
+			execute JavaScript code "setBackgroundMusic('day3.mp4', 8.75, 'by Universfield via Pixabay', 'https://pixabay.com/music/mystery-tense-horror-background-174809/')";
+
 
 
 [---------- DAY 1 ----------]
@@ -2652,7 +2668,7 @@ Test start2 with "test day2 / test waiting / ask about glitter / take checklist 
 
 Test start2alt with "test day2alt / test waiting / ask about glitter / take checklist / x checklist".
 
-Test foodonly with "e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x list".
+Test foodonly with "e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x checklist".
 Test food with "test start2 / test foodonly".
 Test foodalt with "test start2alt / test foodonly".
 
@@ -2660,7 +2676,7 @@ Test drugs with "test start2 / e / d / w / take all drugs / e / e / give lsd to 
 
 Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give lsd to nowak / ask nowak about nasa / give liquid to nowak / ask nowak about nasa / give chicken to buzz / give lsd to buzz / x nowak / x buzz".
 
-Test drugnfilm with "e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x list / x script / action / w / u / w / report".
+Test drugnfilm with "e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x checklist / x script / action / w / u / w / give checklist to director".
 Test day3 with "test food / test drugnfilm".
 Test day3alt with "test foodalt / test drugnfilm".
 

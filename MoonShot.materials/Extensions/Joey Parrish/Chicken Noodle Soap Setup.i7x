@@ -118,6 +118,7 @@ To show ending (N - number) of (MAX - number) aka the (T - text) ending:
 	if Vorple is supported:
 		execute JavaScript code "logEvent('ending[N]')";
 	say paragraph break;
+	pause;
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
 	say "You have discovered ending #[N] of [MAX] (the [T] ending) after [turn count] turns!";
