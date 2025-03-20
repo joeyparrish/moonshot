@@ -6,15 +6,15 @@ use tauri::Manager;
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
-        /* Uncomment for debugging
         .setup(|app| {
+            // Open dev tools in dev builds only.
+            #[cfg(dev)]
             {
                 let window = app.get_webview_window("main").unwrap();
                 window.open_devtools();
             }
             Ok(())
         })
-        // */
         .run(tauri::generate_context!("tauri.conf.json"))
         .expect("error while running tauri application");
 }
