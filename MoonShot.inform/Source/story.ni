@@ -1578,6 +1578,12 @@ When day two begins:
 	now the blueprints are nowhere;
 	now the chalkboard is nowhere;
 	now the chalkboard is not critical;  [So you aren't traveling with it anymore]
+	now personnel file 1 is nowhere;
+	now personnel file 2 is nowhere;
+	now personnel file 3 is nowhere;
+	now personnel file 4 is nowhere;
+	now personnel file 5 is nowhere;
+	now personnel file 6 is nowhere;
 	now checklist-2 is on the director's desk;
 	now the director is not ready;
 	now the director is not visited;
