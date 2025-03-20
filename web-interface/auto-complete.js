@@ -47,6 +47,9 @@ function addObject(properties) {
 
 function objectsMatching(properties) {
   const matches = [''];
+  if (properties.takeable == true) {
+    matches.push('all');
+  }
   for (const item of knownObjects) {
     let match = true;
     for (const [field, value] of Object.entries(properties)) {
