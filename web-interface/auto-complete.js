@@ -4,6 +4,7 @@ let knownObjects = [];
 let knownPeople = [];
 let specialVerbs = [];
 let includeBasicVerbs = true;
+let customAutoCompletes = [];  // [re, arrayOfOptions]
 
 const BASIC_VERBS = [
   'examine ',
@@ -69,10 +70,20 @@ function addPerson(person) {
   knownPeople.push(person);
 }
 
+function resetCustomAutoComplete() {
+  customAutoCompletes = [];
+}
+
+function addCustomAutoComplete(re, arrayOfOptions) {
+  // Add the empty string to the front of the array.
+  customAutoCompletes.push([re, [''].concat(arrayOfOptions)]);
+}
+
 resetVerbs();
 resetTopics();
 resetObjects();
 resetPeople();
+resetCustomAutoComplete();
 
 // The "vorple" global doesn't exist until DOMContentLoaded.
 document.addEventListener('DOMContentLoaded', () => {
@@ -222,6 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function onInput() {
     const input = inputField.value;
+
+    for (const [re, arrayOfOptions] of customAutoCompletes) {
+      if (re.exec(input)) {
+        showAutoComplete(arrayOfOptions, /* endOfCommand= */ false);
+        return;
+      }
+    }
 
     if (/^ *$/.exec(input)) {
       let verbs = specialVerbs;
