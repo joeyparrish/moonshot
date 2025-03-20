@@ -1792,7 +1792,8 @@ The sound stage is east of the basement.  "You find yourself in a large, hangar-
 The printed name of the sound stage is "NASA's Secret Underground Sound Stage".
 
 After going to the sound stage:
-	make "photographer" known.
+	make "photographer" known;
+	continue the action.
 
 The photographer is a stranger in the sound stage.  The photographer is male.
 The real name of the photographer is "Stanley".
@@ -2091,7 +2092,8 @@ After going to the chemistry lab:
 	make "space-cake" known;
 	make "LSD" known;
 	make "librium" known;
-	make "mysterious silver liquid" known.
+	make "mysterious silver liquid" known;
+	continue the action.
 
 The taxidermied marmot is in the chemistry lab.  The description of the taxidermied marmot is "It looks just like every other taxidermied marmot [if the taxidermied marmot is carried by the player]in your collection[otherwise]you've ever seen[end if]."
 The taxidermied marmot is undescribed.  [Mentioned in the scenery, so don't list it again.]
@@ -2520,10 +2522,6 @@ Instead of going to the chemistry lab while day two has ended:
 
 Instead of going to the personnel department while day two has ended:
 	say "The door to the personnel department is locked.  The lights appear to be out, and you hear a soft snoring coming from inside."
-
-[Somehow, there's no automatic "look" entering a dark room.]
-After going to the sound stage while day two has ended:
-	try looking.
 
 Instead of going from the sound stage while day two has ended:
 	say "The door is locked...[paragraph break]";
