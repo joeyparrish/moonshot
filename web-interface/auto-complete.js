@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (/^ *sit on +$/.exec(input)) {
       showAutoComplete(objectsMatching({sittable: true}), /* endOfCommand= */ true);
     } else if (/^ *give (.*)\bto +$/.exec(input)) {
-      showAutoComplete(knownPeople, /* endOfCommand= */ false);
+      showAutoComplete(knownPeople, /* endOfCommand= */ true);
     } else if (/^ *ask +$/.exec(input)) {
       showAutoComplete(knownPeople, /* endOfCommand= */ false, ' about ');
     } else if (/^ *wake +$/.exec(input)) {
