@@ -2405,6 +2405,7 @@ Carry out examining the moon landing script:
 	say paragraph break;
 	say paragraph break;
 	say end style;
+	pause;
 	say script-page style;
 	say paragraph break;
 	say underlined font style;
@@ -2428,6 +2429,7 @@ Carry out examining the moon landing script:
 	say end style;
 	say paragraph break;
 	say end style;
+	pause;
 	say script-page style;
 	say paragraph break;
 	say "[A1] dicks around for a while by [themselves], feeling pretty good about that killer quote, before [A2] descends the ladder and brings out an overly-starched American flag.  They hammer it in to the lunar regolith and step back to look at it.";
@@ -2440,9 +2442,14 @@ Carry out examining the moon landing script:
 	say "They both hang out on the surface hitting golf balls and stuff for twenty-one more hours, while [A3] sits alone in the command module, crying.";
 	say paragraph break;
 	say end style;
+	pause;
 	say script-page style;
 	say paragraph break;
 	say "As the astronauts climb back into the lunar landing module, a twenty-foot steel monolith descends from the heavens.  Their heads rattle in their helmets, straining under the sheer psychic force of the alien monolith.  The astronauts are pulled into a vortex of coloured light.  The audience [underlined font style]definitely[end style] knows what is happening and why.  It all makes perfect sense.";
+	say paragraph break;
+	say end style;
+	pause;
+	say script-page style;
 	say paragraph break;
 	say "INT. LARGE NEOCLASSICAL BEDROOM";
 	say paragraph break;
@@ -2452,6 +2459,7 @@ Carry out examining the moon landing script:
 	say paragraph break;
 	say end style;
 	say variable letter spacing;
+	pause;
 	stop the action.
 
 

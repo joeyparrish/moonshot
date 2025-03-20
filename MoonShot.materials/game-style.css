@@ -250,7 +250,7 @@ body[data-effect="alien-paper"] .alien-paper {
   background-color: aliceblue;
   border: 1px solid black;
   padding: 1em;
-  margin: 1em;
+  margin: 1em auto;
 
   /* Max out at 30 characters or so. */
   max-width: 30em;
