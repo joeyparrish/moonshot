@@ -504,14 +504,21 @@ After examining checklist-1:
 	make "blueprints" known;
 	continue the action.
 
-Reporting to is an action applying to one thing.  Understand "report to [someone]" as reporting to.
-Check reporting to someone:
-	if the player has checklist-1:
-		try giving checklist-1 to the noun;
-	otherwise if the player has checklist-2:
-		try giving checklist-2 to the noun;
+Reporting is an action applying to nothing.  Understand "report" as reporting.
+Check reporting:
+	if the player has a checklist (called current-checklist):
+		if the player is not in the director's office:
+			say "You'll have to find [the director] if you want to report in.";
+		otherwise:
+			try giving current-checklist to the director;
 	otherwise:
 		say "You don't have anything to report."
+
+
+Extra autocomplete verbs rule:
+	if a checklist held by the player is complete or the player is in the director's office:
+		add "report\n" to extra-verbs;
+
 
 Instead of giving a checklist (called proof of your good work) to the director:
 	if proof of your good work is not complete:
@@ -2658,7 +2665,7 @@ Test files with "test start1 / e / s / take files / x file 1 / x file 2 / x file
 
 Test drawer with "test start1 / e / s / open drawer / close drawer / open cabinet / close cabinet / open drawer / l / take files / l".
 
-Test day2 with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / take chalkboard / w / give checklist to director".
+Test day2 with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / take chalkboard / w / report".
 
 Test day2alt with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / x dr / take key / n / ask dr about tapir / take key / n / ask dr about tapir / take key / ask tapir about name / open cage / s / ask about rocket equations / w / give checklist to director".
 
