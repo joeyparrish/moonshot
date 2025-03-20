@@ -1178,9 +1178,10 @@ The cheap desk is an enterable supporter.
 The metallic filing cabinet is scenery in the personnel department.  The description of the metallic filing cabinet is "The filing cabinet is short, tan-colored and metallic, with one [interesting]drawer[/interesting] in it, which is labeled 'Crew Candidate Personnel Files'.  The cabinet looks like the only thing in this room that NASA cares about."
 The metallic filing cabinet is an interesting, enterable supporter.
 After examining the metallic filing cabinet:
-	make "files" known.
+	make "files" known;
+	now the drawer is noticed.
 
-An interesting, openable, closed container called the drawer is part of the metallic filing cabinet.  "The drawer is labeled 'Crew Candidate Personnel Files'."
+An interesting, openable, closed, unnoticed container called the drawer is part of the metallic filing cabinet.  The description of the drawer is "The drawer is labeled 'Crew Candidate Personnel Files'."
 [We don't get told automatically what is inside an open container if it's part of another thing.  Fix this for the open drawer.]
 Before listing exits:
 	if the player is in the personnel department:

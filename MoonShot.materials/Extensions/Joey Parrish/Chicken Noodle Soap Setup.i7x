@@ -149,6 +149,7 @@ Carry out triggering remove-page-effect:
 
 
 [Autocomplete hooks.]
+A thing can be noticed or unnoticed.  Things are usually noticed.
 To decide what list of things is the available objects:
 	let L be a list of things;
 	repeat with item running through things:
@@ -156,7 +157,7 @@ To decide what list of things is the available objects:
 			do nothing;
 		otherwise if item is a visible physical concept:
 			add item to L;
-		otherwise if item is visible and item is not a concept:
+		otherwise if item is visible and item is not a concept and item is noticed:
 			if the item is interesting or the description of item is not "":
 				add item to L;
 	decide on L.
