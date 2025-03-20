@@ -22,6 +22,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (window.__TAURI__) {
       window.__TAURI__.window.getCurrentWindow().destroy();
     } else {
+      const window0 = document.getElementById('window0');
+      if (window0) {
+        window0.appendChild(document.createTextNode('You may now close this window.'));
+      }
       window.close();
     }
   });
