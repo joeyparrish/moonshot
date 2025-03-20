@@ -1396,9 +1396,6 @@ Psychological profile:
 [line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion
 [line break][end style][variable letter spacing]".
 
-After examining personnel file 1:
-	make "Buzz Aldrin" known.
-
 
 The employee of personnel file 2 is Neil Armstrong.
 The description of personnel file 2 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
@@ -1418,9 +1415,6 @@ Psychological profile:
 [line break]   * Refuses to wear socks inside his spacesuit
 [line break][end style][variable letter spacing]".
 
-After examining personnel file 2:
-	make "Neil Armstrong" known.
-
 
 The employee of personnel file 3 is Michael Collins.
 The description of personnel file 3 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
@@ -1436,9 +1430,6 @@ Psychological profile:
 [line break]   * Does not consult with others on decisions
 [line break]   * Has not attended official NASA meetings since his assassination in August 1922
 [line break][end style][variable letter spacing]".
-
-After examining personnel file 3:
-	make "Michael Collin" known.
 
 
 The employee of personnel file 4 is Lisa Nowak.
@@ -1456,9 +1447,6 @@ Psychological profile:
 
 [line break][end style][variable letter spacing]".
 
-After examining personnel file 4:
-	make "Lisa Nowak" known.
-
 
 The employee of personnel file 5 is Ijon Tichy.
 The description of personnel file 5 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
@@ -1475,9 +1463,6 @@ Psychological profile:
 [line break]   * Lives in a messy, three-bedroom rocket
 
 [line break][end style][variable letter spacing]".
-
-After examining personnel file 5:
-	make "Ijon Tichy" known.
 
 
 The employee of personnel file 6 is Clifford McBride.
@@ -1497,14 +1482,30 @@ Psychological profile:
 
 [line break][end style][variable letter spacing]".
 
-After examining personnel file 6:
-	make "Clifford McBride" known.
+
+The list of crew candidates is a list of people that varies.
+
+After examining a personnel-file (called this-file):
+	make "[employee of this-file]" known;
+	add the employee of this-file to the list of crew candidates.
 
 
 Choosing for crew is an action applying to one thing.  Understand "choose [anyone]" as choosing for crew.
 [NOTE: "anyone" should match people who are not present.  But we still need this rule to allow it:]
 Rule for reaching inside a room while choosing for crew:
 	allow access.  ["Reaching inside a room" means that person is in literally any other room.]
+Extra autocomplete verbs rule:
+	if the personnel puzzle is ready and TBD is listed in the sub-items of choose-crew:
+		[Have the files, haven't chosen everyone yet.]
+		add "choose " to extra-verbs;
+		execute JavaScript code "addCustomAutoComplete(/^ *choose +$/, [the list of crew candidates as JSON].map(x => x+'\n'))";
+To say (L - a list of objects) as JSON:
+	let J be "[bracket]";
+	repeat with N running through L:
+		now J is "[J]'[N]', ";
+	now J is "[J][close bracket]";
+	say "[J]";
+
 
 Check choosing for crew:
 	if day one has ended:

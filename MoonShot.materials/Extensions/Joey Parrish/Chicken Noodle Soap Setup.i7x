@@ -177,6 +177,7 @@ Autocomplete update rule:
 			[Do not check story rules for verbs.]
 		otherwise:
 			execute JavaScript code "resetVerbs(true)"; [Include basic verbs.]
+			execute JavaScript code "resetCustomAutoComplete()";
 			[Call story rules for verbs.]
 			follow the extra autocomplete verbs rules;
 			repeat with verb-name running through extra-verbs:
