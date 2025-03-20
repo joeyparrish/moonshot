@@ -111,7 +111,7 @@ body[data-auto-complete="false"] #auto-complete {
   visibility: hidden;
 }
 
-#lineinput-field {
+#lineinput-field, .prompt-input {
   /* Small increase in space by the prompt.  This is cheaper than overwriting
    * the prompt on every turn, which is the only other way I found to keep the
    * prompt from reverting to stock on a "restart" command. */
