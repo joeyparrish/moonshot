@@ -2468,6 +2468,10 @@ Understand "film", "film moon landing", and "film landing" as filming the moon l
 Understand "start filming", "start filming moon landing", and "start filming landing" as filming the moon landing.
 Understand "action" as filming the moon landing.
 
+Extra autocomplete verbs rule:
+	if the player is in the sound stage and day two is happening and film-moon-landing is not checked and the photographer is in purgatory:
+		add "film moon landing\n" to extra-verbs;
+
 Check filming the moon landing:
 	if day one is happening:
 		say "I didn't understand that sentence.";
@@ -2475,8 +2479,14 @@ Check filming the moon landing:
 	otherwise if day three is happening:
 		say "You already did that.  [one of]Time to move on[or]There's no point in reliving the glory days[or]Today is a brand new day[cycling].";
 		stop the action;
+	otherwise if the photographer is in the sound stage:
+		say "[The photographer] will take care of that.";
+		stop the action;
 	otherwise if the player is not in the sound stage:
 		say "You'll need to be in the sound stage for that.";
+		stop the action;
+	otherwise if film-moon-landing is checked:
+		say "You've already done that.";
 		stop the action;
 	otherwise if the astronauts are prepared:
 		continue the action;
