@@ -969,9 +969,8 @@ Instead of quizzing the tapir about name while the tapir is in the cage:
 Understand "Brizzleby", "space-aardvark", "space-ardvark", and "Brizzleby the space-aardvark" as the tapir.
 
 Instead of quizzing the tapir about name:
-	say "'Brizzleby, of the Galactic Federation of Aardvarks, at your service.'";
-	now the tapir is known;
-	make "Brizzleby" known.
+	[It must already be known by now.]
+	say "'Brizzleby, of the Galactic Federation of Aardvarks, at your service.'".
 
 Instead of quizzing the tapir about the tapir:
 	try quizzing the tapir about name.
@@ -1089,6 +1088,8 @@ Instead of quizzing the head scientist about Apollo:
 	if the tapir is not in the cage:
 		say "He looks profoundly upset at the question.  'Ruined.  Everything is ruined now.  My life's work...'";
 	otherwise:
+		make "aardvark" known;
+		now the tapir is an aardvark;
 		say "Apollo ist my greatest work.  Finally I achieve my greatest glory in my career and achieve the highest aims of NASA, the National Agency of Space Aardvarks: to deliver the [interesting]aardvark[/interesting] back into space.  Apollo 11 will deliver the [interesting]aardvarks[/interesting] to their true home.";
 
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
@@ -1130,9 +1131,10 @@ Instead of quizzing the other scientists about the tapir:
 	if the player's command includes "Brizzleby":
 		say "The scientists don't seem to know who that is.";
 	otherwise:
-		say "The scientists throw each other sideways glances, then look to see if [the head scientist] is watching.  Then one of them says under her breath, '[if the tapir is not known]It's an [interesting]aardvark[/interesting], actually.  [end if]He's obsessed.  Nobody around here gets it.  He raves about the [interesting]aardvarks[/interesting] all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives [the head scientist] a look that is both mystified and compassionate.";
-		make the director known;
-		make the tapir known.
+		say "The scientists throw each other sideways glances, then look to see if [the head scientist] is watching.  Then one of them says under her breath, '[if the tapir is not an aardvark]It's an [interesting]aardvark[/interesting], actually.  [end if]He's obsessed.  Nobody around here gets it.  He raves about the [interesting]aardvarks[/interesting] all the time, ever since the war.  Director Furtwangler only convinced him to come work here by telling him we were the National Agency of Space Aardvarks.'  She grimaces and gives [the head scientist] a look that is both mystified and compassionate.";
+		make "aardvark" known;
+		now the tapir is an aardvark;
+		make the director known.
 
 Instead of quizzing the other scientists about anything:
 	try talking to the other scientists.
@@ -2054,7 +2056,7 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 			otherwise:
 				say "[The recipient] takes [the snack].  'Thanks, kid!'  But after one bite, they seem to be suffering greatly.  'What was in this??  This kid is trying to poison me!!'[paragraph break]";
 			say "NASA security arrives shortly, hauls you carelessly to the building exit, and then tosses you into the street.  You have been fired for gross craft-services negligence, and Operation Glitter fails miserably.  NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Not only have you failed your country, but you are banned by the International Alliance of Theatrical Stage Employees and you never work in Hollywood again.";
-			show ending 6 of 9 aka the "poisoning" ending;
+			show ending 6 of 9 aka the "poisoner" ending;
 		otherwise:
 			if the recipient is Ijon Tichy:
 				say "[The recipient] looks at [the snack] and shakes his head slowly.  You feel a little foolish.";
@@ -2316,7 +2318,7 @@ A mysterious silver liquid is an interesting drink.  A mysterious silver liquid 
 The description of a mysterious silver liquid is "You aren't quite sure if the silver liquid is shining or glowing, but it's definitely crawling up the sides of the container in a rhythmic pattern of some kind."
 An astronaut can be zonked.
 Instead of quizzing the chemist about a mysterious silver liquid:
-	say "'Um... we don't exactly know what it is, because, like, epistemology is pretty hard.  I mean, what do any of us truly [italic type]know[roman type], right?'  She zones out again, then comes to.  'Anyway, that used to be a vial of aardvark blood, and then one day, poof!  It's all silver...  It's a little spooky.'"
+	say "'Um... we don't exactly know what it is, because, like, epistemology is pretty hard.  I mean, what do any of us truly [italic type]know[roman type], right?'  She zones out again, then comes to.  'Anyway, that used to be a vial of [tapir-aardvark] blood, and then one day, poof!  It's all silver...  It's a little spooky.'"
 Instead of quizzing the chemist about the tapir:
 	say "'That poor defenseless creature.  Animals don't, like, [italic type]deserve[roman type] being in cages, right?'  She looks profoundly sad for a moment.  'What were we talking about again?'"
 Carry out giving a container which contains a mysterious silver liquid to an astronaut:
