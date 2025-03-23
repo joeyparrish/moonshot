@@ -130,7 +130,6 @@
               <ul>
                 <li>east (e) / west (w) / north (n) / south (s)</li>
                 <li>down (d) / up (u)</li>
-                <li>map</li>
                 <li>wait (z)</li>
               </ul>
             </li>
@@ -138,7 +137,7 @@
             <li class="top">
               <b>Searching</b>
               <ul>
-                <li>look (l) / look at ...</li>
+                <li>look (l)</li>
                 <li>examine (x) ...</li>
                 <li>inventory (i)</li>
               </ul>
@@ -160,16 +159,12 @@
               <ul>
                 <li>talk / talk to ...</li>
                 <li>ask about ... / ask ... about ...</li>
-                <li>wake ...</li>
-                <li>apologize / apologize to ...</li>
               </ul>
             </li>
   
             <li class="top">
               <b>Game</b>
               <ul>
-                <li>help</li>
-                <li>options</li>
                 <li>save / restore</li>
                 <li>quit (q)</li>
               </ul>
@@ -177,7 +172,7 @@
           </ul>
   
           <p>
-            These are the most important things for this game, but feel free to use your imagination and see what happens!
+            These are the most important things for our games, but feel free to use your imagination and see what happens!
           </p>
   
           <button class="popup-close floating-button-text">Close Help</button>
