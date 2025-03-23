@@ -1947,12 +1947,16 @@ After eating a food:
 	if the snack count is 10:
 		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
 		show ending 4 of 9 aka the "gluttony" ending;
-	otherwise if the snack count is 3:
+	otherwise if the snack count is 9:
+		say "You eat [the noun].  You couldn't possibly eat another bite!";
+	otherwise if the snack count >= 6:
+		say "You eat [the noun].  [one of]The nausea is getting intense.[or]Are you okay?[or]You are really way too full.[purely at random]";
+	otherwise if the snack count is 5:
 		say "You eat [the noun].  You are starting to feel unwell.";
-	otherwise if the snack count >= 4:
+	otherwise if the snack count is 4:
 		say "You eat [the noun].  You worry you won't be able to feed everyone now!";
 	otherwise:
-		say "You eat [the noun].  Not bad.";
+		say "You eat [the noun].  [one of]Not bad.[or]Yum![or]It's not the best one you've ever had.[purely at random]";
 
 
 
