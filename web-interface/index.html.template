@@ -30,7 +30,7 @@
     <script src="interpreter/[TITLE_FILENAME].gblorb.js"></script>
   
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4EXJ8VT8V"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=[GA_KEY]"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
