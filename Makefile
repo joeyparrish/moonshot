@@ -46,6 +46,7 @@ web-interface:
 		-e 's/\[TITLE\]/MoonShot/g' \
 		-e 's/\[TITLE_FILENAME\]/MoonShot/g' \
 		-e 's/\[AUTHOR\]/Joey \&amp; Charity Parrish/g' \
+		-e 's/\[DEDICATION\]/Dedicated to everyone who ever looked up at the moon and thought,<br>"no damn way."/g' \
 		-e 's/\[RELEASE\]/9/g' \
 		-e 's/\[GA_KEY\]/G-K4EXJ8VT8V/g' \
 		-e 's/\[GA_APP\]/MoonShot/g' \

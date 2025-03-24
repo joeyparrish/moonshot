@@ -9,14 +9,9 @@ body.play {
   overflow-y: scroll;
 }
 
-#splash {
+#splash, #credits {
   background-color: black;
   color: white;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   box-sizing: border-box;
   margin: 0;
@@ -30,62 +25,116 @@ body.play {
   position: relative;
 }
 
+#splash, #creditsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 #splash .fade-in-fade-out {
   opacity: 0;
-  animation-name: fadeInFadeOut;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 8s;
+  animation: 9s ease-in 1s fade-in-fade-out;
   position: absolute;
   text-align: center;
 }
 
-#splash .logo {
-  animation-delay: 0s;
-}
-
-#splash .logo img {
+#splash #logo img {
   min-width: 100px;
   max-width: 90vw;
   max-height: 90vh;
 }
 
-#splash .cover {
-  animation-delay: 9s;
+#splash #cover {
+  animation-delay: 10s;
 }
 
-#splash .cover img {
+img.cover {
   min-width: 100px;
   max-width: 90vw;
-  max-height: 81vh;
+  max-height: 78vh;
 }
 
 #splash .author {
-  font-size: 5vh;
-  margin: 1vh 0;
-}
-
-#splash .version {
-  font-size: 3vh;
+  font-size: calc(min(5vh, 5vw));
   margin: 1vh 0;
 }
 
 #splash .inform {
-  font-size: 2vh;
+  font-size: calc(min(3vh, 3vw));
   margin: 1vh 0;
 }
 
-@keyframes fadeInFadeOut {
+@keyframes fade-in-fade-out {
   0% {
     opacity: 0;
   }
-  25% {
+  22% {
     opacity: 1;
   }
-  75% {
+  66% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#credits {
+  display: none;
+}
+
+#creditsOuterSizer {
+  /* height set at runtime to match #creditsWrapper,
+   * used in calc percentage later */
+}
+
+#creditsWrapper {
+  animation: 40s linear 2s credits-scroll;
+  top: 100vh;
+  position: relative;
+
+  max-width: calc(min(180vh, 90vw));
+  margin: auto;
+}
+
+#creditsWrapper div {
+  font-size: calc(min(10vh, 10vw));
+  margin: 1em 0;
+  text-align: center;
+}
+#creditsWrapper div:last-child {
+  margin-top: 50vh;
+  margin-bottom: 0;
+}
+
+#tauriCredit {
+  /* Re-enabled in the desktop bundle at runtime. */
+  display: none;
+}
+
+body.credits #credits {
+  display: block; /* Not flex, or the centering is off */
+}
+body.credits #splash {
+  display: none;
+}
+
+@keyframes credits-scroll {
+  0% {
+    top: 100vh;
+    opacity: 1;
+  }
+  90% {
+    /* -100% would fully offscreen, +50vh+1em centers the final line. */
+    top: calc(-100% + 1em + 50vh);
     opacity: 1;
   }
   100% {
+    top: calc(-100% + 1em + 50vh);
     opacity: 0;
   }
 }

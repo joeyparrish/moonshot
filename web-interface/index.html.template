@@ -41,6 +41,7 @@
       // Prevent the right-click context menu in desktop bundles.
       if (window.__TAURI__) {
         document.addEventListener('contextmenu', event => event.preventDefault());
+        tauriCredit.style.display = 'block';
       }
   
       // Set Quixe (interpreter) options so that it doesn't change the page title.
@@ -49,6 +50,12 @@
       };
 
       const play = () => {
+        // Ignore during the credits or if already in play.
+        if (document.body.classList.contains('credits') ||
+            document.body.classList.contains('play')) {
+          return;
+        }
+
         // Hide the splash screen.
         document.body.classList.add('play');
 
@@ -59,10 +66,30 @@
         }
       };
   
+      function fixCreditSizing() {
+        // Set this sizer's height based on runtime sizing so that the
+        // percentages in CSS calc() will work.
+        creditsOuterSizer.style.height = creditsWrapper.clientHeight + 'px';
+      }
+
+      window.addEventListener('resize', fixCreditSizing);
+
+      function showCredits() {
+        document.body.classList.remove('play');
+        document.body.classList.add('credits');
+        // Let render & layout happen, then fix sizing.  The credits animation
+        // has a 2s delay, so this 1s delay on sizing works.
+        setTimeout(fixCreditSizing, 1000);
+
+        creditsWrapper.onanimationend = () => {
+          document.body.classList.remove('credits');
+          document.body.classList.add('play');
+        };
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
-        // Move on after 18 seconds, or a click, or escape, or enter.
-        // The CSS fade-in/fade-out animations last 17s total.
-        setTimeout(play, 18000);
+        // Move on after the animations end, or a click, or escape, or enter.
+        document.getElementById('cover').onanimationend = play;
         document.addEventListener('click', play);
         document.addEventListener('keypress', (event) => {
           if (event.key === "Escape" || event.key === "Enter") {
@@ -75,16 +102,32 @@
 
   <body>
     <div id="splash">
-      <div class="logo fade-in-fade-out">
+      <div id="logo" class="fade-in-fade-out">
         <img src="Chicken-Noodle-Soap.jpg" alt="Chicken Noodle Soap">
       </div>
-      <div class="cover fade-in-fade-out">
-        <img src="Cover.jpg" alt="[TITLE]">
+      <div id="cover" class="fade-in-fade-out">
+        <img class="cover" src="Cover.jpg" alt="[TITLE]">
         <div class="covertext">
           <div class="author">[COPYRIGHT]</div>
-          <div class="version">Version [RELEASE]</div>
           <!-- The Inform 7 license requires some form of attribution: -->
           <div class="inform">Created with Inform 7</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="credits">
+      <div id="creditsOuterSizer">
+        <div id="creditsWrapper">
+          <img class="cover" src="Cover.jpg" alt="[TITLE]">
+          <div>A Chicken Noodle Soap Production</div>
+          <div>Story by [AUTHOR]</div>
+          <div>[DEDICATION]</div>
+
+          <!-- Required attribution -->
+          <div>Created with Inform 7<br>by Graham Nelson</div>
+          <div>UI based on Vorple<br>by Juhana Leinonen</div>
+          <div id="tauriCredit">Desktop app built with Tauri</div>
+          <div>[COPYRIGHT]</div>
         </div>
       </div>
     </div>
