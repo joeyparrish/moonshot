@@ -146,7 +146,7 @@ body.credits #splash {
   display: none;
 }
 
-#vorple, #uiblock, #menus{
+#vorple, #uiblock, #menus {
   display: none;
 }
 body.play #vorple, body.play #uiblock, body.play #menus {
@@ -154,6 +154,14 @@ body.play #vorple, body.play #uiblock, body.play #menus {
 }
 body.play #splash {
   display: none;
+}
+
+/* More responsive font size and output width */
+#vorple, #menus {
+  font-size: calc(max(min(4vh, 4vw), 18px));
+}
+#output {
+  max-width: calc(min(50em, 78vw, 100vw - 7em));
 }
 
 body[data-auto-complete="false"] #auto-complete {
@@ -165,4 +173,244 @@ body[data-auto-complete="false"] #auto-complete {
    * the prompt on every turn, which is the only other way I found to keep the
    * prompt from reverting to stock on a "restart" command. */
   padding-left: 0.5em;
+}
+
+/* Sometimes, when a command results in lots of text, it is difficult to find
+ * your last command to start reading.  This makes it stand out some. */
+.lineinput {
+  background-color: #eee;
+}
+
+ul.inventory {
+  /* The UA default is to have top & bottom margins, but I like the list to
+   * look more compact in inventory. */
+  margin: 0;
+}
+
+/* The form containing the input field and auto-complete. */
+#lineinput {
+  position: relative;
+}
+
+/* The auto-complete elements, positioned in an overlay over the input field. */
+#auto-complete {
+  position: absolute;
+  display: none;
+}
+
+body {
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.floating-button {
+  font-size: 100%;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  font-weight: bold;
+  padding: 0;
+
+  background: powderblue;
+  cursor: pointer;
+
+  /* This really matters in Tauri.  In Chrome, the default is fine. */
+  border: 2px solid black;
+}
+
+.floating-button img {
+  height: 1em;
+  vertical-align: middle;
+}
+
+.floating-button-text {
+  height: 2em;
+  border-radius: 0.2em;
+  font-weight: bold;
+
+  background: powderblue;
+  cursor: pointer;
+}
+
+.floating-button:active {
+  background: turquoise;
+}
+
+.popup-container {
+  /* Position in the middle of the page, overlaying everything else. */
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Place a scrim behind the card */
+  background: radial-gradient(black, transparent);
+
+  /* Place the card container above the "uiblock" used during pause. */
+  z-index: 123456789;
+}
+
+.popup {
+  /* Offsets the block from the page. */
+  border: 2px ridge grey;
+
+  /* Makes the border stay back from the edge of the text, which is nice. */
+  padding: 0.5em;
+
+  /* Limit the size of the card. */
+  max-width: 800px;
+  max-height: 80vh;
+  max-width: calc(min(100vw - 6em, 800px));
+  max-height: calc(100vh - 6em);
+  margin: 3em;
+
+  /* Scroll if needed, otherwise, no scroll bar. */
+  overflow-y: auto;
+
+  /* Set background. */
+  background-color: aliceblue;
+
+  /* Allow positioning elements within the popup. */
+  position: relative;
+}
+
+.popup p {
+  /* Keep the paragraph margins the same on all sides. */
+  margin: 1rem;
+}
+
+.popup p.title {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.popup-close {
+  float: right;
+  margin: 1em;
+}
+
+#help-button {
+  position: fixed;
+  right: 1em;
+  top: 1em;
+}
+
+#map-button {
+  position: fixed;
+  right: 1em;
+  top: 4em;
+}
+
+#settings-button {
+  position: fixed;
+  right: 1em;
+  top: 7em;
+}
+
+#help-card p, #help-card li {
+  /* Space out the help to make it easier to read. */
+  word-spacing: 0.15em;
+  line-height: 1.5;
+}
+
+#help-card li.top {
+  margin-top: 1em;
+}
+
+#help-card tt {
+  background: seashell;
+  border: 1px inset lightgray;
+  padding: 0 0.3em;
+}
+
+#map-card .popup-close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+#settings-card label {
+  /* Override the haven default for labels */
+  background: none;
+}
+
+#settings-card label,
+#settings-card input {
+  /* Space these apart a bit */
+  display: block;
+  margin: 1em;
+}
+
+.toggle {
+  /* Hide the actual toggle, but give it space. */
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+  width: 4.5em;
+  height: 2em;
+  padding: 0.2em;
+  border: none;
+  border-radius: 1.5em;
+  overflow: hidden;
+
+  /* Make it clickable still. */
+  cursor: pointer;
+
+  /* Background when off. */
+  background-color: dimgray;
+
+  /* Animate! */
+  transition: background ease 0.3s;
+}
+
+.toggle:checked {
+  /* Background when on. */
+  background-color: forestgreen;
+}
+
+.toggle:before {
+  /* A label, "on" or "off". */
+  content: "on off";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  font-family: 'Roboto';
+  font-weight: bold;
+  text-transform: uppercase;
+
+  /* Space it so that only one label shows at a time. */
+  text-indent: -2em;
+  word-spacing: 2.55em;
+  white-space: nowrap;
+
+  /* The color and shape of the ball. */
+  background: #fff;
+  border-radius: 50%;
+
+  /* The color of the label. */
+  color: #fff;
+
+  /* Make the text pop a bit. */
+  text-shadow: -1px -1px rgba(0,0,0,0.15);
+
+  /* Animate! */
+  transition: transform cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.toggle:checked:before {
+  /* Move everything over. */
+  transform: translateX(2.5em);
 }
