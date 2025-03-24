@@ -212,17 +212,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inputForm = document.getElementById('lineinput');
 
-    // Space taken up by the prompt prefix:
-    promptOffset =
-        inputField.getBoundingClientRect().x -
-        inputForm.getBoundingClientRect().x;
+    // Compute prompt offset now and on resize.
+    onResize();
+    window.addEventListener('resize', onResize);
 
     // Move the auto-complete elements inside the form where they can overlay.
     inputForm.appendChild(autoComplete);
     inputForm.appendChild(extraSpan);
 
-    // Check the initial auto-complete state.
+    // Check the auto-complete state now and on resize.
     onInput();
+    window.addEventListener('resize', onInput);
+  }
+
+  function onResize() {
+    // Compute space taken up by the prompt prefix.  This can change when the
+    // zoom level changes, and the zoom level changing triggers a resize event.
+    promptOffset =
+        inputField.getBoundingClientRect().x -
+        inputForm.getBoundingClientRect().x;
   }
 
   function onExpectCommand() {
@@ -297,8 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const caret = getCaretCoordinates(inputField, inputField.value.length);
 
     // Special case: if the input is blank, hide the ellipsis and move over a little.
-    ellipsis.style.display = inputField.value ? 'inline' : 'none';
-    caret.left += inputField.value ? 0 : 5;
+    const hasContent = /\S/.exec(inputField.value);
+    ellipsis.style.display = hasContent ? 'inline' : 'none';
+    const additionalOffset = hasContent ? '0px' : '0.5em';
 
     // Remove any old options from the select field:
     while (select.firstChild) {
@@ -314,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Position and show the auto-complete elements.
-    autoComplete.style.left = `${caret.left + promptOffset}px`;
+    autoComplete.style.left = `calc(${caret.left + promptOffset}px + ${additionalOffset})`;
     autoComplete.style.display = 'inline-block';
   }
 

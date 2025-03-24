@@ -56,12 +56,12 @@ img.cover {
 }
 
 #splash .author {
-  font-size: calc(min(5vh, 5vw));
+  font-size: 5vmin;
   margin: 1vh 0;
 }
 
 #splash .inform {
-  font-size: calc(min(3vh, 3vw));
+  font-size: 3vmin;
   margin: 1vh 0;
 }
 
@@ -102,7 +102,7 @@ img.cover {
 }
 
 #creditsWrapper div {
-  font-size: calc(min(10vh, 10vw));
+  font-size: 10vmin;
   margin: 1em 0;
   text-align: center;
 }
@@ -157,11 +157,11 @@ body.play #splash {
 }
 
 /* More responsive font size and output width */
-#vorple, #menus {
-  font-size: calc(max(min(4vh, 4vw), 18px));
+#vorple, #menus, label, input, select, button {
+  font-size: calc(max(4vmin, 18px));
 }
 #output {
-  max-width: calc(min(50em, 78vw, 100vw - 7em));
+  max-width: calc(min(50em, 78vw, 100vw - 6em));
 }
 
 body[data-auto-complete="false"] #auto-complete {
@@ -267,11 +267,10 @@ body {
   padding: 0.5em;
 
   /* Limit the size of the card. */
-  max-width: 800px;
-  max-height: 80vh;
-  max-width: calc(min(100vw - 6em, 800px));
-  max-height: calc(100vh - 6em);
+  width: calc(100vw - 6em);
+  height: calc(100vh - 6em);
   margin: 3em;
+  padding: 2em;
 
   /* Scroll if needed, otherwise, no scroll bar. */
   overflow-y: auto;
@@ -320,6 +319,9 @@ body {
   /* Space out the help to make it easier to read. */
   word-spacing: 0.15em;
   line-height: 1.5;
+}
+#help-card li {
+  margin-left: 1em;
 }
 
 #help-card li.top {
