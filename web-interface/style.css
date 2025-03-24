@@ -338,6 +338,10 @@ body {
   top: 1em;
 }
 
+#map-card img {
+  width: 100%;
+}
+
 #settings-card label {
   /* Override the haven default for labels */
   background: none;
