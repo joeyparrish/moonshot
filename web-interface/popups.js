@@ -13,16 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
   for (const element of settingsElements) {
     const key = element.dataset.settingsKey;
     const settingString = localStorage.getItem(key) || 'true';
-    setSetting(element, key, settingString == 'true');
+    setSetting(element, key, settingString);
 
     element.addEventListener('change', (event) => {
-      setSetting(element, key, event.target.checked);
+      const value = event.target.type == 'checkbox' ?
+          event.target.checked :
+          event.target.value;
+      setSetting(element, key, value);
     });
   }
 
   function setSetting(element, key, value) {
     localStorage.setItem(key, value);
-    element.checked = value;
+    if (element.type == 'checkbox') {
+      element.checked = value == 'true';
+    } else {
+      element.value = value;
+    }
 
     // Run custom "onapply" hook from the element.
     // This differs from "change" events, which are triggered by the user
