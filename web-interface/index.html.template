@@ -263,8 +263,8 @@
             Font size:
           </label>
           <div>
-            <button class="floating-button" onclick="fontSize.value--; fontSize.dispatchEvent(new Event('change'))">-</button>
-            <button class="floating-button" onclick="fontSize.value++; fontSize.dispatchEvent(new Event('change'))">+</button>
+            <button class="floating-button" onclick="fontSize.value--; fontSize.dispatchEvent(new Event('change')); window.dispatchEvent(new Event('resize'))">-</button>
+            <button class="floating-button" onclick="fontSize.value++; fontSize.dispatchEvent(new Event('change')); window.dispatchEvent(new Event('resize'))">+</button>
             <input id="fontSize" type="range" style="display: none;"
                 min="2" max="6"
                 data-settings-key="chicken-noodle-soap--font-size"
