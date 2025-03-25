@@ -252,42 +252,42 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (/^ *$/.exec(input)) {
+    if (/^ *$/i.exec(input)) {
       let verbs = specialVerbs;
       if (includeBasicVerbs) {
         verbs = verbs.concat(BASIC_VERBS);
       }
       showAutoComplete(verbs, /* endOfCommand= */ false);
-    } else if (/^ *ask (.*)\babout +$/.exec(input)) {
+    } else if (/^ *ask (.*)\babout +$/i.exec(input)) {
       showAutoComplete(knownTopics.values(), /* endOfCommand= */ true);
-    } else if (/^ *(x|exa|examine) +$/.exec(input)) {
+    } else if (/^ *(x|exa|examine) +$/i.exec(input)) {
       // Everything
       showAutoComplete(objectsMatching({}), /* endOfCommand= */ true);
-    } else if (/^ *take +$/.exec(input)) {
+    } else if (/^ *take +$/i.exec(input)) {
       // Takeable
       showAutoComplete(objectsMatching({takeable: true}), /* endOfCommand= */ true);
-    } else if (/^ *eat +$/.exec(input)) {
+    } else if (/^ *eat +$/i.exec(input)) {
       // Edible inventory
       showAutoComplete(objectsMatching({edible: true}), /* endOfCommand= */ true);
-    } else if (/^ *drink +$/.exec(input)) {
+    } else if (/^ *drink +$/i.exec(input)) {
       // Potable inventory
       showAutoComplete(objectsMatching({potable: true}), /* endOfCommand= */ true);
-    } else if (/^ *open +$/.exec(input)) {
+    } else if (/^ *open +$/i.exec(input)) {
       // Openable
       showAutoComplete(objectsMatching({openable: true}), /* endOfCommand= */ true);
-    } else if (/^ *drop +$/.exec(input)) {
+    } else if (/^ *drop +$/i.exec(input)) {
       // All inventory
       showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ true);
-    } else if (/^ *give +$/.exec(input)) {
+    } else if (/^ *give +$/i.exec(input)) {
       // All inventory
       showAutoComplete(objectsMatching({inventory: true}), /* endOfCommand= */ false, ' to ');
-    } else if (/^ *sit on +$/.exec(input)) {
+    } else if (/^ *sit on +$/i.exec(input)) {
       showAutoComplete(objectsMatching({sittable: true}), /* endOfCommand= */ true);
-    } else if (/^ *give (.*)\bto +$/.exec(input)) {
+    } else if (/^ *give (.*)\bto +$/i.exec(input)) {
       showAutoComplete(knownPeople, /* endOfCommand= */ true);
-    } else if (/^ *ask +$/.exec(input)) {
+    } else if (/^ *ask +$/i.exec(input)) {
       showAutoComplete(knownPeople, /* endOfCommand= */ false, ' about ');
-    } else if (/^ *wake +$/.exec(input)) {
+    } else if (/^ *wake +$/i.exec(input)) {
       showAutoComplete(knownPeople, /* endOfCommand= */ false);
     } else {
       hideAutoComplete();

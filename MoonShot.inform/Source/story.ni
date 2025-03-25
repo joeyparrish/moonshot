@@ -1501,7 +1501,7 @@ Extra autocomplete verbs rule:
 	if the personnel puzzle is ready and TBD is listed in the sub-items of choose-crew:
 		[Have the files, haven't chosen everyone yet.]
 		add "choose " to extra-verbs;
-		execute JavaScript code "addCustomAutoComplete(/^ *choose +$/, [the list of crew candidates as JSON].map(x => x+'\n'))";
+		execute JavaScript code "addCustomAutoComplete(/^ *choose +$/i, [the list of crew candidates as JSON].map(x => x+'\n'))";
 To say (L - a list of objects) as JSON:
 	let J be "[bracket]";
 	repeat with N running through L:
