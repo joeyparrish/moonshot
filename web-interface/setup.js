@@ -34,6 +34,11 @@
 
   window.addEventListener('resize', fixCreditSizing);
 
+  function stopCredits() {
+    document.body.classList.remove('credits');
+    document.body.classList.add('play');
+  }
+
   function showCredits() {
     document.body.classList.remove('play');
     document.body.classList.add('credits');
@@ -41,10 +46,7 @@
     // has a 2s delay, so this 1s delay on sizing works.
     setTimeout(fixCreditSizing, 1000);
 
-    creditsWrapper.onanimationend = () => {
-      document.body.classList.remove('credits');
-      document.body.classList.add('play');
-    };
+    creditsWrapper.onanimationend = stopCredits;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -54,6 +56,7 @@
     document.addEventListener('keypress', (event) => {
       if (event.key === "Escape" || event.key === "Enter") {
         play();
+        stopCredits();
       }
     });
 
