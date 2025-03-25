@@ -203,12 +203,12 @@
             Font size:
           </label>
           <div>
-            <button class="floating-button" onclick="fontSize.value--; fontSize.dispatchEvent(new Event('change')); window.dispatchEvent(new Event('resize'))">-</button>
-            <button class="floating-button" onclick="fontSize.value++; fontSize.dispatchEvent(new Event('change')); window.dispatchEvent(new Event('resize'))">+</button>
+            <button class="floating-button" onclick="fontSize.value--; fontSize.dispatchEvent(new Event('change'));">-</button>
+            <button class="floating-button" onclick="fontSize.value++; fontSize.dispatchEvent(new Event('change'));">+</button>
             <input id="fontSize" type="range" style="display: none;"
                 min="2" max="6"
                 data-settings-key="chicken-noodle-soap--font-size"
-                onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vmin')">
+                onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vmin'); window.dispatchEvent(new Event('resize')); window.scrollTo(0, document.body.clientHeight);">
           </div>
 
           <!-- spacer -->
