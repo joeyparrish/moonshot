@@ -210,6 +210,8 @@ When day one begins:
 		center "-- U.S. President John Fitzgerald Kennedy";
 	say paragraph break;
 	pause;
+	now checklist-1 is on the director's desk;
+	now checklist-2 is nowhere;
 	log event "day1";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
@@ -414,14 +416,12 @@ The wooden armchair is a chair in the director's office.
 Understand "chair" as the wooden armchair.  [Duh.]
 The description of the wooden armchair is "A comfy-looking wooden armchair, with dark, mulberry-colored upholstery."
 
-There is a checklist on the director's desk called checklist-1.
-Checklist-1 is interesting and critical.  [You can't drop it.]
+Checklist-1 is an interesting, privately-named [aliases only], critical [can't drop it] checklist.
 The printed name of checklist-1 is "Apollo 11 checklist".
 The description of checklist-1 is "The checklist is [if checklist-1 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
 Understand "Apollo 11 checklist" as checklist-1.
-Understand "checklist" as checklist-1.
-Checklist-1 is privately-named.  [Only aliases can be used.]
+Understand "checklist" as checklist-1 when day one is happening.
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
 
@@ -488,7 +488,7 @@ Instead of taking checklist-1:
 	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
 	if the player is in the director's office and the player does not have checklist-1:
 		if checklist-1 is ready:
-			say "[The director] looks relieved and drawls, 'Oh, thank you, wasn't sure how I was gonna get all that done!'";
+			say "[The director] looks relieved and drawls, 'Oh, thank you. I wasn't sure how I was gonna get all that done!'";
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
 			now the director is relaxed;
 			continue the action;
@@ -1608,19 +1608,12 @@ Carry out triggering director-yells-2:
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
 
-Checklist-2 is an interesting, critical checklist.
+Checklist-2 is an interesting, privately-named [aliases only], critical [can't drop it] checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
 Understand "Operation Glitter checklist" as checklist-2.
-Understand "checklist" as checklist-2.
-Checklist-2 is privately-named.  [Only aliases can be used.]
-
-[HACK: "checklist" is a type, so it could refer to any object of that type.  Sadly, when "asking about", because we are allowed to talk about things in other places, we get a disambiguation prompt for "ask about checklist", even before day two.  This causes a spoiler about Operation Glitter.  These "does the player mean" rules help to disambiguate the checklists based on the scene.]
-Does the player mean doing something with checklist-1 when day one is happening:
-	it is very likely.
-Does the player mean doing something with checklist-2 when day two is happening:
-	it is very likely.
+Understand "checklist" as checklist-2 when day two is happening.
 
 
 
