@@ -111,10 +111,11 @@ img.cover {
 
   max-width: calc(min(180vh, 90vw));
   margin: auto;
+
+  font-size: calc(min(4rem, 10vh));
 }
 
 #creditsWrapper div {
-  font-size: 4rem;
   margin: 1em 0;
   text-align: center;
 }
@@ -145,7 +146,12 @@ body.credits #splash {
     top: calc(-100% + 1em + 50vh);
     opacity: 1;
   }
-  95% {
+  92% {
+    /* -100% would fully offscreen, +50vh+1em centers the final line. */
+    top: calc(-100% + 1em + 50vh);
+    opacity: 1;
+  }
+  97% {
     top: calc(-100% + 1em + 50vh);
     opacity: 0;
   }
