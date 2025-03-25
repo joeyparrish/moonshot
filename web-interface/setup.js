@@ -37,6 +37,7 @@
   function stopCredits() {
     document.body.classList.remove('credits');
     document.body.classList.add('play');
+    scrollToBottom();
   }
 
   function showCredits() {
@@ -65,6 +66,10 @@
     tauriLicense.style.display = 'block';
   });
 
+  function scrollToBottom() {
+    window.scrollTo(0, document.body.clientHeight);
+  }
+
   function tellTauri(name /* string */, args /* object */) {
     if (window.__TAURI__) {
       window.__TAURI__.core.invoke(name, args);
@@ -73,5 +78,6 @@
 
   // Export public functions:
   window.showCredits = showCredits;
+  window.scrollToBottom = scrollToBottom;
   window.tellTauri = tellTauri;
 })();

@@ -208,7 +208,7 @@
             <input id="fontSize" type="range" style="display: none;"
                 min="2" max="6"
                 data-settings-key="chicken-noodle-soap--font-size"
-                onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vmin'); window.dispatchEvent(new Event('resize')); window.scrollTo(0, document.body.clientHeight);">
+                onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vmin'); window.dispatchEvent(new Event('resize')); scrollToBottom();">
           </div>
 
           <!-- spacer -->
