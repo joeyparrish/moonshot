@@ -235,6 +235,9 @@ body {
 
   /* This really matters in Tauri.  In Chrome, the default is fine. */
   border: 2px solid black;
+
+  /* Fixes some weird vertical misalignment that is more visible at larger font sizes. */
+  line-height: 1;
 }
 
 .floating-button img {
