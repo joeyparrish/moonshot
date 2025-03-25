@@ -42,6 +42,7 @@
       if (window.__TAURI__) {
         document.addEventListener('contextmenu', event => event.preventDefault());
         tauriCredit.style.display = 'block';
+        tauriLicense.style.display = 'block';
       }
   
       // Set Quixe (interpreter) options so that it doesn't change the page title.
@@ -270,6 +271,138 @@
                 data-settings-key="chicken-noodle-soap--font-size"
                 onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vmin')">
           </div>
+
+          <!-- spacer -->
+          <div style="height: 1em;">
+          </div>
+
+          <div>
+            <button
+                id="license-button"
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="license-card-container">Open Source Licenses</button>
+          </div>
+          <div>
+            <button class="floating-button-text" onclick="showCredits()">Credits</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="license-card-container" class="hidden popup-container">
+        <div id="license-card" class="popup">
+          <button class="popup-close floating-button" title="close">X</button>
+
+<details>
+  <summary>
+    Compiled with Inform, version 9.3, build 6M62 (I6/v6.33 lib 6/12N) SD
+  </summary>
+
+  <p>
+    &copy; 2006 - 2015, Graham Nelson
+  </p>
+
+  <p>
+    Inform is a programming language used for interactive fiction.
+    For details, visit the Inform home page:
+    <a target="_blank" href="https://ganelson.github.io/inform-website/">https://ganelson.github.io/inform-website/</a>
+  </p>
+
+  <p>
+    This story was built with a pre-open-source version of Inform, v9.3.
+    It can be downloaded from:
+    <a target="_blank" href="https://ganelson.github.io/inform-website/downloads/">https://ganelson.github.io/inform-website/downloads/</a>
+  </p>
+
+  <p>
+    We used a Docker image from:
+    <a target="_blank" href="https://hub.docker.com/r/jkmatila/inform7-docker">https://hub.docker.com/r/jkmatila/inform7-docker</a>
+  </p>
+</details>
+
+<details>
+  <summary>
+    Vorple user interface library for interactive fiction, version 3.2.3
+  </summary>
+
+  <p>
+    &copy; 2011 - 2017, Juhana Leinonen
+  </p>
+
+  <p>
+    <a target="_blank" href="https://vorple-if.com/">https://vorple-if.com/</a>
+  </p>
+
+  <p>
+    Vorple is licensed under the MIT License.
+  </p>
+
+  <p>
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+  </p>
+
+  <p>
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+  </p>
+
+  <p>
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+  </p>
+</details>
+
+<details id="tauriLicense" style="display: none;">
+  <summary>
+    Tauri app framework, version 2.3.0
+  </summary>
+
+  <p>
+    &copy; 2017 - 2025, Tauri Apps Contributors
+  </p>
+
+  <p>
+    <a target="_blank" href="https://v2.tauri.app/">https://v2.tauri.app/</a>
+  </p>
+
+  <p>
+    Tauri is licensed under the MIT License.
+  </p>
+
+  <p>
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+  </p>
+
+  <p>
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+  </p>
+
+  <p>
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+  </p>
+</details>
+
         </div>
       </div>
 

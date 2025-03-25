@@ -114,7 +114,7 @@ img.cover {
 }
 
 #creditsWrapper div {
-  font-size: 2rem;
+  font-size: 4rem;
   margin: 1em 0;
   text-align: center;
 }
@@ -438,4 +438,20 @@ body {
 .toggle:checked:before {
   /* Move everything over. */
   transform: translateX(2.5em);
+}
+
+/* This is a popup-close, but we don't want to position it like the others. */
+#license-button {
+  float: none;
+  margin: 0;
+}
+
+#license-card {
+  /* This is a good size for reading the licenses.  And with a specific width,
+   * the width doesn't change when the details sections are expanded. */
+  width: 50em;
+}
+
+#license-card details {
+  margin: 2em 0.5em;
 }
