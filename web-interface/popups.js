@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setSetting(element, key, settingString);
 
     element.addEventListener('change', (event) => {
-      const value = event.target.type == 'checkbox' ?
+      const value = element.type == 'checkbox' ?
           event.target.checked :
           event.target.value;
       setSetting(element, key, value);
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setSetting(element, key, value) {
     localStorage.setItem(key, value);
     if (element.type == 'checkbox') {
-      element.checked = value == 'true';
+      element.checked = value === true || value === 'true';
     } else {
       element.value = value;
     }

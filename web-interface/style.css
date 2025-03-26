@@ -448,7 +448,6 @@ body {
   content: "on off";
   display: block;
   position: absolute;
-  z-index: 2;
   width: 2em;
   height: 2em;
   line-height: 2em;
