@@ -323,7 +323,7 @@ body {
   padding: 0.5em;
 
   /* Limit the size of the card. */
-  max-width: calc(100vw - 6em);
+  max-width: calc(min(100vw - 6em, 60rem));
   max-height: calc(100vh - 6em);
   margin: 3em;
   padding: 2em;
