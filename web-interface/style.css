@@ -15,16 +15,65 @@ body {
   font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  overflow: auto;
+
+  /* The body is black and only occupies the screen size. */
+  background-color: black;
+  overflow: hidden;
 }
 
-body.play {
+#vorple {
+  /* The game area is white and scrolls. */
+  background-color: white;
   overflow-y: scroll;
+  height: 100vh;
+
+  /* The game area fades in and out when we go to/from splash/credits. */
+  transition: opacity 2s linear;
+
+  /* It starts hidden. */
+  opacity: 0;
+}
+
+body[data-mode="play"] #vorple {
+  /* In play mode, we show the game area.  This transitions over 2s.
+   * To enable that transition, we use opacity instead of display. */
+  opacity: 1;
+}
+
+#splash, #credits, #uiblock, #menus {
+  /* These default to hidden. */
+  display: none;
+}
+body[data-mode="splash"] #splash {
+  display: flex;
+}
+body[data-mode="credits"] #credits {
+  display: block;  /* Not flex, or the centering is off */
+}
+body[data-mode="play"] #uiblock,
+body[data-mode="play"] #menus {
+  /* These show when we enter play mode. */
+  display: block;
+}
+
+body[data-auto-complete="false"] #auto-complete {
+  visibility: hidden;
+}
+
+/* More responsive font size and output width */
+#vorple, #menus, label, input, select, button {
+  font-size: 1rem;
+}
+#output {
+  max-width: calc(min(50em, 78vw, 100vw - 6em));
 }
 
 #splash, #credits {
   background-color: black;
   color: white;
+
+  position: fixed;
+  top: 0;
 
   margin: 0;
   padding: 2vh 2vw;
@@ -33,12 +82,9 @@ body.play {
 
   overflow: hidden;
   user-select: none;
-
-  position: relative;
 }
 
 #splash, #creditsWrapper {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -95,16 +141,13 @@ img.cover {
   }
 }
 
-#credits {
-  display: none;
-}
-
 #creditsOuterSizer {
   /* height set at runtime to match #creditsWrapper,
    * used in calc percentage later */
 }
 
 #creditsWrapper {
+  display: flex;
   animation: 90s linear 2s credits-scroll-and-fade;
   top: 100vh;
   position: relative;
@@ -126,13 +169,6 @@ img.cover {
 
 #tauriCredit {
   /* Re-enabled in the desktop bundle at runtime. */
-  display: none;
-}
-
-body.credits #credits {
-  display: block; /* Not flex, or the centering is off */
-}
-body.credits #splash {
   display: none;
 }
 
@@ -166,28 +202,6 @@ body.credits #splash {
 }
 #noMusic {
   display: none;
-}
-
-#vorple, #uiblock, #menus {
-  display: none;
-}
-body.play #vorple, body.play #uiblock, body.play #menus {
-  display: block;
-}
-body.play #splash {
-  display: none;
-}
-
-/* More responsive font size and output width */
-#vorple, #menus, label, input, select, button {
-  font-size: 1rem;
-}
-#output {
-  max-width: calc(min(50em, 78vw, 100vw - 6em));
-}
-
-body[data-auto-complete="false"] #auto-complete {
-  visibility: hidden;
 }
 
 #lineinput-field, .prompt-input {

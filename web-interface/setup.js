@@ -11,19 +11,13 @@
 
   function play() {
     // Ignore during the credits or if already in play.
-    if (document.body.classList.contains('credits') ||
-        document.body.classList.contains('play')) {
+    const mode = document.body.dataset.mode;
+    if (mode == 'credits' || mode == 'play') {
       return;
     }
 
-    // Hide the splash screen.
-    document.body.classList.add('play');
-
-    if (document.getElementById('vorple') == null) {
-      // Disable debugging features, then initialize Vorple.
-      vorple.debug.off();
-      vorple.init();
-    }
+    // Go into play mode.
+    document.body.dataset.mode = 'play';
   }
     
   function fixCreditSizing() {
@@ -35,14 +29,12 @@
   window.addEventListener('resize', fixCreditSizing);
 
   function stopCredits() {
-    document.body.classList.remove('credits');
-    document.body.classList.add('play');
+    document.body.dataset.mode = 'play';
     scrollToBottom();
   }
 
   function showCredits() {
-    document.body.classList.remove('play');
-    document.body.classList.add('credits');
+    document.body.dataset.mode = 'credits';
     // Let render & layout happen, then fix sizing.  The credits animation
     // has a 2s delay, so this 1s delay on sizing works.
     setTimeout(fixCreditSizing, 1000);
@@ -61,9 +53,16 @@
       }
     });
 
+    // Disable debugging features, then initialize Vorple.
+    vorple.debug.off();
+    vorple.init();
+
     // Enable desktop-bundle-specific elements.
     tauriCredit.style.display = 'block';
     tauriLicense.style.display = 'block';
+
+    // Start the splash screen.
+    document.body.dataset.mode = 'splash';
   });
 
   function scrollToBottom() {
