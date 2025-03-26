@@ -1,4 +1,4 @@
-Version 3/181103 of Vorple Status Line (for Glulx only) by Juhana Leinonen begins here.
+Version 3/220217 of Vorple Status Line (for Glulx only) by Juhana Leinonen begins here.
 
 "The Vorple version of the standard status line."
 
@@ -31,7 +31,7 @@ To construct the/a/-- Vorple status line with (column count - number) column/col
 	remove the Vorple status line;
 	place an element called "status-line-container" at the top level;
 	if the full-width status line option is active:
-		execute JavaScript command "$('.status-line-container').prependTo('main#haven')";
+		execute JavaScript command "$('.status-line-container').prependTo('main#vorple')";
 	otherwise:
 		execute JavaScript command "$('.status-line-container').prependTo('#output')";
 	set output focus to element called "status-line-container";
@@ -165,7 +165,7 @@ Chapter: Styling the status line
 
 By default the status line is as wide as the column that displays the story text. The status line can be made to span the entire screen width with the "full-width status line" option:
 
-	Use full-width status line.
+	*: Use full-width status line.
 
 CSS can be used to style the status line in virtually any fashion. For example, the following CSS rule changes the line below the status line from double lines to a single line and makes the background light blue:
 
