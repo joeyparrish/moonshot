@@ -73,7 +73,7 @@ To pause:
 		center "[continue style](click or tap to continue)[end style]";
 		execute JavaScript code "pauseGame()";
 		[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
-		wait for any key;
+		wait for the SPACE key;
 	otherwise:
 		say "[paragraph break]Please press SPACE to continue[line break]";
 		wait for the SPACE key;

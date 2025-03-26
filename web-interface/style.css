@@ -40,7 +40,7 @@ body[data-mode="play"] #vorple {
   opacity: 1;
 }
 
-#splash, #credits, .uiblock, #menus {
+#splash, #credits, #menus {
   /* These default to hidden. */
   display: none;
 }
@@ -50,7 +50,6 @@ body[data-mode="splash"] #splash {
 body[data-mode="credits"] #credits {
   display: block;  /* Not flex, or the centering is off */
 }
-body[data-mode="play"] .uiblock,
 body[data-mode="play"] #menus {
   /* These show when we enter play mode. */
   display: block;
@@ -59,17 +58,14 @@ body[data-mode="play"] #menus {
 #vorple {
   z-index: 0;
 }
-.uiblock {
-  z-index: 1;
-}
 #menus {
-  z-index: 2;
+  z-index: 0;
 }
 .popup-container {
-  z-index: 3;
+  z-index: 1;
 }
 #splash, #credits {
-  z-index: 4;
+  z-index: 2;
 }
 
 body[data-auto-complete="false"] #auto-complete {
