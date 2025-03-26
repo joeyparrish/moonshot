@@ -25,6 +25,7 @@ body {
   /* The game area is white and scrolls. */
   background-color: white;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   height: 100vh;
 
   /* The game area fades in and out when we go to/from splash/credits. */
@@ -55,17 +56,17 @@ body[data-mode="play"] #menus {
   display: block;
 }
 
-#vorple {
+body { /* and #vorple, which can't z-index */
   z-index: 0;
 }
 #menus {
-  z-index: 0;
-}
-.popup-container {
   z-index: 1;
 }
-#splash, #credits {
+.popup-container {
   z-index: 2;
+}
+#splash, #credits {
+  z-index: 3;
 }
 
 body[data-auto-complete="false"] #auto-complete {
