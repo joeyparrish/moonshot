@@ -79,6 +79,9 @@ body[data-auto-complete="false"] #auto-complete {
 }
 #output {
   max-width: calc(min(50em, 78vw, 100vw - 6em));
+
+  /* Add a little extra padding on bottom so the autocomplete isn't too cramped. */
+  padding-bottom: 2em;
 }
 
 #splash, #credits {
