@@ -20,9 +20,9 @@ function pauseGame() {
   // Wait for a click or keypress, just once.
   const vorpleElement = document.getElementById('vorple');
   const listener = (event) => {
-    // FIXME: key events are broken if we listen to #vorple
-    if (event.type == 'keydown' && event.key != ' ' && event.key != 'Enter') {
-      // Ignore keys other than space or enter.  Especially, say Alt+Tab.  So
+    if (event.type == 'keydown' &&
+        event.key != 'Enter' && event.key != 'Escape') {
+      // Ignore keys other than escape or enter.  Especially, say Alt+Tab.  So
       // annoyed by having the pause dismissed by modifier keys.
       return;
     }
@@ -35,8 +35,8 @@ function pauseGame() {
     // Either event is enough to cancel listening for the other.
     // Because of this, we don't use "once" in the listener setup.
     vorpleElement.removeEventListener('click', listener, {capture: true});
-    vorpleElement.removeEventListener('keydown', listener, {capture: true});
+    document.removeEventListener('keydown', listener, {capture: true});
   };
   vorpleElement.addEventListener('click', listener, {capture: true});
-  vorpleElement.addEventListener('keydown', listener, {capture: true});
+  document.addEventListener('keydown', listener, {capture: true});
 }
