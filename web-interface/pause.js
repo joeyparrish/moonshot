@@ -17,13 +17,16 @@ const UNPAUSE_KEYS = [
 ];
 
 function pauseGame() {
+  const vorpleElement = document.getElementById('vorple');
+
   // Hide the prompt.
   vorple.prompt.hide();
   // Hide the buttons, which are partially covered by the "uiblock" element.
   hidePopupButtons();
+  // Scroll down to the bottom.
+  vorpleElement.scrollTo(0, vorpleElement.scrollHeight);
 
   // Wait for a click or keypress, just once.
-  const vorpleElement = document.getElementById('vorple');
   const listener = (event) => {
     const endPauseState = () => {
       // Defer unpausing, to make sure this event is dead before the
