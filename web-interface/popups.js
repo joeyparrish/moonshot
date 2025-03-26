@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', hidePopup);
   }
 
+  const scrims = document.querySelectorAll('.popup-container');
+  for (const scrim of scrims) {
+    scrim.addEventListener('click', hidePopup);
+  }
+
   const settingsElements = document.querySelectorAll('[data-settings-key]');
   for (const element of settingsElements) {
     const key = element.dataset.settingsKey;
