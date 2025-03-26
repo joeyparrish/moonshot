@@ -38,17 +38,22 @@
     // Let render & layout happen, then fix sizing.  The credits animation
     // has a 2s delay, so this 1s delay on sizing works.
     setTimeout(fixCreditSizing, 1000);
-
-    creditsWrapper.onanimationend = stopCredits;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     // Move on after the animations end, or a click, or escape, or enter.
     document.getElementById('cover').onanimationend = play;
-    document.addEventListener('click', play);
-    document.addEventListener('keypress', (event) => {
-      if (event.key === "Escape" || event.key === "Enter") {
+    splash.addEventListener('click', play);
+    splash.addEventListener('keypress', (event) => {
+      if (event.key === 'Escape' || event.key === 'Enter') {
         play();
+      }
+    });
+
+    creditsWrapper.onanimationend = stopCredits;
+    credits.addEventListener('click', play);
+    credits.addEventListener('keypress', (event) => {
+      if (event.key === 'Escape' || event.key === 'Enter') {
         stopCredits();
       }
     });
