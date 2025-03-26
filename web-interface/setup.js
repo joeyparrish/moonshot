@@ -43,20 +43,28 @@
   document.addEventListener('DOMContentLoaded', () => {
     // Move on after the animations end, or a click, or escape, or enter.
     document.getElementById('cover').onanimationend = play;
-    splash.addEventListener('click', play);
-    splash.addEventListener('keypress', (event) => {
-      if (event.key === 'Escape' || event.key === 'Enter') {
-        play();
-      }
-    });
-
     creditsWrapper.onanimationend = stopCredits;
-    credits.addEventListener('click', play);
-    credits.addEventListener('keypress', (event) => {
-      if (event.key === 'Escape' || event.key === 'Enter') {
-        stopCredits();
+
+    splash.addEventListener('click', play);
+    credits.addEventListener('click', stopCredits);
+
+    document.addEventListener('keydown', (event) => {
+      // Don't monkey with key presses during gameplay.
+      if (document.body.dataset.mode == 'play') {
+        return;
       }
-    });
+
+      // Don't let key presses go to the interpreter input in non-gameplay
+      // modes.
+      event.stopImmediatePropagation();
+      if (event.key === 'Escape' || event.key === 'Enter') {
+        if (document.body.dataset.mode == 'splash') {
+          play();
+        } else {
+          stopCredits();
+        }
+      }
+    }, { capture: true });
 
     // Disable debugging features, then initialize Vorple.
     vorple.debug.off();
