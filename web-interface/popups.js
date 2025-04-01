@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  function exactTarget(element, listener) {
+    return (event) => {
+      if (event.target == element) {
+        listener(event);
+      }
+    };
+  }
+
   const openButtons = document.querySelectorAll('.popup-open');
   for (const button of openButtons) {
     button.addEventListener('click', showPopup);
@@ -11,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const scrims = document.querySelectorAll('.popup-container');
   for (const scrim of scrims) {
-    scrim.addEventListener('click', hidePopup);
+    scrim.addEventListener('click', exactTarget(scrim, hidePopup));
   }
 
   const settingsElements = document.querySelectorAll('[data-settings-key]');
