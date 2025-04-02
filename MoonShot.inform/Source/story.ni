@@ -161,25 +161,52 @@ Extra autocomplete verbs rule:
 		add "apologize\n" to extra-verbs;
 
 
+day1-music is background music.
+The url of day1-music is "day1.webm".
+The loop point of day1-music is 5.861.
+The author credit of day1-music is "by BackgroundMusicForVideo via Pixabay".
+The link of day1-music is "https://pixabay.com/music/comedy-funny-comedy-music-humor-fool-joke-smile-background-intro-theme-261165/".
+
+day2-music is background music.
+The url of day2-music is "day2.webm".
+The author credit of day2-music is "by Serge Quadrado Music via Pixabay".
+The link of day2-music is "https://pixabay.com/music/happy-childrens-tunes-life-of-a-wandering-wizard-15549/".
+
+day2alt-music is background music.
+The url of day2alt-music is "day2alt.webm".
+The author credit of day2alt-music is "by Lexin_Music via Pixabay".
+The link of day2alt-music is "https://pixabay.com/music/modern-classical-marionettes-124709/".
+
+day3-music is background music.
+The url of day3-music is "day3.webm".
+The loop point of day3-music is 8.75.
+The author credit of day3-music is "by Universfield via Pixabay".
+The link of day3-music is "https://pixabay.com/music/mystery-tense-horror-background-174809/".
+
+day3final-music is background music.
+The url of day3final-music is "day3final.webm".
+The author credit of day3final-music is "by Mikhail Smusev via Pixabay".
+The link of day3final-music is "https://pixabay.com/music/suspense-horror-258261/".
+
 Before handling the final question:
-	execute JavaScript code "stopBackgroundMusic()";
+	stop music;
 When day one ends:
-	execute JavaScript code "stopBackgroundMusic()";
+	stop music;
 When day two ends:
-	execute JavaScript code "stopBackgroundMusic()";
+	stop music;
 Vorple interface update rule:
 	if day one is happening:
-		execute JavaScript code "setBackgroundMusic('day1.mp4', 5.861, 'by BackgroundMusicForVideo via Pixabay', 'https://pixabay.com/music/comedy-funny-comedy-music-humor-fool-joke-smile-background-intro-theme-261165/')";
+		play music day1-music;
 	otherwise if day two is happening:
 		if the player has alien-equations:
-			execute JavaScript code "setBackgroundMusic('day2alt.mp4', 0, 'by Lexin_Music via Pixabay', 'https://pixabay.com/music/modern-classical-marionettes-124709/')";
+			play music day2alt-music;
 		otherwise:
-			execute JavaScript code "setBackgroundMusic('day2.mp4', 0, 'by Serge Quadrado Music via Pixabay', 'https://pixabay.com/music/happy-childrens-tunes-life-of-a-wandering-wizard-15549/')";
+			play music day2-music;
 	otherwise if day three is happening:
 		if the player is in the sound stage:
-			execute JavaScript code "setBackgroundMusic('day3final.mp4', 0, 'by Mikhail Smusev via Pixabay', 'https://pixabay.com/music/suspense-horror-258261/')";
+			play music day3final-music;
 		otherwise:
-			execute JavaScript code "setBackgroundMusic('day3.mp4', 8.75, 'by Universfield via Pixabay', 'https://pixabay.com/music/mystery-tense-horror-background-174809/')";
+			play music day3-music;
 
 
 

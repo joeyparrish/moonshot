@@ -1,6 +1,6 @@
 async function startMusic() {
   if (!backgroundMusic.paused && !backgroundMusic.ended) return;
-  if (!backgroundMusic.src) return;
+  if (!backgroundMusic.currentSrc) return;
 
   try {
     await backgroundMusic.play();
@@ -9,14 +9,16 @@ async function startMusic() {
 
 let backgroundMusicLoopTo = 0;
 
-function setBackgroundMusic(url, loopTo, credit, link) {
+function setBackgroundMusic(relativeUrl, loopTo, credit, link) {
   // The audio element has a canonical URL, so we have to canonicalize the
   // input to compare.
-  url = (new URL(url, location.href)).href;
-  if (backgroundMusic.src == url) {
-    // Already playing this one.
+  const url = (new URL(relativeUrl, location.href)).href;
+  if (backgroundMusic.currentSrc == url) {
+    // Already playing this one, so don't do anything.
     return;
   }
+
+  stopBackgroundMusic();
 
   backgroundMusic.src = url;
   backgroundMusicLoopTo = loopTo;

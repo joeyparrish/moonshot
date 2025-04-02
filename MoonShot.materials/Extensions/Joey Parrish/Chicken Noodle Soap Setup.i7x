@@ -322,4 +322,20 @@ After printing the name of a thing (called the thingy):
 		say /interesting.
 
 
+Background music is a kind of object.
+Background music has a text called url.
+Background music has a real number called loop point.  The loop point of background music is usually 0.
+Background music has a text called author credit.
+Background music has a text called link.
+
+To play music (M - background music):
+	execute JavaScript code "setBackgroundMusic(
+		'[url of M]',
+		[loop point of M],
+		'[author credit of M]',
+		'[link of M]')";
+To stop music:
+	execute JavaScript code "stopBackgroundMusic()";
+
+
 Chicken Noodle Soap Setup ends here.
