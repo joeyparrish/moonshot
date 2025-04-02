@@ -25,13 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const settingsElements = document.querySelectorAll('[data-settings-key]');
   for (const element of settingsElements) {
     const key = element.dataset.settingsKey;
-    const settingString = localStorage.getItem(key) || 'true';
+    const isBool = element.type == 'checkbox';
+
+    let defaultSetting = element.dataset.defaultSetting;
+    if (defaultSetting === undefined) {
+      defaultSetting = isBool ? 'true' : '';
+    }
+
+    const settingString = localStorage.getItem(key) || defaultSetting;
     setSetting(element, key, settingString);
 
     element.addEventListener('change', (event) => {
-      const value = element.type == 'checkbox' ?
-          event.target.checked :
-          event.target.value;
+      const value = isBool ?  event.target.checked : event.target.value;
       setSetting(element, key, value);
     });
   }

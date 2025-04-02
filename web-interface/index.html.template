@@ -208,6 +208,7 @@
             <input id="fontSize" type="range" style="display: none;"
                 min="1" max="5"
                 data-settings-key="chicken-noodle-soap--font-size"
+                data-default-setting="2"
                 onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vh'); window.dispatchEvent(new Event('resize')); scrollToBottom();">
           </div>
 
