@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //  8. click to open, arrows to select, enter/space to choose
   // The "click to choose" scenarios (3 & 6) don't work in Linux Tauri without
   // hitting Enter again.
+  // TODO: Clean this up now that we are dumping Tauri.
   function processSelectChange(event) {
     // This event is meant solely for the auto-complete element, and should not
     // go to any other element or handler.

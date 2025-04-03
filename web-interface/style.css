@@ -183,7 +183,7 @@ img.cover {
   margin-bottom: 0;
 }
 
-#tauriCredit {
+#desktopCredit, #desktopLicense {
   /* Re-enabled in the desktop bundle at runtime. */
   display: none;
 }
@@ -286,7 +286,7 @@ body {
 
 .floating-button,
 .floating-button-text {
-  /* This really matters in Tauri.  In Chrome, the default is fine. */
+  /* This may matter across browsers.  In Chrome, the default is fine. */
   border: 2px solid black;
 
   /* Fixes some weird vertical misalignment that is more visible at larger font sizes. */

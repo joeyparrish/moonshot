@@ -9,7 +9,7 @@ function logEvent(action, userInput=false) {
   });
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
   vorple.prompt.addInputFilter((input, meta) => {
     if (meta.userAction && meta.type == "line") {
       // If it's user action and line type, the user typed something and hit
@@ -19,14 +19,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
   vorple.addEventListener('quit', () => {
-    if (window.__TAURI__) {
-      window.__TAURI__.window.getCurrentWindow().destroy();
-    } else {
-      const window0 = document.getElementById('window0');
-      if (window0) {
-        window0.appendChild(document.createTextNode('You may now close this window.'));
-      }
-      window.close();
+    // First, try closing the window.  This works on desktop builds.
+    window.close();
+
+    // That fails in browsers, so now we add this message to the window.
+    const window0 = document.getElementById('window0');
+    if (window0) {
+      window0.appendChild(document.createTextNode('You may now close this window.'));
     }
   });
 });
