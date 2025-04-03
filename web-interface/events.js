@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   vorple.addEventListener('quit', () => {
-    // First, try closing the window.  This works on desktop builds.
+    // First, stop the music.
+    stopBackgroundMusic();
+
+    // Then try closing the window.  This works on desktop builds.
     window.close();
 
     // That fails in browsers, so now we add this message to the window.
