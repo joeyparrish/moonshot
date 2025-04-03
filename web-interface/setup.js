@@ -35,6 +35,13 @@
     setTimeout(fixCreditSizing, 1000);
   }
 
+  function scrollToBottom() {
+    const vorpleElement = document.getElementById('vorple');
+    if (vorpleElement) {
+      vorpleElement.scrollTo(0, vorpleElement.scrollHeight);
+    }
+  }
+
   function isDesktopBundle() {
     if (window.nw) {
       return true;
@@ -72,6 +79,10 @@
     vorple.debug.off();
     vorple.init();
 
+    // Some Vorple prompts (like after "quit") don't scroll to the bottom
+    // automatically.  Fix that here.
+    vorple.addEventListener('expectCommand', scrollToBottom);
+
     // Enable desktop-bundle-specific elements.
     if (isDesktopBundle()) {
       desktopCredit.style.display = 'block';
@@ -81,10 +92,6 @@
     // Start the splash screen.
     document.body.dataset.mode = 'splash';
   });
-
-  function scrollToBottom() {
-    window.scrollTo(0, document.body.clientHeight);
-  }
 
   // Export public functions:
   window.showCredits = showCredits;

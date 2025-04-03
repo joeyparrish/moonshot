@@ -24,7 +24,7 @@ function pauseGame() {
   // Hide the buttons, which are partially covered by the "uiblock" element.
   hidePopupButtons();
   // Scroll down to the bottom.
-  vorpleElement.scrollTo(0, vorpleElement.scrollHeight);
+  scrollToBottom();
 
   // Wait for a click or keypress, just once.
   const listener = (event) => {

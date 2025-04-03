@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const window0 = document.getElementById('window0');
     if (window0) {
       window0.appendChild(document.createTextNode('You may now close this window.'));
+      scrollToBottom();
     }
   });
 });
