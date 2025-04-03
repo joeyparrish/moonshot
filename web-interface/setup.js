@@ -83,10 +83,18 @@
     // automatically.  Fix that here.
     vorple.addEventListener('expectCommand', scrollToBottom);
 
-    // Enable desktop-bundle-specific elements.
     if (isDesktopBundle()) {
+      // Enable desktop-bundle-specific elements.
       desktopCredit.style.display = 'block';
       desktopLicense.style.display = 'block';
+
+      // Open target=_blank links in the default browser.
+      nw.Window.get().on('new-win-policy', function(frame, url, policy) {
+        // Do not open the window.
+        policy.ignore();
+        // Open it in the user's default browser.
+        nw.Shell.openExternal(url);
+      });
     }
 
     // Start the splash screen.
