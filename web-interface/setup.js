@@ -96,6 +96,9 @@
         // Open it in the user's default browser.
         nw.Shell.openExternal(url);
       });
+
+      // Show the window that we initially hid to avoid a white window FOUC.
+      nw.Window.get().show();
     }
 
     // Start the splash screen.
