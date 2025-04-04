@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  if (isDesktopBundle()) {
+    // Load settings from the filesystem into localStorage.
+    loadSettingsFromDisk();
+  }
+
   const openButtons = document.querySelectorAll('.popup-open');
   for (const button of openButtons) {
     button.addEventListener('click', showPopup);

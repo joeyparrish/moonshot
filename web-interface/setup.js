@@ -21,8 +21,6 @@
     creditsOuterSizer.style.height = creditsWrapper.clientHeight + 'px';
   }
 
-  window.addEventListener('resize', fixCreditSizing);
-
   function stopCredits() {
     document.body.dataset.mode = 'play';
     scrollToBottom();
@@ -48,8 +46,11 @@
     }
     return false;
   }
+  window.isDesktopBundle = isDesktopBundle;
 
   document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('resize', fixCreditSizing);
+
     // Move on after the animations end, or a click, or escape, or enter.
     document.getElementById('cover').onanimationend = play;
     creditsWrapper.onanimationend = stopCredits;

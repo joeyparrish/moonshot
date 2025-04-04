@@ -25,6 +25,7 @@
     <script src="pause.js"></script>
     <script src="events.js"></script>
     <script src="popups.js"></script>
+    <script src="storage.js"></script>
     <script src="auto-complete.js"></script>
     <script src="textarea-caret.min.js"></script>
     <script src="interpreter/vorple.min.js"></script>

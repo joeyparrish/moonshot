@@ -338,4 +338,10 @@ To stop music:
 	execute JavaScript code "stopBackgroundMusic()";
 
 
+[Hook into save games.  We siphon off copies for Steam Cloud Save.]
+Report saving the game:
+	execute JavaScript code "writeSavedGamesToDisk()";
+	[NOTE: You don't have to say "Ok." here.  It seems that this does not override that default behavior.]
+
+
 Chicken Noodle Soap Setup ends here.
