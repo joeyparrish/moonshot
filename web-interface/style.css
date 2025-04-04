@@ -353,21 +353,22 @@ body {
   margin: 1em;
 }
 
-#help-button {
+#help-button,
+#map-button,
+#settings-button {
   position: fixed;
-  right: 1em;
+  right: 2em;
+}
+
+#help-button {
   top: 1em;
 }
 
 #map-button {
-  position: fixed;
-  right: 1em;
   top: 4em;
 }
 
 #settings-button {
-  position: fixed;
-  right: 1em;
   top: 7em;
 }
 
