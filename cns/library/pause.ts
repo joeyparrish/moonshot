@@ -1,6 +1,15 @@
-/* This is custom JS to pause the game in the web experience. */
+// Customization for pausing the game.
 
-function unpauseGame() {
+import {
+  hidePopupButtons,
+  showPopupButtons,
+} from './popups.ts';
+
+import {
+  scrollToBottom,
+} from './util.ts';
+
+function unpauseGame(): void {
   // Show the prompt.
   vorple.prompt.unhide();
   // The pause command in Inform is waiting for this.
@@ -11,13 +20,13 @@ function unpauseGame() {
   document.querySelector('.continue')?.remove();
 }
 
-const UNPAUSE_KEYS = [
+const UNPAUSE_KEYS: string[] = [
   'Enter',
   'Escape',
 ];
 
-function pauseGame() {
-  const vorpleElement = document.getElementById('vorple');
+export function pauseGame(): void {
+  const vorpleElement = document.getElementById('vorple') as HTMLDivElement;
 
   // Hide the prompt.
   vorple.prompt.hide();
@@ -27,7 +36,7 @@ function pauseGame() {
   scrollToBottom();
 
   // Wait for a click or keypress, just once.
-  const listener = (event) => {
+  const listener = (event: Event) => {
     const endPauseState = () => {
       // Defer unpausing, to make sure this event is dead before the
       // interpreter moves again.  This allows us to pause immediately after
@@ -41,14 +50,15 @@ function pauseGame() {
     };
 
     if (event.type == 'keydown') {
+      const keyEvent = event as KeyboardEvent;
       // Key events have a few different possible paths.
-      if (UNPAUSE_KEYS.includes(event.key)) {
+      if (UNPAUSE_KEYS.includes(keyEvent.key)) {
         endPauseState();
-      } else if (event.key == 'PageUp' || event.key == 'PageDown') {
-        // Navite keyboard scrolling doesn't work for some unknown reason when
+      } else if (keyEvent.key == 'PageUp' || keyEvent.key == 'PageDown') {
+        // Native keyboard scrolling doesn't work for some unknown reason when
         // we're paused, so emulate it here, since we're already handling key
         // events in this state.
-        const signY = event.key == 'PageDown' ? 1 : -1;
+        const signY = keyEvent.key == 'PageDown' ? 1 : -1;
         const deltaY = vorpleElement.clientHeight * signY * 0.8;
         vorpleElement.scrollBy(0, deltaY);
       } else {

@@ -1,0 +1,32 @@
+{
+  // Extend recommended configs
+  "extends": [
+    "@tsconfig/node23/tsconfig.json",
+    "@tsconfig/recommended/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+
+  // Entry point:
+  "files": ["main.ts"],
+
+  "compilerOptions": {
+    // Don't allow JavaScript input.
+    "checkJs": false,
+    "allowJs": false,
+
+    // Only type-check, let esbuild bundle.
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "classic",
+
+    // Assume an es2017 DOM environment (includes async/await).
+    "lib": [ "es2017", "dom", "dom.iterable" ],
+
+    // Add some custom types for 3P libraries.
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
+  }
+}

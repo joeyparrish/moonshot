@@ -4,7 +4,7 @@
 # Default build rule, which builds a release version
 all: release
 
-.PHONY: all clean i7-release i7-debug web-interface release debug serve
+.PHONY: all clean i7-release i7-debug cns-html cns-library release debug serve
 
 SOURCE_DIR := $(abspath $(shell dirname "$(MAKEFILE_LIST)"))
 TAG := sha256:30ca124ab768d12edc90c8d6f0267607e95cf1b8e7b56eecf491125110d21eb9
@@ -39,8 +39,8 @@ i7-debug:
 		jkmatila/inform7-docker@$(TAG) \
 		/bin/sh -c 'i7 -c /tmp/MoonShot.inform; rv=$$?; $(CLEANUP_AFTER_DOCKER); exit "$$rv"'
 
-web-interface:
-	cp -a web-interface/* MoonShot.materials/Release/
+cns-html:
+	cp -a cns/html/* MoonShot.materials/Release/
 	cp MoonShot.materials/*.* MoonShot.materials/Release/
 	cat MoonShot.materials/Release/index.html.template | sed \
 		-e 's/\[TITLE\]/MoonShot/g' \
@@ -54,11 +54,16 @@ web-interface:
 		> MoonShot.materials/Release/index.html
 	rm MoonShot.materials/Release/index.html.template
 
-release: clean i7-release web-interface
+cns-library:
+	cd cns/library/ && npm ci
+	cd cns/library/ && npm run build
+	cp cns/library/dist/bundle.js MoonShot.materials/Release/cns.js
+
+release: clean i7-release cns-html cns-library
 	rm -f MoonShot.materials/Release/interpreter/vorple.min.js.map
 
-debug: clean i7-debug web-interface
+debug: clean i7-debug cns-html cns-library
 	@true
 
 serve:
-	cd MoonShot.materials/Release/; python3 -m http.server
+	docker run --rm -p 8000:80 -v $$(pwd)/MoonShot.materials/Release:/public joseluisq/static-web-server

@@ -1,4 +1,14 @@
-async function startMusic() {
+// Background music module.
+
+// Defined in HTML:
+declare global {
+  const backgroundMusic: HTMLAudioElement;
+  const backgroundMusicCredit: HTMLDivElement;
+  const backgroundMusicLink: HTMLAnchorElement;
+  const noMusic: HTMLDivElement;
+}
+
+async function startMusic(): Promise<void> {
   if (!backgroundMusic.paused && !backgroundMusic.ended) return;
   if (!backgroundMusic.currentSrc) return;
 
@@ -7,9 +17,9 @@ async function startMusic() {
   } catch (error) {}
 }
 
-let backgroundMusicLoopTo = 0;
+let backgroundMusicLoopTo: number = 0;
 
-function setBackgroundMusic(relativeUrl, loopTo, credit, link) {
+export function setBackgroundMusic(relativeUrl: string, loopTo: number, credit: string, link: string): void {
   // The audio element has a canonical URL, so we have to canonicalize the
   // input to compare.
   const url = (new URL(relativeUrl, location.href)).href;
@@ -30,7 +40,7 @@ function setBackgroundMusic(relativeUrl, loopTo, credit, link) {
   startMusic();
 }
 
-function stopBackgroundMusic() {
+export function stopBackgroundMusic(): void {
   backgroundMusic.pause();
   backgroundMusic.src = '';
 
@@ -41,6 +51,10 @@ function stopBackgroundMusic() {
 document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('click', startMusic);
   window.addEventListener('keydown', startMusic);
+
+  vorple.addEventListener('quit', () => {
+    stopBackgroundMusic();
+  });
 
   backgroundMusic.addEventListener('ended', () => {
     backgroundMusic.currentTime = backgroundMusicLoopTo;

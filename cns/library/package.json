@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run build.tsc && npm run build.esbuild",
+    "build.tsc": "tsc",
+    "build.esbuild": "esbuild main.ts --bundle --minify --sourcemap --sources-content=true --target=chrome135 --outfile=dist/bundle.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node23": "^23.0.1",
+    "@tsconfig/recommended": "^1.0.8",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/ga-gtag": "^1.2.0",
+    "@types/nw.js": "^0.92.0",
+    "esbuild": "^0.25.2",
+    "typescript": "^5.8.2"
+  }
+}

@@ -17,16 +17,10 @@
     <link rel="stylesheet" href="interpreter/haven.css">
     <link rel="stylesheet" href="interpreter/vorple.css">
   
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cns.css">
     <link rel="stylesheet" href="game-style.css">
   
-    <script src="setup.js"></script>
-    <script src="music.js"></script>
-    <script src="pause.js"></script>
-    <script src="events.js"></script>
-    <script src="popups.js"></script>
-    <script src="storage.js"></script>
-    <script src="auto-complete.js"></script>
+    <script src="cns.js"></script>
     <script src="textarea-caret.min.js"></script>
     <script src="interpreter/vorple.min.js"></script>
     <script src="interpreter/[TITLE_FILENAME].gblorb.js"></script>
@@ -210,7 +204,7 @@
                 min="1" max="5"
                 data-settings-key="chicken-noodle-soap--font-size"
                 data-default-setting="2"
-                onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vh'); window.dispatchEvent(new Event('resize')); scrollToBottom();">
+                onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vh'); window.dispatchEvent(new Event('resize'));">
           </div>
 
           <!-- spacer -->
@@ -224,7 +218,7 @@
                 data-popup-container-id="license-card-container">Open Source Licenses</button>
           </div>
           <div>
-            <button class="floating-button-text" onclick="showCredits()">Credits</button>
+            <button class="floating-button-text" onclick="cns.showCredits()">Credits</button>
           </div>
         </div>
       </div>

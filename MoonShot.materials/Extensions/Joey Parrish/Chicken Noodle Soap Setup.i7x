@@ -5,6 +5,7 @@ Version 1 of Chicken Noodle Soap Setup by Joey Parrish begins here.
 Include Exit Lister by Gavin Lambert.
 Include Vorple Screen Effects by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
+Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Events by Joey Parrish.
 
@@ -71,7 +72,7 @@ After reading a command:
 To pause:
 	if Vorple is supported:
 		center "[continue style](click or tap to continue)[end style]";
-		execute JavaScript code "pauseGame()";
+		execute JavaScript code "cns.pauseGame()";
 		[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
 		wait for the SPACE key;
 	otherwise:
@@ -116,11 +117,11 @@ Include (-
 The print obituary headline rule is not listed in any rulebook.
 To show ending (N - number) of (MAX - number) aka the (T - text) ending:
 	if Vorple is supported:
-		execute JavaScript code "logEvent('ending[N]')";
+		execute JavaScript code "cns.logEvent('ending[N]')";
 	say paragraph break;
 	pause;
 	if Vorple is supported:
-		execute JavaScript code "showCredits()";
+		execute JavaScript code "cns.showCredits()";
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
 	say "You have discovered ending #[N] of [MAX] (the [T] ending) after [turn count] turns!";
@@ -138,7 +139,7 @@ Instead of taking portable-scenery:
 [Analytics hook.]
 To log event (NAME - text):
 	if Vorple is supported:
-		execute JavaScript code "logEvent('[NAME]')";
+		execute JavaScript code "cns.logEvent('[NAME]')";
 
 
 [Page effects, defined in CSS.]
@@ -172,27 +173,27 @@ Autocomplete update rules is a rulebook.
 Autocomplete update rule:
 	if Vorple is supported:
 		if the story has ended:
-			execute JavaScript code "resetVerbs(false)"; [Remove basic verbs.]
-			execute JavaScript code "addVerb('restart\n')";
-			execute JavaScript code "addVerb('restore\n')";
-			execute JavaScript code "addVerb('quit\n')";
-			execute JavaScript code "addVerb('undo\n')";
+			execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
+			execute JavaScript code "cns.autocomplete.addVerb('restart\n')";
+			execute JavaScript code "cns.autocomplete.addVerb('restore\n')";
+			execute JavaScript code "cns.autocomplete.addVerb('quit\n')";
+			execute JavaScript code "cns.autocomplete.addVerb('undo\n')";
 			[Do not check story rules for verbs.]
 		otherwise:
-			execute JavaScript code "resetVerbs(true)"; [Include basic verbs.]
-			execute JavaScript code "resetCustomAutoComplete()";
+			execute JavaScript code "cns.autocomplete.resetVerbs(true)"; [Include basic verbs.]
+			execute JavaScript code "cns.autocomplete.resetCustomAutoComplete()";
 			[Call story rules for verbs.]
 			follow the extra autocomplete verbs rules;
 			repeat with verb-name running through extra-verbs:
-				execute JavaScript code "addVerb('[verb-name]')";
+				execute JavaScript code "cns.autocomplete.addVerb('[verb-name]')";
 			repeat with dir running through directions:
 				if the room dir from the location is a room:
-					execute JavaScript code "addVerb('[dir]\n')";
-			execute JavaScript code "resetPeople()";
+					execute JavaScript code "cns.autocomplete.addVerb('[dir]\n')";
+			execute JavaScript code "cns.autocomplete.resetPeople()";
 			repeat with person running through people in the location:
 				if person is not yourself:
-					execute JavaScript code "addPerson('[person]')";
-			execute JavaScript code "resetObjects()";
+					execute JavaScript code "cns.autocomplete.addPerson('[person]')";
+			execute JavaScript code "cns.autocomplete.resetObjects()";
 			let can-ask be false;
 			let can-take be false;
 			let can-drop be false;
@@ -230,7 +231,7 @@ Autocomplete update rule:
 				if item is an enterable supporter:
 					now is-sittable is true;
 					now can-sit is true;
-				execute JavaScript code "addObject({
+				execute JavaScript code "cns.autocomplete.addObject({
 					name: '[item]',
 					inventory: [is-inventory],
 					takeable: [is-takeable],
@@ -242,23 +243,62 @@ Autocomplete update rule:
 				if is-takeable is true:
 					now can-take is true;
 			if can-ask is true:
-				execute JavaScript code "addVerb('ask ')";
+				execute JavaScript code "cns.autocomplete.addVerb('ask ')";
 			if can-take is true:
-				execute JavaScript code "addVerb('take ')";
+				execute JavaScript code "cns.autocomplete.addVerb('take ')";
 			if can-drop is true:
 				[if you have something, you can drop it.]
-				execute JavaScript code "addVerb('drop ')";
+				execute JavaScript code "cns.autocomplete.addVerb('drop ')";
 				["give" also requires a person, so...]
 				if can-ask is true:
-					execute JavaScript code "addVerb('give ')";
+					execute JavaScript code "cns.autocomplete.addVerb('give ')";
 			if can-eat is true:
-				execute JavaScript code "addVerb('eat ')";
+				execute JavaScript code "cns.autocomplete.addVerb('eat ')";
 			if can-drink is true:
-				execute JavaScript code "addVerb('drink ')";
+				execute JavaScript code "cns.autocomplete.addVerb('drink ')";
 			if can-open is true:
-				execute JavaScript code "addVerb('open ')";
+				execute JavaScript code "cns.autocomplete.addVerb('open ')";
 			if can-sit is true:
-				execute JavaScript code "addVerb('sit on ')";
+				execute JavaScript code "cns.autocomplete.addVerb('sit on ')";
+
+[This is initially empty.  It is used to store concepts we know in a way that can be saved and restored.]
+Table of Known Concepts
+Concept
+""
+with 99 blank rows
+
+To make (string - text) known:
+	if Vorple is supported:
+		execute JavaScript code "cns.autocomplete.addTopic('[string]')";
+	choose a blank row in the Table of Known Concepts;
+	now Concept entry is "[string]".
+
+To make (thingy - concept) known:
+	if Vorple is supported:
+		execute JavaScript code "cns.autocomplete.addTopic('[thingy]')";
+	choose a blank row in the Table of Known Concepts;
+	now Concept entry is "[thingy]".
+
+To make (Bob - stranger) known:
+	if Bob is not known:
+		if Vorple is supported:
+			execute JavaScript code "cns.autocomplete.addTopic('[Bob]')";
+			execute JavaScript code "cns.autocomplete.addTopic('[real name of Bob]')";
+		choose a blank row in the Table of Known Concepts;
+		now Concept entry is "[Bob]";
+		choose a blank row in the Table of Known Concepts;
+		now Concept entry is "[real name of Bob]";
+		now Bob is known.
+
+[To allow known topics to be saved and restored, we need to hook into the restore logic.  To do that, we only have a hook for the message that gets printed.  So we define a fake message which actually calls our logic to reset the UI's topic list.]
+Restore the game rule response (B) is "[post-restore routine]".
+To say post-restore routine:
+	if Vorple is supported:
+		execute JavaScript code "cns.autocomplete.resetTopics()";
+		repeat through the Table of Known Concepts:
+			execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
+	say "Ok.";
+	try looking.
 
 [This occurs before each normal game prompt, whereas "before reading a command" fails to fire after an "undo".]
 Vorple interface update rule:
@@ -277,21 +317,21 @@ After reading a command:
 Helping is an action out of world applying to nothing.  Understand "help", "verb", and "verbs" as helping.
 Carry out helping:
 	if Vorple is supported:
-		execute JavaScript code "showHelp()";
+		execute JavaScript code "cns.showHelp()";
 	otherwise:
 		say "Sorry, in-game help requires the web interpreter.".
 
 Showing map is an action out of world applying to nothing.  Understand "map" as showing map.
 Carry out showing map:
 	if Vorple is supported:
-		execute JavaScript code "showMap()";
+		execute JavaScript code "cns.showMap()";
 	otherwise:
 		say "Sorry, in-game maps require the web interpreter.".
 
 Showing options is an action out of world applying to nothing.  Understand "options" and "settings" as showing options.
 Carry out showing options:
 	if Vorple is supported:
-		execute JavaScript code "showSettings()";
+		execute JavaScript code "cns.showSettings()";
 	otherwise:
 		say "Sorry, in-game options require the web interpreter.".
 
@@ -329,19 +369,13 @@ Background music has a text called author credit.
 Background music has a text called link.
 
 To play music (M - background music):
-	execute JavaScript code "setBackgroundMusic(
+	execute JavaScript code "cns.setBackgroundMusic(
 		'[url of M]',
 		[loop point of M],
 		'[author credit of M]',
 		'[link of M]')";
 To stop music:
-	execute JavaScript code "stopBackgroundMusic()";
-
-
-[Hook into save games.  We siphon off copies for Steam Cloud Save.]
-Report saving the game:
-	execute JavaScript code "writeSavedGamesToDisk()";
-	[NOTE: You don't have to say "Ok." here.  It seems that this does not override that default behavior.]
+	execute JavaScript code "cns.stopBackgroundMusic()";
 
 
 Chicken Noodle Soap Setup ends here.
