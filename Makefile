@@ -63,7 +63,7 @@ release: clean i7-release cns-html cns-library
 	rm -f MoonShot.materials/Release/interpreter/vorple.min.js.map
 
 debug: clean i7-debug cns-html cns-library
-	@true
+	cp cns/library/dist/bundle.js.map MoonShot.materials/Release/
 
 serve:
 	docker run --rm -p 8000:80 -v $$(pwd)/MoonShot.materials/Release:/public joseluisq/static-web-server
