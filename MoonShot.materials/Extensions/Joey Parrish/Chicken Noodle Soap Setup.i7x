@@ -298,7 +298,8 @@ To say post-restore routine:
 		repeat through the Table of Known Concepts:
 			execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
 	say "Ok.";
-	try looking.
+	try looking;
+	try taking inventory;
 
 [This occurs before each normal game prompt, whereas "before reading a command" fails to fire after an "undo".]
 Vorple interface update rule:
