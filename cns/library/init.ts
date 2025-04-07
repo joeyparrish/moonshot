@@ -17,6 +17,7 @@ import {
 declare global {
   const desktopCredit: HTMLDivElement;
   const desktopLicense: HTMLDetailsElement;
+  const window0: HTMLDivElement;
 }
 
 type QuixeOptions = {
@@ -92,11 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // That fails in browsers, so now we add this message to the game's
     // "window" element.
-    const window0 = document.getElementById('window0') as HTMLDivElement;
-    if (window0) {
-      window0.appendChild(
-          document.createTextNode('You may now close this window.'));
-      scrollToBottom();
-    }
+    window0.appendChild(
+        document.createTextNode('You may now close this window.'));
+    scrollToBottom();
   });
 });

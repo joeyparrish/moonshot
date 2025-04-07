@@ -297,6 +297,7 @@ To say post-restore routine:
 		execute JavaScript code "cns.autocomplete.resetTopics()";
 		repeat through the Table of Known Concepts:
 			execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
+		execute JavaScript code "cns.postRestore()";
 	say "Ok.";
 	try looking;
 	try taking inventory;

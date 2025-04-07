@@ -153,7 +153,7 @@ function processSelectChange(event: Event): void {
     select.value = '';
 
     // This suggestion may trigger another, so check again.
-    onInput();
+    maybeShowAutoComplete();
   }
 }
 
@@ -200,7 +200,7 @@ function initializeAutoComplete(): void {
 
   // Watch input field changes.  The field didn't exist earlier than this.
   inputField = document.getElementById('lineinput-field') as HTMLInputElement;
-  inputField.addEventListener('input', onInput);
+  inputField.addEventListener('input', maybeShowAutoComplete);
 
   inputField.addEventListener('keydown', (event) => {
     // Don't let the user press enter when there's nothing in the input field.
@@ -211,7 +211,7 @@ function initializeAutoComplete(): void {
     // When scrolling back through old history, we should recompute
     // auto-complete.
     if (event.key == 'ArrowUp' || event.key == 'ArrowDown') {
-      onInput();
+      maybeShowAutoComplete();
     }
   });
 
@@ -226,8 +226,8 @@ function initializeAutoComplete(): void {
   inputForm.appendChild(extraSpan);
 
   // Check the auto-complete state now and on resize.
-  onInput();
-  window.addEventListener('resize', onInput);
+  maybeShowAutoComplete();
+  window.addEventListener('resize', maybeShowAutoComplete);
 }
 
 function onResize(): void {
@@ -268,11 +268,11 @@ function showAutoComplete(options: Iterable<string>, endOfCommand: boolean, cont
   autoComplete.style.display = 'inline-block';
 }
 
-function hideAutoComplete(): void {
+export function hideAutoComplete(): void {
   autoComplete.style.display = 'none';
 }
 
-function onInput(): void {
+export function maybeShowAutoComplete(): void {
   const input = inputField.value;
 
   for (const [re, arrayOfOptions] of customAutoCompletes) {
@@ -343,5 +343,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Run this also on "expectCommand", which runs after the user hits enter on
   // a command.
-  vorple.addEventListener('expectCommand', onInput);
+  vorple.addEventListener('expectCommand', maybeShowAutoComplete);
 });

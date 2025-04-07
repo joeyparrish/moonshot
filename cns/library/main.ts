@@ -17,6 +17,7 @@ import './splash.ts';
 
 import {logEvent} from './analytics.ts';
 import * as autocomplete from './auto-complete.ts';
+import {postRestore} from './cloud-sync.ts';
 import {showCredits} from './credits.ts';
 import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
 import {pauseGame} from './pause.ts';
@@ -27,6 +28,7 @@ window.cns = {
   autocomplete,
   logEvent,
   pauseGame,
+  postRestore,
   setBackgroundMusic,
   showCredits,
   showHelp,

@@ -1,6 +1,11 @@
 // Steam Cloud Sync module.
 
 import {
+  hideAutoComplete,
+  maybeShowAutoComplete,
+} from './auto-complete.ts';
+
+import {
   isDesktopBundle,
 } from './util.ts';
 
@@ -13,6 +18,8 @@ import type * as PathModule from 'path';
 interface SaveData {
   vfsPath: string;
   saveBytes: number[];
+  transcriptHTML: string;
+  transcriptText: string;
 }
 
 // We don't want to copy 3P localStorage keys into our settings file.
@@ -24,6 +31,7 @@ let path: typeof PathModule;
 let gameFolder: string;
 let settingsPath: string;
 let savesFolderPath: string;
+let mostRecentRestoreGameName: string = '';
 
 // No-op for browser builds.
 if (isDesktopBundle()) {
@@ -55,24 +63,15 @@ if (isDesktopBundle()) {
 
     // Shim Glk's file writing API to get access to saved games as they are
     // written:
-    const original_glk_write = Glk.glk_put_buffer_stream;
-    Glk.glk_put_buffer_stream = (stream, array) => {
-      original_glk_write(stream, array);
+    Glk.glk_put_buffer_stream = glkShim(
+        Glk.glk_put_buffer_stream, onSaveGame,
+        'Failed to write save game!');
 
-      try {
-        const saveData: SaveData = {
-          vfsPath: stream.filename,
-          saveBytes: array,
-        };
-        const saveName = stream.filename.split('/').pop()!;
-
-        const savePath = path.join(savesFolderPath, saveName + '.sav');
-        fs.writeFileSync(savePath, JSON.stringify(saveData), {encoding: 'utf8'});
-      } catch (error) {
-        // Complain and fall through.  Shouldn't happen, though.
-        console.error('Failed to write save game!', error);
-      }
-    };
+    // Shim the file reading API to get access to the name of the restored game
+    // during loading, to restore the saved transcript afterward.
+    Glk.glk_get_buffer_stream = glkShim(
+        Glk.glk_get_buffer_stream, onLoadGame,
+        'Failed to snoop on loaded game name!');
   });
 }
 
@@ -106,7 +105,7 @@ export function loadSettingsFromDisk(): void {
   }
 }
 
-function storageShim(method: Function, checkKey: boolean) {
+function storageShim<T extends Function>(method: T, checkKey: boolean): T {
   return function() {
     // Call the original.
     const retval = method.apply(localStorage, arguments);
@@ -135,7 +134,7 @@ function storageShim(method: Function, checkKey: boolean) {
 
     // Return the return value.
     return retval;
-  };
+  } as unknown as T;
 }
 
 // NOTE: Saved games are invalidated and ignored after the Inform game itself
@@ -178,4 +177,53 @@ async function loadSavedGamesFromDisk(): Promise<void> {
           });
     });
   }
+}
+
+function glkShim<T extends Function>(method: T, pre: T, errorCtx: string): T {
+  return function() {
+    // Call the "pre" callback first, logging errors, then fall through.
+    try {
+      pre.apply(null, arguments);
+    } catch (error) {
+      console.error(errorCtx, error);
+    }
+
+    return method.apply(null, arguments);
+  } as unknown as T;
+}
+
+function onLoadGame(stream: Glk.GlkStream, _array: number[]) {
+  // NOTE: This is called multiple times per restore, once per kB of loaded
+  // data.  Since all we care about is the file name, that's fine.
+  mostRecentRestoreGameName = stream.filename.split('/').pop()!;
+}
+
+function onSaveGame(stream: Glk.GlkStream, array: number[]) {
+  const transcriptHTML = window0.innerHTML;
+
+  // Temporarily hide autocomplete while we capture the text transcript.
+  hideAutoComplete();
+  const transcriptText = window0.innerText;
+  maybeShowAutoComplete();
+
+  const saveData: SaveData = {
+    vfsPath: stream.filename,
+    saveBytes: array,
+    transcriptHTML,
+    transcriptText,
+  };
+
+  const saveName = stream.filename.split('/').pop()!;
+  const savePath = path.join(savesFolderPath, saveName + '.sav');
+  fs.writeFileSync(savePath, JSON.stringify(saveData), {encoding: 'utf8'});
+}
+
+export function postRestore(): void {
+  const saveName = mostRecentRestoreGameName;
+  const savePath = path.join(savesFolderPath, saveName + '.sav');
+  const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
+
+  // TODO: Sanitize this, in case the user has hacked it!
+  window0.innerHTML = saveData.transcriptHTML;
+  console.log('Game transcript restored:', saveName);
 }

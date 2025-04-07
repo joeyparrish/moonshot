@@ -4,5 +4,6 @@ namespace Glk {
     filename: string;
   }
 
+  export function glk_get_buffer_stream(stream: GlkStream, array: number[]): void;
   export function glk_put_buffer_stream(stream: GlkStream, array: number[]): void;
 }
