@@ -47,12 +47,18 @@ if (isDesktopBundle()) {
 
     // Pick up Steam Cloud Save files and load them into the virtual filesystem
     // of the interpreter.
-    await loadSavedGamesFromDisk();
+    try {
+      await loadSavedGamesFromDisk();
+    } catch (error) {
+      console.error('Failed to load saved games from disk!', error);
+    }
 
     // Shim Glk's file writing API to get access to saved games as they are
     // written:
     const original_glk_write = Glk.glk_put_buffer_stream;
     Glk.glk_put_buffer_stream = (stream, array) => {
+      original_glk_write(stream, array);
+
       try {
         const saveData: SaveData = {
           vfsPath: stream.filename,
@@ -60,13 +66,12 @@ if (isDesktopBundle()) {
         };
         const saveName = stream.filename.split('/').pop()!;
 
-        const savePath = path.join(savesFolderPath, saveName);
+        const savePath = path.join(savesFolderPath, saveName + '.sav');
         fs.writeFileSync(savePath, JSON.stringify(saveData), {encoding: 'utf8'});
       } catch (error) {
         // Complain and fall through.  Shouldn't happen, though.
-        console.error(error);
+        console.error('Failed to write save game!', error);
       }
-      return original_glk_write(stream, array);
     };
   });
 }
@@ -86,11 +91,18 @@ function saveSettingsToDisk(): void {
 }
 
 export function loadSettingsFromDisk(): void {
-  const settings = JSON.parse(fs.readFileSync(settingsPath, {encoding: 'utf8'}));
-  localStorage.clear();
+  if (!fs.existsSync(settingsPath)) {
+    return;
+  }
 
-  for (const key in settings) {
-    localStorage.setItem(key, settings[key]);
+  try {
+    const settings = JSON.parse(fs.readFileSync(settingsPath, {encoding: 'utf8'}));
+
+    for (const key in settings) {
+      localStorage.setItem(key, settings[key]);
+    }
+  } catch (error) {
+    console.error('Failed to load settings!', error);
   }
 }
 
@@ -118,7 +130,7 @@ function storageShim(method: Function, checkKey: boolean) {
       }
     } catch (error) {
       // Complain and fall through.  Shouldn't happen, though.
-      console.error(error);
+      console.error('Failed to store settings!', error);
     }
 
     // Return the return value.
@@ -134,14 +146,35 @@ async function loadSavedGamesFromDisk(): Promise<void> {
   // For each save in our folder, load the data and sync it into the virtual
   // filesystem used by the interpreter.
   for (const saveName of fs.readdirSync(savesFolderPath)) {
+    if (!saveName.endsWith('.sav')) continue;
+
     const savePath = path.join(savesFolderPath, saveName);
     const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
+
+    // The VFS interface requires a string.  It shouldn't, but if I give it a
+    // Uint8Array or anything else I can come up with, it throws trying to call
+    // .copy() on some deep internal structure about a million levels of async
+    // operations deep.  So we carefully build a string here.  It's obnoxious,
+    // and it's the wrong way to handle binary data, but the things we would
+    // need to do it right aren't exposed through Vorple.  I seriously
+    // considered a custom build of Vorple, and we may still go that way
+    // eventually...
+    let dataString = '';
+    for (const byte of saveData.saveBytes) {
+      dataString += String.fromCharCode(byte);
+    }
     await new Promise((resolve, reject) => {
       vfs.writeFile(
-          savePath, new Uint8Array(saveData.saveBytes), {encoding: null},
+          saveData.vfsPath,
+          dataString,
+          {encoding: 'binary'},
           (error: Error, result: undefined) => {
-            if (error) reject(error);
-            else resolve(result);
+            if (error) {
+              console.error('Failed to write save to vfs!', error);
+              reject(error);
+            } else {
+              resolve(result);
+            }
           });
     });
   }
