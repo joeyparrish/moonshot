@@ -67,9 +67,6 @@ export function addObject(properties: AutoCompleteObjectProperties): void {
 
 function objectsMatching(properties: Partial<AutoCompleteObjectProperties>) {
   const matches: string[] = [''];
-  if (properties.takeable == true) {
-    matches.push('all');
-  }
   for (const item of knownObjects) {
     let match = true;
     for (const [field, value] of Object.entries(properties)) {
@@ -81,6 +78,9 @@ function objectsMatching(properties: Partial<AutoCompleteObjectProperties>) {
     if (match && !matches.includes(item.name)) {
       matches.push(item.name);
     }
+  }
+  if (properties.takeable == true && matches.length > 1) {
+    matches.push('all');
   }
   return matches;
 }

@@ -713,7 +713,7 @@ Instead of taking the blueprints:
 		now the player has the blueprints;
 		deactivate blueprints-hint;
 	otherwise:
-		try quizzing the engineer about blueprints.
+		say "Maybe you should discuss that with [the engineer] first.";
 
 Persuasion rule for asking the engineer to try giving the blueprints to the player:
 	persuasion succeeds.
