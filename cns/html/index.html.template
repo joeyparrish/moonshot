@@ -198,6 +198,14 @@
               data-settings-key="chicken-noodle-soap--auto-complete"
               onapply="document.body.dataset.autoComplete = event.target.checked;">
 
+          <label for="infocom-mode-toggle">
+            Infocom mode: A dark, monospaced interface, more similar to classic Infocom text adventures.
+          </label>
+          <input id="infocom-mode-toggle" class="toggle" type="checkbox"
+              data-settings-key="chicken-noodle-soap--infocom-mode"
+              data-default-setting="false"
+              onapply="document.body.dataset.infocom = event.target.checked ? 'true' : 'false';">
+
           <label for="fontSize">
             Font size:
           </label>

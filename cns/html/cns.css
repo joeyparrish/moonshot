@@ -14,18 +14,18 @@ html {
 }
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 
   /* The body is black and only occupies the screen size. */
-  background-color: black;
+  background: black;
   overflow: hidden;
 }
 
 #vorple {
   /* The game area is white and scrolls. */
-  background-color: white;
+  background: white;
   overflow-y: scroll;
   scroll-behavior: smooth;
   height: 100vh;
@@ -87,7 +87,7 @@ body[data-auto-complete="false"] #auto-complete {
 }
 
 #splash, #credits {
-  background-color: transparent;
+  background: transparent;
   color: white;
 
   position: fixed;
@@ -230,9 +230,15 @@ img.cover {
 }
 
 /* Sometimes, when a command results in lots of text, it is difficult to find
- * your last command to start reading.  This makes it stand out some. */
-.lineinput {
-  background-color: #eee;
+ * your last command to start reading.  This makes it stand out some.
+ * Also, match the auto-complete to this. */
+.lineinput,
+#lineinput,
+#lineinput-prefix,
+#lineinput-field,
+#auto-complete select {
+  color: black;
+  background: #eee;
 }
 
 ul.inventory {
@@ -267,9 +273,6 @@ body {
   border-radius: 50%;
   font-weight: bold;
   padding: 0;
-
-  background: powderblue;
-  cursor: pointer;
 }
 
 .floating-button img {
@@ -281,9 +284,6 @@ body {
   height: 2em;
   border-radius: 0.2em;
   font-weight: bold;
-
-  background: powderblue;
-  cursor: pointer;
 }
 
 .floating-button,
@@ -293,6 +293,9 @@ body {
 
   /* Fixes some weird vertical misalignment that is more visible at larger font sizes. */
   line-height: 1;
+
+  background: powderblue;
+  cursor: pointer;
 }
 
 .floating-button:active,
@@ -334,7 +337,7 @@ body {
   overflow-y: auto;
 
   /* Set background. */
-  background-color: aliceblue;
+  background: aliceblue;
 
   /* Allow positioning elements within the popup. */
   position: relative;
@@ -415,9 +418,11 @@ body {
   top: 1em;
 }
 
-#settings-card label {
+#settings-card label,
+#lineinput label {
   /* Override the haven default for labels */
   background: none;
+  color: inherit;
 }
 
 #settings-card div,
@@ -445,7 +450,7 @@ body {
   cursor: pointer;
 
   /* Background when off. */
-  background-color: dimgray;
+  background: dimgray;
 
   /* Animate! */
   transition: background ease 0.3s;
@@ -453,10 +458,10 @@ body {
 
 .toggle:checked {
   /* Background when on. */
-  background-color: forestgreen;
+  background: forestgreen;
 }
 
-.toggle:before {
+.toggle::before {
   /* A label, "on" or "off". */
   content: "on off";
   display: block;
@@ -464,7 +469,7 @@ body {
   width: 2em;
   height: 2em;
   line-height: 2em;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
 
@@ -487,7 +492,7 @@ body {
   transition: transform cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
 }
 
-.toggle:checked:before {
+.toggle:checked::before {
   /* Move everything over. */
   transform: translateX(2.5em);
 }
@@ -513,4 +518,23 @@ body {
   min-width: 100%;
   max-width: 100%;
   min-height: 4em;
+}
+
+/* Infocom mode */
+body[data-infocom="true"] #vorple {
+  background: black;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+}
+body[data-infocom="true"] .lineinput,
+body[data-infocom="true"] #lineinput,
+body[data-infocom="true"] #lineinput-prefix,
+body[data-infocom="true"] #lineinput-field,
+body[data-infocom="true"] #auto-complete select {
+  color: white;
+  background: #222;
+  font-family: 'Roboto Mono', monospace;
+}
+body[data-infocom="true"] .popup-container {
+  background: radial-gradient(white, transparent);
 }

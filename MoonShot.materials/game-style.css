@@ -1,9 +1,9 @@
 .blockquote {
   /* Looks nice for a quote, and mimics other interpreters. */
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
 
   /* Offsets the block from the page. */
-  background-color: aliceblue;
+  background: aliceblue;
   border: 2px ridge grey;
 
   /* Makes the border stay back from the edge of the text, which is nice. */
@@ -15,34 +15,35 @@
 }
 
 .continue {
-  background-color: khaki;
+  background: khaki;
   padding: 0.5em;
+  border: 2px ridge grey;
 }
 
 .room-heading {
+  background: lavender;
   font-weight: bold;
-  background-color: lavender;
 }
 
 /* Other room names, not in the heading that describes the current room. */
 :not(.room-heading) > .room-name {
+  background: lavenderblush;
   font-weight: bold;
-  background-color: lavenderblush;
 }
 
 .direction-name {
+  background: lavenderblush;
   font-weight: bold;
-  background-color: lavenderblush;
 }
 
 .hint {
+  background: linen;
   font-style: italic;
-  background-color: linen;
 }
 
 .plaque-card {
   /* Offsets the block from the page. */
-  background-color: palegoldenrod;
+  background: palegoldenrod;
   border: 2px ridge grey;
 
   /* Makes the border stay back from the edge of the text, which is nice. */
@@ -56,7 +57,7 @@
 
 .nameplate-card {
   /* Offsets the block from the page. */
-  background-color: palegoldenrod;
+  background: palegoldenrod;
   border: 2px ridge grey;
 
   /* Makes the border stay back from the edge of the text, which is nice. */
@@ -76,7 +77,7 @@
 
 .unicorn-card {
   /* Offsets the block from the page. */
-  background-color: aliceblue;
+  background: aliceblue;
   border: 2px ridge grey;
 
   /* Makes the border stay back from the edge of the text, which is nice. */
@@ -94,7 +95,7 @@
   width: 20rem;
 }
 
-.unicorn-card:after {
+.unicorn-card::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -107,7 +108,7 @@
 
 .ending-card {
   /* Offsets the block from the page. */
-  background-color: mediumspringgreen;
+  background: mediumspringgreen;
   border: 2px ridge grey;
 
   /* Makes the border stay back from the edge of the text, which is nice. */
@@ -138,7 +139,7 @@
 .checklist-block {
   /* Make it stand out, and look like paper. */
   display: block;
-  background-color: aliceblue;
+  background: aliceblue;
   border: 1px solid black;
 
   /* Fit to content. */
@@ -163,10 +164,9 @@
 
 .personnel-file-card {
   /* Make this look more like a typed document on yellowish paper. */
-
   display: block;
-  background-color: lightyellow;
-  font-family: monospace;
+  background: lightyellow;
+  font-family: 'Roboto Mono', monospace;
   border: 1px solid darkgrey;
 
   font-size: 75%;
@@ -192,19 +192,23 @@
  * easy mode. */
 body[data-difficulty="easy"] .interesting-highlight,
 #settings-card .interesting-highlight {
-  background-color: paleturquoise;
+  background: paleturquoise;
 }
 
 /* Don't highlight within the checklist. */
 .checklist-contents .interesting-highlight {
-  background-color: transparent;
+  background: transparent;
 }
 
 /* Based on https://codepen.io/thetypebeast/pen/KWNGGd by Jennifer */
-body[data-effect="lsd"]::before {
+body[data-effect="lsd"] #vorple {
+  /* To let the LSD effect show through. */
+  background: transparent;
+}
+body[data-effect="lsd"] #vorple::before {
   content: ""; /* required for ::before */
   position: fixed; /* don't scroll with page */
-  z-index: -100; /* place behind elements on page */
+  z-index: -1; /* Just behind the text and stuff at index 0. */
   /* fill the page */
   width: 100%;
   height: 100%;
@@ -241,7 +245,7 @@ body[data-effect="lsd"]::before {
 span.alien-paper {
   /* Make it stand out, and look like paper. */
   display: block;
-  background-color: aliceblue;
+  background: aliceblue;
   border: 1px solid black;
 
   /* Fit to content. */
@@ -271,7 +275,7 @@ body[data-effect="alien-paper"] .alien-paper {
 .script-page {
   /* Make it stand out, and look like paper. */
   display: block;
-  background-color: aliceblue;
+  background: aliceblue;
   border: 1px solid black;
   padding: 1em;
   margin: 1em auto;
@@ -279,11 +283,40 @@ body[data-effect="alien-paper"] .alien-paper {
   /* Max out at 30 characters or so. */
   max-width: 30em;
 
-  /* TODO: find a typewriter font to replace monospace? */
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .script-line {
   padding: 0 7em;
   display: block;
+}
+
+/* Infocom mode */
+body[data-infocom="true"] .blockquote,
+body[data-infocom="true"] .script-page,
+body[data-infocom="true"] .personnel-file-card {
+  background: #114;
+}
+body[data-infocom="true"] .continue,
+body[data-infocom="true"] .unicorn-card,
+body[data-infocom="true"] .checklist-block,
+body[data-infocom="true"] .ending-card,
+body[data-infocom="true"] span.alien-paper,
+body[data-infocom="true"] .plaque-card,
+body[data-infocom="true"] .nameplate-card {
+  background: #114;
+}
+body[data-infocom="true"] .room-heading,
+body[data-infocom="true"] :not(.room-heading) > .room-name,
+body[data-infocom="true"] .direction-name,
+body[data-infocom="true"] .hint {
+  background: #304;
+}
+body[data-infocom="true"][data-difficulty="easy"] .interesting-highlight {
+  background: #030;
+}
+body[data-infocom="true"][data-effect="lsd"] #vorple::before {
+  background-image:
+      radial-gradient(circle farthest-side at top right, transparent, #642),
+      radial-gradient(ellipse farthest-corner at 0% 100%, transparent, #246);
 }
