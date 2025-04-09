@@ -754,6 +754,7 @@ After going to the engineering department:
 	if get-blueprints is not checked:
 		activate blueprints-hint in 8 turns;
 	make "engineer" known;
+	make "blueprints" known;
 	continue the action.
 After going from the engineering department:
 	deactivate blueprints-hint;
