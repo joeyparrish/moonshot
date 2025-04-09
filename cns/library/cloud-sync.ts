@@ -1,9 +1,10 @@
 // Steam Cloud Sync module.
 
 import {
-  hideAutoComplete,
-  maybeShowAutoComplete,
-} from './auto-complete.ts';
+  captureHTML,
+  captureText,
+  restoreTranscript,
+} from './transcripts.ts';
 
 import {
   isDesktopBundle,
@@ -199,12 +200,8 @@ function onLoadGame(stream: Glk.GlkStream, _array: number[]) {
 }
 
 function onSaveGame(stream: Glk.GlkStream, array: number[]) {
-  const transcriptHTML = window0.innerHTML;
-
-  // Temporarily hide autocomplete while we capture the text transcript.
-  hideAutoComplete();
-  const transcriptText = window0.innerText;
-  maybeShowAutoComplete();
+  const transcriptHTML = captureHTML(/* includeAutoComplete= */ true);
+  const transcriptText = captureText(/* includeAutoComplete= */ false);
 
   const saveData: SaveData = {
     vfsPath: stream.filename,
@@ -223,7 +220,6 @@ export function postRestore(): void {
   const savePath = path.join(savesFolderPath, saveName + '.sav');
   const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
 
-  // TODO: Sanitize this, in case the user has hacked it!
-  window0.innerHTML = saveData.transcriptHTML;
+  restoreTranscript(saveData.transcriptHTML);
   console.log('Game transcript restored:', saveName);
 }

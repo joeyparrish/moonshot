@@ -11,6 +11,7 @@ import './music.ts';
 import './pause.ts';
 import './popups.ts';
 import './splash.ts';
+import './transcripts.ts';
 
 // Set up the public, global interface of the library, usable from Inform or
 // HTML:
@@ -22,6 +23,7 @@ import {showCredits} from './credits.ts';
 import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
 import {pauseGame} from './pause.ts';
 import {showHelp, showMap, showSettings} from './popups.ts';
+import {reportBug, saveTranscript} from './transcripts.ts';
 
 // @ts-ignore
 window.cns = {
@@ -29,6 +31,8 @@ window.cns = {
   logEvent,
   pauseGame,
   postRestore,
+  reportBug,
+  saveTranscript,
   setBackgroundMusic,
   showCredits,
   showHelp,

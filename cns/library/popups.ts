@@ -27,6 +27,9 @@ function showPopup(event: Event): void {
   const popupContainer = document.getElementById(popupContainerId)!;
   popupContainer.classList.remove('hidden');
 
+  // Make sure to hide the prompt so that the popup can have focus.
+  vorple.prompt.hide();
+
   // Only once it's shown, we can scroll back to the top of the popup content.
   // If we don't do this, it will open at the last place the user scrolled.
   const popup = popupContainer.querySelector('.popup')!;
@@ -36,6 +39,9 @@ function showPopup(event: Event): void {
 function hidePopup(event: Event): void {
   const popupContainer = (event.target as HTMLElement).closest<HTMLElement>('.popup-container')!;
   popupContainer.classList.add('hidden');
+
+  // Make sure to show the prompt again.
+  vorple.prompt.unhide();
 }
 
 export function showPopupButtons(): void {

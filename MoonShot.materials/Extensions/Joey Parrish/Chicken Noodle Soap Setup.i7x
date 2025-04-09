@@ -19,6 +19,15 @@ Use American dialect.
 Use serial comma.
 
 
+[Disable built-in transcripts from the interpreter.  Vorple only wants to save them into an obnoxious virtual filesystem that is a pain to access.  We have our own way to handle transcripts.]
+Check switching the story transcript on:
+	say "Traditional transcripts are not supported.  Use the 'save transcript' button.";
+	stop the action;
+Check switching the story transcript off:
+	say "Traditional transcripts are not supported.  Use the 'save transcript' button.";
+	stop the action;
+
+
 [Room headings and exits.]
 room-heading is a Vorple style.
 room-name is a Vorple style.

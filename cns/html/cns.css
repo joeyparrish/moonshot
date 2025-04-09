@@ -340,7 +340,8 @@ body {
   position: relative;
 }
 
-.popup p {
+.popup p,
+.popup div.p {
   /* Keep the paragraph margins the same on all sides. */
   margin: 1rem;
 }
@@ -357,7 +358,8 @@ body {
 
 #help-button,
 #map-button,
-#settings-button {
+#settings-button,
+#transcript-button {
   position: fixed;
   right: 2em;
 }
@@ -372,6 +374,10 @@ body {
 
 #settings-button {
   top: 7em;
+}
+
+#transcript-button {
+  top: 10em;
 }
 
 #help-card p, #help-card li {
@@ -500,4 +506,11 @@ body {
 
 #license-card details {
   margin: 2em 0.5em;
+}
+
+#transcriptComments {
+  /* The textarea can be resized, but these will constrain that. */
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 4em;
 }
