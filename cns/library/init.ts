@@ -20,23 +20,6 @@ declare global {
   const window0: HTMLDivElement;
 }
 
-type QuixeOptions = {
-  set_page_title: boolean;
-};
-
-declare global {
-  interface Window {
-    // If set early enough, read by Quixe to configure the interpreter.
-    game_options: QuixeOptions|null;
-  }
-}
-
-// Set Quixe (interpreter) options so that it doesn't change the page title.
-// Do this at load time.
-window.game_options = {
-  set_page_title: false,
-};
-
 // Global keypresses are used to stop splash screen or credits early.
 document.addEventListener('keydown', (event) => {
   // Don't monkey with key presses during gameplay.
