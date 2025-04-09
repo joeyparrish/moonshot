@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <audio id="backgroundMusic"></audio>
+    <audio id="backgroundMusic" autoplay></audio>
 
     <div id="menus">
       <!-- These are hidden by default, but we start with a pause.  When the initial "title" pause ends, these will be shown. -->
