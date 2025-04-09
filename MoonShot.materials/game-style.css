@@ -74,6 +74,37 @@
   font-family: cursive;
 }
 
+.unicorn-card {
+  /* Offsets the block from the page. */
+  background-color: aliceblue;
+  border: 2px ridge grey;
+
+  /* Makes the border stay back from the edge of the text, which is nice. */
+  padding: 0.5em;
+
+  /* Vorpal is creating a span for this, but to have the border and background
+   * work the way we want, we style it as a block or inline-block.  Using
+   * inline-block makes it hug the text, which I like better for the unicorn. */
+  display: inline-block;
+
+  /* We're going to position the "after" block over this one to insert content
+   * that Inform can't (emoji). */
+  position: relative;
+  height: 20rem;
+  width: 20rem;
+}
+
+.unicorn-card:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "🦄";
+  font-size: 15rem;
+  line-height: 20rem;
+}
+
 .ending-card {
   /* Offsets the block from the page. */
   background-color: mediumspringgreen;
@@ -167,13 +198,6 @@ body[data-difficulty="easy"] .interesting-highlight,
 /* Don't highlight within the checklist. */
 .checklist-contents .interesting-highlight {
   background-color: transparent;
-}
-
-img.unicorn {
-  content: url(unicorn.jpg);
-  /* Center it. */
-  display: flex;
-  margin: 0 auto;
 }
 
 /* Based on https://codepen.io/thetypebeast/pen/KWNGGd by Jennifer */

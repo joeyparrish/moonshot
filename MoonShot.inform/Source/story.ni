@@ -34,9 +34,10 @@ Include Checklists by Joey Parrish.
 [Styling]
 blockquote is a Vorple style.
 plaque-card is a Vorple style.
+nameplate-card is a Vorple style.
+unicorn-card is a Vorple style.
 ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
-nameplate-card is a Vorple style.
 alien-paper is a Vorple style.
 script-page is a Vorple style.
 script-line is a Vorple style.
@@ -586,24 +587,9 @@ The printed name of the engineering department is "NASA Engineering Department".
 
 The unicorn is interesting scenery in the engineering department.
 Instead of examining the unicorn:
+	say "Did a child draw this?[line break]";
 	if Vorple is supported:
-		place an "img" element called "unicorn";
-	otherwise:
-		[Many thanks to https://www.asciiart.eu/mythology/unicorns]
-		[The escaping ruins the effect in the source code.  :-( ]
-		say fixed letter spacing;
-		say "                    /[line break]";
-		say "               ,.. /[line break]";
-		say "             ,[']   ['];[line break]";
-		say "  ,,.__    _,['] /['];  .[line break]";
-		say " :['],[']  ~~~~    [']. [']~[line break]";
-		say ":['] (   )         )::,[line break]";
-		say "[']. [']. .=----=..-~  .;['][line break]";
-		say " [']  ;[']  ::   [']:.  ['][quotation mark][line break]";
-		say "   (:   [']:    ;)[line break]";
-		say "    \\   ['][quotation mark]  ./[line break]";
-		say "     ['][quotation mark]      ['][quotation mark][line break]";
-		say variable letter spacing.
+		say "[unicorn-card style][end style][line break]";
 
 Instead of taking the unicorn:
 	say "Only the pure of heart may approach a unicorn."
