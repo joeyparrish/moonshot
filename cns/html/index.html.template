@@ -28,8 +28,12 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=[GA_KEY]"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      if ('[GA_KEY]') {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { dataLayer.push(arguments); };
+      } else {
+        window.gtag = () => {};
+      }
       gtag('js', new Date());
       gtag('config', '[GA_KEY]');
     </script>

@@ -48,8 +48,6 @@ cns-html:
 		-e 's/\[AUTHOR\]/Joey \&amp; Charity Parrish/g' \
 		-e 's/\[DEDICATION\]/Dedicated to everyone who ever looked up at the moon and thought,<br>\&ldquo;no damn way.\&rdquo;/g' \
 		-e 's/\[RELEASE\]/9/g' \
-		-e 's/\[GA_KEY\]/G-K4EXJ8VT8V/g' \
-		-e 's/\[GA_APP\]/MoonShot/g' \
 		-e 's/\[COPYRIGHT\]/\&copy; 2020-2025 Joey \&amp; Charity Parrish/g' \
 		> MoonShot.materials/Release/index.html
 	rm MoonShot.materials/Release/index.html.template
@@ -60,9 +58,11 @@ cns-library:
 	cp cns/library/dist/bundle.js MoonShot.materials/Release/cns.js
 
 release: clean i7-release cns-html cns-library
+	sed -e 's/\[GA_KEY\]/G-K4EXJ8VT8V/g' -i MoonShot.materials/Release/index.html
 	rm -f MoonShot.materials/Release/interpreter/vorple.min.js.map
 
 debug: clean i7-debug cns-html cns-library
+	sed -e 's/\[GA_KEY\]//g' -i MoonShot.materials/Release/index.html
 	cp cns/library/dist/bundle.js.map MoonShot.materials/Release/
 
 serve:
