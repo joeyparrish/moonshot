@@ -10,6 +10,7 @@ else
 fi
 
 cd "$(dirname "$0")"
+INSTALL_PATH=../../MoonShot.materials
 
 echo "Extracting single-res icons..."
 layer_index=0
@@ -36,6 +37,6 @@ echo "Creating Linux zip..."
 zip -r9 MoonShot-icon-linux.zip MoonShot-icon-*.png
 
 echo "Installing icons..."
-cp MoonShot-icon.icns ../MoonShot.materials/Icon.icns
-cp MoonShot-icon.ico ../MoonShot.materials/Icon.ico
-cp MoonShot-icon-128.png ../MoonShot.materials/Icon.png
+cp MoonShot-icon.icns $INSTALL_PATH/Icon.icns
+cp MoonShot-icon.ico $INSTALL_PATH/Icon.ico
+cp MoonShot-icon-128.png $INSTALL_PATH/Icon.png
