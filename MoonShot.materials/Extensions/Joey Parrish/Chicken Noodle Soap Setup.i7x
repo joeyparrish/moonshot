@@ -298,6 +298,7 @@ To make (Bob - stranger) known:
 		now Concept entry is "[Bob]";
 		choose a blank row in the Table of Known Concepts;
 		now Concept entry is "[real name of Bob]";
+		now Bob is proper-named;
 		now Bob is known.
 
 [To allow known topics to be saved and restored, we need to hook into the restore logic.  To do that, we only have a hook for the message that gets printed.  So we define a fake message which actually calls our logic to reset the UI's topic list.]
