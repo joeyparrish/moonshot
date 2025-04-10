@@ -33,6 +33,7 @@ room-heading is a Vorple style.
 room-name is a Vorple style.
 direction-name is a Vorple style.
 continue is a Vorple style.
+ending-card is a Vorple style.
 
 This is the fancy room description heading rule:
 	say "[room-heading style][bold type][Location][roman type][end style]".

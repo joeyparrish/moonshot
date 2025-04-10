@@ -21,6 +21,7 @@ body {
   /* The body is black and only occupies the screen size. */
   background: black;
   overflow: hidden;
+  position: relative;
 }
 
 #vorple {
@@ -258,8 +259,59 @@ ul.inventory {
   display: none;
 }
 
-body {
-  position: relative;
+.continue {
+  background: khaki;
+  padding: 0.5em;
+  border: 2px ridge grey;
+  display: block;
+}
+
+.room-heading {
+  background: lavender;
+  font-weight: bold;
+}
+
+/* Other room names, not in the heading that describes the current room. */
+:not(.room-heading) > .room-name {
+  background: lavenderblush;
+  font-weight: bold;
+}
+
+.direction-name {
+  background: lavenderblush;
+  font-weight: bold;
+}
+
+.hint {
+  background: linen;
+  font-style: italic;
+}
+
+.ending-card {
+  /* Offsets the block from the page. */
+  background: mediumspringgreen;
+  border: 2px ridge grey;
+
+  /* Makes the border stay back from the edge of the text, which is nice. */
+  padding: 0.5em;
+
+  /* Vorpal is creating a span for this, but to have the border and background
+   * work the way we want, we style it as a block or inline-block.
+   * Even worse, there is some bug in which trying to center the content in
+   * Inform causes the generated HTML to be all screwy, with the ending-card
+   * empty and the text outside it.  Ugh.
+   * So, to solve all that, we use block to take up the whole line, inline-size
+   * to shrink the background to the content, and margin to center it all. */
+  display: block;
+  inline-size: fit-content;
+  margin: 0 auto;
+}
+
+/* This will be used to highlight interesting words in room descriptions in
+ * easy mode. */
+body[data-difficulty="easy"] .interesting-highlight,
+#settings-card .interesting-highlight {
+  background: paleturquoise;
 }
 
 .hidden {
@@ -537,4 +589,17 @@ body[data-infocom="true"] #auto-complete select {
 }
 body[data-infocom="true"] .popup-container {
   background: radial-gradient(white, transparent);
+}
+body[data-infocom="true"] .continue,
+body[data-infocom="true"] .ending-card {
+  background: #114;
+}
+body[data-infocom="true"] .room-heading,
+body[data-infocom="true"] :not(.room-heading) > .room-name,
+body[data-infocom="true"] .direction-name,
+body[data-infocom="true"] .hint {
+  background: #304;
+}
+body[data-infocom="true"][data-difficulty="easy"] .interesting-highlight {
+  background: #030;
 }

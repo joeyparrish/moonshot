@@ -36,7 +36,6 @@ blockquote is a Vorple style.
 plaque-card is a Vorple style.
 nameplate-card is a Vorple style.
 unicorn-card is a Vorple style.
-ending-card is a Vorple style.
 personnel-file-card is a Vorple style.
 alien-paper is a Vorple style.
 script-page is a Vorple style.
