@@ -974,7 +974,7 @@ Before asking the tapir for name while the tapir is in the cage:
 	stop the action.
 Instead of quizzing the tapir about name while the tapir is in the cage:
 	say "The [tapir-aardvark] glances side to side to make sure the scientists are distracted before hissing in a low voice, 'Brizzleby, of the Galactic Federation of Aardvarks.  Now get me the hell out of here!'";
-	now the tapir is known;
+	make the tapir known;
 	make "aardvark" known;
 	make "Brizzleby" known.
 Understand "Brizzleby", "space-aardvark", "space-ardvark", and "Brizzleby the space-aardvark" as the tapir.
