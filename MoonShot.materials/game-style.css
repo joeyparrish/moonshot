@@ -18,6 +18,7 @@
   background: khaki;
   padding: 0.5em;
   border: 2px ridge grey;
+  display: block;
 }
 
 .room-heading {
