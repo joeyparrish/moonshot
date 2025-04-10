@@ -400,8 +400,6 @@ The director can be visited.  When day one begins, now the director is not visit
 After going to the director's office:
 	now the director is visited;
 	make "checklist" known;
-	if day two is happening:
-		make "Operation Glitter" known;
 	deactivate director-yells-1;
 	deactivate director-yells-2;
 	continue the action.
@@ -1652,16 +1650,15 @@ Instead of taking checklist-2:
 			say "'Not so fast!' says [the director].  'We need to talk first.'";
 			show hint "Try 'ask about' to talk to the director about various topics.";
 
-Glitter can be known.
 After examining checklist-2:
-	now glitter is known;
+	make "Operation Glitter" known;
 	make "preparing astronauts" known;
 	make "lunch" known;
 	make "food" known;
 	continue the action.
 
 Instead of talking to the director during day two:
-	say "Perhaps you could ask [the director] about Apollo, [if glitter is known]Operation Glitter, [end if]or the astronauts.";
+	say "Perhaps you could ask [the director] about Apollo, [if checklist-2 is read]Operation Glitter, [end if]or the astronauts.";
 [TODO: Are these the best Dirk topics for day two?]
 
 Apollo can be day-two-discussed.  When day two begins, now Apollo is not day-two-discussed.

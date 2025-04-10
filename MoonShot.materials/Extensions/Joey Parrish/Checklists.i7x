@@ -10,6 +10,7 @@ A checklist-item has a list of things called sub-items.
 A checklist is a kind of thing.
 A checklist has a list of checklist-items called items.
 A checklist can be complete.
+A checklist can be read.
 
 checklist-block is a Vorple style.  [An outer span.]
 checklist-contents is a Vorple style.  [An inner span.]
@@ -22,6 +23,7 @@ Definition: a checklist is complete:
 
 [You can also "read" a checklist, which will just examine it.]
 Carry out examining a checklist (called X):
+	now X is read;
 	say "[The description of X]";
 	say "[If the description of X is not empty]  It[otherwise][The X][end if] reads:[line break][line break]";
 	if Vorple is supported:
