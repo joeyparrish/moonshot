@@ -127,9 +127,15 @@ Include (-
 [This is how the game ends; not with a bang, but a whimper.]
 The print obituary headline rule is not listed in any rulebook.
 To show ending (N - number) of (MAX - number) aka the (T - text) ending:
+	[Remove any active page effects on death]
+	deactivate remove-page-effect;
+	execute JavaScript code "document.body.dataset.effect = ''";
+	[Log the ending]
 	execute JavaScript code "cns.logEvent('ending[N]')";
 	add bit N to stats bitmask "endings_bitmask";
 	count bits from bitmask "endings_bitmask" into "endings_discovered";
+	unlock achievement "ending_[N]";
+	[Show the ending]
 	say paragraph break;
 	pause;
 	execute JavaScript code "cns.showCredits()";
@@ -137,7 +143,6 @@ To show ending (N - number) of (MAX - number) aka the (T - text) ending:
 	say ending-card style;
 	say "You have discovered ending #[N] of [MAX] (the [T] ending) after [turn count] turns!";
 	say end style;
-	unlock achievement "ending_[N]";
 	end the story.
 
 
