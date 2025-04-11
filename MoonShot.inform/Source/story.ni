@@ -24,9 +24,7 @@ please do so before you read the source code, to avoid spoilers.
 Include the Standard Rules by Graham Nelson.
 Include Locksmith by Emily Short.
 Include Chicken Noodle Soap Setup by Joey Parrish.
-Include Concepts by Joey Parrish.
 Include Critical Things by Joey Parrish.
-Include Strangers by Joey Parrish.
 Include Better Sitting by Joey Parrish.
 Include Checklists by Joey Parrish.
 
@@ -77,6 +75,9 @@ After reading a command:
 Equations are a physical concept.  The printed name of equations is "equations".
 Rocket-equations is a concept.
 Understand "rocket equations" as rocket-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "rocket equations", which is confusing.]
+
+[If the index is 0, the person's name isn't tracked toward the "social" achievement.  This allows us to keep Brizzleby a secret, and exclude him from the social achievement tracking.  He gets his own secret achievement.]
+A stranger has a number called the index.  The index of a stranger is usually 0.
 
 Instead of quizzing someone (called the person) about (this is the default conversation rule):
 	say "'[one of]Oh, I don't know anything about that[or]Let's talk about something else[or]I'm not sure what to say about that[purely at random],' says [the person]."
@@ -134,7 +135,7 @@ Carry out waking:
 		stop the action;
 	else:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
-		now the noun is not asleep;
+		now the noun is not asleep.
 Extra autocomplete verbs rule:
 	if a person in the location is asleep:
 		add "wake " to extra-verbs;
@@ -160,6 +161,14 @@ Extra autocomplete verbs rule:
 	if the player is in the personnel department and the head of personnel is not asleep:
 		add "apologize\n" to extra-verbs;
 
+A meeting rule:
+	let N be the index of the acquaintance;
+	add bit N to stats bitmask "names_bitmask";
+	count bits from bitmask "names_bitmask" into "names_learned";
+
+Check taking portable-scenery:
+	unlock achievement "steal_scenery";
+	continue the action;
 
 day1-music is background music.
 The url of day1-music is "day1.webm".
@@ -189,11 +198,13 @@ The author credit of day3final-music is "by Mikhail Smusev via Pixabay".
 The link of day3final-music is "https://pixabay.com/music/suspense-horror-258261/".
 
 Before handling the final question:
-	stop music;
+	stop music.
 When day one ends:
 	stop music;
+	unlock achievement "complete_day_1".
 When day two ends:
 	stop music;
+	unlock achievement "complete_day_2".
 Vorple interface update rule:
 	if day one is happening:
 		play music day1-music;
@@ -261,8 +272,11 @@ The printed name of director's waiting room is "NASA Director's Waiting Room".
 The bubblegum is portable-scenery in the waiting room.  Understand "gum" as the bubblegum.
 The macrame is portable-scenery in the waiting room.
 
-In the waiting room is a stranger called the secretary.  The real name of the secretary is "Donna".
-Understand "Donna", "her", "herself", and "woman" as the secretary.  The secretary is female.
+In the waiting room is a stranger called the secretary.
+The secretary is female.
+The real name of the secretary is "Donna".
+The index of the secretary is 1.
+Understand "Donna", "her", "herself", and "woman" as the secretary.
 The secretary can be mad.  When day one begins, now the secretary is not mad.
 
 The secretary's desk is scenery in the waiting room.  "A simple teak desk with a light stain, and unusually spartan."
@@ -290,7 +304,8 @@ Understand "telephone" as the phone.
 
 Phone-number is a concept.  Understand "phone number" and "number" as phone-number.
 Instead of quizzing the secretary about phone-number:
-	say "[The secretary] blushes.  With a sly look, she says 'Klondike-five, thirteen thirty-seven.'"
+	say "[The secretary] blushes.  With a sly look, she says 'Klondike-five, thirteen thirty-seven.'";
+	unlock achievement "get_phone_number";
 
 Instead of taking the phone:
 	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the [phone] plugged back in.";
@@ -388,7 +403,10 @@ Instead of examining the weather in the director's office:
 The windows are scenery in the director's office.
 Instead of examining the windows, try examining the weather.
 
-In the director's office is a stranger called the director.  The real name of the director is "Mr. Furtwangler".  The director is male.
+In the director's office is a stranger called the director.
+The director is male.
+The real name of the director is "Mr. Furtwangler".
+The index of the director is 2.
 
 Understand "director", "dirk", "mr furtwangler", "mister furtwangler", "furtwangler", "boss", "him", "himself", and "man" as the director.
 
@@ -495,7 +513,7 @@ Instead of quizzing the director about blueprints:
 	say "[The director] starts shaking his head before you even finish asking.  'No, no, not my department.  Go down to engineering, talk to that what's-his-name.  The one who's too cool for school.'";
 
 Instead of quizzing the director about rocket-equations:
-	say "'Uh, yeah.  Of course I know about those,' he says with a scared look on his face.  'But you go ask the eggheads in the lab about that.  They like to show off.'";
+	say "'Uh, yeah.  Of course I know about those,' he says with a scared look on his face.  'But you go ask the eggheads in the lab about that.  They like to show off.'".
 Instead of quizzing the director about equations:
 	try quizzing the director about rocket-equations.
 
@@ -589,7 +607,8 @@ Instead of examining the unicorn:
 		say "[unicorn-card style][end style][line break]";
 
 Instead of taking the unicorn:
-	say "Only the pure of heart may approach a unicorn."
+	say "Only the pure of heart may approach a unicorn.";
+	unlock achievement "pure_of_heart";
 
 The diagrams are interesting scenery in the engineering department.
 Understand "diagram" as the diagrams.
@@ -607,7 +626,11 @@ The whiteboard is scenery in the engineering department.  "At the top of the whi
 
 
 
-In the engineering department is a stranger called the engineer.  The real name of the engineer is "Rick".  The engineer can be sad.  When day one begins, now the engineer is not sad.  The engineer is male.
+In the engineering department is a stranger called the engineer.
+The engineer is male.
+The real name of the engineer is "Rick".
+The index of the engineer is 3.
+The engineer can be sad.  When day one begins, now the engineer is not sad.
 
 The engineer is carrying the blueprints.  The description of the blueprints is "The blueprints, which are distinctly white, say '[bold type]Apollo 11 Command Module[roman type]' on the top.  [if the player has the blueprints]They are looking a little worse for wear, to say the least.[otherwise]The drawing of the command module is surprisingly lifelike.  You've never seen a more beautiful rendering of a truncated cone."
 
@@ -696,7 +719,6 @@ Instead of taking the whiteprints:
 Instead of asking the engineer for whiteprints:
 	try quizzing the engineer about the whiteprints.
 
-[TODO: Is there an alternate solution we could add here?]
 Instead of taking the blueprints:
 	if the player has the blueprints:
 		say "You already have the blueprints.";
@@ -780,7 +802,7 @@ Understand "chalk board" and "board" as the chalkboard.
 Equations and rocket-equations are interesting parts of the chalkboard.
 [To allow them to be examined while you're in any room with the chalkboard.]
 Instead of examining equations:
-	say "You can't make heads or tails of them, but the [interesting]wheeled chalkboards[/interesting] are covered in them.";
+	say "You can't make heads or tails of them, but the [interesting]wheeled chalkboards[/interesting] are covered in them.".
 Instead of examining rocket-equations:
 	try examining equations.
 Instead of taking equations:
@@ -923,7 +945,7 @@ After opening the cage while the tapir is in the cage:
 		if get-equations is checked:
 			now the tapir is in purgatory;  [You didn't need him.]
 		otherwise:
-			now the tapir is in the hallway;  [There's an alternate way to get the equations.]
+			now the tapir is in the hallway.  [There's an alternate way to get the equations.]
 
 
 
@@ -976,7 +998,8 @@ Instead of quizzing the tapir about name while the tapir is in the cage:
 	say "The [tapir-aardvark] glances side to side to make sure the scientists are distracted before hissing in a low voice, 'Brizzleby, of the Galactic Federation of Aardvarks.  Now get me the hell out of here!'";
 	make the tapir known;
 	make "aardvark" known;
-	make "Brizzleby" known.
+	make "Brizzleby" known;
+	unlock achievement "meet_brizzleby".
 Understand "Brizzleby", "space-aardvark", "space-ardvark", and "Brizzleby the space-aardvark" as the tapir.
 
 Instead of quizzing the tapir about name:
@@ -1004,6 +1027,7 @@ Instead of quizzing the tapir about rocket-equations:
 	say "Brizzleby gives you a satisfied smile.  'I knew you were something special.  Yes, [']rocket equations['] are indeed a thing.  Here.  Take these.  They are the Galactic Federation's most advanced rocket equations.'  He hands you a small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.[paragraph break]";
 	now the player has alien-equations;
 	now get-equations is checked;
+	unlock achievement "real_rocket_equations";
 	say "He glances at the ceiling for a long moment, then adds, 'It's time for me to get back to my people.  Thank you, noble intern, for freeing me.'  Before you can react, he licks your face, then quickly lopes down the hallway and vanishes from sight.";
 	now the tapir is in purgatory.
 
@@ -1019,8 +1043,9 @@ Instead of quizzing the tapir about Apollo:
 
 
 In the propulsion lab is a stranger called the head scientist.
-The real name of the head scientist is "Dr. von Braun".
 The head scientist is male.
+The real name of the head scientist is "Dr. von Braun".
+The index of the head scientist is 4.
 
 [This guy has way too many names.  Give players a fair amount of latitude.]
 Understand "doctor", "dr", "dr von braun", "von braun", "braun", "doktor", "herr doktor", "Herr Doktor Wernher Magnus Maximilian Freiherr von Braun", "Wernher", "Magnus", "Maximilian", "Freiherr", "Wernher von Braun", "Werner", "Werner von Braun", "head", "the scientist", "head scientist", "rocket scientist", "him", "man", and "himself" as the head scientist.
@@ -1203,7 +1228,9 @@ Before listing exits:
 	continue the action.
 
 [This mapping will allow us to enable the player to type both "choose Buzz Aldrin" and "choose file 1".]
-A personnel-file is a kind of thing.  A personnel-file has a person called the employee.
+A personnel-file is a kind of thing.
+A personnel-file has a person called the employee.
+A personnel-file has a number called the index.
 personnel file 1 is a critical personnel-file in the drawer.
 personnel file 2 is a critical personnel-file in the drawer.
 personnel file 3 is a critical personnel-file in the drawer.
@@ -1214,8 +1241,9 @@ personnel file 6 is a critical personnel-file in the drawer.
 The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
 
 The head of personnel is a stranger in the personnel department.
-The real name of the head of personnel is "Franklin".
 The head of personnel is male.
+The real name of the head of personnel is "Franklin".
+The index of the head of personnel is 5.
 
 Understand "head", "Franklin", "Franklin Stanford", "Stanford", "him", "man", and "himself" as the head of personnel.
 
@@ -1259,6 +1287,9 @@ Instead of quizzing the head of personnel about anything while the head of perso
 	try waking the head of personnel.
 
 
+To mark gossip (N - number) heard:
+	add bit N to stats bitmask "gossip_bitmask";
+	count bits from bitmask "gossip_bitmask" into "gossip_heard";
 
 Instead of quizzing the head of personnel about Apollo:
 	say "'Wait [']til those pencil-necked poindexters over at the other NASA see what our insane pet German cooked up!  They should've known better than to attempt to beat us at our own game.  As if they could out-NASA us.'  [The head of personnel] snorts derisively."
@@ -1269,48 +1300,62 @@ Instead of quizzing the head of personnel about NASA:
 Instead of quizzing the head of personnel about the secretary:
 	say "'Oh, Donna?  She's the real brains of this operation.  Furtwangler couldn't get a damn thing done without her.'";
 	make the director known;
-	make the secretary known.
+	make the secretary known;
+	mark gossip 1 heard;
 
 Instead of quizzing the head of personnel about the director:
 	say "'Furtwangler... more like SkirtTangler!' he exclaims, looking at you to see if you're laughing. 'He's more interested in Earth women than extraterrestrial glory.  Word around the Tang cooler is that he's in trouble with the Missus on account of the Miss, if you know what I mean.'";
-	make the director known.
+	make the director known;
+	mark gossip 2 heard;
 
 Instead of quizzing the head of personnel about the engineer:
 	say "'Now that's a guy who's never gonna tell a lie and hurt you.'  When [the head of personnel] notices your confusion, he goes on, 'Well, he certainly never let [bold type]me[roman type] down.'";
+	mark gossip 3 heard;
 
 Instead of quizzing the head of personnel about the head scientist:
 	say "'Von Braun is a genius, and as you may know, 100% bazonkers.  He actually thinks that some anteaters are aliens.  Sure knows his way around a rocket, though.'";
-	make the head scientist known.
+	make the head scientist known;
+	mark gossip 4 heard;
 
 Instead of quizzing the head of personnel about the other scientists:
 	say "'I call those empty headed lackeys [']The Chorus.[']  All they do is say [']Yes, Herr Doktor von Braun, whatever you say, sir!['] no matter what insanity he cooks up.  Sure, sometimes it's rocket equations and fuel formulations, but sometimes, it's combing through the genetic code of an anteater or whatever bizarro animal he's obsessed with.  They just smile and say [']Yes, Herr Doktor Frankenpants, whatever you say, sir![']  What a bunch of ninnies.'";
-	make the head scientist known.
-
-Instead of quizzing the head of personnel about Buzz Aldrin:
-	say "'Don't get close enough to that guy to smell his breath, or you [italic type]will[roman type] regret it.'"
-
-Instead of quizzing the head of personnel about Neil Armstrong:
-	say "'Fun fact: his arms are notoriously weak.  Once, I saw him struggle to lift a can of Coke.'"
-
-Instead of quizzing the head of personnel about Michael Collins:
-	say "'A good enough fellow if you can handle his Irish brogue.  Don't mention the Brits around him though.  Wouldn't be surprised if he tried to claim the moon in the name of Ireland.  Between you and me, he'd be a lot more fun if he had a TOM Collins or two.'"
-
-Instead of quizzing the head of personnel about Lisa Nowak:
-	say "'Shhhh!' he says, looking from side to side, his voice dropping to a whisper.  'We used to date casually, and when I broke it off, she went a little nutso.  I had to fake my own death.  Why do you think I hide out in this tiny office?'"
-
-Instead of quizzing the head of personnel about Ijon Tichy:
-	say "'That guy only speaks Polish, but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'"
-
-Instead of quizzing the head of personnel about Clifford McBride:
-	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be some kind of mad bomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'"
-
-Instead of quizzing the head of personnel about the photographer:
-	say "'How many Stanley Kubricks does it take to screw in a lightbulb?'  [The head of personnel] looks at you expectantly, then goes on, 'Just one, but he needs 127 takes.'  [The head of personnel] guffaws, then notices your lack of reaction.  'It's funnier if you know the guy.'";
-	make the photographer known.
+	make the head scientist known;
+	mark gossip 5 heard;
 
 Instead of quizzing the head of personnel about the chemist:
 	say "'Every time I'm around Molly, I just feel so close to her, you know?  Like we really understand each other, and we're all just trying to get through this crazy, exquisitely-heartbreaking, beautiful world.  Then, about three to six hours later, I can't even remember why I went to see her in the first place.'";
-	make the chemist known.
+	make the chemist known;
+	mark gossip 6 heard;
+
+Instead of quizzing the head of personnel about the photographer:
+	say "'How many Stanley Kubricks does it take to screw in a lightbulb?'  [The head of personnel] looks at you expectantly, then goes on, 'Just one, but he needs 127 takes.'  [The head of personnel] guffaws, then notices your lack of reaction.  'It's funnier if you know the guy.'";
+	make the photographer known;
+	mark gossip 7 heard;
+
+Instead of quizzing the head of personnel about Buzz Aldrin:
+	say "'Don't get close enough to that guy to smell his breath, or you [italic type]will[roman type] regret it.'";
+	mark gossip 8 heard;
+
+Instead of quizzing the head of personnel about Neil Armstrong:
+	say "'Fun fact: his arms are notoriously weak.  Once, I saw him struggle to lift a can of Coke.'";
+	mark gossip 9 heard;
+
+Instead of quizzing the head of personnel about Michael Collins:
+	say "'A good enough fellow if you can handle his Irish brogue.  Don't mention the Brits around him though.  Wouldn't be surprised if he tried to claim the moon in the name of Ireland.  Between you and me, he'd be a lot more fun if he had a TOM Collins or two.'";
+	mark gossip 10 heard;
+
+Instead of quizzing the head of personnel about Lisa Nowak:
+	say "'Shhhh!' he says, looking from side to side, his voice dropping to a whisper.  'We used to date casually, and when I broke it off, she went a little nutso.  I had to fake my own death.  Why do you think I hide out in this tiny office?'";
+	mark gossip 11 heard;
+
+Instead of quizzing the head of personnel about Ijon Tichy:
+	say "'That guy only speaks Polish, but he sure is a good sport.  World champion at limbo.  Worrying habit of trying to fix things by hitting them with a hammer; not a great modus operandi in a space shuttle.'";
+	mark gossip 12 heard;
+
+Instead of quizzing the head of personnel about Clifford McBride:
+	say "'Ugh, don't get me started.  What a zealot.  Those are the ones you have to watch out for.  Collins, Tichy, Armstrong, Aldrin, Nowak, they don't have much else in their lives other than NASA, but they've got some other interests.  McBride, now, if he weren't an astronaut, he'd be some kind of mad bomber.  Safer to have him in space than on planet Earth.  He puts the ass in astronaut.'";
+	mark gossip 13 heard;
+
 
 
 Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
@@ -1396,6 +1441,7 @@ After going from the personnel department:
 
 
 The employee of personnel file 1 is Buzz Aldrin.
+The index of personnel file 1 is 1.
 The description of personnel file 1 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
 
 Professional History:
@@ -1412,6 +1458,7 @@ Psychological profile:
 
 
 The employee of personnel file 2 is Neil Armstrong.
+The index of personnel file 2 is 2.
 The description of personnel file 2 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
 
 Professional History:
@@ -1431,6 +1478,7 @@ Psychological profile:
 
 
 The employee of personnel file 3 is Michael Collins.
+The index of personnel file 3 is 3.
 The description of personnel file 3 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
 
 Professional History:
@@ -1447,6 +1495,7 @@ Psychological profile:
 
 
 The employee of personnel file 4 is Lisa Nowak.
+The index of personnel file 4 is 4.
 The description of personnel file 4 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
 
 Professional History:
@@ -1463,6 +1512,7 @@ Psychological profile:
 
 
 The employee of personnel file 5 is Ijon Tichy.
+The index of personnel file 5 is 5.
 The description of personnel file 5 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
 
 Professional History:
@@ -1480,6 +1530,7 @@ Psychological profile:
 
 
 The employee of personnel file 6 is Clifford McBride.
+The index of personnel file 6 is 6.
 The description of personnel file 6 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
 
 Professional History:
@@ -1500,7 +1551,8 @@ Psychological profile:
 The list of crew candidates is a list of people that varies.
 
 After examining a personnel-file (called this-file):
-	make "[employee of this-file]" known;
+	add bit the index of this-file to stats bitmask "crew_files_bitmask";
+	count bits from bitmask "crew_files_bitmask" into "crew_files_read";
 	add the employee of this-file to the list of crew candidates.
 
 
@@ -1512,7 +1564,7 @@ Extra autocomplete verbs rule:
 	if the personnel puzzle is ready and TBD is listed in the sub-items of choose-crew:
 		[Have the files, haven't chosen everyone yet.]
 		add "choose " to extra-verbs;
-		execute JavaScript code "cns.autocomplete.addCustomAutoComplete(/^ *choose +$/i, [the list of crew candidates as JSON].map(x => x+'\n'))";
+		execute JavaScript code "cns.autocomplete.addCustomAutoComplete(/^ *choose +$/i, [the list of crew candidates as JSON].map(x => x+'\n'))".
 To say (L - a list of objects) as JSON:
 	let J be "[bracket]";
 	repeat with N running through L:
@@ -1658,8 +1710,7 @@ After examining checklist-2:
 	continue the action.
 
 Instead of talking to the director during day two:
-	say "Perhaps you could ask [the director] about Apollo, [if checklist-2 is read]Operation Glitter, [end if]or the astronauts.";
-[TODO: Are these the best Dirk topics for day two?]
+	say "Perhaps you could ask [the director] about Apollo, [if checklist-2 is read]Operation Glitter, [end if]or the astronauts.".
 
 Apollo can be day-two-discussed.  When day two begins, now Apollo is not day-two-discussed.
 Instead of quizzing the director about Apollo during day two:
@@ -1742,7 +1793,7 @@ Film-moon-landing is a checklist-item.  The printed name of film-moon-landing is
 The filming is a concept.  Understand "film", "moon landing", and "landing" as the filming.
 Instead of quizzing the director about the filming:
 	say "'Oh, you'll do fine.  Thankfully, Stanley left behind his script for the moon landing.'  He hands you the script.";
-	make photographer known;
+	make the photographer known;
 	now the player has the moon landing script.
 Instead of quizzing the photographer about the filming:
 	say "'I'm not signing autographs,' he says with a sly grin.  'In fact, I'm not even here.  What we're doing today never leaves this building.'"
@@ -1807,8 +1858,11 @@ After going to the sound stage:
 	make "photographer" known;
 	continue the action.
 
-The photographer is a stranger in the sound stage.  The photographer is male.
+The photographer is a stranger in the sound stage.
+The photographer is male.
 The real name of the photographer is "Stanley".
+The index of the photographer is 6.
+
 Understand "Stanley", "Kubrick", "film-maker", and "filmmaker" as the photographer.
 The description of the photographer is "[The photographer] is a bit shorter than average, with dark, wild, wavy hair and a dark, thick beard.  He is busily checking and adjusting various cameras, tripods, and lights."
 The tripods are scenery in the sound stage.  Understand "tripod" as the tripods.
@@ -1925,6 +1979,10 @@ After opening the triangular nameplate:
 	otherwise:
 		say "You open a small, concealed hatch on one side of the nameplate."
 
+After eating the Toblerone:
+	unlock achievement "eat_candy";
+	continue the action;
+
 The printed name of almond chicken is "plate of almond chicken".
 Rule for printing the plural name of almond chicken: say "plates of almond chicken".
 Understand "plate" and "plate of almond chicken" and "plate of chicken" as almond chicken.
@@ -1947,6 +2005,7 @@ Instead of sitting on the craft services table:
 The snack count is initially 0.
 After eating a food:
 	increase the snack count by 1;
+	increment stat "snacks_eaten";
 	if the snack count is 10:
 		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
 		show ending 4 of 9 aka the "gluttony" ending;
@@ -2087,7 +2146,8 @@ To start photographer illness:
 	make "filming" known;
 	now the moon landing script is in the sound stage;
 	now the description of the cameras is "You notice a small note taped to the side of one camera.  The note says [italic type][one of][interesting]'FILM MOON LANDING'[/interesting][or]SAY '[interesting]ACTION[/interesting]'[or]TYPE THE EXACT PHRASE 'FILM MOON LANDING' TO SOLVE THE PUZZLE[cycling][roman type].  Maybe it's a clue!";
-	now the items of checklist-2 are {get-lunch, drug-astronauts, film-moon-landing}.
+	now the items of checklist-2 are {get-lunch, drug-astronauts, film-moon-landing};
+	unlock achievement "kill_stanley";
 
 
 
@@ -2128,8 +2188,10 @@ Instead of asking the cat about:
 	say "2020 [italic type]has[roman type] been pretty lonely, hasn't it?";
 	stop the action.
 
-The chemist is a stranger in the chemistry lab.  The chemist is female.
+The chemist is a stranger in the chemistry lab.
+The chemist is female.
 The real name of the chemist is "Molly". 
+The index of the chemist is 7.
 Understand "Molly" as the chemist.
 The description of the chemist is "[The chemist]'s oversized tortoiseshell glasses make her eyes look enormous in her heart-shaped face.  She's wearing a lab coat that sports an impressive array of pins, with sentiments like 'Humphrey-Muskie,' 'Tune In, Turn On, & Drop Out' and 'I CAN GIVE IT! CAN YOU TAKE IT?'"
 The chemist wears tortoiseshell glasses, a lab coat, the pins.
@@ -2306,7 +2368,6 @@ Carry out giving librium to an astronaut:
 	say "[regarding the second noun][They] swallows the pill.  [They] gets pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
 	now the second noun is good at chess.
 Instead of eating librium:
-	[TODO: chess animation?]
 	say "You don't feel any different, or any better at chess.";
 	now the noun is in the chemistry lab.  [Replenish stocks.]
 Instead of quizzing a good at chess astronaut about anything (this is the astronaut chess rule):
@@ -2354,7 +2415,8 @@ Instead of inserting a mysterious silver liquid into the holder of the coffee (t
 To report new latte art:
 	now the coffee is nowhere;
 	now a mysterious silver liquid is nowhere;
-	say "The mysterious silver liquid mixes languidly into the coffee, occasionally running in reverse, but ultimately forming a consistent silvery-brown color."
+	say "The mysterious silver liquid mixes languidly into the coffee, occasionally running in reverse, but ultimately forming a consistent silvery-brown color.";
+	unlock achievement "latte_art".
 Instead of quizzing the chemist about the mysterious silver coffee:
 	say "'Whoa, is that soy milk?  ...  Is it [italic type]singing?[roman type]'".
 Carry out giving a container which contains the mysterious silver coffee to an astronaut:
@@ -2476,7 +2538,8 @@ Carry out examining the moon landing script:
 	say end style;
 	say variable letter spacing;
 	pause;
-	stop the action.
+	stop the action;
+	unlock achievement "read_script";
 
 
 Filming the moon landing is an action applying to nothing.

@@ -17,8 +17,8 @@
     // Only type-check, let esbuild bundle.
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "module": "esnext",
-    "moduleResolution": "classic",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
 
     // Assume an es2017 DOM environment (includes async/await).
     "lib": [ "es2017", "dom", "dom.iterable" ],

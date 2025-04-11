@@ -37,6 +37,9 @@
       gtag('js', new Date());
       gtag('config', '[GA_KEY]');
     </script>
+    <script>
+      window.STEAM_APP_ID = [STEAM_APP_ID];
+    </script>
   </head>
 
   <body>

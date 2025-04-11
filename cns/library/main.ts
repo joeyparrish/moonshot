@@ -3,6 +3,7 @@
 // Top-level modules which set things up at load-time, including event
 // listeners for further actions at DOM-ready-time.
 import './init.ts';
+import './achievements.ts';
 import './analytics.ts';
 import './auto-complete.ts';
 import './cloud-sync.ts';
@@ -16,6 +17,7 @@ import './transcripts.ts';
 // Set up the public, global interface of the library, usable from Inform or
 // HTML:
 
+import * as achievements from './achievements.ts';
 import {logEvent} from './analytics.ts';
 import * as autocomplete from './auto-complete.ts';
 import {postRestore} from './cloud-sync.ts';
@@ -27,6 +29,7 @@ import {reportBug, saveTranscript} from './transcripts.ts';
 
 // @ts-ignore
 window.cns = {
+  achievements,
   autocomplete,
   logEvent,
   pauseGame,

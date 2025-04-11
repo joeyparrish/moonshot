@@ -1,6 +1,10 @@
 // Early initialization of Vorple, Quixe, nw.js, and shared event listeners.
 
 import {
+  initAchievements,
+} from './achievements.ts';
+
+import {
   stopCredits,
 } from './credits.ts';
 
@@ -51,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Some Vorple prompts (like after "quit") don't scroll to the bottom
   // automatically.  Fix that here.
   vorple.addEventListener('expectCommand', scrollToBottom);
+
+  // Initialize the achievements interface.
+  initAchievements();
 
   if (isDesktopBundle()) {
     // Enable desktop-bundle-specific elements.

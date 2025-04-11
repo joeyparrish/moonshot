@@ -8,6 +8,7 @@ Include Vorple Hyperlinks by Juhana Leinonen.
 Include Concepts by Joey Parrish.
 Include Drinks by Joey Parrish.
 Include Events by Joey Parrish.
+Include Strangers by Joey Parrish.
 
 
 [Always output HTML.]
@@ -126,16 +127,17 @@ Include (-
 [This is how the game ends; not with a bang, but a whimper.]
 The print obituary headline rule is not listed in any rulebook.
 To show ending (N - number) of (MAX - number) aka the (T - text) ending:
-	if Vorple is supported:
-		execute JavaScript code "cns.logEvent('ending[N]')";
+	execute JavaScript code "cns.logEvent('ending[N]')";
+	add bit N to stats bitmask "endings_bitmask";
+	count bits from bitmask "endings_bitmask" into "endings_discovered";
 	say paragraph break;
 	pause;
-	if Vorple is supported:
-		execute JavaScript code "cns.showCredits()";
+	execute JavaScript code "cns.showCredits()";
 	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
 	say ending-card style;
 	say "You have discovered ending #[N] of [MAX] (the [T] ending) after [turn count] turns!";
 	say end style;
+	unlock achievement "ending_[N]";
 	end the story.
 
 
@@ -278,28 +280,29 @@ Concept
 with 99 blank rows
 
 To make (string - text) known:
-	if Vorple is supported:
-		execute JavaScript code "cns.autocomplete.addTopic('[string]')";
+	execute JavaScript code "cns.autocomplete.addTopic('[string]')";
 	choose a blank row in the Table of Known Concepts;
 	now Concept entry is "[string]".
 
 To make (thingy - concept) known:
-	if Vorple is supported:
-		execute JavaScript code "cns.autocomplete.addTopic('[thingy]')";
+	execute JavaScript code "cns.autocomplete.addTopic('[thingy]')";
 	choose a blank row in the Table of Known Concepts;
 	now Concept entry is "[thingy]".
 
+Meeting rules is a rulebook.
+The acquaintance is a stranger that varies.
 To make (Bob - stranger) known:
 	if Bob is not known:
-		if Vorple is supported:
-			execute JavaScript code "cns.autocomplete.addTopic('[Bob]')";
-			execute JavaScript code "cns.autocomplete.addTopic('[real name of Bob]')";
+		execute JavaScript code "cns.autocomplete.addTopic('[Bob]')";
+		execute JavaScript code "cns.autocomplete.addTopic('[real name of Bob]')";
 		choose a blank row in the Table of Known Concepts;
 		now Concept entry is "[Bob]";
 		choose a blank row in the Table of Known Concepts;
 		now Concept entry is "[real name of Bob]";
 		now Bob is proper-named;
-		now Bob is known.
+		now Bob is known;
+		now the acquaintance is Bob;
+		follow meeting rules;
 
 [To allow known topics to be saved and restored, we need to hook into the restore logic.  To do that, we only have a hook for the message that gets printed.  So we define a fake message which actually calls our logic to reset the UI's topic list.]
 Restore the game rule response (B) is "[post-restore routine]".
@@ -389,6 +392,25 @@ To play music (M - background music):
 		'[link of M]')";
 To stop music:
 	execute JavaScript code "cns.stopBackgroundMusic()";
+
+
+
+To set stat (name - text) to (value - number):
+	execute JavaScript code "cns.achievements.setStat('[name]', [value])";
+
+To increment stat (name - text):
+	execute JavaScript code "cns.achievements.incrementStat('[name]')";
+
+To add bit (value - number) to stats bitmask (name - text):
+	execute JavaScript code "cns.achievements.addBit('[name]', [value])";
+
+To count bits from bitmask (maskname - text) into (statname - text):
+	execute JavaScript code "cns.achievements.countBits('[maskname]', '[statname]')";
+
+To unlock achievement (name - text):
+	execute JavaScript code "cns.achievements.unlock('[name]')";
+
+Every turn, increment stat "turns_taken".
 
 
 Chicken Noodle Soap Setup ends here.
