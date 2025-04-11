@@ -25,6 +25,8 @@ body {
 }
 
 #vorple {
+  font-family: 'Roboto', sans-serif;
+
   /* The game area is white and scrolls. */
   background: white;
   overflow-y: scroll;
@@ -238,6 +240,7 @@ img.cover {
 #lineinput-prefix,
 #lineinput-field,
 #auto-complete select {
+  font-family: 'Roboto', sans-serif;
   color: black;
   background: #eee;
 }

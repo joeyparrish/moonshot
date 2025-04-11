@@ -211,8 +211,11 @@ span.alien-paper:empty {
 
 /* When the whole page is in alien paper mode, everything is crazy, except the
  * alien paper itself, which reads in plain English. */
-body[data-effect="alien-paper"] {
+body[data-effect="alien-paper"] #vorple {
   font-family: 'LovecraftsDiary';
+}
+body[data-effect="alien-paper"] #lineinput {
+  font-family: 'Roboto', sans-serif;
 }
 body[data-effect="alien-paper"] .alien-paper {
   font-family: 'Roboto', sans-serif;
@@ -254,4 +257,26 @@ body[data-infocom="true"][data-effect="lsd"] #vorple::before {
   background-image:
       radial-gradient(circle farthest-side at top right, transparent, #642),
       radial-gradient(ellipse farthest-corner at 0% 100%, transparent, #246);
+}
+
+/* Alien script and related effects override infocom mode. */
+body[data-infocom="true"] .alien-paper {
+  font-family: 'LovecraftsDiary';
+}
+body[data-infocom="true"][data-effect="alien-paper"] #vorple {
+  font-family: 'LovecraftsDiary';
+}
+body[data-infocom="true"][data-effect="alien-paper"] #lineinput {
+  font-family: 'Roboto Mono', monospace;
+}
+body[data-infocom="true"][data-effect="alien-paper"] .alien-paper {
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* These font choices stick even in infocom mode. */
+body[data-infocom="true"] .nameplate-card:first-line {
+  font-family: cursive;
+}
+body[data-infocom="true"] .checklist-contents {
+  font-family: 'KBKinderWrite', cursive;
 }
