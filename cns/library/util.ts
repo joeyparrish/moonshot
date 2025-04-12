@@ -17,6 +17,10 @@ export function isDesktopBundle(): boolean {
   return false;
 }
 
+export function isMobileBrowser(): boolean {
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+}
+
 // A decorator for listeners to ignore events that are not targeted for the
 // exact element we're listening on.
 export function exactTarget(element: HTMLElement, listener: EventListener): EventListener {

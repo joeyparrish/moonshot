@@ -74,6 +74,17 @@ body { /* and #vorple, which can't z-index */
   z-index: 3;
 }
 
+/* Vorple comes with a min-height that messes up our mobile sizing. */
+#vorple {
+  min-height: 0;
+}
+
+/* For mobile devices, add some top padding to make sure all content clears the
+ * URL bar.  This is an issue on Brave. */
+body[data-mobile="true"] #vorple {
+  padding-top: 2em;
+}
+
 body[data-auto-complete="false"] #auto-complete {
   visibility: hidden;
 }
@@ -422,6 +433,14 @@ body[data-difficulty="easy"] .interesting-highlight,
   right: 2em;
 }
 
+/* For mobile devices, move the floating buttons over a little more. */
+body[data-mobile="true"] #help-button,
+body[data-mobile="true"] #map-button,
+body[data-mobile="true"] #settings-button,
+body[data-mobile="true"] #transcript-button {
+  right: 1em;
+}
+
 #help-button {
   top: 1em;
 }
@@ -514,6 +533,14 @@ body[data-difficulty="easy"] .interesting-highlight,
 .toggle:checked {
   /* Background when on. */
   background: forestgreen;
+}
+
+.toggle[disabled] {
+  cursor: not-allowed;
+}
+
+.toggle[disabled]:checked {
+  background: dimgray;
 }
 
 .toggle::before {

@@ -13,8 +13,9 @@ import {
 } from './splash.ts';
 
 import {
-  scrollToBottom,
   isDesktopBundle,
+  isMobileBrowser,
+  scrollToBottom,
 } from './util.ts';
 
 // Defined in HTML:
@@ -74,6 +75,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show the window that we initially hid to avoid a white window FOUC.
     nw.Window.get().show();
+  }
+
+  if (isMobileBrowser()) {
+    // Flag mobile status for CSS use.
+    document.body.dataset['mobile'] = 'true';
+
+    // On mobile browsers, force the use of autocomplete.
+    const forceAutoComplete = () => {
+      // Disable the input field so it doesn't get focus and trigger the
+      // virtual keyboard.
+      const inputField =
+          document.querySelector<HTMLInputElement>('#lineinput-field')!;
+      inputField.disabled = true;
+
+      // Disable the autocomplete setting and force it to "on".
+      const autoCompleteToggle =
+          document.querySelector<HTMLInputElement>('#auto-complete-toggle')!;
+      autoCompleteToggle.disabled = true;
+      autoCompleteToggle.checked = true;
+
+      // Trigger the effects of the autocomplete toggle.
+      localStorage.setItem(autoCompleteToggle.dataset['settingsKey']!, 'true');
+      document.body.dataset['autoComplete'] = 'true';
+
+      // Removing this while it's executing seems to cause some other listeners not to fire...
+      setTimeout(() => {
+        vorple.removeEventListener('expectCommand', forceAutoComplete);
+      }, 1);
+    };
+
+    // We can't force autocomplete until the input field exists, after
+    // vorple.init() and guaranteed by the time the first 'expectCommand' event
+    // fires.
+    vorple.addEventListener('expectCommand', forceAutoComplete);
   }
 
   vorple.addEventListener('quit', () => {

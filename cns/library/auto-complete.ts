@@ -146,7 +146,9 @@ function processSelectChange(event: Event): void {
 
     // Bring focus back to the input field after auto-complete is done.
     // If this isn't deferred for a tick, it causes duplicate input in Vorple.
-    setTimeout(() => inputField.focus(), 0);
+    if (!inputField.disabled) {
+      setTimeout(() => inputField.focus(), 0);
+    }
 
     // Make sure multiple "select change" events don't cause duplicate items
     // to be sent to the input.
@@ -199,7 +201,7 @@ function initializeAutoComplete(): void {
   select.addEventListener('click', processSelectChange);
 
   // Watch input field changes.  The field didn't exist earlier than this.
-  inputField = document.getElementById('lineinput-field') as HTMLInputElement;
+  inputField = document.querySelector<HTMLInputElement>('#lineinput-field')!;
   inputField.addEventListener('input', maybeShowAutoComplete);
 
   inputField.addEventListener('keydown', (event) => {
@@ -333,15 +335,21 @@ resetCustomAutoComplete();
 // The "vorple" global doesn't exist until DOMContentLoaded.
 document.addEventListener('DOMContentLoaded', () => {
   function onExpectCommand(): void {
-    // This only needs to happen once, so remove the listener now.
-    vorple.removeEventListener('expectCommand', onExpectCommand);
+    // Initialize autocomplete.
     initializeAutoComplete();
+
+    // Once initialized, recompute auto-complete every time a new prompt is
+    // shown.
+    vorple.addEventListener('expectCommand', maybeShowAutoComplete);
+
+    // This only needs to happen once, so remove the listener now.
+    // Removing this while it's executing seems to cause some other listeners not to fire...
+    setTimeout(() => {
+      vorple.removeEventListener('expectCommand', onExpectCommand);
+    }, 1);
   }
+
   // When this event finally fires for the first time, the command prompt
   // definitely exists.  This interface doesn't have a {once:true} option.
   vorple.addEventListener('expectCommand', onExpectCommand);
-
-  // Run this also on "expectCommand", which runs after the user hits enter on
-  // a command.
-  vorple.addEventListener('expectCommand', maybeShowAutoComplete);
 });
