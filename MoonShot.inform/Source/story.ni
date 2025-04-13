@@ -169,6 +169,13 @@ A meeting rule:
 Check taking portable-scenery:
 	unlock achievement "steal_scenery";
 	continue the action;
+Check taking scenery:
+	unlock achievement "steal_scenery";
+	continue the action;
+Check taking a thing:
+	if the noun is fixed in place:
+		unlock achievement "steal_scenery";
+	continue the action;
 
 day1-music is background music.
 The url of day1-music is "day1.webm".
@@ -308,6 +315,7 @@ Instead of quizzing the secretary about phone-number:
 	unlock achievement "get_phone_number";
 
 Instead of taking the phone:
+	unlock achievement "steal_scenery";
 	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the [phone] plugged back in.";
 	now the secretary is mad.
 
@@ -585,6 +593,7 @@ The Main Hallway is east of the director's office.  "A long, blank hallway, with
 
 A bronze plaque is interesting scenery in the hallway.
 Instead of taking the bronze plaque:
+	unlock achievement "steal_scenery";
 	say "The plaque is bolted to the wall."
 
 Instead of examining the plaque:
@@ -892,6 +901,7 @@ Instead of quizzing the welder about something:
 The waste is scenery in the propulsion lab.  "Eww."  Understand "animal waste" as the waste.
 Instead of taking waste:
 	say "Eww, eww, ewwww!!!";
+	unlock achievement "steal_scenery";
 	stop the action.
 
 [This will say tapir or aardvark, but never Brizzleby.]

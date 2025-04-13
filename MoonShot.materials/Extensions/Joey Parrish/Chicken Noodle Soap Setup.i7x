@@ -234,6 +234,12 @@ Autocomplete update rule:
 					now can-ask is true;
 					if can-sit-on-people is true:
 						now is-sittable is true;
+				if item is scenery:
+					now is-takeable is false;
+				if item is portable-scenery:
+					now is-takeable is false;
+				if item is fixed in place:
+					now is-takeable is false;
 				if item is a concept:
 					now is-takeable is false;
 				if item is edible:
