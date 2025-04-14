@@ -227,8 +227,7 @@
           </div>
 
           <!-- spacer -->
-          <div style="height: 1em;">
-          </div>
+          <div style="height: 1em;"></div>
 
           <div>
             <button
@@ -239,6 +238,18 @@
           <div>
             <button class="floating-button-text" onclick="cns.showCredits()">Credits</button>
           </div>
+
+          <!-- spacer -->
+          <div style="height: 1em;"></div>
+
+          <details>
+            <summary>Debug Info</summary>
+            <p>Version [RELEASE]</p>
+            <p id="is-mobile-browser">Mobile Browser</p>
+            <p id="is-desktop-browser">Desktop Browser</p>
+            <p id="is-desktop-bundle">Desktop Bundle</p>
+            <p>User Agent: <span id="show-user-agent"></span></p>
+          </details>
         </div>
       </div>
 

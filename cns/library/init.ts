@@ -60,6 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize the achievements interface.
   initAchievements();
 
+  // Show/hide elements for debugging.
+  const isMobileBrowserElement =
+      document.querySelector<HTMLDivElement>('#is-mobile-browser')!;
+  const isDesktopBrowserElement =
+      document.querySelector<HTMLDivElement>('#is-desktop-browser')!;
+  const isDesktopBundleElement =
+      document.querySelector<HTMLDivElement>('#is-desktop-bundle')!;
+  const userAgentElement =
+      document.querySelector<HTMLDivElement>('#show-user-agent')!;
+  userAgentElement.innerText = navigator.userAgent;
+  if (isDesktopBundle()) {
+    isMobileBrowserElement.style.display = 'none';
+    isDesktopBrowserElement.style.display = 'none';
+    userAgentElement.style.display = 'none';
+  } else if (isMobileBrowser()) {
+    isDesktopBrowserElement.style.display = 'none';
+    isDesktopBundleElement.style.display = 'none';
+  } else {  // Desktop browser
+    isMobileBrowserElement.style.display = 'none';
+    isDesktopBundleElement.style.display = 'none';
+  }
+
   if (isDesktopBundle()) {
     // Enable desktop-bundle-specific elements.
     desktopCredit.style.display = 'block';
