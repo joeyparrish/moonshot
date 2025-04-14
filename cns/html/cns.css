@@ -601,6 +601,23 @@ body[data-mobile="true"] #transcript-button {
   min-height: 4em;
 }
 
+#delete-button {
+  display: none;
+  position: absolute;
+  left: -3rem;
+  top: -0.2rem;
+
+  font-weight: normal;
+  border-radius: 25%;
+  border: 1px solid black;
+
+  color: black;
+  background: #eee;
+}
+body[data-mobile="true"] #delete-button {
+  display: block;
+}
+
 /* Infocom mode */
 body[data-infocom="true"] #vorple {
   background: black;
@@ -611,7 +628,8 @@ body[data-infocom="true"] .lineinput,
 body[data-infocom="true"] #lineinput,
 body[data-infocom="true"] #lineinput-prefix,
 body[data-infocom="true"] #lineinput-field,
-body[data-infocom="true"] #auto-complete select {
+body[data-infocom="true"] #auto-complete select,
+body[data-infocom="true"] #delete-button {
   color: white;
   background: #222;
   font-family: 'Roboto Mono', monospace;

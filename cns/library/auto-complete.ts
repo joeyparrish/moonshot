@@ -166,13 +166,11 @@ function initializeAutoComplete(): void {
   ellipsis.textContent = '... ';
   autoComplete.appendChild(ellipsis);
   autoComplete.appendChild(select);
-  document.body.appendChild(autoComplete);
 
   // This extra span at the end allows you to tab out without leaving the page.
   // JS code from Vorple will bring focus back to the input field after that.
   const extraSpan = document.createElement('span');
   extraSpan.tabIndex = 0;
-  document.body.appendChild(extraSpan);
 
   // Without this handler, the input field steals keystrokes from
   // auto-complete, and we can't use enter or space to open the select element.
@@ -212,6 +210,25 @@ function initializeAutoComplete(): void {
     }
   });
 
+  // Create a delete button to the left of the input field.  Only used on
+  // touchscreen devices where the input field is disabled.
+  const deleteButton = document.createElement('button');
+  deleteButton.id = 'delete-button';
+  deleteButton.classList.add('floating-button');
+  deleteButton.innerText = '⌫';
+  deleteButton.addEventListener('click', (event) => {
+    // If we don't do this, we'll submit the input "form".
+    event.preventDefault();
+
+    // Remove the last word from the input.
+    const words = inputField.value.trim().split(/\s+/);
+    words.pop();
+    inputField.value = words.length ? words.join(' ') + ' ' : '';
+
+    // Recompute autocomplete.
+    maybeShowAutoComplete();
+  });
+
   inputForm = document.getElementById('lineinput') as HTMLFormElement;
 
   // Compute prompt offset now and on resize.
@@ -221,6 +238,7 @@ function initializeAutoComplete(): void {
   // Move the auto-complete elements inside the form where they can overlay.
   inputForm.appendChild(autoComplete);
   inputForm.appendChild(extraSpan);
+  inputForm.appendChild(deleteButton);
 
   // Check the auto-complete state now and on resize.
   maybeShowAutoComplete();
