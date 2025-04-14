@@ -49,8 +49,9 @@ mainly used to organize the source code and keep the non-story elements out of
 the main source file.
 
 Other assets, including CSS, cover art, and other associated, non-story
-content, can all be found in the `MoonShot.materials/` folder or the
-`web-interface/` folder.
+content, can all be found in the `MoonShot.materials/` folder.  A general HTML
+wrapper for browser-based interactive fiction games by Chicken Noodle Soap can
+be found in the `cns/` folder.
 
 The final HTML output goes to `MoonShot.materials/Release/`.
 
