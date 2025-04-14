@@ -114,9 +114,6 @@ export function addCustomAutoComplete(re: RegExp, arrayOfOptions: string[]): voi
 //  6. click to open, hover to select, click to choose
 //  7. click to open, hover to select, enter/space to choose
 //  8. click to open, arrows to select, enter/space to choose
-// The "click to choose" scenarios (3 & 6) don't work in Linux Tauri without
-// hitting Enter again.
-// TODO: Clean this up now that we are dumping Tauri.
 function processSelectChange(event: Event): void {
   // This event is meant solely for the auto-complete element, and should not
   // go to any other element or handler.
@@ -184,14 +181,12 @@ function initializeAutoComplete(): void {
   // the keyboard.
   select.addEventListener('keydown', processSelectChange);
 
-  // Without this handler, you can't tab in, arrow to something, then tab out.
-  // This is also the handler that fires for most scenarios in Chrome, but not
-  // Linux Tauri.
-  select.addEventListener('blur', processSelectChange);
+  // Without this handler, a touchscreen device needs a second tap to blur
+  // before the selection is processed.
+  select.addEventListener('touchend', processSelectChange);
 
-  // Without this handler, choosing something with the keyboard doesn't work in
-  // Linux Tauri.
-  select.addEventListener('keyup', processSelectChange);
+  // Without this handler, you can't tab in, arrow to something, then tab out.
+  select.addEventListener('blur', processSelectChange);
 
   // Without this handler, the select element doesn't stay open when you click
   // it.  That's because Vorple has a click handler on document that sends
