@@ -605,11 +605,11 @@ body[data-mobile="true"] #transcript-button {
   display: none;
   position: absolute;
   left: -3rem;
-  top: -0.2rem;
+  height: 100%;
 
   font-weight: normal;
   border-radius: 25%;
-  border: 1px solid black;
+  border: none;
 
   color: black;
   background: #eee;
