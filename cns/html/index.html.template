@@ -4,7 +4,7 @@
     <title>[TITLE]</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, viewport-fit=contain">
     <meta name="author" content="[AUTHOR]">
     <link rel="icon" type="image/png" href="Icon.png">
     <link rel="stylesheet" href="roboto.css">
