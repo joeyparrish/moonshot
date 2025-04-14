@@ -28,7 +28,7 @@ declare global {
 // Global keypresses are used to stop splash screen or credits early.
 document.addEventListener('keydown', (event) => {
   // Don't monkey with key presses during gameplay.
-  if (document.body.dataset['mode'] == 'play') {
+  if (document.body && document.body.dataset['mode'] == 'play') {
     return;
   }
 
