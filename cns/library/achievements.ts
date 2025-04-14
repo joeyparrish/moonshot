@@ -17,8 +17,12 @@ let client: Client;
 
 export function initAchievements(): void {
   if (isDesktopBundle()) {
-    const steamworks = window.require('steamworks.js');
-    client = steamworks.init(STEAM_APP_ID);
+    try {
+      const steamworks = window.require('steamworks.js');
+      client = steamworks.init(STEAM_APP_ID);
+    } catch (error) {
+      console.error('Failed to load Steam API!');
+    }
   }
 }
 
