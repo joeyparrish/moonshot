@@ -33,7 +33,6 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
 
-  position: relative;
   height: 100dvh;
 
   /* The game area fades in and out when we go to/from splash/credits. */
@@ -65,12 +64,15 @@ body[data-mode="play"] #menus {
 }
 
 body, #vorple {
+  position: relative;
   z-index: 0;
 }
 #menus {
+  position: relative;
   z-index: 1;
 }
 .popup-container {
+  position: relative;
   z-index: 2;
 }
 #splash, #credits {
@@ -354,9 +356,6 @@ body[data-difficulty="easy"] .interesting-highlight,
   /* This may matter across browsers.  In Chrome, the default is fine. */
   border: 2px solid black;
 
-  /* Fixes some weird vertical misalignment that is more visible at larger font sizes. */
-  line-height: 1;
-
   background: powderblue;
   cursor: pointer;
 }
@@ -420,6 +419,9 @@ body[data-difficulty="easy"] .interesting-highlight,
 .popup-close {
   float: right;
   margin: 1em;
+
+  /* Fixes some weird vertical misalignment that is more visible at larger font sizes. */
+  line-height: 2em;
 }
 
 #help-button,
