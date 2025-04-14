@@ -121,6 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(autoCompleteToggle.dataset['settingsKey']!, 'true');
       document.body.dataset['autoComplete'] = 'true';
 
+      // Since we can't hover this on mobile to know why it's disabled, use
+      // Vorple's "powertip" functionality, which relies on jQuery.
+      autoCompleteToggle.title = 'Required on mobile devices';
+      // @ts-ignore
+      $(autoCompleteToggle).powerTip({smartPlacement: true});
+
       // Removing this while it's executing seems to cause some other listeners not to fire...
       setTimeout(() => {
         vorple.removeEventListener('expectCommand', forceAutoComplete);
