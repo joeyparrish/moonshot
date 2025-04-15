@@ -21,13 +21,19 @@ export function initAchievements(): void {
       const steamworks = window.require('steamworks.js');
       client = steamworks.init(STEAM_APP_ID);
     } catch (error) {
-      console.error('Failed to load Steam API!');
+      toastr.error(
+          'Achievements and stats are unavailable.',
+          'Failed to load Steam API!', {
+            timeOut: 10 * 1000,
+            positionClass: 'toast-bottom-right',
+          });
+      console.error('Failed to load Steam API!', error);
     }
   }
 }
 
 export function getStat(name: string): number {
-  if (isDesktopBundle()) {
+  if (isDesktopBundle() && client) {
     const value = client.stats.getInt(name);
     if (value === null) {
       console.error(`Failed to get stat ${name}!`);
@@ -40,7 +46,7 @@ export function getStat(name: string): number {
 }
 
 export function setStat(name: string, value: number): void {
-  if (isDesktopBundle()) {
+  if (isDesktopBundle() && client) {
     if (!client.stats.setInt(name, value) || !client.stats.store()) {
       console.error(`Failed to set stat ${name}!`);
     }
@@ -72,7 +78,7 @@ export function countBits(maskName: string, statName: string): void {
 }
 
 export function unlock(name: string): void {
-  if (isDesktopBundle()) {
+  if (isDesktopBundle() && client) {
     console.log('Unlocked: ' + name);
     if (!client.achievement.activate(name)) {
       console.error(`Failed to unlock achievement!`);
@@ -81,7 +87,7 @@ export function unlock(name: string): void {
 }
 
 export function isUnlocked(name: string): boolean {
-  if (isDesktopBundle()) {
+  if (isDesktopBundle() && client) {
     return client.achievement.isActivated(name);
   } else {
     return false;
@@ -89,7 +95,7 @@ export function isUnlocked(name: string): boolean {
 }
 
 export function relock(name: string): void {
-  if (isDesktopBundle()) {
+  if (isDesktopBundle() && client) {
     console.log('Relocking: ' + name);
     if (!client.achievement.clear(name)) {
       console.error(`Failed to relock achievement!`);
