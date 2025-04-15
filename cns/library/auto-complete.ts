@@ -214,6 +214,10 @@ function initializeAutoComplete(): void {
   // touchscreen devices where the input field is disabled.
   const deleteButton = document.createElement('button');
   deleteButton.id = 'delete-button';
+  // Without this "type=button" attribute, hitting enter on the input field
+  // will trigger this button to be clicked... even with "display: none".
+  // Buttons inside form elements are "submit" buttons by default.
+  deleteButton.type = 'button';
   deleteButton.classList.add('floating-button');
   deleteButton.innerText = '⌫';
   deleteButton.addEventListener('click', (event) => {
