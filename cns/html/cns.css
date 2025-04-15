@@ -198,7 +198,7 @@ img.cover {
   margin-bottom: 0;
 }
 
-#desktopCredit, #desktopLicense {
+.desktop-bundle-only {
   /* Re-enabled in the desktop bundle at runtime. */
   display: none;
 }
@@ -498,11 +498,16 @@ body[data-mobile="true"] #transcript-button {
   color: inherit;
 }
 
+/* NOTE: don't add div here, or else desktop-bundle-only breaks */
+#settings-card label,
+#settings-card input {
+  display: block;
+}
+
 #settings-card div,
 #settings-card label,
 #settings-card input {
   /* Space these apart a bit */
-  display: block;
   margin: 1em;
 }
 

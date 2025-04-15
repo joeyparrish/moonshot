@@ -84,11 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isDesktopBundle()) {
     // Enable desktop-bundle-specific elements.
-    desktopCredit.style.display = 'block';
-    desktopLicense.style.display = 'block';
+    for (const element of
+         document.querySelectorAll<HTMLElement>('.desktop-bundle-only')) {
+      element.style.display = 'block';
+    }
+
+    const win = nw.Window.get();
 
     // Open target=_blank links in the default browser.
-    nw.Window.get().on('new-win-policy', function(_frame, url, policy) {
+    win.on('new-win-policy', function(_frame, url, policy) {
       // Do not open the window.
       policy.ignore();
       // Open it in the user's default browser.
@@ -96,7 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Show the window that we initially hid to avoid a white window FOUC.
-    nw.Window.get().show();
+    win.show();
+
+    // Allow F10 to toggle fullscreen.
+    nw.App.registerGlobalHotKey(new nw.Shortcut({
+      key: "F10",
+      active: () => win.toggleFullscreen(),
+      failed: (error) => console.log(error),
+    }));
   }
 
   if (isMobileBrowser()) {

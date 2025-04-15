@@ -68,7 +68,7 @@
           <!-- Required attribution -->
           <div>Created with Inform 7<br>by Graham Nelson</div>
           <div>UI based on Vorple<br>by Juhana Leinonen</div>
-          <div id="desktopCredit">Desktop app built with NW.js</div>
+          <div class="desktop-bundle-only">Desktop app built with NW.js</div>
           <div>[COPYRIGHT]</div>
         </div>
       </div>
@@ -227,6 +227,13 @@
           </div>
 
           <!-- spacer -->
+          <div class="desktop-bundle-only" style="height: 1em;"></div>
+
+          <div class="desktop-bundle-only">
+            <button class="floating-button-text" onclick="nw.Window.get().toggleFullscreen()">Toggle Fullscreen</button> (also F10)
+          </div>
+
+          <!-- spacer -->
           <div style="height: 1em;"></div>
 
           <div>
@@ -368,7 +375,7 @@
   </p>
 </details>
 
-<details id="desktopLicense">
+<details class="desktop-bundle-only">
   <summary>
     NW.js app framework, version 0.98.0
   </summary>
