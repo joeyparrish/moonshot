@@ -342,7 +342,7 @@ Instead of quizzing the secretary about the weather:
 	say "'Oh, it's lovely this time of year, don't you think?'"
 
 Instead of quizzing the secretary about NASA:
-	say "'I love working here at the National Aerospace and Space Anonymous.  I feel like I've really worked through so many of my issues about space and aeronautics since starting my job.'"
+	say "'I love working here at the National Aeronautics and Space Anonymous.  I feel like I've really worked through so many of my issues about space and aeronautics since starting my job.'"
 
 Instead of quizzing the secretary about Apollo:
 	say "'Between you and me, the director really needs a win on this one.  Apollo 10 was a disaster.  His eyebrows still haven't grown back.  He's a little gunshy now and the word around the watercooler is, he's been a nervous wreck ever since.'"
