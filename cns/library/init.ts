@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector<HTMLDivElement>('#is-desktop-bundle')!;
   const userAgentElement =
       document.querySelector<HTMLDivElement>('#show-user-agent')!;
-  userAgentElement.innerText = navigator.userAgent;
+  userAgentElement.innerText = 'User Agent: ' + navigator.userAgent;
   if (isDesktopBundle()) {
     isMobileBrowserElement.style.display = 'none';
     isDesktopBrowserElement.style.display = 'none';

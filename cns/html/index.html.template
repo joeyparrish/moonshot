@@ -295,7 +295,7 @@
             <p id="is-mobile-browser">Mobile Browser</p>
             <p id="is-desktop-browser">Desktop Browser</p>
             <p id="is-desktop-bundle">Desktop Bundle</p>
-            <p>User Agent: <span id="show-user-agent"></span></p>
+            <p id="show-user-agent"></p>
           </details>
         </div>
       </div>
