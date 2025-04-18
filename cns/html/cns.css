@@ -377,6 +377,8 @@ body[data-difficulty="easy"] .interesting-highlight,
   margin: 0;
   padding: 0;
   overflow: hidden;
+  top: 0;
+  left: 0;
 
   display: flex;
   align-items: center;
@@ -436,7 +438,6 @@ body[data-difficulty="easy"] .interesting-highlight,
 }
 
 #help-button,
-#map-button,
 #settings-button,
 #transcript-button {
   position: fixed;
@@ -445,7 +446,6 @@ body[data-difficulty="easy"] .interesting-highlight,
 
 /* For mobile devices, move the floating buttons over a little more. */
 body[data-mobile="true"] #help-button,
-body[data-mobile="true"] #map-button,
 body[data-mobile="true"] #settings-button,
 body[data-mobile="true"] #transcript-button {
   right: 1em;
@@ -455,32 +455,28 @@ body[data-mobile="true"] #transcript-button {
   top: 1em;
 }
 
-#map-button {
+#settings-button {
   top: 4em;
 }
 
-#settings-button {
+#transcript-button {
   top: 7em;
 }
 
-#transcript-button {
-  top: 10em;
-}
-
-#help-card p, #help-card li {
+#how-do-i-play-card p, #how-do-i-play-card li {
   /* Space out the help to make it easier to read. */
   word-spacing: 0.15em;
   line-height: 1.5;
 }
-#help-card li {
+#how-do-i-play-card li {
   margin-left: 1em;
 }
 
-#help-card li.top {
+#how-do-i-play-card li.top {
   margin-top: 1em;
 }
 
-#help-card tt {
+#how-do-i-play-card tt {
   background: seashell;
   border: 1px inset lightgray;
   padding: 0 0.3em;

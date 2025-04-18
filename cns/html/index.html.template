@@ -82,9 +82,6 @@
           id="help-button" data-popup-container-id="help-card-container"
           class="popup-open floating-button hidden" title="help"><img src="help-icon.png" alt="help"></button>
       <button
-          id="map-button" data-popup-container-id="map-card-container"
-          class="popup-open floating-button hidden" title="map"><img src="map-icon.png" alt="map"></button>
-      <button
           id="settings-button" data-popup-container-id="settings-card-container"
           class="popup-open floating-button hidden" title="settings"><img src="settings-icon.png" alt="settings"></button>
       <button
@@ -97,11 +94,55 @@
           <p class="title">Help!</p>
 
           <p>
-            Not sure how to play?  That's understandable.  This style of text adventure game was popular in the 1980's, but isn't so common now.  We'll help you get started.
+            <button
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="how-do-i-play-card-container">How Do I Play?</button>
           </p>
 
           <p>
-            The game is a story, and you are the main character!  Simply type what you want to do.  For example, you can <tt>look</tt> to see what's in the room, you can <tt>examine</tt> a thing to look more closely at it (such as <tt>examine clock</tt>), you can <tt>take</tt> certain objects, and you can move <tt>east</tt>, <tt>west</tt>, etc. to move from room to room.
+            <button
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="map-card-container">Map</button>
+          </p>
+
+          <p>
+            <button
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="settings-card-container">Settings</button>
+          </p>
+
+          <p>
+            <button
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="transcript-card-container">Send Feedback</button>
+          </p>
+        </div>
+      </div>
+
+      <div id="how-do-i-play-card-container" class="hidden popup-container">
+        <div id="how-do-i-play-card" class="popup">
+          <button class="popup-close floating-button" title="close">X</button>
+          <p class="title">How Do I Play?</p>
+
+          <p>
+            <b>TL;DR?</b>  This is interactive fiction / text adventure, where
+            you control the main character and choose how the story goes.
+            If you're new to this genre, we recommend you check the <button
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="settings-card-container">settings</button>
+            and enable "easy mode" and "auto-complete".  That will cut down on
+            typing and allow you to experience the story in a more
+            point-and-click way.
+          </p>
+
+          <hr>
+
+          <p>
+            Not sure how to play?  This style of text adventure game was popular in the 1980's, but isn't so common now.  We'll help you get started.
+          </p>
+
+          <p>
+            The game is a story, and you are the main character!  Simply type what you want to do.  (Or use the auto-complete feature to select from suggested actions and objects.)  For example, you can <tt>look</tt> to see what's in the room, you can <tt>examine</tt> a thing to look more closely at it (such as <tt>examine clock</tt>), you can <tt>take</tt> certain objects, and you can move <tt>east</tt>, <tt>west</tt>, etc. to move from room to room.  Use the up and down arrow keys to move through your command history.
           </p>
 
           <p>
@@ -160,7 +201,7 @@
           </ul>
 
           <p>
-            These are the most important things for our games, but feel free to use your imagination and see what happens!
+            These are the most important things for most games.  Some games may use other actions, which will appear in auto-complete when appropriate.  Feel free to use your imagination, experiment, and see what happens!
           </p>
 
           <p>
@@ -425,16 +466,24 @@
           <p class="title">Transcripts</p>
 
           <p>
-            Here you can save a transcript of your gameplay or send one to the developers to report a bug.
+            Would you like to <b>save a transcript</b> of your game?
           </p>
 
           <p>
             <button class="floating-button-text" onclick="cns.saveTranscript()">Save Transcript</button>
           </p>
 
+          <hr>
+
+          <p>
+            Would you like to <b>send feedback</b> to the developers?
+            A transcript of the current game will be included.
+            (If you would like a reply, please include an email address.)
+          </p>
+
           <div class="p">
             <div>
-              <label for="transcriptComments">Bug Comments:</label>
+              <label for="transcriptComments">Feedback:</label>
             </div>
             <div>
               <textarea id="transcriptComments"></textarea>
@@ -442,7 +491,7 @@
           </div>
 
           <p>
-            <button class="floating-button-text" onclick="cns.reportBug(transcriptComments.value, event.target)">Report Bug</button>
+            <button class="floating-button-text" onclick="cns.reportBug(transcriptComments.value, event.target)">Send Feedback</button>
           </p>
         </div>
       </div>
