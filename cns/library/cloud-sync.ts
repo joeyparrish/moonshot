@@ -216,6 +216,12 @@ function onSaveGame(stream: Glk.GlkStream, array: number[]) {
 }
 
 export function postRestore(): void {
+  // Avoid an exception when restoring a game in a browser.  This is called
+  // directly by the game.
+  if (!isDesktopBundle()) {
+    return;
+  }
+
   const saveName = mostRecentRestoreGameName;
   const savePath = path.join(savesFolderPath, saveName + '.sav');
   const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
