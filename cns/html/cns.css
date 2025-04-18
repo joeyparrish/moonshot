@@ -198,6 +198,10 @@ img.cover {
   margin-bottom: 0;
 }
 
+.credits-copyright {
+  white-space: pre;
+}
+
 .desktop-bundle-only {
   /* Re-enabled in the desktop bundle at runtime. */
   display: none;

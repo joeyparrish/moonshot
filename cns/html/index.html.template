@@ -69,7 +69,7 @@
           <div>Created with Inform 7<br>by Graham Nelson</div>
           <div>UI based on Vorple<br>by Juhana Leinonen</div>
           <div class="desktop-bundle-only">Desktop app built with NW.js</div>
-          <div>[COPYRIGHT]</div>
+          <div class="credits-copyright">[COPYRIGHT]</div>
         </div>
       </div>
     </div>
