@@ -427,9 +427,12 @@ body[data-difficulty="easy"] .interesting-highlight,
   font-weight: bold;
 }
 
-.popup-close {
+/* This should stay in the corner as the popup scrolls. */
+.popup-close.floating-button {
   float: right;
-  margin: 1em;
+  top: 1em;
+  right: 1em;
+  position: sticky;
 }
 
 #help-button,
@@ -491,12 +494,6 @@ body[data-mobile="true"] #transcript-button {
 }
 #map-card img {
   height: 100%;
-}
-
-#map-card .popup-close {
-  position: absolute;
-  right: 1em;
-  top: 1em;
 }
 
 #settings-card label,
@@ -589,12 +586,6 @@ body[data-mobile="true"] #transcript-button {
 .toggle:checked::before {
   /* Move everything over. */
   transform: translateX(2.5em);
-}
-
-/* This is a popup-close, but we don't want to position it like the others. */
-#license-button {
-  float: none;
-  margin: 0;
 }
 
 #license-card {
