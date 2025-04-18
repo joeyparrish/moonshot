@@ -89,7 +89,7 @@ body[data-auto-complete="false"] #auto-complete {
 }
 
 /* More responsive font size and output width */
-#vorple, #menus, label, input, select, button {
+#vorple, label, input, select, button {
   font-size: 1rem;
 }
 #output {
@@ -331,8 +331,12 @@ body[data-difficulty="easy"] .interesting-highlight,
   display: none !important;
 }
 
+#menus {
+  font-size: 2vh;
+}
+
 .floating-button {
-  font-size: 1rem;
+  font-size: 1em;
   width: 2em;
   height: 2em;
   border-radius: 50%;
@@ -390,7 +394,7 @@ body[data-difficulty="easy"] .interesting-highlight,
   padding: 0.5em;
 
   /* Limit the size of the card. */
-  max-width: calc(min(100vw - 6em, 60rem));
+  max-width: calc(min(100vw - 6em, 60em));
   max-height: calc(100dvh - 6em);
   margin: 3em;
   padding: 2em;
@@ -403,25 +407,29 @@ body[data-difficulty="easy"] .interesting-highlight,
 
   /* Allow positioning elements within the popup. */
   position: relative;
+
+  /* Popups gets a fixed size so the font dialog doesn't jump around. */
+  font-size: 2vh;
+}
+
+.popup * {
+  font-size: inherit;
 }
 
 .popup p,
 .popup div.p {
   /* Keep the paragraph margins the same on all sides. */
-  margin: 1rem;
+  margin: 2vh;
 }
 
 .popup p.title {
-  font-size: 2rem;
+  font-size: 4vh;
   font-weight: bold;
 }
 
 .popup-close {
   float: right;
   margin: 1em;
-
-  /* Fixes some weird vertical misalignment that is more visible at larger font sizes. */
-  line-height: 2em;
 }
 
 #help-button,
