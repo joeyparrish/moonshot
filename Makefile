@@ -42,6 +42,7 @@ i7-debug:
 cns-html:
 	cp -a cns/html/* MoonShot.materials/Release/
 	cp MoonShot.materials/*.* MoonShot.materials/Release/
+	cp -a MoonShot.materials/astronauts MoonShot.materials/Release/
 	cat MoonShot.materials/Release/index.html.template | sed \
 		-e 's/\[TITLE\]/MoonShot/g' \
 		-e 's/\[TITLE_FILENAME\]/MoonShot/g' \

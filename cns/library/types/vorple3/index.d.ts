@@ -53,8 +53,20 @@ namespace vorple {
     getFS(): FSModule;
   }
 
+  interface VorpleLayout {
+    block(): void;
+    closeTag(targetWindow?: number): boolean;
+    focus(targetElement: string | PlainObject<any>, targetWindow?: number): boolean;
+    isBlocked(): boolean;
+    openTag(tagName: string, classes: string, targetWindow?: number): true;
+    scrollTo(target: string | PlainObject<any>, speed?: number): Promise<boolean>;
+    scrollToEnd(speed?: number): Promise<void>;
+    unblock(): void;
+  }
+
   export const debug: VorpleDebug;
   export const file: VorpleFile;
+  export const layout: VorpleLayout;
   export const prompt: VorplePrompt;
 
   export function addEventListener(type: VorpleEventCategory|VorpleEventCategory[], listener: VorpleEventListener): (() => void);

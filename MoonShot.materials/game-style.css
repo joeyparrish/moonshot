@@ -127,24 +127,37 @@
   font-family: 'Roboto Mono', monospace;
   border: 1px solid darkgrey;
 
-  font-size: 75%;
   max-width: 24em;
   padding: 2em;
+  margin: 1em auto;
 }
 
-/* Though I can't figure out why, Inform/Vorple creates an empty span of this
- * class before the one with the content.  This hides it. */
-.personnel-file-card:empty {
-  display: none;
+.personnel-file-heading {
+  display: block;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /* Text indentation in Inform sucks and is hard to figure out.  Do it in CSS
  * instead, which sucks slightly less. */
-.personnel-file-card span {
+.personnel-file-card > span {
   display: block;  /* Or else text-indent doesn't work */
   margin-left: 3.2em;  /* Indents all text */
   text-indent: -3.2em;  /* Unindents the first line by the same amount */
 }
+
+.personnel-file-heading > span {
+  display: block;
+}
+
+.personnel-file-card img {
+  max-width: 6em;
+  float: right;
+  margin-top: -1.5em;
+  margin-right: -1.5em;
+}
+
 
 /* Based on https://codepen.io/thetypebeast/pen/KWNGGd by Jennifer */
 body[data-effect="lsd"] #vorple {
@@ -228,6 +241,7 @@ body[data-effect="alien-paper"] .alien-paper {
   border: 1px solid black;
   padding: 1em;
   margin: 1em auto;
+  border: 1px solid darkgrey;
 
   /* Max out at 30 characters or so. */
   max-width: 30em;

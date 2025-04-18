@@ -35,6 +35,7 @@ plaque-card is a Vorple style.
 nameplate-card is a Vorple style.
 unicorn-card is a Vorple style.
 personnel-file-card is a Vorple style.
+personnel-file-heading is a Vorple style.
 alien-paper is a Vorple style.
 script-page is a Vorple style.
 script-line is a Vorple style.
@@ -1237,18 +1238,46 @@ Before listing exits:
 			say "In the open cabinet drawer, you can see [list of things in the drawer].[paragraph break]";
 	continue the action.
 
-[This mapping will allow us to enable the player to type both "choose Buzz Aldrin" and "choose file 1".]
+
 A personnel-file is a kind of thing.
 A personnel-file has a person called the employee.
 A personnel-file has a number called the index.
-personnel file 1 is a critical personnel-file in the drawer.
-personnel file 2 is a critical personnel-file in the drawer.
-personnel file 3 is a critical personnel-file in the drawer.
-personnel file 4 is a critical personnel-file in the drawer.
-personnel file 5 is a critical personnel-file in the drawer.
-personnel file 6 is a critical personnel-file in the drawer.
+A personnel-file has a text called the photo.
+A personnel-file has a text called the link.
+A personnel-file has a text called the full name.
+A personnel-file has a text called the professional history.
+A personnel-file has a text called the psychological profile.
+A personnel-file is interesting and critical.
+personnel file 1 is a personnel-file in the drawer.
+personnel file 2 is a personnel-file in the drawer.
+personnel file 3 is a personnel-file in the drawer.
+personnel file 4 is a personnel-file in the drawer.
+personnel file 5 is a personnel-file in the drawer.
+personnel file 6 is a personnel-file in the drawer.
+
+The list of crew candidates is a list of people that varies.
+
+Check examining a personnel-file (called this-file):
+	say "[personnel-file-card style]";
+	execute JavaScript command "cns.elements.openTag('a', {href: '[link of this-file]', target: '_blank'})";
+	execute JavaScript command "cns.elements.openTag('img', {src: '[photo of this-file]', title: '[employee of this-file]'})";
+	close HTML tag;
+	close HTML tag;
+	say "[personnel-file-heading style]NASA PERSONNEL FILE:[line break][full name of this-file][end style]
+
+Professional History:
+[professional history of this-file]
+
+Psychological profile:
+[psychological profile of this-file]
+[end style]";
+	add bit the index of this-file to stats bitmask "crew_files_bitmask";
+	count bits from bitmask "crew_files_bitmask" into "crew_files_read";
+	add the employee of this-file to the list of crew candidates;
+	stop the action.
 
 The personnel puzzle is a concept.  The personnel puzzle can be ready.  When day one begins, now the personnel puzzle is not ready.
+
 
 The head of personnel is a stranger in the personnel department.
 The head of personnel is male.
@@ -1452,118 +1481,101 @@ After going from the personnel department:
 
 The employee of personnel file 1 is Buzz Aldrin.
 The index of personnel file 1 is 1.
-The description of personnel file 1 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ALDRIN, EDWIN E. JR. ('BUZZ')[roman type]
-
-Professional History:
+The link of personnel file 1 is "https://simple.wikipedia.org/wiki/Buzz_Aldrin".
+The photo of personnel file 1 is "astronauts/aldrin.jpg".
+The full name of personnel file 1 is "Aldrin, Edwin E. Jr. ('Buzz')".
+The professional history of personnel file 1 is "
 [line break]   * Graduated 3rd in class, West Point, 1951, BS in mechanical engineering
 [line break]   * US Air Force, 1952-
 [line break]   * Korean War, 1952-53
 [line break]   * Graduated MIT, 1963, Sc.D in Astronautics
-[line break]   * NASA Gemini program, 1963-1966
-
-Psychological profile:
+[line break]   * NASA Gemini program, 1963-1966".
+The psychological profile of personnel file 1 is "
 [line break]   * Suffers from mood disorders, including space madness
-[line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion
-[line break][end style][variable letter spacing]".
+[line break]   * Nicknamed 'Buzz' because of his propensity to eat carrion".
 
 
 The employee of personnel file 2 is Neil Armstrong.
 The index of personnel file 2 is 2.
-The description of personnel file 2 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: ARMSTRONG, NEIL ALDEN[roman type]
-
-Professional History:
+The link of personnel file 2 is "https://simple.wikipedia.org/wiki/Neil_Armstrong".
+The photo of personnel file 2 is "astronauts/armstrong.jpg".
+The full name of personnel file 2 is "Armstrong, Neil Alden".
+The professional history of personnel file 2 is "
 [line break]   * Graduated Purdue University, 1955, BS in Aeronautical Engineering
 [line break]   * US Navy, 1949-1952
 [line break]   * Korean War, 1951-1952
 [line break]   * US Navy Reserve, 1952-1960
 [line break]   * Test pilot, National Advisory Committee on Aeronautics, 1955-1958
 [line break]   * Test pilot, NASA, 1958-1962
-[line break]   * NASA Gemini program, 1965-1966
-
-Psychological profile:
+[line break]   * NASA Gemini program, 1965-1966".
+The psychological profile of personnel file 2 is "
 [line break]   * Humble about work, avoids publicity
 [line break]   * Scottish heritage and sense of honor requires him to headbutt descendents of rival clans
-[line break]   * Refuses to wear socks inside his spacesuit
-[line break][end style][variable letter spacing]".
+[line break]   * Refuses to wear socks inside his spacesuit".
 
 
 The employee of personnel file 3 is Michael Collins.
 The index of personnel file 3 is 3.
-The description of personnel file 3 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: COLLINS, MICHAEL[roman type]
-
-Professional History:
+The link of personnel file 3 is "https://en.wikipedia.org/wiki/Michael_Collins".
+The photo of personnel file 3 is "astronauts/collins.jpg".
+The full name of personnel file 3 is "Collins, Michael".
+The professional history of personnel file 3 is "
 [line break]   * Joined the Irish Republican Brotherhood at age 19
 [line break]   * Aide-de-camp, rebel headquarters, Easter Rising
 [line break]   * Chairman of the Provisional Government, Irish Free State
-[line break]   * Commander-in-Chief of the National Army, Irish Free State
-
-Psychological profile:
+[line break]   * Commander-in-Chief of the National Army, Irish Free State".
+The psychological profile of personnel file 3 is "
 [line break]   * Abrasive, fiercely proud
 [line break]   * Does not consult with others on decisions
-[line break]   * Has not attended official NASA meetings since his assassination in August 1922
-[line break][end style][variable letter spacing]".
+[line break]   * Has not attended official NASA meetings since his assassination in August 1922".
 
 
 The employee of personnel file 4 is Lisa Nowak.
 The index of personnel file 4 is 4.
-The description of personnel file 4 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: NOWAK, LISA MARIE[roman type]
-
-Professional History:
+The link of personnel file 4 is "https://www.reddit.com/r/todayilearned/comments/1bmalq7/".
+The photo of personnel file 4 is "astronauts/nowak.jpg".
+The full name of personnel file 4 is "Nowak, Lisa Marie".
+The professional history of personnel file 4 is "
 [line break]   * Graduated US Naval Academy, Annapolis, BS in aerospace engineering
 [line break]   * Served in US Navy Electronic Warfare Aggressor Squadron
-[line break]   * US Naval Postgraduate School, Monterey, MS in aeronautical engineering
-
-Psychological profile:
+[line break]   * US Naval Postgraduate School, Monterey, MS in aeronautical engineering".
+The psychological profile of personnel file 4 is "
 [line break]   * Enjoys long road trips
 [line break]   * Refuses to use rest stops
-[line break]   * Loves to plan elaborate surprises
-
-[line break][end style][variable letter spacing]".
+[line break]   * Loves to plan elaborate surprises".
 
 
 The employee of personnel file 5 is Ijon Tichy.
 The index of personnel file 5 is 5.
-The description of personnel file 5 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: TICHY, IJON[roman type]
-
-Professional History:
+The link of personnel file 5 is "https://en.wikipedia.org/wiki/Ijon_Tichy:_Space_Pilot".
+The photo of personnel file 5 is "astronauts/tichy.jpg".
+The full name of personnel file 5 is "Tichy, Ijon".
+The professional history of personnel file 5 is "
 [line break]   * Experienced space pilot
 [line break]   * Experienced diplomat
-[line break]   * Took part in the Eighth World Futurological Congress in Costa Rica
-
-Psychological profile:
+[line break]   * Took part in the Eighth World Futurological Congress in Costa Rica".
+The psychological profile of personnel file 5 is "
 [line break]   * Eager to explore
 [line break]   * Generally amiable
 [line break]   * Accident-prone
-[line break]   * Lives in a messy, three-bedroom rocket
-
-[line break][end style][variable letter spacing]".
+[line break]   * Lives in a messy, three-bedroom rocket".
 
 
 The employee of personnel file 6 is Clifford McBride.
 The index of personnel file 6 is 6.
-The description of personnel file 6 is "[fixed letter spacing][personnel-file-card style][bold type]NASA PERSONNEL FILE: MCBRIDE, H. CLIFFORD[roman type]
-
-Professional History:
+The link of personnel file 6 is "https://villains.fandom.com/wiki/H._Clifford_McBride".
+The photo of personnel file 6 is "astronauts/mcbride.jpg".
+The full name of personnel file 6 is "McBride, H. Clifford".
+The professional history of personnel file 6 is "
 [line break]   * Undergrad degree from Purdue
 [line break]   * Doctorate from MIT
 [line break]   * Graduated US Air Force Academy
 [line break]   * Experienced astronaut
-[line break]   * Commander, NASA Lima program
-
-Psychological profile:
+[line break]   * Commander, NASA Lima program".
+The psychological profile of personnel file 6 is "
 [line break]   * Brilliant, obsessive, extremely driven
 [line break]   * Willing to make sacrifices
-[line break]   * Enjoys dehydrated food
-
-[line break][end style][variable letter spacing]".
-
-
-The list of crew candidates is a list of people that varies.
-
-After examining a personnel-file (called this-file):
-	add bit the index of this-file to stats bitmask "crew_files_bitmask";
-	count bits from bitmask "crew_files_bitmask" into "crew_files_read";
-	add the employee of this-file to the list of crew candidates.
+[line break]   * Enjoys dehydrated food".
 
 
 Choosing for crew is an action applying to one thing.  Understand "choose [anyone]" as choosing for crew.

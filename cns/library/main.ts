@@ -8,6 +8,7 @@ import './analytics.ts';
 import './auto-complete.ts';
 import './cloud-sync.ts';
 import './credits.ts';
+import './elements.ts';
 import './music.ts';
 import './pause.ts';
 import './popups.ts';
@@ -22,6 +23,7 @@ import {logEvent} from './analytics.ts';
 import * as autocomplete from './auto-complete.ts';
 import {postRestore} from './cloud-sync.ts';
 import {showCredits} from './credits.ts';
+import * as elements from './elements.ts';
 import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
 import {pauseGame} from './pause.ts';
 import {showHelp, showMap, showSettings} from './popups.ts';
@@ -31,6 +33,7 @@ import {reportBug, saveTranscript} from './transcripts.ts';
 window.cns = {
   achievements,
   autocomplete,
+  elements,
   logEvent,
   pauseGame,
   postRestore,
