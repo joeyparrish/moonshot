@@ -27,13 +27,18 @@ function showPopup(event: Event): void {
   const popupContainer = document.getElementById(popupContainerId)!;
   popupContainer.classList.remove('hidden');
 
-  // Make sure to hide the prompt so that the popup can have focus.
-  vorple.prompt.hide();
-
   // Only once it's shown, we can scroll back to the top of the popup content.
   // If we don't do this, it will open at the last place the user scrolled.
   const popup = popupContainer.querySelector('.popup')!;
   popup.scrollTo(0, 0);
+
+  // Make sure to hide the prompt so that the popup can have focus.
+  // showPopup can happen on the same event as hidePopup for buttons like the
+  // OSS license button.  So give it a tiny delay to make sure hidePopup
+  // completes (and shows the prompt) before we hide the prompt again.
+  // Otherwise, these can fire in the wrong order and cause the prompt to show
+  // and steal focus.
+  setTimeout(() => vorple.prompt.hide(), 1);
 }
 
 function hidePopup(event: Event): void {
