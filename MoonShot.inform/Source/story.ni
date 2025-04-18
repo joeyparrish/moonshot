@@ -1516,7 +1516,7 @@ The psychological profile of personnel file 2 is "
 
 The employee of personnel file 3 is Michael Collins.
 The index of personnel file 3 is 3.
-The link of personnel file 3 is "https://en.wikipedia.org/wiki/Michael_Collins".
+The link of personnel file 3 is "https://simple.wikipedia.org/wiki/Michael_Collins".
 The photo of personnel file 3 is "astronauts/collins.jpg".
 The full name of personnel file 3 is "Collins, Michael".
 The professional history of personnel file 3 is "
