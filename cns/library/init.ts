@@ -23,6 +23,7 @@ declare global {
   const desktopCredit: HTMLDivElement;
   const desktopLicense: HTMLDetailsElement;
   const window0: HTMLDivElement;
+  const output: HTMLDivElement;
 }
 
 // Global keypresses are used to stop splash screen or credits early.

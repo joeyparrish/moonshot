@@ -15,7 +15,7 @@ export function captureHTML(includeAutoComplete: boolean): string {
   if (!includeAutoComplete) {
     hideAutoComplete();
   }
-  const transcriptHTML = window0.innerHTML;
+  const transcriptHTML = output.outerHTML;
   if (!includeAutoComplete) {
     maybeShowAutoComplete();
   }
@@ -26,7 +26,7 @@ export function captureText(includeAutoComplete: boolean): string {
   if (!includeAutoComplete) {
     hideAutoComplete();
   }
-  const transcriptText = window0.innerText;
+  const transcriptText = output.innerText;
   if (!includeAutoComplete) {
     maybeShowAutoComplete();
   }
@@ -35,7 +35,7 @@ export function captureText(includeAutoComplete: boolean): string {
 
 export function restoreTranscript(html: string): void {
   // TODO: Sanitize this, in case the user has hacked it!
-  window0.innerHTML = html;
+  output.outerHTML = html;
 }
 
 export async function saveTranscript(): Promise<void> {
