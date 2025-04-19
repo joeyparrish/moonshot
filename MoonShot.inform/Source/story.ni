@@ -1,4 +1,9 @@
 "MoonShot" by "Joey & Charity Parrish".
+[
+Copyright 2020-2025 Joey & Charity Parrish.
+Story released under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+See licenses/LICENSE.MoonShot.md
+]
 
 
 [Bibliographic Information]

@@ -1,10 +1,10 @@
-# Roboto Mono Font
+# Chicken Noodle Soap Text Adventure Game Interface
 
-Designed by Christian Robertson
+Copyright 2025 Joey Parrish
 
+
+Apache License
 ==============
-
-## Apache License
 
 _Version 2.0, January 2004_  
 _&lt;<http://www.apache.org/licenses/>&gt;_
