@@ -47,3 +47,36 @@ export function exactTarget(element: HTMLElement, listener: EventListener): Even
     }
   };
 }
+
+export function getOS(): 'macos'|'windows'|'linux'|'cros'|'ios'|'android'|'unknownos' {
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.includes('android')) {
+    return 'android';
+  } else if (ua.includes('iphone') || ua.includes('ipad')) {
+    return 'ios';
+  } else if (ua.includes('macintosh')) {
+    return 'macos';
+  } else if (ua.includes('windows')) {
+    return 'windows';
+  } else if (ua.includes('cros ')) {
+    return 'cros';
+  } else if (ua.includes('linux')) {
+    return 'linux';
+  } else {
+    return 'unknownos';
+  }
+}
+
+export function getCPU(): 'arm64'|'x64'|'unknowncpu' {
+  if (isDesktopBundle()) {
+    if (process.arch == 'x64') {
+      return 'x64';
+    } else if (process.arch == 'arm64') {
+      return 'arm64';
+    } else {
+      return 'unknowncpu';
+    }
+  } else {
+    return 'unknowncpu';
+  }
+}

@@ -22,6 +22,10 @@ import {
 } from './achievements.ts';
 
 import {
+  logEvent,
+} from './analytics.ts'
+
+import {
   stopCredits,
 } from './credits.ts';
 
@@ -30,6 +34,8 @@ import {
 } from './splash.ts';
 
 import {
+  getCPU,
+  getOS,
   isDesktopBundle,
   isMobileBrowser,
   scrollToBottom,
@@ -85,9 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector<HTMLDivElement>('#is-desktop-browser')!;
   const isDesktopBundleElement =
       document.querySelector<HTMLDivElement>('#is-desktop-bundle')!;
+  const osElement =
+      document.querySelector<HTMLDivElement>('#show-os')!;
+  const cpuElement =
+      document.querySelector<HTMLDivElement>('#show-cpu')!;
   const userAgentElement =
       document.querySelector<HTMLDivElement>('#show-user-agent')!;
+
+  osElement.innerText = 'OS: ' + getOS();
+  cpuElement.innerText = 'CPU: ' + getCPU();
   userAgentElement.innerText = 'User Agent: ' + navigator.userAgent;
+
+  logEvent(getOS(), /* userInput= */ false);
+  logEvent(getCPU(), /* userInput= */ false);
+
   if (isDesktopBundle()) {
     isMobileBrowserElement.style.display = 'none';
     isDesktopBrowserElement.style.display = 'none';
@@ -101,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (isDesktopBundle()) {
+    logEvent('desktop', /* userInput= */ false);
+
     // Enable desktop-bundle-specific elements.
     for (const element of
          document.querySelectorAll<HTMLElement>('.desktop-bundle-only')) {
@@ -127,6 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
       failed: (error) => console.log(error),
     }));
   } else {
+    if (isMobileBrowser()) {
+      logEvent('mobile', /* userInput= */ false);
+    } else {
+      logEvent('browser', /* userInput= */ false);
+    }
+
     // Enable browser-specific elements.
     for (const element of
          document.querySelectorAll<HTMLElement>('.browser-only')) {

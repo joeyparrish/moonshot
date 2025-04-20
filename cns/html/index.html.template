@@ -314,6 +314,8 @@
             <p id="is-mobile-browser">Mobile Browser</p>
             <p id="is-desktop-browser">Desktop Browser</p>
             <p id="is-desktop-bundle">Desktop Bundle</p>
+            <p id="show-os"></p>
+            <p class="desktop-bundle-only" id="show-cpu"></p>
             <p id="show-user-agent"></p>
           </details>
         </div>
