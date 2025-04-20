@@ -248,6 +248,7 @@ When day one begins:
 	make "director" known;
 	if Vorple is supported:
 		[The HTML-based Vorple interpreter can handle centering a large block of text very well.]
+		execute JavaScript command "cns.elements.clearScreen()";
 		center "[blockquote style]'We choose to go to the moon in this decade... because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone...'[line break][line break]-- U.S. President John Fitzgerald Kennedy[end style]";
 	otherwise:
 		[In other interpreters, it looks better broken up into explicit lines, with each one centered.]

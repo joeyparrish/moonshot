@@ -48,3 +48,18 @@ export function openTag(
 export function closeTag(windowIndex: number = 0): void {
   vorple.layout.closeTag(windowIndex);
 }
+
+// This differs from Vorple's "clear the screen" command in that it doesn't
+// remove autocomplete.
+export function clearScreen(windowIndex: number = 0): void {
+  const windowElement = haven.window.get(windowIndex);
+  // The first part gets all previous turns.  The second part gets the input
+  // line from the current turn, which after confirming a restart says "yes".
+  // If we don't exclude .current, it breaks startup.
+  const children = Array.from(windowElement.querySelectorAll(
+      'div.turn:not(.current), div.turn.current div.lineinput.last'));
+
+  for (const child of children) {
+    child.parentElement?.removeChild(child);
+  }
+}
