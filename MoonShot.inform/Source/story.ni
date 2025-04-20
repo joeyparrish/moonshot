@@ -1661,7 +1661,7 @@ When day two begins:
 	log event "day2";
 	say "[room-heading style]Intermission: End of day one[end style]";
 	say line break;
-	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
+	say "You head home, exhausted from a long day at the most important agency (authority? association?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for your next challenge.[paragraph break]";
 	pause;
 	say "[room-heading style]NASA Headquarters, day two of your internship[end style]";
 	say line break;
@@ -2621,7 +2621,7 @@ When day three begins:
 	log event "day3";
 	say "[room-heading style]Intermission: End of day two[end style]";
 	say line break;
-	say "You head home, exhausted from a long day at the most important administration (affiliation? alliance?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for you next challenge.[paragraph break]";
+	say "You head home, exhausted from a long day at the most important administration (affiliation? alliance?) in America.  You collapse into a dreamless sleep, and wake refreshed, ready for your next challenge.[paragraph break]";
 	pause;
 	say "[room-heading style]NASA Headquarters, day three of your internship (Epilogue)[end style]";
 	say line break;
