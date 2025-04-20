@@ -2757,6 +2757,8 @@ Test waiting with "z / z / z / z / z / n";
 
 Test nameplate with "test waiting / x nameplate / x desk / take nameplate / i / x nameplate / g / g / g / g / l / x desk / drop nameplate / l / x desk / put nameplate on desk / l / x desk / open nameplate / l / x toblerone / eat toblerone".
 
+Test candy with "test waiting / take nameplate / x nameplate / open nameplate / take candy".
+
 Test start1 with "test waiting / x checklist / take checklist / talk to director / ask director about internship / take checklist / give checklist to director / x checklist / i".
 
 Test nobody with "test start1 / e / ask about nasa".
@@ -2772,8 +2774,6 @@ Test plaque with "test start1 / e / x plaque".
 Test equations with "test start1 / e / n / ask dr about name / ask dr about work / ask dr about equations / ask dr about rocket equations / ask dr about rockets / x board / take chalkboard / s / n / e / w / n / ask dr them about him / talk to him / l / x them / x checklist".
 
 Test dr with "test start1 / e / n / x dr / l".
-
-Test key with "test start1 / e / n / x dr / take key / n / ask them about him / take key / n / ask them about him / take key / n / s / teleport key to hallway / take key / n".
 
 Test tapir with "test start1 / e / n / ask dr about tapir / ask dr about brizzleby / ask them about brizzleby / ask dr about rocket equations / ask dr about brizzleby / ask dr about nasa / ask dr about tapir / ask dr about brizzleby / ask dr about nasa".
 
@@ -2793,6 +2793,10 @@ Test drawer with "test start1 / e / s / open drawer / close drawer / open cabine
 
 Test day2 with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / take chalkboard / w / report".
 
+Test key with "test start1 / e / n / x dr / take key / n / ask dr about tapir / take key / n / ask dr about tapir / take key".
+
+Test brizzleby with "test key / ask tapir about name / open cage / s / ask about rocket equations".
+
 Test day2alt with "test blueprints / w / s / take files / choose aldrin / choose nowak / choose tichy / n / n / x dr / take key / n / ask dr about tapir / take key / n / ask dr about tapir / take key / ask tapir about name / open cage / s / ask about rocket equations / w / give checklist to director".
 
 Test glitter1 with "test waiting / ask about glitter".
@@ -2808,6 +2812,7 @@ Test start2alt with "test day2alt / test waiting / ask about glitter / take chec
 Test foodonly with "e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x checklist".
 Test food with "test start2 / test foodonly".
 Test foodalt with "test start2alt / test foodonly".
+Test foodaltalt with "test candy / test start2alt / test foodonly".
 
 Test drugs with "test start2 / e / d / w / take all drugs / e / e / give lsd to nowak / give tuna to nowak / give cake to nowak / ask nowak about nasa / give librium to nowak / ask nowak about nasa / give chicken to buzz / give librium to buzz / ask buzz about nasa / give cake to buzz / ask buzz about nasa".
 
@@ -2816,6 +2821,14 @@ Test drugorder with "test start2alt / e / d / w / take all drugs / e / e / give 
 Test drugnfilm with "e / d / w / take all drugs / e / e / give lsd to nowak / give lsd to buzz / give lsd to tichy / x checklist / x script / action / w / u / w / give checklist to director".
 Test day3 with "test food / test drugnfilm".
 Test day3alt with "test foodalt / test drugnfilm".
+Test day3altalt with "test foodaltalt / test drugnfilm".
 
-Test end with "test day3 / d / e / w".
-Test endalt with "test day3alt / d / e / w".
+Test ending1 with "eat plant".
+Test ending2 with "sit on secretary".
+Test ending3 with "test dr / take chalkboard / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize / n / apologize".  [1/10 chance]
+Test ending4 with "test start2 / e / d / e / take food / eat chicken / eat chicken / eat tuna / eat tuna / eat tuna / eat tuna / eat blt / eat blt / eat blt / eat salad".
+Test ending5 with "test key / open cage".  [1/10 chance, undo if fails]
+Test ending6 with "test start2 / e / d / e / take food / give salad to buzz / give salad to buzz / give salad to buzz / give salad to buzz / give salad to buzz".  [1/3 chance]
+Test ending7 with "test day3 / d / e / w".
+Test ending8 with "test day3alt / d / e / w".
+Test ending9 with "test day3altalt / d / e / w".
