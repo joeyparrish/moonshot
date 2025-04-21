@@ -249,9 +249,9 @@
           <p class="title">Settings</p>
 
           <label for="music-toggle">
-            Music:
-              <span id="noMusic">none currently playing</span>
-              <a id="backgroundMusicLink" target="_blank">Current background music <span id="backgroundMusicCredit"></span></a>
+            Current music:
+              <span id="noMusic">none playing</span>
+              <a id="backgroundMusicLink" target="_blank"><span id="backgroundMusicCredit"></span></a>
           </label>
           <input id="music-toggle" class="toggle" type="checkbox"
               data-settings-key="chicken-noodle-soap--music"
