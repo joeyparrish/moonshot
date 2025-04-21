@@ -193,6 +193,8 @@ export function unlock(name: string): void {
       console.error(`Failed to unlock achievement!`);
     }
   } else {
+    if (isUnlocked(name)) return;
+
     localStorage.setItem(achievementKey(name), UNLOCKED);
 
     if (name in achievements) {
