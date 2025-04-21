@@ -1,6 +1,6 @@
 .blockquote {
   /* Looks nice for a quote, and mimics other interpreters. */
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
 
   /* Offsets the block from the page. */
   background: aliceblue;
@@ -124,7 +124,7 @@
   /* Make this look more like a typed document on yellowish paper. */
   display: block;
   background: lightyellow;
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
   border: 1px solid darkgrey;
 
   max-width: 24em;
@@ -228,10 +228,10 @@ body[data-effect="alien-paper"] #vorple {
   font-family: 'LovecraftsDiary';
 }
 body[data-effect="alien-paper"] #lineinput {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--default-font);
 }
 body[data-effect="alien-paper"] .alien-paper {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--default-font);
 }
 
 .script-page {
@@ -246,7 +246,7 @@ body[data-effect="alien-paper"] .alien-paper {
   /* Max out at 30 characters or so. */
   max-width: 30em;
 
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
 }
 
 .script-line {
@@ -281,10 +281,10 @@ body[data-infocom="true"][data-effect="alien-paper"] #vorple {
   font-family: 'LovecraftsDiary';
 }
 body[data-infocom="true"][data-effect="alien-paper"] #lineinput {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
 }
 body[data-infocom="true"][data-effect="alien-paper"] .alien-paper {
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
 }
 
 /* These font choices stick even in infocom mode. */

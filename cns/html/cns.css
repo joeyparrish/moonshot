@@ -19,6 +19,8 @@
 
 :root {
   --font-size: 2vh;
+  --default-font: 'Roboto', sans-serif;
+  --default-font-mono: 'Roboto Mono', monospace;
 }
 
 * {
@@ -31,7 +33,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--default-font);
   margin: 0;
   padding: 0;
 
@@ -43,7 +45,7 @@ body {
 }
 
 #vorple {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--default-font);
 
   /* The game area is white and scrolls. */
   background: white;
@@ -271,7 +273,7 @@ img.cover {
 #lineinput-prefix,
 #lineinput-field,
 #auto-complete select {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--default-font);
   color: black;
   background: #eee;
 }
@@ -577,7 +579,7 @@ body[data-mobile="true"] #transcript-button {
   width: 2em;
   height: 2em;
   line-height: 2em;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--default-font);
   font-weight: bold;
   text-transform: uppercase;
 
@@ -643,7 +645,7 @@ body[data-mobile="true"] #delete-button {
 body[data-infocom="true"] #vorple {
   background: black;
   color: white;
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
 }
 body[data-infocom="true"] .lineinput,
 body[data-infocom="true"] #lineinput,
@@ -653,7 +655,7 @@ body[data-infocom="true"] #auto-complete select,
 body[data-infocom="true"] #delete-button {
   color: white;
   background: #222;
-  font-family: 'Roboto Mono', monospace;
+  font-family: var(--default-font-mono);
 }
 body[data-infocom="true"] .popup-container {
   background: radial-gradient(white, transparent);
