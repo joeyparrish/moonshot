@@ -758,7 +758,7 @@ Instead of the engineer giving the blueprints to the player:
 	rule succeeds.
 
 Instead of quizzing the engineer about NASA:
-	say "[The engineer] beams, 'I am [bold type]so[roman type] proud to serve my country in the National Aeronautics and Space... um... anyway, I design rockets.  NASA rockets.  Big, blasting, noisy hard rockets!  It's the best.'"
+	say "[The engineer] beams, 'I am [bold type]so[roman type] proud to serve my country in the National Aeronautics and Space... um... anyway, I design rockets.  NASA rockets.  Big, blasting, noisy, hard rockets!  It's the best.'"
 
 Instead of quizzing the engineer about rocket:
 	try quizzing the engineer about NASA.
@@ -1143,7 +1143,7 @@ Instead of quizzing the head scientist about Apollo:
 	otherwise:
 		make "aardvark" known;
 		now the tapir is an aardvark;
-		say "Apollo ist my greatest work.  Finally I achieve my greatest glory in my career and achieve the highest aims of NASA, the National Agency of Space Aardvarks: to deliver the [interesting]aardvark[/interesting] back into space.  Apollo 11 will deliver the [interesting]aardvarks[/interesting] to their true home.";
+		say "'Apollo ist my greatest work.  Finally I achieve my greatest glory in my career and achieve the highest aims of NASA, the National Agency of Space Aardvarks: to deliver the [interesting]aardvark[/interesting] back into space.  Apollo 11 will deliver the [interesting]aardvarks[/interesting] to their true home.'";
 
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
