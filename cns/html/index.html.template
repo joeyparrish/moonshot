@@ -27,6 +27,8 @@
 -->
 
     <link rel="stylesheet" href="roboto.css">
+    <link rel="stylesheet" href="libre-baskerville.css">
+    <link rel="stylesheet" href="courier-prime.css">
 
     <link rel="stylesheet" href="interpreter/jquery.powertip.css">
     <link rel="stylesheet" href="interpreter/toastr.css">
@@ -433,19 +435,37 @@
 
 <details>
   <summary>
-    Roboto Mono Font
+    Libre Baskerville Font
   </summary>
 
   <p>
-    &copy; 2019, Christian Robertson
+    &copy; 2012, Pablo Impallari &amp; Rodrigo Fuenzalida
   </p>
 
   <p>
-    <a target="_blank" href="https://github.com/googlefonts/RobotoMono">https://github.com/googlefonts/RobotoMono</a>
+    <a target="_blank" href="https://github.com/impallari/Libre-Baskerville">https://github.com/impallari/Libre-Baskerville</a>
   </p>
 
   <p>
-    Roboto Mono is licensed under <a href="https://github.com/googlefonts/RobotoMono/blob/main/OFL.txt">the SIL Open Font License</a>.
+    Roboto Mono is licensed under <a href="https://github.com/impallari/Libre-Baskerville/blob/master/OFL.txt">the SIL Open Font License</a>.
+  </p>
+</details>
+
+<details>
+  <summary>
+    Courier Prime Font
+  </summary>
+
+  <p>
+    &copy; 2015, The Courier Prime Project Authors
+  </p>
+
+  <p>
+    <a target="_blank" href="https://github.com/quoteunquoteapps/CourierPrime">https://github.com/quoteunquoteapps/CourierPrime</a>
+  </p>
+
+  <p>
+    Courier Prime Font is licensed under <a href="https://github.com/quoteunquoteapps/CourierPrime/blob/master/OFL.txt">the SIL Open Font License</a>.
   </p>
 </details>
 

@@ -1,6 +1,8 @@
-# Roboto Mono Font
+# Libre Baskerville Font
 
-Copyright 2019 Christian Robertson (https://github.com/googlefonts/RobotoMono)
+Copyright 2012, Pablo Impallari (www.impallari.com|impallari@gmail.com), 
+Copyright 2012, Rodrigo Fuenzalida (www.rfuenzalida.com|hello@rfuenzalida.com), with Reserved Font Name Libre Baskerville.
+https://github.com/impallari/Libre-Baskerville
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

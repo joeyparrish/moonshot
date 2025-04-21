@@ -19,8 +19,9 @@
 
 :root {
   --font-size: 2vh;
-  --default-font: 'Roboto', sans-serif;
-  --default-font-mono: 'Roboto Mono', monospace;
+  --default-font: 'Libre Baskerville', serif;
+  --default-font-mono: 'Courier Prime', monospace;
+  --default-non-game-font: 'Roboto', sans-serif;
 }
 
 * {
@@ -75,6 +76,8 @@ body[data-mode="play"] #vorple {
 #splash, #credits, #menus {
   /* These default to hidden. */
   display: none;
+
+  font-family: var(--default-non-game-font);
 }
 body[data-mode="splash"] #splash {
   display: flex;
@@ -584,7 +587,6 @@ body[data-mobile="true"] #transcript-button {
   width: 2em;
   height: 2em;
   line-height: 2em;
-  font-family: var(--default-font);
   font-weight: bold;
   text-transform: uppercase;
 

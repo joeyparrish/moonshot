@@ -21,8 +21,10 @@ MoonShot also uses the following fonts:
 
  - Roboto: Copyright 2011, The Roboto Project Authors (https://github.com/googlefonts/roboto-3-classic)
    - Released under the SIL Open Font License ([licenses/fonts/LICENSE.Roboto.md](licenses/fonts/LICENSE.Roboto.md))
- - Roboto Mono: Designed by Christian Robertson
-   - Released under the SIL Open Font License ([licenses/fonts/LICENSE.RobotoMono.md](licenses/fonts/LICENSE.RobotoMono.md))
+ - Libre Baskerville: Copyright 2012, Pablo Impallari & Rodrigo Fuenzalida
+   - Released under the SIL Open Font License ([licenses/fonts/LICENSE.LibreBaskerville.md](licenses/fonts/LICENSE.LibreBaskerville.md))
+ - Courier Prime: Copyright 2015, The Courier Prime Project Authors
+   - Released under the SIL Open Font License ([licenses/fonts/LICENSE.CourierPrime.md](licenses/fonts/LICENSE.CourierPrime.md))
  - Lovecraft's Diary: Designed by Nate Piekos of Blambot Comic Fonts
    - Freeware, see detailed license ([licenses/fonts/LICENSE.LovecraftsDiary.md](licenses/fonts/LICENSE.LovecraftsDiary.md))
  - KB Kinder Write: Designed by Khrys Bosland
