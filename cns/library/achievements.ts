@@ -53,6 +53,7 @@ interface StatMetadataMap {
 
 const UNLOCKED = 'unlocked';
 const ACHIEVEMENT_NOTIFICATION_SECONDS = 60;
+const SECRET_ICON = 'achievements/secret.png';
 let achievements: AchievementMetadataMap = {};
 let stats: StatMetadataMap = {};
 let client: Client;
@@ -221,5 +222,76 @@ export function relock(name: string): void {
     }
   } else {
     localStorage.removeItem(achievementKey(name));
+  }
+}
+
+export function showAchievements(): void {
+  const achievementContainer = document.getElementById('achievement-container')!;
+  while (achievementContainer.children.length) {
+    achievementContainer.removeChild(achievementContainer.lastElementChild!);
+  }
+
+  const unlocked: HTMLDivElement[] = [];
+  const partial: HTMLDivElement[] = [];
+  const locked: HTMLDivElement[] = [];
+  const hidden: HTMLDivElement[] = [];
+
+  for (const name in achievements) {
+    const {title, description, secret, stat, target} = achievements[name]!;
+    const div = document.createElement('div');
+    div.classList.add('achievement');
+
+    const imgElement = document.createElement('img');
+    const titleElement = document.createElement('div');
+    const descriptionElement = document.createElement('div');
+    const progressElement = document.createElement('div');
+
+    titleElement.classList.add('title');
+    descriptionElement.classList.add('description');
+    progressElement.classList.add('progress');
+
+    const thisIsUnlocked = isUnlocked(name);
+    if (!thisIsUnlocked && secret) {
+      imgElement.src = SECRET_ICON;
+      titleElement.innerText = 'Hidden Achievement';
+      descriptionElement.innerText = 'Revealed once unlocked.';
+
+      hidden.push(div);
+    } else {
+      imgElement.src = achievementIcon(
+          name, thisIsUnlocked ? 'unlocked' : 'locked');
+      titleElement.innerText = title;
+      descriptionElement.innerText = description;
+      if (stat) {
+        const value = getStat(stat);
+        progressElement.innerText = `Progress: ${value} / ${target}`;
+      }
+
+      if (thisIsUnlocked) {
+        unlocked.push(div);
+      } else if (stat) {
+        partial.push(div);
+      } else {
+        locked.push(div);
+      }
+    }
+
+    div.appendChild(imgElement);
+    div.appendChild(titleElement);
+    div.appendChild(descriptionElement);
+    div.appendChild(progressElement);
+  }
+
+  for (const div of unlocked) {
+    achievementContainer.appendChild(div);
+  }
+  for (const div of partial) {
+    achievementContainer.appendChild(div);
+  }
+  for (const div of locked) {
+    achievementContainer.appendChild(div);
+  }
+  for (const div of hidden) {
+    achievementContainer.appendChild(div);
   }
 }

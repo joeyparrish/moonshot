@@ -40,6 +40,8 @@ export function showMap() {
 
 function showPopup(event: Event): void {
   const button = (event.target as HTMLElement).closest<HTMLElement>('.popup-open')!;
+  executeOnApply(button);
+
   const popupContainerId = button.dataset['popupContainerId']!;
   const popupContainer = document.getElementById(popupContainerId)!;
   popupContainer.classList.remove('hidden');
@@ -77,6 +79,36 @@ export function hidePopupButtons(): void {
   const openButtons = document.querySelectorAll<HTMLElement>('.popup-open');
   for (const button of openButtons) {
     button.classList.add('hidden');
+  }
+}
+
+function setSetting(element: HTMLInputElement, key: string, value: string): void {
+  localStorage.setItem(key, value);
+  if (element.type == 'checkbox') {
+    element.checked = value === 'true';
+  } else {
+    element.value = value;
+  }
+
+  executeOnApply(element);
+}
+
+function executeOnApply(element: HTMLElement): void {
+  // Run custom "onapply" hook from the element.
+  // This differs from "change" events, which are triggered by the user
+  // changing the UI.  In contrast, this can be triggered by us loading the
+  // initial settings, as well.
+  const onApply = element.getAttribute('onapply');
+  if (onApply) {
+    // @ts-ignore
+    window.event = { target: element };
+
+    // new Function avoids complaints from esbuild about the use of eval()
+    const onApplyCallback = new Function(onApply);
+    onApplyCallback();
+
+    // @ts-ignore
+    delete window.event;
   }
 }
 
@@ -118,31 +150,5 @@ document.addEventListener('DOMContentLoaded', () => {
       const value = isBool ? element.checked.toString() : element.value;
       setSetting(element, key, value);
     });
-  }
-
-  function setSetting(element: HTMLInputElement, key: string, value: string): void {
-    localStorage.setItem(key, value);
-    if (element.type == 'checkbox') {
-      element.checked = value === 'true';
-    } else {
-      element.value = value;
-    }
-
-    // Run custom "onapply" hook from the element.
-    // This differs from "change" events, which are triggered by the user
-    // changing the UI.  In contrast, this can be triggered by us loading the
-    // initial settings, as well.
-    const onApply = element.getAttribute('onapply');
-    if (onApply) {
-      // @ts-ignore
-      window.event = { target: element };
-
-      // new Function avoids complaints from esbuild about the use of eval()
-      const onApplyCallback = new Function(onApply);
-      onApplyCallback();
-
-      // @ts-ignore
-      delete window.event;
-    }
   }
 });

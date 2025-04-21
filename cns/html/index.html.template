@@ -130,6 +130,13 @@
                 data-popup-container-id="settings-card-container">Settings</button>
           </p>
 
+          <p class="browser-only">
+            <button
+                class="floating-button-text popup-close popup-open"
+                onapply="cns.achievements.showAchievements();"
+                data-popup-container-id="achievements-card-container">Achievements</button>
+          </p>
+
           <p>
             <button
                 class="floating-button-text popup-close popup-open"
@@ -511,6 +518,14 @@
   </p>
 </details>
 
+        </div>
+      </div>
+
+      <div id="achievements-card-container" class="hidden popup-container">
+        <div id="achievements-card" class="popup">
+          <button class="popup-close floating-button" title="close">X</button>
+          <p class="title">Achievements</p>
+          <div id="achievement-container"></div>
         </div>
       </div>
 
