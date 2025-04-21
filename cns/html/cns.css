@@ -44,6 +44,11 @@ body {
   position: relative;
 }
 
+a, a:visited {
+  color: inherit;
+  text-decoration: underline;
+}
+
 #vorple {
   font-family: var(--default-font);
 
