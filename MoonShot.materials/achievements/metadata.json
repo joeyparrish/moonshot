@@ -1,0 +1,120 @@
+{
+  "complete_day_1": {
+    "title": "Complete Day 1",
+    "description": "You can make it through one day, right?"
+  },
+  "complete_day_2": {
+    "title": "Complete Day 2",
+    "description": "Now we're getting somewhere."
+  },
+  "eat_candy": {
+    "title": "Candy Thief",
+    "description": "That wasn't for you, and you know it."
+  },
+  "get_phone_number": {
+    "title": "Get Them Digits",
+    "description": "This is what we did before the apps."
+  },
+  "kill_stanley": {
+    "title": "You Killed Stanley!",
+    "description": "You bastard!"
+  },
+  "read_all_files": {
+    "title": "Bookworm",
+    "description": "Read all the crew files.",
+    "stat": "crew_files_read",
+    "target": 6
+  },
+  "read_script": {
+    "title": "Bookworm II: The Bookening",
+    "description": "Read the script."
+  },
+  "ending_1": {
+    "title": "Ending 1/9 (\"Houseplant\")",
+    "description": "Why would you do that?",
+    "secret": true
+  },
+  "ending_2": {
+    "title": "Ending 2/9 (\"Harassment\")",
+    "description": "Ahead of your time.",
+    "secret": true
+  },
+  "ending_3": {
+    "title": "Ending 3/9 (\"Shoe\")",
+    "description": "Bah, lucky shot.",
+    "secret": true
+  },
+  "ending_4": {
+    "title": "Ending 4/9 (\"Gluttony\")",
+    "description": "Stressed?",
+    "secret": true
+  },
+  "ending_5": {
+    "title": "Ending 5/9 (\"Trampling\")",
+    "description": "You've got to be more careful.",
+    "secret": true
+  },
+  "ending_6": {
+    "title": "Ending 6/9 (\"Poisoner\")",
+    "description": "You'll never work in this town again!",
+    "secret": true
+  },
+  "ending_7": {
+    "title": "Ending 7/9 (\"Basic\")",
+    "description": "What else did you expect?",
+    "secret": true
+  },
+  "ending_8": {
+    "title": "Ending 8/9 (\"Aardvark\")",
+    "description": "You weren't fast enough.",
+    "secret": true
+  },
+  "ending_9": {
+    "title": "Ending 9/9 (\"Super-Secret\")",
+    "description": "They'll never believe you.",
+    "secret": true
+  },
+  "meet_brizzleby": {
+    "title": "True Name",
+    "description": "Meet Brizzleby.",
+    "secret": true
+  },
+  "real_rocket_equations": {
+    "title": "@therealrocketequations",
+    "description": "Those other rocket equations are just imitators.",
+    "secret": true
+  },
+  "pure_of_heart": {
+    "title": "Pure of Heart",
+    "description": "I guess you aren't.",
+    "secret": true
+  },
+  "latte_art": {
+    "title": "Latte Art",
+    "description": "Make an interesting new coffee.",
+    "secret": true
+  },
+  "steal_scenery": {
+    "title": "Five-Finger Discount",
+    "description": "Are you taking everything that isn't nailed down?",
+    "secret": true
+  },
+  "gossip": {
+    "title": "Gossip",
+    "description": "Get Franklin talking about everyone at NASA.",
+    "stat": "gossip_heard",
+    "target": 13
+  },
+  "social": {
+    "title": "Social Butterfly",
+    "description": "Learn everyone's name at NASA.",
+    "stat": "names_learned",
+    "target": 7
+  },
+  "completionist": {
+    "title": "Completionist",
+    "description": "Discover all 9 endings.",
+    "stat": "endings_discovered",
+    "target": 9
+  }
+}

@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   vorple.addEventListener('expectCommand', scrollToBottom);
 
   // Initialize the achievements interface.
-  initAchievements();
+  void initAchievements();
 
   // Show/hide elements for debugging.
   const isMobileBrowserElement =

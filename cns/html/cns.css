@@ -641,6 +641,46 @@ body[data-mobile="true"] #delete-button {
   display: block;
 }
 
+/* In-game achievement popups, abusing toastr.info */
+#toast-container {
+  /* Otherwise, this overlaps the scroll bar. */
+  right: 1em;
+}
+
+#toast-container > .toast-info {
+  background-color: dimgray;
+  color: white;
+  opacity: 1;
+
+  /* The base toastr uses !important, so we have to, too */
+  background-image: none !important;
+
+  min-height: 7em;
+  padding: 0.5em;
+}
+
+#toast-container > .toast-info:before {
+  content: " ";
+  display: block;
+
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+
+  width: 6em;
+  height: 6em;
+  background-size: 6em;
+  background-repeat: no-repeat;
+  background-image: var(--achievement-icon);
+}
+
+#toast-container > .toast-info > .toast-title,
+#toast-container > .toast-info > .toast-message {
+  margin-left: 6.5em;
+  white-space: pre-wrap;
+}
+
+
 /* Infocom mode */
 body[data-infocom="true"] #vorple {
   background: black;
@@ -672,4 +712,8 @@ body[data-infocom="true"] .hint {
 }
 body[data-infocom="true"][data-difficulty="easy"] .interesting-highlight {
   background: #030;
+}
+body[data-infocom="true"] #toast-container > .toast-info {
+  background-color: white;
+  color: black;
 }

@@ -30,9 +30,76 @@ declare global {
   const STEAM_APP_ID: number;
 }
 
+interface AchievementMetadata {
+  title: string;
+  description: string;
+  secret?: boolean;
+  stat?: string;
+  target?: number;
+}
+
+interface AchievementMetadataMap {
+  [key: string]: AchievementMetadata;
+}
+
+interface StatMetadata {
+  target: number;
+  achievementName: string;
+}
+
+interface StatMetadataMap {
+  [key: string]: StatMetadata;
+}
+
+const UNLOCKED = 'unlocked';
+const ACHIEVEMENT_NOTIFICATION_SECONDS = 60;
+let achievements: AchievementMetadataMap = {};
+let stats: StatMetadataMap = {};
 let client: Client;
 
-export function initAchievements(): void {
+function achievementKey(name: string): string {
+  return `chicken-noodle-soap--achievements--${name}`;
+}
+
+function achievementIcon(name: string, status: 'locked'|'unlocked'): string {
+  return `achievements/${name}_${status}.png`;
+}
+
+function showAchievement(title: string, description: string, icon: string): void {
+  const rv = toastr.info(
+      description,
+      title,
+      {
+        timeOut: ACHIEVEMENT_NOTIFICATION_SECONDS * 1000,
+        positionClass: 'toast-bottom-right',
+      });
+  const toastElement = rv[0]!;
+  toastElement.style.setProperty('--achievement-icon', `url(${icon})`);
+}
+
+function connectStatsToAchievement(statName: string, value: number): void {
+  // In browser builds, we don't have a stats system tied to achievements
+  // automatically.  Emulate that here.
+  if (isDesktopBundle()) return;
+
+  if (statName in stats) {
+    const {achievementName, target} = stats[statName]!;
+    if (value >= target) {
+      unlock(achievementName);
+    } else {
+      relock(achievementName);
+      if (achievementName in achievements) {
+        const { title, description } = achievements[achievementName]!;
+        showAchievement(
+            `Achievement Progress\n${title}`,
+            `${description}\n${value} / ${target}`,
+            achievementIcon(achievementName, 'locked'));
+      }
+    }
+  }
+}
+
+export async function initAchievements(): Promise<void> {
   if (isDesktopBundle()) {
     try {
       const steamworks = window.require('steamworks.js');
@@ -40,17 +107,33 @@ export function initAchievements(): void {
     } catch (error) {
       toastr.error(
           'Achievements and stats are unavailable.',
-          'Failed to load Steam API!', {
+          'Failed to load Steam API!',
+          {
             timeOut: 10 * 1000,
             positionClass: 'toast-bottom-right',
           });
       console.error('Failed to load Steam API!', error);
     }
+  } else {
+    const response = await fetch('achievements/metadata.json');
+    achievements = await response.json() as AchievementMetadataMap;
+
+    for (const achievementName in achievements) {
+      const metadata = achievements[achievementName]!;
+      if (metadata.stat) {
+        stats[metadata.stat] = {
+          achievementName,
+          target: metadata.target!,
+        };
+      }
+    }
   }
 }
 
 export function getStat(name: string): number {
-  if (isDesktopBundle() && client) {
+  if (isDesktopBundle()) {
+    if (!client) return 0;
+
     const value = client.stats.getInt(name);
     if (value === null) {
       console.error(`Failed to get stat ${name}!`);
@@ -58,14 +141,21 @@ export function getStat(name: string): number {
     }
     return value;
   } else {
-    return 0;
+    const stringValue = localStorage.getItem(achievementKey(name));
+    return stringValue ? parseInt(stringValue, 10) : 0;
   }
 }
 
 export function setStat(name: string, value: number): void {
-  if (isDesktopBundle() && client) {
+  if (isDesktopBundle()) {
+    if (!client) return;
     if (!client.stats.setInt(name, value) || !client.stats.store()) {
       console.error(`Failed to set stat ${name}!`);
+    }
+  } else {
+    if (value != getStat(name)) {
+      localStorage.setItem(achievementKey(name), value.toString());
+      connectStatsToAchievement(name, value);
     }
   }
 }
@@ -95,10 +185,21 @@ export function countBits(maskName: string, statName: string): void {
 }
 
 export function unlock(name: string): void {
-  if (isDesktopBundle() && client) {
-    console.log('Unlocked: ' + name);
+  console.log('Unlocked: ' + name);
+  if (isDesktopBundle()) {
+    if (!client) return;
     if (!client.achievement.activate(name)) {
       console.error(`Failed to unlock achievement!`);
+    }
+  } else {
+    localStorage.setItem(achievementKey(name), UNLOCKED);
+
+    if (name in achievements) {
+      const { title, description } = achievements[name]!;
+      showAchievement(
+          `Achievement Unlocked!\n${title}`,
+          description,
+          achievementIcon(name, 'unlocked'));
     }
   }
 }
@@ -107,15 +208,18 @@ export function isUnlocked(name: string): boolean {
   if (isDesktopBundle() && client) {
     return client.achievement.isActivated(name);
   } else {
-    return false;
+    return localStorage.getItem(achievementKey(name)) == UNLOCKED;
   }
 }
 
 export function relock(name: string): void {
-  if (isDesktopBundle() && client) {
-    console.log('Relocking: ' + name);
+  console.log('Relocking: ' + name);
+  if (isDesktopBundle()) {
+    if (!client) return;
     if (!client.achievement.clear(name)) {
       console.error(`Failed to relock achievement!`);
     }
+  } else {
+    localStorage.removeItem(achievementKey(name));
   }
 }
