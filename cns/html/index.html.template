@@ -285,10 +285,10 @@
             Font size:
           </label>
           <div>
-            <button class="floating-button" onclick="fontSize.value--; fontSize.dispatchEvent(new Event('change'));">-</button>
-            <button class="floating-button" onclick="fontSize.value++; fontSize.dispatchEvent(new Event('change'));">+</button>
+            <button class="floating-button" onclick="fontSize.valueAsNumber -= 0.5; fontSize.dispatchEvent(new Event('change'));">-</button>
+            <button class="floating-button" onclick="fontSize.valueAsNumber += 0.5; fontSize.dispatchEvent(new Event('change'));">+</button>
             <input id="fontSize" type="range" style="display: none;"
-                min="1" max="5"
+                min="1" max="5" step="0.5"
                 data-settings-key="chicken-noodle-soap--font-size"
                 data-default-setting="2"
                 onapply="document.documentElement.style.setProperty('--font-size', event.target.value + 'vh'); window.dispatchEvent(new Event('resize'));">
