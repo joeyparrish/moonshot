@@ -52,7 +52,7 @@ interface StatMetadataMap {
 }
 
 const UNLOCKED = 'unlocked';
-const ACHIEVEMENT_NOTIFICATION_SECONDS = 60;
+const ACHIEVEMENT_NOTIFICATION_SECONDS = 20;
 const SECRET_ICON = 'achievements/secret.png';
 let achievements: AchievementMetadataMap = {};
 let stats: StatMetadataMap = {};
