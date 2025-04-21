@@ -368,15 +368,15 @@ body[data-difficulty="easy"] .interesting-highlight,
 
 .floating-button {
   font-size: 1em;
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   font-weight: bold;
   padding: 0;
 }
 
 .floating-button img {
-  height: 1em;
+  height: 2em;
   vertical-align: middle;
 }
 
@@ -487,11 +487,11 @@ body[data-mobile="true"] #transcript-button {
 }
 
 #settings-button {
-  top: 4em;
+  top: 5em;
 }
 
 #transcript-button {
-  top: 7em;
+  top: 9em;
 }
 
 #how-do-i-play-card p, #how-do-i-play-card li {
