@@ -177,6 +177,9 @@ To decide what list of things is the available objects:
 			do nothing;
 		otherwise if item is a visible physical concept:
 			add item to L;
+		otherwise if item is a visible person:
+			[A visible person is an available object whether or not they are noticed.]
+			add item to L;
 		otherwise if item is visible and item is not a concept and item is noticed:
 			if the item is interesting or the description of item is not "":
 				add item to L;
@@ -207,8 +210,9 @@ Autocomplete update rule:
 				if the room dir from the location is a room:
 					execute JavaScript code "cns.autocomplete.addVerb('[dir]\n')";
 			execute JavaScript code "cns.autocomplete.resetPeople()";
-			repeat with person running through people in the location:
-				if person is not yourself:
+			repeat with person running through people enclosed by the location:
+				if person is not yourself and person is noticed:
+					[A person is an available conversation partner only if noticed.]
 					execute JavaScript code "cns.autocomplete.addPerson('[person]')";
 			execute JavaScript code "cns.autocomplete.resetObjects()";
 			let can-ask be false;

@@ -891,8 +891,7 @@ The cage is interesting scenery in the propulsion lab.
 The cage is an openable, transparent, lockable, locked container in the propulsion lab.
 The head scientist carries a brass key.
 The brass key unlocks the cage.
-The brass key is interesting and critical.
-The brass key can be noticed or unnoticed.  When day one begins, now the brass key is unnoticed.
+The brass key is interesting, critical, and unnoticed.
 The description of the cage is "It's a wide cage made of thick metal bars, with a locking mechanism built into the door.[if the tapir is in the cage]  [interesting]The [tapir-aardvark][/interesting] inside looks distressed.[end if]".
 
 The locking mechanism is scenery in the propulsion lab.
@@ -967,6 +966,7 @@ After opening the cage while the tapir is in the cage:
 
 
 The tapir is a stranger [animals are people, too, in Inform] in the cage.
+The tapir is unnoticed.
 The tapir can be an aardvark.
 The description of the tapir is "[The tapir] is a bit larger than your average [tapir-aardvark], with intelligent eyes, rabbit-like ears, strong front claws, and a flat, round nose that protrudes from its head.  [if the tapir is in the cage]It lays sadly on the bottom of [the cage], looking distinctly sad and uncomfortable.[otherwise]It stands upright on its rear legs, thought it doesn't look like it has much practice.[end if]".
 Rule for printing the name of the tapir:
@@ -974,6 +974,9 @@ Rule for printing the name of the tapir:
 		say "Brizzleby";
 	otherwise:
 		say "[tapir-aardvark]".
+
+After examining the tapir:
+	now the tapir is noticed.
 
 The real name of the tapir is "Brizzleby".
 Understand "aardvark", "aardvarks", "ardvark", "ardvarks", and "animal" as the tapir.
@@ -1005,7 +1008,8 @@ Instead of quizzing the tapir about the brass key while the tapir is in the cage
 	make the head scientist known.
 
 Instead of quizzing the tapir about anything while the tapir is in the cage:
-	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'"
+	say "The [tapir-aardvark] shakes his head rapidly from side to side, and whispers, 'Not here!  It's not safe to talk around the others.  Get me out, and I'll tell you everything!'";
+	make "key" known.
 
 [HACK: This works around "the cage isn't open" if you "ask tapir for name".]
 Before asking the tapir for name while the tapir is in the cage:
