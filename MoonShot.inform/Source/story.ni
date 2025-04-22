@@ -2399,7 +2399,7 @@ A librium is a kind of interesting thing.  A librium is edible, swallowable, and
 The description of a librium is "It's a tiny, green capsule with some inscrutable print on one end."
 An astronaut can be good at chess.
 Instead of quizzing the chemist about librium:
-	say "'Librium is a powerful hypnotic.  [one of]If I were you, I'd save [']em up for the night time.  Otherwise, they turn off right when you need them to turn on.  If you know what I mean.'  You are sure you don't.[or]Some people think it makes you better at chess, but actually, it just makes you hallucinate being good at chess.'[purely at random][line break]".
+	say "'Librium is a powerful hypnotic.  [one of]If I were you, I'd save [']em up for the night time.  Otherwise, they turn off right when you need them to turn on.  If you know what I mean.'  You are sure you don't.[or]Some people think it makes you better at chess, but actually, it just makes you hallucinate being good at chess.'[purely at random]".
 Carry out giving librium to an astronaut:
 	say "[regarding the second noun][They] swallows the pill.  [They] gets pretty quiet, but you think you can hear [them] mumbling something like '[random chess move]' under [their] breath.";
 	now the second noun is good at chess.
