@@ -92,7 +92,7 @@ function connectStatsToAchievement(statName: string, value: number): void {
       if (achievementName in achievements) {
         const { title, description } = achievements[achievementName]!;
         showAchievement(
-            `Achievement Progress\n${title}`,
+            `Achievement Progress\n\n${title}`,
             `${description}\n${value} / ${target}`,
             achievementIcon(achievementName, 'locked'));
       }
@@ -203,7 +203,7 @@ export function unlock(name: string): void {
     if (name in achievements) {
       const { title, description } = achievements[name]!;
       showAchievement(
-          `Achievement Unlocked!\n${title}`,
+          `Achievement Unlocked!\n\n${title}`,
           description,
           achievementIcon(name, 'unlocked'));
     }

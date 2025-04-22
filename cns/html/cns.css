@@ -655,6 +655,8 @@ body[data-mobile="true"] #delete-button {
 }
 
 #toast-container > .toast-info {
+  font-size: 3vh;
+
   background-color: dimgray;
   color: white;
   opacity: 1;
@@ -663,7 +665,10 @@ body[data-mobile="true"] #delete-button {
   background-image: none !important;
 
   min-height: 7em;
+  min-width: 25em;
   padding: 0.5em;
+  /* Leave room for the 6em image with 0.5em padding around it on both sides. */
+  padding-left: 7em;
 }
 
 #toast-container > .toast-info:before {
@@ -683,8 +688,15 @@ body[data-mobile="true"] #delete-button {
 
 #toast-container > .toast-info > .toast-title,
 #toast-container > .toast-info > .toast-message {
-  margin-left: 6.5em;
   white-space: pre-wrap;
+}
+
+#toast-container > .toast-info > .toast-title {
+  margin-bottom: 1em;
+}
+
+#toast-container > .toast-info > .toast-message {
+  font-size: 2vh;
 }
 
 
