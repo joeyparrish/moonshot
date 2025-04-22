@@ -1268,6 +1268,7 @@ personnel file 6 is a personnel-file in the drawer.
 The list of crew candidates is a list of people that varies.
 
 Check examining a personnel-file (called this-file):
+	make "[employee of this-file]" known;
 	say "[personnel-file-card style]";
 	execute JavaScript command "cns.elements.openTag('a', {href: '[link of this-file]', target: '_blank'})";
 	execute JavaScript command "cns.elements.openTag('img', {src: '[photo of this-file]', title: '[employee of this-file]'})";
