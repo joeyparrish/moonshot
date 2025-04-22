@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, viewport-fit=contain">
     <title>[TITLE]</title>
     <meta name="author" content="[AUTHOR]">
+    <meta name="version" content="[RELEASE]">
     <link rel="icon" type="image/png" href="Icon.png">
 
 <!--
