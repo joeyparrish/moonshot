@@ -66,7 +66,26 @@ function achievementIcon(name: string, status: 'locked'|'unlocked'): string {
   return `achievements/${name}_${status}.png`;
 }
 
-function showAchievement(title: string, description: string, icon: string): void {
+function showAchievement(
+    achievementName: string,
+    title: string,
+    description: string,
+    icon: string): void {
+  // Find existing toasts for this same achievement.
+  const oldToastElements = Array.from(document.querySelectorAll<HTMLElement>(
+      `.toast-info[data-achievement=${achievementName}`));
+  for (const oldToastElement of oldToastElements) {
+    try {
+      // We could use toastr.clear($(oldToastElement)), but that causes the old
+      // one to fade away before disappearing.  Better to have the new one pop
+      // over the old one much faster by simply removing the old one from the
+      // DOM.
+      $(oldToastElement).remove();
+    } catch (error) {
+      console.error('Failed to remove toast', oldToastElement, error);
+    }
+  }
+
   const rv = toastr.info(
       description,
       title,
@@ -75,6 +94,7 @@ function showAchievement(title: string, description: string, icon: string): void
         positionClass: 'toast-bottom-right',
       });
   const toastElement = rv[0]!;
+  toastElement.dataset['achievement'] = achievementName;
   toastElement.style.setProperty('--achievement-icon', `url(${icon})`);
 }
 
@@ -92,6 +112,7 @@ function connectStatsToAchievement(statName: string, value: number): void {
       if (achievementName in achievements) {
         const { title, description } = achievements[achievementName]!;
         showAchievement(
+            achievementName,
             `Achievement Progress\n\n${title}`,
             `${description}\n${value} / ${target}`,
             achievementIcon(achievementName, 'locked'));
@@ -203,6 +224,7 @@ export function unlock(name: string): void {
     if (name in achievements) {
       const { title, description } = achievements[name]!;
       showAchievement(
+          name,
           `Achievement Unlocked!\n\n${title}`,
           description,
           achievementIcon(name, 'unlocked'));
