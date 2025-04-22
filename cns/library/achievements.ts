@@ -167,6 +167,9 @@ export function incrementStat(name: string): void {
 }
 
 export function addBit(name: string, bit: number): void {
+  // Bits are 1-based in inform, so a zero gets ignored.
+  if (bit == 0) return;
+
   const value = getStat(name) | (1 << (bit - 1));
   setStat(name, value);
 }
@@ -175,7 +178,7 @@ export function countBits(maskName: string, statName: string): void {
   let value = getStat(maskName);
   let bits = 0;
 
-  while (value) {
+  while (value > 0) {
     if (value & 1) {
       bits++;
     }
