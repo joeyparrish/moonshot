@@ -83,7 +83,7 @@ export function addObject(properties: AutoCompleteObjectProperties): void {
 }
 
 function objectsMatching(properties: Partial<AutoCompleteObjectProperties>) {
-  const matches: string[] = [''];
+  const matches: string[] = [];
   for (const item of knownObjects) {
     let match = true;
     for (const [field, value] of Object.entries(properties)) {
@@ -99,6 +99,7 @@ function objectsMatching(properties: Partial<AutoCompleteObjectProperties>) {
   if (properties.takeable == true && matches.length > 1) {
     matches.push('all');
   }
+  matches.unshift('');
   return matches;
 }
 
