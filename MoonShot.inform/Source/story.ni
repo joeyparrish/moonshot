@@ -1907,6 +1907,7 @@ Instead of quizzing the photographer about the photographer:
 	try quizzing the photographer about name.
 
 Instead of quizzing the photographer about name:
+	make the photographer known;
 	say "He offers his hand and says, 'Kubrick.  Stanley Kubrick.  Nice to meet you.'"
 
 Instead of quizzing the photographer about NASA:
@@ -2519,6 +2520,7 @@ Carry out examining the moon landing script:
 	say paragraph break;
 	say paragraph break;
 	say end style;
+	make the photographer known;
 	pause;
 	say script-page style;
 	say paragraph break;
