@@ -2468,11 +2468,16 @@ Instead of drinking the mysterious silver coffee:
 
 
 
+[Only certain drugs will do.]
 After examining an astronaut:
 	if the noun is zonked:
 		say "[regarding the noun][They] looks like a malleable zombie, ready to do whatever is required for the film.";
 	otherwise if the noun is tripping:
-		say "[regarding the noun][They] appears to be in complete awe of the cheaply-painted set.  Does [they] think [they] is really on the moon?"
+		say "[regarding the noun][They] appears to be in complete awe of the cheaply-painted set.  Does [they] think [they] is really on the moon?";
+	otherwise if the noun is high:
+		say "[regarding the noun][They] looks a little giggly, but [they] seem like [they] is still all too aware of what's going on...  Maybe [they] needs a different 'vitamin'.";
+	otherwise if the noun is good at chess:
+		say "[regarding the noun][They] looks a little preoccupied, but [they] seem like [they] is still all too aware of what's going on...  Maybe [they] needs a different 'vitamin'."
 
 
 
