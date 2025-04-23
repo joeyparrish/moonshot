@@ -130,19 +130,20 @@ To show ending (N - number) of (MAX - number) aka the (T - text) ending:
 	[Remove any active page effects on death]
 	deactivate remove-page-effect;
 	execute JavaScript code "document.body.dataset.effect = ''";
+	[Show the ending card]
+	say paragraph break;
+	say ending-card style;
+	say "You have discovered ending #[N] of [MAX] (the [T] ending) after [turn count] turns!";
+	say end style;
+	[Pause]
+	pause;
 	[Log the ending]
 	execute JavaScript code "cns.logEvent('ending[N]')";
 	add bit N to stats bitmask "endings_bitmask";
 	count bits from bitmask "endings_bitmask" into "endings_discovered";
 	unlock achievement "ending_[N]";
-	[Show the ending]
-	say paragraph break;
-	pause;
+	[Show the credits]
 	execute JavaScript code "cns.showCredits()";
-	[NOTE: ending-card is centered in CSS.  See CSS for an explanation.]
-	say ending-card style;
-	say "You have discovered ending #[N] of [MAX] (the [T] ending) after [turn count] turns!";
-	say end style;
 	end the story.
 
 

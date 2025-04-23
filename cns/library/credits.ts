@@ -36,10 +36,12 @@ function fixCreditSizing() {
 
 export function stopCredits() {
   document.body.dataset['mode'] = 'play';
+  vorple.prompt.unhide();
   scrollToBottom();
 }
 
 export function showCredits() {
+  vorple.prompt.hide();
   document.body.dataset['mode'] = 'credits';
   // Let render & layout happen, then fix sizing.  The credits animation
   // has a 2s delay, so this 1s delay on sizing works.
