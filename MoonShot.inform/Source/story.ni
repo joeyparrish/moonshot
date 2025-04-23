@@ -2455,9 +2455,9 @@ To report new latte art:
 	say "The mysterious silver liquid mixes languidly into the coffee, occasionally running in reverse, but ultimately forming a consistent silvery-brown color.";
 	unlock achievement "latte_art".
 Instead of quizzing the chemist about the mysterious silver coffee:
-	say "'Whoa, is that soy milk?  ...  Is it [italic type]singing?[roman type]'".
+	say "'Whoa, is that soy milk?  ...  Is it [italic type]singing?[roman type]'[line break]".
 Carry out giving a container which contains the mysterious silver coffee to an astronaut:
-	say "[regarding the second noun][They] sip the coffee slowly, iquid, grimacing as it goes down.  [Their] head begins to droop and sway immediately.";
+	say "[regarding the second noun][They] sip the coffee slowly, grimacing as it goes down.  [Their] head begins to droop and sway immediately.";
 	now the second noun is zonked.
 Instead of drinking the mysterious silver coffee:
 	say "...";
