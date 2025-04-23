@@ -2582,8 +2582,8 @@ Carry out examining the moon landing script:
 	say end style;
 	say variable letter spacing;
 	pause;
-	stop the action;
 	unlock achievement "read_script";
+	stop the action.
 
 
 Filming the moon landing is an action applying to nothing.
