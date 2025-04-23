@@ -292,7 +292,7 @@ Autocomplete update rule:
 Table of Known Concepts
 Concept
 ""
-with 99 blank rows
+with 999 blank rows
 
 To make (string - text) known:
 	execute JavaScript code "cns.autocomplete.addTopic('[string]')";
