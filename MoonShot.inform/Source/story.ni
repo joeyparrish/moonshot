@@ -2453,6 +2453,7 @@ To report new latte art:
 	now the coffee is nowhere;
 	now a mysterious silver liquid is nowhere;
 	say "The mysterious silver liquid mixes languidly into the coffee, occasionally running in reverse, but ultimately forming a consistent silvery-brown color.";
+	make "myserious silver coffee" known;
 	unlock achievement "latte_art".
 Instead of quizzing the chemist about the mysterious silver coffee:
 	say "'Whoa, is that soy milk?  ...  Is it [italic type]singing?[roman type]'[line break]".
