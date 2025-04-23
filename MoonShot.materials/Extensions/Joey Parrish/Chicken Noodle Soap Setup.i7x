@@ -340,6 +340,12 @@ Vorple interface update rule:
 Before handling the final question:
 	follow autocomplete update rules.
 
+[This is also distinct from the above triggers.  Here we just want to put yes/no into autocomplete.]
+Check restarting the game:
+	execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
+	execute JavaScript code "cns.autocomplete.addVerb('yes\n')";
+	execute JavaScript code "cns.autocomplete.addVerb('no\n')".
+
 [Reset any extra verbs after each command.]
 After reading a command:
 	now extra-verbs is {}.
