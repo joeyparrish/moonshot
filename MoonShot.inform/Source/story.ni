@@ -1851,7 +1851,7 @@ Buzz Aldrin is wearing a tuft of fur.
 The description of Neil Armstrong is "Neil's prominent front teeth make him look like a friendly, gullible beaver.  Even from a distance you can see that his arms, ironically, are woefully underdeveloped."
 Front teeth are part of Neil Armstrong.
 
-The description of Michael Collins is "Michael is strutting around and muttering to himself about freedom in a strong Irish accent.  You catch a whiff of boiled cabbage."
+The description of Michael Collins is "Michael has dark hair and an intense gaze.  He is strutting around and muttering to himself about freedom in a strong Irish accent."
 
 The description of Lisa Nowak is "Lisa's got a handsome profile with her adorable turn-up nose, and her chestnut hair is hanging loose in a wave perm.  You can see an industrial-sized can of pepper spray sticking out of her pocket."
 Lisa Nowak wears an industrial-sized can of pepper spray.
