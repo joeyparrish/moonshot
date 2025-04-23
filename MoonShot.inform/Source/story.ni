@@ -310,7 +310,7 @@ Instead of dropping the houseplant while the player is in the waiting room:
 
 The houseplant is edible.
 Instead of eating the houseplant:
-	say "The houseplant tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, [if day one is happening]Apollo 11 fails miserably,[otherwise]Operation Glitter fails and is exposed,[end if] and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+	say "The houseplant tastes terrible, and your stomach quickly begins to cramp.  Before long, you're unable to walk.  You die on the way to the emergency room, [if day one is happening]Apollo 11 fails miserably,[otherwise]Operation Glitter fails and is exposed,[end if] and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  You are buried with full honors in the 'bizarre behavior' section of Arlington National Cemetery.  Your tombstone reads 'Intern.'";
 	show ending 1 of 9 aka the "houseplant" ending.
 
 A phone is on the secretary's desk.  The description of the phone is "A black rotary telephone.  It looks brand new."
@@ -949,7 +949,7 @@ Instead of taking the brass key:
 After opening the cage while the tapir is in the cage:
 	if the tapir is not known:
 		if a random chance of 1 in 10 succeeds:
-			say "As soon as the cage door opens, the [tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads, 'Intern.'";
+			say "As soon as the cage door opens, the [tapir] darts through, trampling you to death in the process.  You are buried with full honors in the 'bizarre animal tragedies' section of Arlington National Cemetery.  Your tombstone reads 'Intern.'";
 			show ending 5 of 9 aka the "trampling" ending;
 		otherwise:
 			say "As soon as the cage door opens, the [tapir] darts through and out into the hallway.  You narrowly avoid being trampled by the thing.[paragraph break]";
@@ -1161,7 +1161,7 @@ Instead of saying sorry to the head scientist while the head scientist is enrage
 		show hint "Maybe there's a topic he will find soothing...";
 		now the player is in the hallway;
 	otherwise:
-		say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+		say "Just before you reach the doorway to the hall, [the head scientist] manages to clock you on the side of the head with his shoe.  You suffer a freak hemorrhage and die on the spot.  You are the first NASA employee in the agency's (administration's?) history to die in such a pointless and embarrassing way.  Apollo 11 fails miserably, NASA becomes a worldwide laughing-stock, and Russia conquers the globe by 1972.  You are buried with full honors in the 'murdered by footwear' section of Arlington National Cemetery.  Your tombstone reads 'Intern.'";
 		show ending 3 of 9 aka the "shoe" ending;
 
 
@@ -2041,7 +2041,7 @@ After eating a food:
 	increase the snack count by 1;
 	increment stat "snacks_eaten";
 	if the snack count is 10:
-		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  Your tombstone in Arlington National Cemetery reads 'Intern.'";
+		say "You eat [the noun], then collapse into a deep, deep food coma from which you never awaken.  Operation Glitter fails and is eventually exposed, and NASA becomes a worldwide laughing-stock.  Russia conquers the globe by 1972.  You are buried with full honors in the 'overindulgence' section of Arlington National Cemetery.  Your tombstone reads 'Intern.'";
 		show ending 4 of 9 aka the "gluttony" ending;
 	otherwise if the snack count is 9:
 		say "You eat [the noun].  You couldn't possibly eat another bite!";
@@ -2673,11 +2673,11 @@ Instead of going from the sound stage while day two has ended:
 			say "After escaping the building, you try to go to the police and the press, but no one will believe what you've seen.  You spend the rest of your life in hiding from the National Agency of Space Astronauts.";
 			show ending 9 of 9 aka the "super-secret" ending;
 		otherwise:
-			say "Loose lips sink ships.";
+			say "'Loose lips sink ships.'";
 			show ending 8 of 9 aka the "aardvark" ending;
 	otherwise:
 		say "You don't hear or see anything else, ever again.[paragraph break]";
-		say "Loose lips sink ships.";
+		say "'Loose lips sink ships.'";
 		show ending 7 of 9 aka the "basic" ending.
 
 
