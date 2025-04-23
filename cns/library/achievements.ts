@@ -91,7 +91,7 @@ function showAchievement(
       title,
       {
         timeOut: ACHIEVEMENT_NOTIFICATION_SECONDS * 1000,
-        positionClass: 'toast-bottom-right',
+        positionClass: 'toast-top-right',
       });
   const toastElement = rv[0]!;
   toastElement.dataset['achievement'] = achievementName;
@@ -132,7 +132,7 @@ export async function initAchievements(): Promise<void> {
           'Failed to load Steam API!',
           {
             timeOut: 10 * 1000,
-            positionClass: 'toast-bottom-right',
+            positionClass: 'toast-top-right',
           });
       console.error('Failed to load Steam API!', error);
     }
