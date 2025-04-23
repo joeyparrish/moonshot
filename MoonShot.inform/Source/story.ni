@@ -2186,7 +2186,7 @@ To start photographer illness:
 
 
 
-The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large [interesting]lab bench[/interesting] with a smorgasbord of [if the small vial is in the chemistry lab]vials, [end if]droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a [interesting]taxidermied marmot[/interesting][end if].  In the corner, a long-haired black [interesting]cat[/interesting] peers at you through slitted yellow eyes and goes back to sleep."
+The chemistry lab is west of the basement.  "The lab is lit by exposed fluorescent tubes that give everything a sickly cast.  There's a large [interesting]lab bench[/interesting] with a smorgasbord of [if the small glass vial is in the chemistry lab]vials, [end if]droppers, Bunsen burners, jars of powders, and graduated cylinders[if the taxidermied marmot is in the chemistry lab], and what appears to be a [interesting]taxidermied marmot[/interesting][end if].  In the corner, a long-haired black [interesting]cat[/interesting] peers at you through slitted yellow eyes and goes back to sleep."
 The printed name of the chemistry lab is "NASA Chemistry Lab".
 The exposed fluorescent tubes are scenery in the chemistry lab.
 The lab bench is scenery in the chemistry lab.  "You don't dare touch anything on the bench.  Some things are bubbling and hissing menacingly."
@@ -2202,7 +2202,8 @@ After going to the chemistry lab:
 	make "space-cake" known;
 	make "LSD" known;
 	make "librium" known;
-	make "mysterious silver liquid" known;
+	if the small glass vial is in the chemistry lab:
+		make "mysterious silver liquid" known;
 	continue the action.
 
 The taxidermied marmot is in the chemistry lab.  The description of the taxidermied marmot is "It looks just like every other taxidermied marmot [if the taxidermied marmot is carried by the player]in your collection[otherwise]you've ever seen[end if]."
@@ -2338,7 +2339,9 @@ Before giving a thing (called the thingy) to Ijon Tichy:
 
 After giving a thing to an astronaut:
 	[The "carry out" rules for each drug describe the action, but the astronaut consumes it immediately.]
-	if the noun is a vial:
+	if the noun is the small glass vial:
+		now the noun is nowhere;
+	otherwise if the noun is the coffee-pot:
 		now the noun is nowhere;
 	otherwise:
 		now the noun is in the chemistry lab;  [Replenish stocks.]
@@ -2490,22 +2493,14 @@ To decide if the astronauts are prepared:
 
 
 
-A vial is a kind of liquid-safe container.
-The description of a vial is "It's a small glass vial[if the noun contains nothing] which appears to be empty.[otherwise].[end if]".
-Rule for printing the name of a vial (called the flask) while not inserting or removing or examining:
-	if the flask contains nothing:
-		say "empty vial";
-	otherwise:
-		say "vial of [list of objects contained by the flask]";
-	omit contents in listing.
-
-
-
 In the chemistry lab is four space-cakes, four LSD, and four librium.
-The small vial is an interesting vial.  In the small vial is a mysterious silver liquid.
+
+The small glass vial is an open, transparent, interesting, liquid-safe container.
+The description of the small glass vial is "It's a small glass vial[if the noun contains nothing] which appears to be empty.[otherwise].[end if]".
+In the small glass vial is a mysterious silver liquid.
 When day two begins:
 	if the player has alien-equations:
-		now the small vial is in the chemistry lab.
+		now the small glass vial is in the chemistry lab.
 
 
 
@@ -2866,7 +2861,7 @@ Test achieve1 with "test day1room1 / test day1room2 / test day1room3 / test day1
 Test day2room1 with "z / z / z / z / n / ask about Buzz Aldrin / ask about checklist / ask about Operation Glitter / e / take checklist / x checklist / ask about preparing astronauts / ask about lunch / ask about food / e / d".
 Test day2room2 with "x paper sign / l / e".
 Test day2room3 with "x photographer / x craft services table / x BLT / x tuna sandwich / x salad / x plate of almond chicken / x beard / ask about name / ask photographer about name / ask photographer about lunch / x Buzz Aldrin / x Neil Armstrong / x Michael Collins / ask Buzz Aldrin about lunch / ask Neil Armstrong about lunch / ask Michael Collins about lunch / l / take all / w / w".
-Test day2room4 with "x lab bench / x cat / x smorgasbord / x taxidermied marmot / x chemist / x pins / x space-cake / x LSD / x librium / x vial of mysterious silver liquid / x mysterious silver liquid / ask chemist about name / ask Molly about weather / ask Molly about NASA / ask about Apollo / ask Molly about Donna / ask cat about NASA / ask Molly about Mr. Furtwangler / ask Molly about Dr. von Braun / ask Molly about aardvark / ask about preparing astronauts / ask about lunch / ask about space-cake / ask Molly about LSD / ask about librium / ask about mysterious silver liquid / ask about Molly / l / take taxidermied marmot / take all / mix vial into coffee / x coffee / ask Molly about mysterious silver coffee / e / u / w / s".
+Test day2room4 with "x lab bench / x cat / x smorgasbord / x taxidermied marmot / x chemist / x pins / x space-cake / x LSD / x librium / x small glass vial / x mysterious silver liquid / ask chemist about name / ask Molly about weather / ask Molly about NASA / ask about Apollo / ask Molly about Donna / ask cat about NASA / ask Molly about Mr. Furtwangler / ask Molly about Dr. von Braun / ask Molly about aardvark / ask about preparing astronauts / ask about lunch / ask about space-cake / ask Molly about LSD / ask about librium / ask about mysterious silver liquid / ask about Molly / l / take taxidermied marmot / take all / mix vial into coffee / x coffee / ask Molly about mysterious silver coffee / e / u / w / s".
 Test day2room5 with "ask about lunch / give salad to Donna / n / give BLT to Mr. Furtwangler / e / n / e / s / wake Franklin / ask Franklin about photographer / ask about Molly / ask about lunch / i / give BLT to Franklin / l / n / d / e / give tuna sandwich to Michael Collins / give plate of almond chicken to Buzz Aldrin / give salad to Neil Armstrong / give plate of almond chicken to Stanley".
 Test day2room6 with "x checklist / e / d / e / take script / x script / film moon landing / eat space-cake / eat LSD / eat librium / give space-cake to Buzz Aldrin / give librium to Neil Armstrong / give LSD to Michael Collins / x Buzz / x Armstrong / x Collins / give space-cake to Armstrong / ask Armstrong about NASA / x Armstrong / give LSD to Buzz / give LSD to Armstrong / x Buzz / x Armstrong / l / x cameras / film moon landing / x checklist / w / u / w / give Operation Glitter checklist to Mr. Furtwangler".
 Test achieve2 with "test day2room1 / test day2room2 / test day2room3 / test day2room4 / test day2room5 / test day2room6".
