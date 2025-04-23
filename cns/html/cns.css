@@ -494,6 +494,19 @@ body[data-mobile="true"] #transcript-button {
   top: 9em;
 }
 
+#help-card {
+  min-width: 30em;
+}
+
+#help-card p.title {
+  font-size: 6vh;
+}
+
+#help-card button.floating-button-text {
+  font-size: 3.5vh;
+  margin-top: 1em;
+}
+
 #how-do-i-play-card p, #how-do-i-play-card li {
   /* Space out the help to make it easier to read. */
   word-spacing: 0.15em;
