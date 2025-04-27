@@ -73,10 +73,11 @@ body[data-mode="play"] #vorple {
   opacity: 1;
 }
 
-#splash, #credits, #menus {
+#splash, #credits {
   /* These default to hidden. */
   display: none;
-
+}
+#splash, #credits, #menus {
   font-family: var(--default-non-game-font);
 }
 body[data-mode="splash"] #splash {
@@ -127,7 +128,7 @@ body[data-auto-complete="false"] #auto-complete {
 }
 
 #splash, #credits {
-  background: transparent;
+  background: black;
   color: white;
 
   position: fixed;

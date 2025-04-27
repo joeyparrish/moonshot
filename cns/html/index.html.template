@@ -102,13 +102,13 @@
       <!-- These are hidden by default, but we start with a pause.  When the initial "title" pause ends, these will be shown. -->
       <button
           id="help-button" data-popup-container-id="help-card-container"
-          class="popup-open floating-button hidden" title="help"><img src="help-icon.png" alt="help"></button>
+          class="popup-open floating-button" title="help"><img src="help-icon.png" alt="help"></button>
       <button
           id="settings-button" data-popup-container-id="settings-card-container"
-          class="popup-open floating-button hidden" title="settings"><img src="settings-icon.png" alt="settings"></button>
+          class="popup-open floating-button" title="settings"><img src="settings-icon.png" alt="settings"></button>
       <button
           id="transcript-button" data-popup-container-id="transcript-card-container"
-          class="popup-open floating-button hidden" title="transcript"><img src="transcript-icon.png" alt="transcript"></button>
+          class="popup-open floating-button" title="transcript"><img src="transcript-icon.png" alt="transcript"></button>
 
       <div id="help-card-container" class="hidden popup-container">
         <div id="help-card" class="popup">
