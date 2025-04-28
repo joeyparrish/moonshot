@@ -170,6 +170,7 @@ Carry out triggering remove-page-effect:
 
 
 [Autocomplete hooks.]
+When play begins: execute JavaScript code "cns.autocomplete.initialize()".
 A thing can be noticed or unnoticed.  Things are usually noticed.
 To decide what list of things is the available objects:
 	let L be a list of things;

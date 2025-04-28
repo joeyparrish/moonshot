@@ -17,6 +17,10 @@
 
 // Auto-complete module.
 
+import {
+  isMobileBrowser,
+} from './util.ts';
+
 interface AutoCompleteObjectProperties {
   name: string;
   inventory: boolean;
@@ -174,7 +178,46 @@ function processSelectChange(event: Event): void {
   }
 }
 
-function initializeAutoComplete(): void {
+// Force the use of autocomplete by disabling keyboard input.
+function forceAutoComplete() {
+  // Disable the input field so it doesn't get focus and trigger the
+  // virtual keyboard.
+  const inputField =
+      document.querySelector<HTMLInputElement>('#lineinput-field')!;
+  inputField.disabled = true;
+
+  // Disable the autocomplete setting and force it to "on".
+  const autoCompleteToggle =
+      document.querySelector<HTMLInputElement>('#auto-complete-toggle')!;
+  autoCompleteToggle.disabled = true;
+  autoCompleteToggle.checked = true;
+
+  // Trigger the effects of the autocomplete toggle.
+  localStorage.setItem(autoCompleteToggle.dataset['settingsKey']!, 'true');
+  document.body.dataset['autoComplete'] = 'true';
+
+  // Since we can't hover this on mobile to know why it's disabled, use
+  // Vorple's "powertip" functionality, which relies on jQuery.
+  autoCompleteToggle.title = 'Required on mobile devices';
+  // @ts-ignore
+  $(autoCompleteToggle).powerTip({smartPlacement: true});
+}
+
+export function initialize(): void {
+  if (document.getElementById('auto-complete')) {
+    // Already initialized.
+    return;
+  }
+
+  if (!document.getElementById('lineinput-field')) {
+    console.log('Input not ready yet, deferring auto-complete init...');
+    setTimeout(initialize, 100);
+    return;
+  }
+
+  vorple.prompt.init();
+  vorple.prompt.setPrefix('>');
+
   // These are the auto-complete interface elements.
   select = document.createElement('select');
   autoComplete = document.createElement('span');
@@ -212,7 +255,7 @@ function initializeAutoComplete(): void {
   select.addEventListener('click', processSelectChange);
 
   // Watch input field changes.  The field didn't exist earlier than this.
-  inputField = document.querySelector<HTMLInputElement>('#lineinput-field')!;
+  inputField = document.getElementById('lineinput-field') as HTMLInputElement;
   inputField.addEventListener('input', maybeShowAutoComplete);
 
   inputField.addEventListener('keydown', (event) => {
@@ -265,6 +308,11 @@ function initializeAutoComplete(): void {
   // Check the auto-complete state now and on resize.
   maybeShowAutoComplete();
   window.addEventListener('resize', maybeShowAutoComplete);
+
+  // If it's a mobile device, force auto-complete and disable the keyboard.
+  if (isMobileBrowser()) {
+    forceAutoComplete();
+  }
 }
 
 function onResize(): void {
@@ -366,25 +414,3 @@ resetTopics();
 resetObjects();
 resetPeople();
 resetCustomAutoComplete();
-
-// The "vorple" global doesn't exist until DOMContentLoaded.
-document.addEventListener('DOMContentLoaded', () => {
-  function onExpectCommand(): void {
-    // Initialize autocomplete.
-    initializeAutoComplete();
-
-    // Once initialized, recompute auto-complete every time a new prompt is
-    // shown.
-    vorple.addEventListener('expectCommand', maybeShowAutoComplete);
-
-    // This only needs to happen once, so remove the listener now.
-    // Removing this while it's executing seems to cause some other listeners not to fire...
-    setTimeout(() => {
-      vorple.removeEventListener('expectCommand', onExpectCommand);
-    }, 1);
-  }
-
-  // When this event finally fires for the first time, the command prompt
-  // definitely exists.  This interface doesn't have a {once:true} option.
-  vorple.addEventListener('expectCommand', onExpectCommand);
-});
