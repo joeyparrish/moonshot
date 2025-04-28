@@ -32,6 +32,9 @@ export function stopSplash() {
 
   // Go into play mode.
   document.body.dataset['mode'] = 'play';
+
+  // Focus input, if it exists.
+  document.querySelector<HTMLInputElement>('#lineinput-field')?.focus();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

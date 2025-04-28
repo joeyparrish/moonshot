@@ -51,8 +51,16 @@ export function captureText(includeAutoComplete: boolean): string {
 }
 
 export function restoreTranscript(html: string): void {
-  // TODO: Sanitize this, in case the user has hacked it!
   output.outerHTML = html;
+
+  let lineinput = document.querySelector<HTMLElement>('#lineinput');
+  if (!lineinput) {
+    // Recreate the input form if it was destroyed.
+    lineinput = document.createElement('form');
+    lineinput.id = 'lineinput';
+    lineinput.innerHTML = '<label id="lineinput-prefix" for="lineinput-field">&gt;</label><input id="lineinput-field" name="lineinput" type="text" autocapitalize="none" autocomplete="off" class="">';
+    window0.appendChild(lineinput);
+  }
 }
 
 export async function saveTranscript(): Promise<void> {

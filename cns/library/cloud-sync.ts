@@ -49,7 +49,7 @@ let path: typeof PathModule;
 let gameFolder: string;
 let settingsPath: string;
 let savesFolderPath: string;
-let mostRecentRestoreGameName: string = '';
+let mostRecentRestoreGameName: string = 'CNSAutoSave';
 
 // No-op for browser builds.
 if (isDesktopBundle()) {
@@ -241,8 +241,11 @@ export function postRestore(): void {
 
   const saveName = mostRecentRestoreGameName;
   const savePath = path.join(savesFolderPath, saveName + '.sav');
-  const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
-
-  restoreTranscript(saveData.transcriptHTML);
-  console.log('Game transcript restored:', saveName);
+  try {
+    const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
+    restoreTranscript(saveData.transcriptHTML);
+    console.log('Game transcript restored:', saveName);
+  } catch (error) {
+    console.error('Failed to restore game transcript:', savePath);
+  }
 }
