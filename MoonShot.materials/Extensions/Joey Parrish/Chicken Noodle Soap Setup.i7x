@@ -170,7 +170,6 @@ Carry out triggering remove-page-effect:
 
 
 [Autocomplete hooks.]
-When play begins: execute JavaScript code "cns.autocomplete.initialize()".
 A thing can be noticed or unnoticed.  Things are usually noticed.
 To decide what list of things is the available objects:
 	let L be a list of things;
@@ -434,6 +433,19 @@ To unlock achievement (name - text):
 	execute JavaScript code "cns.achievements.unlock('[name]')";
 
 Every turn, increment stat "turns_taken".
+
+
+
+CNS init is a scene.
+CNS init begins when play begins.
+CNS ready is a truth state that varies.  CNS ready is initially false.
+CNS init ends when CNS ready is true.
+
+When CNS init begins:
+	now CNS ready is true;
+	execute JavaScript code "cns.autocomplete.initialize()";
+	follow the scene changing rules.
+
 
 
 Chicken Noodle Soap Setup ends here.

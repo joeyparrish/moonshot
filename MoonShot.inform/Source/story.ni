@@ -236,7 +236,7 @@ Vorple interface update rule:
 
 [---------- DAY 1 ----------]
 Day one is a scene.
-Day one begins when play begins.
+Day one begins when CNS init ends.
 When day one begins:
 	[Add default concepts for the beginning of the game]
 	make "name" known;
@@ -271,13 +271,12 @@ When day one begins:
 	say "After a whirlwind tour of NASA headquarters, which you are sure you've already [italic type]completely[roman type] forgotten, you are ushered into the office of your new boss: the director of NASA's Apollo program.  You heard recently that we're ready to send [italic type]a man to the moon[roman type].  You can scarcely believe it!  It's like something out of science fiction.  Nervously, you wait to be called into the inner office.[paragraph break]";
 	pause.
 
-Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
-Before reading a command while the turn count is 1:
-	if intro hints shown is false:
-		show hint "See the 'help' button in the top-right corner if you get stuck or if you need an introduction.";
-		show hint "You can also use the 'gear' button to change the game's settings, including music.";
-		now intro hints shown is true.
 
+Intro hints shown is initially false.  [Sadly, if the first command fails, the turn count stays at 1, and the intro hints get shown over and over.  This boolean condition allows us to prevent that.]
+Before reading a command while the turn count is 1 and CNS init has ended and intro hints shown is false:
+	show hint "See the 'help' button in the top-right corner if you get stuck or if you need an introduction.";
+	show hint "You can also use the 'gear' button to change the game's settings, including music.";
+	now intro hints shown is true.
 
 
 The director's waiting room is a room.  "The tiny waiting room barely has enough room for you, [the secretary], and her desk.  [if the houseplant is in the waiting room]There's a [interesting]houseplant[/interesting] in a pot, hanging from the ceiling in elaborately knotted macrame.  [end if][The secretary] is chewing bubblegum and sporadically blowing bubbles as large as her face that startle you when they pop."
@@ -2225,7 +2224,7 @@ Instead of asking the cat about:
 
 The chemist is a stranger in the chemistry lab.
 The chemist is female.
-The real name of the chemist is "Molly". 
+The real name of the chemist is "Molly".
 The index of the chemist is 7.
 Understand "Molly" as the chemist.
 The description of the chemist is "[The chemist]'s oversized tortoiseshell glasses make her eyes look enormous in her heart-shaped face.  She's wearing a lab coat that sports an impressive array of pins, with sentiments like 'Humphrey-Muskie,' 'Tune In, Turn On, & Drop Out' and 'I CAN GIVE IT! CAN YOU TAKE IT?'"
@@ -2614,7 +2613,7 @@ Check filming the moon landing:
 		stop the action.
 
 
-Carry out filming the moon landing: 
+Carry out filming the moon landing:
 	say "You begin rolling the film as the astronauts pretend to pilot the lunar lander down to the 'surface.'  You call out to the astronauts to walk as though gravity has little effect on them.  They prove very receptive to direction and bounce happily around the stage in their chemically-enhanced state, like kittens tumbling around with springs on their paws.  They giggle manically as they hit golf balls around the stage; those drugs sure did the job.  One of the astronauts rips a comically loud fart, but you're sure you can edit it out in post.";
 	now film-moon-landing is checked.
 
