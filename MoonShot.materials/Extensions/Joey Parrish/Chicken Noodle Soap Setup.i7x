@@ -320,18 +320,6 @@ To make (Bob - stranger) known:
 		now the acquaintance is Bob;
 		follow meeting rules;
 
-[To allow known topics to be saved and restored, we need to hook into the restore logic.  To do that, we only have a hook for the message that gets printed.  So we define a fake message which actually calls our logic to reset the UI's topic list.]
-Restore the game rule response (B) is "[post-restore routine]".
-To say post-restore routine:
-	if Vorple is supported:
-		execute JavaScript code "cns.autocomplete.resetTopics()";
-		repeat through the Table of Known Concepts:
-			execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
-		execute JavaScript code "cns.postRestore()";
-	say "Ok.";
-	try looking;
-	try taking inventory;
-
 [This occurs before each normal game prompt, whereas "before reading a command" fails to fire after an "undo".]
 Vorple interface update rule:
 	follow autocomplete update rules.
@@ -436,15 +424,192 @@ Every turn, increment stat "turns_taken".
 
 
 
+To decide if we are playing in a desktop bundle:
+	execute JavaScript code "return cns.isDesktopBundle()";
+	decide on whether or not the JavaScript code returned true.
+
+To decide if we are playing in a browser:
+	execute JavaScript code "return cns.isDesktopBundle()";
+	decide on whether or not the JavaScript code returned false.
+
+
+
 CNS init is a scene.
 CNS init begins when play begins.
 CNS ready is a truth state that varies.  CNS ready is initially false.
 CNS init ends when CNS ready is true.
 
 When CNS init begins:
+	if the file of save data exists:
+		read file of save data into memory;
+		[If successful, the next command does not happen because we load the old state.  If it fails, we fall through.]
+		say "[bracket]UNABLE TO RESTORE AUTO-SAVE FROM AN OLDER VERSION OF THE GAME[close bracket][paragraph break]";
+		delete file of save data;
 	now CNS ready is true;
 	execute JavaScript code "cns.autocomplete.initialize()";
 	follow the scene changing rules.
+
+
+[To allow known topics to be saved and restored, we need to hook into the restore logic.]
+Restoring from a saved game is an activity.
+For restoring from a saved game (this is the default restore rule):
+	execute JavaScript code "cns.autocomplete.initialize()";
+	execute JavaScript code "cns.autocomplete.resetTopics()";
+	repeat through the Table of Known Concepts:
+		execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
+	execute JavaScript code "cns.postRestore()";
+	[Desktop bundles can also restore the HTML transcript, but browsers can't.  So for a browser session, you need to give some missing context.]
+	if we are playing in a browser:
+		say "[bracket]RESTORED AUTO-SAVE FROM YOUR LAST SESSION; TYPE 'RESTART' TO START OVER[close bracket][paragraph break]";
+		try looking;
+		try taking inventory;
+
+
+[Auto-save and auto-restore logic are based on Kerkerkruip Permadeath by Victor Gijsbers, but heavily customized for our games and for Vorple.  Vorple itself also had to be modified to add support for file deletion.]
+An external file can be save file.
+The binary file of save data is called "CNSAutoSave".
+The file of save data is a save file.
+Automatic save boolean is a truth state that varies. Automatic save boolean is true.  [Used to stop messages from piling up beyond the first autosave failure.]
+
+Before reading a command (this is the automatically save after input rule):
+	[Save before each command except the first one.]
+	if the turn count is not 1:
+		write game data to the file of save data;
+	continue the action.
+
+Check saving the game (this is the block saving rule):
+	say "The game is saved and loaded automatically. There is no need to save it manually." instead.
+
+Check restoring the game (this is the block restore rule):
+	say "The game is saved and loaded automatically. There is no need to restore your game manually." instead.
+
+First carry out restarting the game (this is the delete save on restart rule):
+	[Delete the auto-save on an explicit restart command.]
+	delete file of save data;
+	continue the action.
+
+[We take advantage of the existence of the I7 "external file" type to make declaring files easier, but we should only use saved game files with these three phrases; the built-in external file handling is not equipped to deal with them. If we didn't use the I7 type, we would need to declare the name the saved game file(s) in I6 using string arrays.]
+To read (filename - save file external file) into memory:
+	(- FileIO_LoadSavedGame({filename}); -).
+
+To write game data to (filename - save file external file):
+	(- FileIO_WriteSavedGame({filename}); -).
+
+To delete (filename - save file external file):
+	(- FileIO_DeleteSavedGame({filename}); -).
+
+To decide if (filename - external file) exists:
+	if filename is a save file:
+		set filename as a save file;
+	decide on whether or not filename exists part b.
+
+To set (filename - external file) as a save file:
+	(- FileIO_SetSaveFile( {filename} ); -).
+
+To decide if (filename - external file) exists part b:
+	(- (FileIO_Exists({filename}, false)) -).
+
+Include (-
+
+[ FileIO_LoadSavedGame extf struc fref res;
+	if ((extf < 1) || (extf > NO_EXTERNAL_FILES))
+		return FileIO_Error(extf, "tried to access a non-file");
+	struc = TableOfExternalFiles-->extf;
+	fref = glk_fileref_create_by_name(fileusage_SavedGame + fileusage_BinaryMode, Glulx_ChangeAnyToCString(struc-->AUXF_FILENAME), 0);
+	if (fref == 0) jump RFailed;
+	gg_savestr = glk_stream_open_file(fref, $02, GG_SAVESTR_ROCK);
+	glk_fileref_destroy(fref);
+	if (gg_savestr == 0) jump RFailed;
+	@restore gg_savestr res;
+	glk_stream_close(gg_savestr, 0);
+	gg_savestr = 0;
+	rtrue;
+	.RFailed;
+	print "[Failed to restore existing game.]^^";
+	rfalse;
+];
+
+[ FileIO_WriteSavedGame extf struc fref res;
+	if (actor ~= player) rfalse;
+	if ((extf < 1) || (extf > NO_EXTERNAL_FILES))
+		return FileIO_Error(extf, "tried to access a non-file");
+	struc = TableOfExternalFiles-->extf;
+	fref = glk_fileref_create_by_name(fileusage_SavedGame + fileusage_BinaryMode, Glulx_ChangeAnyToCString(struc-->AUXF_FILENAME), 0);
+	if (fref == 0) jump SFailed;
+	gg_savestr = glk_stream_open_file(fref, $01, GG_SAVESTR_ROCK);
+	glk_fileref_destroy(fref);
+	if (gg_savestr == 0) jump SFailed;
+	@save gg_savestr res;
+	if (res == -1) {
+		! The player actually just typed "restore". We have to recover all the Glk objects;
+		! the values in our global variables are all wrong.
+		GGRecoverObjects();
+		glk_stream_close(gg_savestr, 0); ! stream_close
+		gg_savestr = 0;
+		CarryOutActivity( (+ restoring from a saved game +) );
+		rtrue;
+	}
+	glk_stream_close(gg_savestr, 0); ! stream_close
+	gg_savestr = 0;
+	if (res == 0) rtrue;
+	.SFailed;
+	if ( (+ Automatic save boolean +) )
+	{
+		print "[Could not save the game.]^^";
+		(+ Automatic save boolean +) = 0;
+	}
+];
+
+[ FileIO_DeleteSavedGame extf struc fref res;
+	if ((extf < 1) || (extf > NO_EXTERNAL_FILES))
+		return FileIO_Error(extf, "tried to access a non-file");
+	struc = TableOfExternalFiles-->extf;
+	fref = glk_fileref_create_by_name(fileusage_SavedGame + fileusage_BinaryMode, Glulx_ChangeAnyToCString(struc-->AUXF_FILENAME), 0);
+	if (fref == 0) rfalse;
+	if (glk_fileref_does_file_exist(fref)) {
+		res = glk_fileref_delete_file(fref);
+		if (res ~= 0) {
+			print "[Failed to delete the saved game. Please remove by hand.]^^";
+		}
+	}
+	glk_fileref_destroy(fref);
+];
+
+[ FileIO_SetSaveFile extf struc;
+	if ((extf < 1) || (extf > NO_EXTERNAL_FILES))
+		return FileIO_Error(extf, "tried to access a non-file");
+	struc = TableOfExternalFiles-->extf;
+	struc-->AUXF_BINARY = struc-->AUXF_BINARY | 2;
+];
+
+-).
+
+[ We will alter the built in if (external file) exists phrase so that we don't confuse matters with two similar phrases. ]
+Include (-
+
+[ FileIO_Exists extf fref struc rv usage;
+	if ((extf < 1) || (extf > NO_EXTERNAL_FILES)) rfalse;
+	struc = TableOfExternalFiles-->extf;
+	if ((struc == 0) || (struc-->AUXF_MAGIC ~= AUXF_MAGIC_VALUE)) rfalse;
+	if ( struc-->AUXF_BINARY )
+	{
+		usage = fileusage_BinaryMode;
+	} else {
+		usage = fileusage_TextMode;
+	}
+	if ( struc-->AUXF_BINARY & 2 == 2 )
+	{
+		usage = usage + fileusage_SavedGame;
+	} else {
+		usage = usage + fileusage_Data;
+	}
+	fref = glk_fileref_create_by_name( usage, Glulx_ChangeAnyToCString(struc-->AUXF_FILENAME), 0 );
+	rv = glk_fileref_does_file_exist(fref);
+	glk_fileref_destroy(fref);
+	return rv;
+];
+
+-) instead of "Existence" in "FileIO.i6t".
 
 
 

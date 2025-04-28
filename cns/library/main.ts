@@ -45,12 +45,14 @@ import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
 import {pauseGame} from './pause.ts';
 import {showHelp, showMap, showSettings} from './popups.ts';
 import {reportBug, saveTranscript} from './transcripts.ts';
+import {isDesktopBundle} from './util.ts';
 
 // @ts-ignore
 window.cns = {
   achievements,
   autocomplete,
   elements,
+  isDesktopBundle,
   logEvent,
   pauseGame,
   postRestore,

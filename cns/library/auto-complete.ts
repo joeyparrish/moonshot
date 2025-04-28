@@ -51,8 +51,7 @@ const BASIC_VERBS: string[] = [
   'examine ',
   'inventory\n',
   'wait\n',
-  'save\n',
-  'restore\n',
+  'restart\n',
 ];
 
 export function resetVerbs(includeBasic: boolean = true): void {

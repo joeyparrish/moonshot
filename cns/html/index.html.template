@@ -223,7 +223,7 @@
             <li class="top">
               <b>Game</b>
               <ul>
-                <li>save / restore</li>
+                <li>restart</li>
                 <li>quit (q)</li>
               </ul>
             </li>
