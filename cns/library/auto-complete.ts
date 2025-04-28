@@ -257,6 +257,10 @@ export function initialize(): void {
   inputField = document.getElementById('lineinput-field') as HTMLInputElement;
   inputField.addEventListener('input', maybeShowAutoComplete);
 
+  // Once in a while (after "restart" command), we fail to show autocomplete
+  // from other normal events.  Try again on input field focus.
+  inputField.addEventListener('focus', maybeShowAutoComplete);
+
   inputField.addEventListener('keydown', (event) => {
     // Don't let the user press enter when there's nothing in the input field.
     if (event.key == 'Enter' && /^\s*$/.exec(inputField.value)) {
