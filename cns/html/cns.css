@@ -673,6 +673,11 @@ body[data-mobile="true"] #delete-button {
   opacity: 1;
 }
 
+/* Add a small margin between title and message. */
+#toast-container > .toast > .toast-title {
+  margin-bottom: 1em;
+}
+
 /* In-game achievement popups, abusing toastr.info */
 #toast-container > .toast-info {
   font-size: 3vh;
@@ -708,10 +713,6 @@ body[data-mobile="true"] #delete-button {
 #toast-container > .toast-info > .toast-title,
 #toast-container > .toast-info > .toast-message {
   white-space: pre-wrap;
-}
-
-#toast-container > .toast-info > .toast-title {
-  margin-bottom: 1em;
 }
 
 #toast-container > .toast-info > .toast-message {
