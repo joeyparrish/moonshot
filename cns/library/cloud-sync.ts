@@ -52,8 +52,10 @@ let fs: typeof FSModule;
 let path: typeof PathModule;
 let gameFolder: string;
 let settingsPath: string;
-let savesFolderPath: string;
-let mostRecentRestoreGameName: string = 'CNSAutoSave';
+let autoSavePath: string;
+
+// Must match the filename used by the CNS extension in Inform.
+const AUTO_SAVE_FILE: string = 'CNSAutoSave';
 
 // No-op for browser builds.
 if (isDesktopBundle()) {
@@ -62,9 +64,7 @@ if (isDesktopBundle()) {
 
   gameFolder = path.dirname(process.execPath);
   settingsPath = path.join(gameFolder, 'settings.json');
-  savesFolderPath = path.join(gameFolder, 'Saves');
-
-  fs.mkdirSync(savesFolderPath, {recursive: true});
+  autoSavePath = path.join(gameFolder, 'autosave.json');
 
   // Back up localStorage through the filesystem.
   localStorage.setItem = storageShim(localStorage.setItem, /* checkKey= */ true);
@@ -88,12 +88,6 @@ if (isDesktopBundle()) {
     Glk.glk_put_buffer_stream = glkShim(
         Glk.glk_put_buffer_stream, onSaveGame,
         'Failed to write saved game!');
-
-    // Shim the file reading API to get access to the name of the restored game
-    // during loading, to restore the saved transcript afterward.
-    Glk.glk_get_buffer_stream = glkShim(
-        Glk.glk_get_buffer_stream, onLoadGame,
-        'Failed to snoop on loaded game name!');
   });
 }
 
@@ -162,15 +156,12 @@ function storageShim<T extends Function>(method: T, checkKey: boolean): T {
 // NOTE: Saved games are invalidated and ignored after the Inform game itself
 // is modified.
 async function loadSavedGamesFromDisk(): Promise<void> {
-  const vfs = vorple.file.getFS();
-
-  // For each save in our folder, load the data and sync it into the virtual
-  // filesystem used by the interpreter.
-  for (const saveName of fs.readdirSync(savesFolderPath)) {
-    if (!saveName.endsWith('.sav')) continue;
-
-    const savePath = path.join(savesFolderPath, saveName);
-    const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
+  // Load autosave data and sync it into the virtual filesystem used by the
+  // interpreter.
+  if (fs.existsSync(autoSavePath)) {
+    const vfs = vorple.file.getFS();
+    const saveData = JSON.parse(
+        fs.readFileSync(autoSavePath, {encoding: 'utf8'})) as SaveData;
 
     // The VFS interface requires a string.  It shouldn't, but if I give it a
     // Uint8Array or anything else I can come up with, it throws trying to call
@@ -214,12 +205,6 @@ function glkShim<T extends Function>(method: T, pre: T, errorCtx: string): T {
   } as unknown as T;
 }
 
-function onLoadGame(stream: Glk.GlkStream, _array: number[]) {
-  // NOTE: This is called multiple times per restore, once per kB of loaded
-  // data.  Since all we care about is the file name, that's fine.
-  mostRecentRestoreGameName = stream.filename.split('/').pop()!;
-}
-
 function onSaveGame(stream: Glk.GlkStream, array: number[]) {
   const transcriptHTML = captureHTML(/* includeAutoComplete= */ true);
   const transcriptText = captureText(/* includeAutoComplete= */ false);
@@ -232,8 +217,13 @@ function onSaveGame(stream: Glk.GlkStream, array: number[]) {
   };
 
   const saveName = stream.filename.split('/').pop()!;
-  const savePath = path.join(savesFolderPath, saveName + '.sav');
-  fs.writeFileSync(savePath, JSON.stringify(saveData), {encoding: 'utf8'});
+  if (saveName != AUTO_SAVE_FILE) {
+    // This shouldn't happen with auto-save being enforced.
+    console.error('Unexpected saved game:', stream.filename);
+    return;
+  }
+
+  fs.writeFileSync(autoSavePath, JSON.stringify(saveData), {encoding: 'utf8'});
 }
 
 export function postRestore(): void {
@@ -245,13 +235,11 @@ export function postRestore(): void {
     return;
   }
 
-  const saveName = mostRecentRestoreGameName;
-  const savePath = path.join(savesFolderPath, saveName + '.sav');
   try {
-    const saveData = JSON.parse(fs.readFileSync(savePath, {encoding: 'utf8'})) as SaveData;
+    const saveData = JSON.parse(fs.readFileSync(autoSavePath, {encoding: 'utf8'})) as SaveData;
     restoreTranscript(saveData.transcriptHTML);
-    console.log('Game transcript restored:', saveName);
+    console.log('Game transcript restored.');
   } catch (error) {
-    console.error('Failed to restore game transcript:', savePath);
+    console.error('Failed to restore game transcript!', error);
   }
 }
