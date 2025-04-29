@@ -75,23 +75,7 @@ async function showAchievement(
     title: string,
     description: string,
     icon: string): Promise<void> {
-  // Find existing toasts for this same achievement.
-  const oldToastElements = Array.from(document.querySelectorAll<HTMLElement>(
-      `.toast-info[data-achievement=${achievementName}`));
-  for (const oldToastElement of oldToastElements) {
-    try {
-      // We could use toastr.clear($(oldToastElement)), but that causes the old
-      // one to fade away before disappearing.  Better to have the new one pop
-      // over the old one much faster by simply removing the old one from the
-      // DOM.
-      $(oldToastElement).remove();
-    } catch (error) {
-      console.error('Failed to remove toast', oldToastElement, error);
-    }
-  }
-
-  const toastElement = await toastAchievement(title, description);
-  toastElement.dataset['achievement'] = achievementName;
+  const toastElement = await toastAchievement(title, description, achievementName);
   toastElement.style.setProperty('--achievement-icon', `url(${icon})`);
 }
 
