@@ -21,11 +21,20 @@ const DEFAULT_TOAST_DURATION_SECONDS = 20;
 
 type ToastLevel = 'info'|'success'|'warning'|'error';
 
-function showToast(
+async function showToast(
     level: ToastLevel,
     title: string,
     description: string,
-    timeoutSeconds: number = DEFAULT_TOAST_DURATION_SECONDS): HTMLElement {
+    timeoutSeconds: number = DEFAULT_TOAST_DURATION_SECONDS): Promise<HTMLElement> {
+  // Defer toasts until we're in play mode.
+  if (document.body.dataset['mode'] != 'play') {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(showToast(level, title, description, timeoutSeconds));
+      }, 1000);
+    });
+  }
+
   const rv = toastr[level](
       description,
       title,
@@ -40,7 +49,7 @@ function showToast(
 export function achievement(
     title: string,
     description: string,
-    timeoutSeconds?: number): HTMLElement {
+    timeoutSeconds?: number): Promise<HTMLElement> {
   // We abuse the "info" toast type for achievements.
   return showToast('info', title, description, timeoutSeconds);
 }
@@ -48,20 +57,20 @@ export function achievement(
 export function success(
     title: string,
     description: string,
-    timeoutSeconds?: number): HTMLElement {
+    timeoutSeconds?: number): Promise<HTMLElement> {
   return showToast('success', title, description, timeoutSeconds);
 }
 
 export function warning(
     title: string,
     description: string,
-    timeoutSeconds?: number): HTMLElement {
+    timeoutSeconds?: number): Promise<HTMLElement> {
   return showToast('warning', title, description, timeoutSeconds);
 }
 
 export function error(
     title: string,
     description: string,
-    timeoutSeconds?: number): HTMLElement {
+    timeoutSeconds?: number): Promise<HTMLElement> {
   return showToast('error', title, description, timeoutSeconds);
 }

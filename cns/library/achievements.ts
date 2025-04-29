@@ -70,11 +70,11 @@ function achievementIcon(name: string, status: 'locked'|'unlocked'): string {
   return `achievements/${name}_${status}.png`;
 }
 
-function showAchievement(
+async function showAchievement(
     achievementName: string,
     title: string,
     description: string,
-    icon: string): void {
+    icon: string): Promise<void> {
   // Find existing toasts for this same achievement.
   const oldToastElements = Array.from(document.querySelectorAll<HTMLElement>(
       `.toast-info[data-achievement=${achievementName}`));
@@ -90,7 +90,7 @@ function showAchievement(
     }
   }
 
-  const toastElement = toastAchievement(title, description);
+  const toastElement = await toastAchievement(title, description);
   toastElement.dataset['achievement'] = achievementName;
   toastElement.style.setProperty('--achievement-icon', `url(${icon})`);
 }
