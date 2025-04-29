@@ -133,7 +133,7 @@
                 data-popup-container-id="settings-card-container">Settings</button>
           </p>
 
-          <p class="browser-only">
+          <p>
             <button
                 class="floating-button-text popup-close popup-open"
                 onapply="cns.achievements.showAchievements();"

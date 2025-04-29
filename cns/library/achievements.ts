@@ -97,8 +97,10 @@ async function showAchievement(
 
 function connectStatsToAchievement(statName: string, value: number): void {
   // In browser builds, we don't have a stats system tied to achievements
-  // automatically.  Emulate that here.
-  if (isDesktopBundle()) return;
+  // automatically.  In desktop builds, we have Steam, but the toasts don't
+  // show up because we don't have support for the Steam overlay.  Because of
+  // that, we don't merely depend on Steam to link stats to achievements.  We
+  // also implement that here for consistent display.
 
   if (statName in stats) {
     const {achievementName, target} = stats[statName]!;
@@ -128,18 +130,19 @@ export async function initAchievements(): Promise<void> {
           'Achievements and stats are unavailable.');
       console.error('Failed to load Steam API!', error);
     }
-  } else {
-    const response = await fetch('achievements/metadata.json');
-    achievements = await response.json() as AchievementMetadataMap;
+  }
 
-    for (const achievementName in achievements) {
-      const metadata = achievements[achievementName]!;
-      if (metadata.stat) {
-        stats[metadata.stat] = {
-          achievementName,
-          target: metadata.target!,
-        };
-      }
+  // Get achievement metadata in all environments.
+  const response = await fetch('achievements/metadata.json');
+  achievements = await response.json() as AchievementMetadataMap;
+
+  for (const achievementName in achievements) {
+    const metadata = achievements[achievementName]!;
+    if (metadata.stat) {
+      stats[metadata.stat] = {
+        achievementName,
+        target: metadata.target!,
+      };
     }
   }
 }
@@ -169,9 +172,10 @@ export function setStat(name: string, value: number): void {
   } else {
     if (value != getStat(name)) {
       localStorage.setItem(achievementKey(name), value.toString());
-      connectStatsToAchievement(name, value);
     }
   }
+
+  connectStatsToAchievement(name, value);
 }
 
 export function incrementStat(name: string): void {
@@ -203,29 +207,31 @@ export function countBits(maskName: string, statName: string): void {
 
 export function unlock(name: string): void {
   console.log('Unlocked: ' + name);
+
+  if (isUnlocked(name)) return;
+
   if (isDesktopBundle()) {
     if (!client) return;
     if (!client.achievement.activate(name)) {
       console.error(`Failed to unlock achievement!`);
     }
   } else {
-    if (isUnlocked(name)) return;
-
     localStorage.setItem(achievementKey(name), UNLOCKED);
+  }
 
-    if (name in achievements) {
-      const { title, description } = achievements[name]!;
-      showAchievement(
-          name,
-          `Achievement Unlocked!\n\n${title}`,
-          description,
-          achievementIcon(name, 'unlocked'));
-    }
+  if (name in achievements) {
+    const { title, description } = achievements[name]!;
+    showAchievement(
+        name,
+        `Achievement Unlocked!\n\n${title}`,
+        description,
+        achievementIcon(name, 'unlocked'));
   }
 }
 
 export function isUnlocked(name: string): boolean {
-  if (isDesktopBundle() && client) {
+  if (isDesktopBundle()) {
+    if (!client) return false;
     return client.achievement.isActivated(name);
   } else {
     return localStorage.getItem(achievementKey(name)) == UNLOCKED;
@@ -234,6 +240,7 @@ export function isUnlocked(name: string): boolean {
 
 export function relock(name: string): void {
   console.log('Relocking: ' + name);
+
   if (isDesktopBundle()) {
     if (!client) return;
     if (!client.achievement.clear(name)) {
