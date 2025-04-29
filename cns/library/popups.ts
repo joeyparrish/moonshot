@@ -95,7 +95,7 @@ function setSetting(element: HTMLInputElement, key: string, value: string): void
 
 function executeOnApply(element: HTMLElement): void {
   // Run custom "onapply" hook from the element.
-  // This differs from "change" events, which are triggered by the user
+  // This differs from "input" events, which are triggered by the user
   // changing the UI.  In contrast, this can be triggered by us loading the
   // initial settings, as well.
   const onApply = element.getAttribute('onapply');
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const settingString = localStorage.getItem(key) || defaultSetting;
     setSetting(element, key, settingString);
 
-    element.addEventListener('change', () => {
+    element.addEventListener('input', () => {
       const value = isBool ? element.checked.toString() : element.value;
       setSetting(element, key, value);
     });
