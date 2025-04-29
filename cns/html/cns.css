@@ -662,18 +662,23 @@ body[data-mobile="true"] #delete-button {
   display: block;
 }
 
-/* In-game achievement popups, abusing toastr.info */
+/* In-game toasts. */
 #toast-container {
   /* Otherwise, this overlaps the scroll bar. */
   right: 1em;
 }
 
+/* All toasts are opaque. */
+#toast-container > .toast {
+  opacity: 1;
+}
+
+/* In-game achievement popups, abusing toastr.info */
 #toast-container > .toast-info {
   font-size: 3vh;
 
   background-color: dimgray;
   color: white;
-  opacity: 1;
 
   /* The base toastr uses !important, so we have to, too */
   background-image: none !important;
