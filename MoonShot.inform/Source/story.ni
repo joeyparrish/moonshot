@@ -246,20 +246,8 @@ When day one begins:
 	make internship known;
 	make "secretary" known;
 	make "director" known;
-	if Vorple is supported:
-		[The HTML-based Vorple interpreter can handle centering a large block of text very well.]
-		execute JavaScript command "cns.elements.clearScreen()";
-		center "[blockquote style]'We choose to go to the moon in this decade... because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone...'[line break][line break]-- U.S. President John Fitzgerald Kennedy[end style]";
-	otherwise:
-		[In other interpreters, it looks better broken up into explicit lines, with each one centered.]
-		center "'We choose to go to the moon in this decade...";
-		center "because that goal will serve to organize and";
-		center "measure the best of our energies and skills,";
-		center "because that challenge is one that we are";
-		center "willing to accept, one we are unwilling";
-		center "to postpone...'";
-		center "[line break]";
-		center "-- U.S. President John Fitzgerald Kennedy";
+	execute JavaScript command "cns.elements.clearScreen()";
+	center "[blockquote style]'We choose to go to the moon in this decade... because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone...'[line break][line break]-- U.S. President John Fitzgerald Kennedy[end style]";
 	say paragraph break;
 	pause;
 	now checklist-1 is on the director's desk;
@@ -447,11 +435,7 @@ The bobblehead dolls are portable-scenery in the director's office.
 The triangular nameplate is an interesting, closed, opaque, undescribed thing on the director's desk.
 Instead of examining the triangular nameplate:
 	say "A small, wooden, triangular prism with an engraved metal plate attached that reads:[line break]";
-	if Vorple is supported:
-		center "[nameplate-card style][bold type]Dirk Furtwangler[roman type][line break]Director[end style]";
-	otherwise:
-		center "[bold type]Dirk Furtwangler[roman type]";
-		center "Director";
+	center "[nameplate-card style][bold type]Dirk Furtwangler[roman type][line break]Director[end style]";
 	make the director known;
 	if the player has the triangular nameplate:
 		now the triangular nameplate is openable;
@@ -604,11 +588,7 @@ Instead of taking the bronze plaque:
 
 Instead of examining the plaque:
 	say "Engraved in bronze, the plaque says:[line break]";
-	if Vorple is supported:
-		center "[plaque-card style][bold type]Apollo[roman type][line break]Never give up, never surrender![end style]";
-	otherwise:
-		center "[bold type]Apollo[roman type]";
-		center "Never give up, never surrender!"
+	center "[plaque-card style][bold type]Apollo[roman type][line break]Never give up, never surrender![end style]".
 
 
 
@@ -618,8 +598,7 @@ The printed name of the engineering department is "NASA Engineering Department".
 The unicorn is interesting scenery in the engineering department.
 Instead of examining the unicorn:
 	say "Did a child draw this?[line break]";
-	if Vorple is supported:
-		say "[unicorn-card style][end style][line break]";
+	say "[unicorn-card style][end style][line break]".
 
 Instead of taking the unicorn:
 	say "Only the pure of heart may approach a unicorn.";
@@ -628,11 +607,8 @@ Instead of taking the unicorn:
 The diagrams are interesting scenery in the engineering department.
 Understand "diagram" as the diagrams.
 Instead of examining the diagrams:
-	if Vorple is supported:
-		place a link to web site "https://imgs.xkcd.com/comics/circuit_diagram.png" reading "You can't make any sense of them.";
-		say line break;
-	otherwise:
-		say "You can't make any sense of them."
+	place a link to web site "https://imgs.xkcd.com/comics/circuit_diagram.png" reading "You can't make any sense of them.";
+	say line break.
 
 The cubicles are scenery in the engineering department.  "These are standard cubicles for standard engineers.  They are precisely measured, in imperial units.  America!"
 
@@ -1033,10 +1009,10 @@ Instead of quizzing the tapir about equations:
 	try quizzing the tapir about rocket-equations.
 
 Alien-equations is a critical thing.
-The description of alien-equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations.[if Vorple is supported]
+The description of alien-equations is "A small slip of paper written in an alien language, or possibly in English as written by the hand of an aardvark.  You have been told that these are extremely advanced rocket equations.
 [alien-paper style]
 Mix high-quality bourbon whiskey with lemon juice and maple syrup, then garnish with orange peel and a cocktail cherry.  Shake with ice and serve.
-[end style][end if]"
+[end style]".
 
 Understand "alien equations" as alien-equations.  [If I give the object its natural name instead of using "understand", then "equations" results in a disambiguation prompt between "equations" and "alien equations", which is confusing.]
 The printed name of alien-equations is "alien equations".

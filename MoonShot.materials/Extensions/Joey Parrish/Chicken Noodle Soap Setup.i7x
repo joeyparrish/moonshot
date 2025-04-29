@@ -53,19 +53,16 @@ A room memory rule:
 
 [Customize how we print inventory, using nested unordered lists.]
 Carry out taking inventory (this is the print inventory using HTML lists rule):
-	if Vorple is supported:
-		say "[We] [are] carrying:[line break]" (A);
-		open HTML tag "ul" called "inventory";
-		repeat with item running through things carried by the player:
-			place "li" element reading "[item]";
-			if the item contains something and the item is not opaque:
-				open HTML tag "ul";
-				repeat with content running through things contained by the item:
-					place "li" element reading "[content]";
-				close HTML tag;
-		close HTML tag;
-	otherwise:
-		follow the print standard inventory rule.
+	say "[We] [are] carrying:[line break]" (A);
+	open HTML tag "ul" called "inventory";
+	repeat with item running through things carried by the player:
+		place "li" element reading "[item]";
+		if the item contains something and the item is not opaque:
+			open HTML tag "ul";
+			repeat with content running through things contained by the item:
+				place "li" element reading "[content]";
+			close HTML tag;
+	close HTML tag.
 The print inventory using HTML lists rule is listed instead of the print standard inventory rule in the carry out taking inventory rules.
 
 
@@ -81,14 +78,10 @@ After reading a command:
 
 [I don't like how Emily Short's "pause the game" rule clears the screen after continuing. Here's my own definition built on some of hers.]
 To pause:
-	if Vorple is supported:
-		center "[continue style](click or tap to continue)[end style]";
-		execute JavaScript code "cns.pauseGame()";
-		[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
-		wait for the SPACE key;
-	otherwise:
-		say "[paragraph break]Please press SPACE to continue[line break]";
-		wait for the SPACE key;
+	center "[continue style](click or tap to continue)[end style]";
+	execute JavaScript code "cns.pauseGame()";
+	[unpauseGame() will send a keystroke here to allow us to continue sending outputs to Vorple.]
+	wait for the SPACE key.
 
 
 [One play tester kept using "exa" instead of "x" or "examine" because that alias works in some common MUD games.  Support it here.]
@@ -156,8 +149,7 @@ Instead of taking portable-scenery:
 
 [Analytics hook.]
 To log event (NAME - text):
-	if Vorple is supported:
-		execute JavaScript code "cns.logEvent('[NAME]')";
+	execute JavaScript code "cns.logEvent('[NAME]')".
 
 
 [Page effects, defined in CSS.]
@@ -192,102 +184,101 @@ Extra autocomplete verbs rules is a rulebook.
 Extra-verbs is a list of text that varies.
 Autocomplete update rules is a rulebook.
 Autocomplete update rule:
-	if Vorple is supported:
-		if the story has ended:
-			execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
-			execute JavaScript code "cns.autocomplete.addVerb('restart\n')";
-			execute JavaScript code "cns.autocomplete.addVerb('restore\n')";
-			execute JavaScript code "cns.autocomplete.addVerb('quit\n')";
-			execute JavaScript code "cns.autocomplete.addVerb('undo\n')";
-			[Do not check story rules for verbs.]
-		otherwise:
-			execute JavaScript code "cns.autocomplete.resetVerbs(true)"; [Include basic verbs.]
-			execute JavaScript code "cns.autocomplete.resetCustomAutoComplete()";
-			[Call story rules for verbs.]
-			follow the extra autocomplete verbs rules;
-			repeat with verb-name running through extra-verbs:
-				execute JavaScript code "cns.autocomplete.addVerb('[verb-name]')";
-			repeat with dir running through directions:
-				if the room dir from the location is a room:
-					execute JavaScript code "cns.autocomplete.addVerb('[dir]\n')";
-			execute JavaScript code "cns.autocomplete.resetPeople()";
-			repeat with person running through people enclosed by the location:
-				if person is not yourself and person is noticed:
-					[A person is an available conversation partner only if noticed.]
-					execute JavaScript code "cns.autocomplete.addPerson('[person]')";
-			execute JavaScript code "cns.autocomplete.resetObjects()";
-			let can-ask be false;
-			let can-take be false;
-			let can-drop be false;
-			let can-eat be false;
-			let can-drink be false;
-			let can-open be false;
-			let can-sit be false;
-			repeat with item running through the available objects:
-				let is-takeable be true;
-				let is-inventory be false;
-				let is-edible be false;
-				let is-potable be false;
-				let is-openable be false;
-				let is-sittable be false;
-				if item is carried by the player:
-					now is-takeable is false;
-					now is-inventory is true;
-					now can-drop is true;
-				if item is a person:
-					now is-takeable is false;
-					now can-ask is true;
-					if can-sit-on-people is true:
-						now is-sittable is true;
-				if item is scenery:
-					now is-takeable is false;
-				if item is portable-scenery:
-					now is-takeable is false;
-				if item is fixed in place:
-					now is-takeable is false;
-				if item is a concept:
-					now is-takeable is false;
-				if item is edible:
-					now is-edible is true;
-					now can-eat is true;
-				if item is a drink:
-					now is-potable is true;
-					now can-drink is true;
-				if item is openable:
-					now is-openable is true;
-					now can-open is true;
-				if item is an enterable supporter:
+	if the story has ended:
+		execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
+		execute JavaScript code "cns.autocomplete.addVerb('restart\n')";
+		execute JavaScript code "cns.autocomplete.addVerb('restore\n')";
+		execute JavaScript code "cns.autocomplete.addVerb('quit\n')";
+		execute JavaScript code "cns.autocomplete.addVerb('undo\n')";
+		[Do not check story rules for verbs.]
+	otherwise:
+		execute JavaScript code "cns.autocomplete.resetVerbs(true)"; [Include basic verbs.]
+		execute JavaScript code "cns.autocomplete.resetCustomAutoComplete()";
+		[Call story rules for verbs.]
+		follow the extra autocomplete verbs rules;
+		repeat with verb-name running through extra-verbs:
+			execute JavaScript code "cns.autocomplete.addVerb('[verb-name]')";
+		repeat with dir running through directions:
+			if the room dir from the location is a room:
+				execute JavaScript code "cns.autocomplete.addVerb('[dir]\n')";
+		execute JavaScript code "cns.autocomplete.resetPeople()";
+		repeat with person running through people enclosed by the location:
+			if person is not yourself and person is noticed:
+				[A person is an available conversation partner only if noticed.]
+				execute JavaScript code "cns.autocomplete.addPerson('[person]')";
+		execute JavaScript code "cns.autocomplete.resetObjects()";
+		let can-ask be false;
+		let can-take be false;
+		let can-drop be false;
+		let can-eat be false;
+		let can-drink be false;
+		let can-open be false;
+		let can-sit be false;
+		repeat with item running through the available objects:
+			let is-takeable be true;
+			let is-inventory be false;
+			let is-edible be false;
+			let is-potable be false;
+			let is-openable be false;
+			let is-sittable be false;
+			if item is carried by the player:
+				now is-takeable is false;
+				now is-inventory is true;
+				now can-drop is true;
+			if item is a person:
+				now is-takeable is false;
+				now can-ask is true;
+				if can-sit-on-people is true:
 					now is-sittable is true;
-					now can-sit is true;
-				execute JavaScript code "cns.autocomplete.addObject({
-					name: '[item]',
-					inventory: [is-inventory],
-					takeable: [is-takeable],
-					edible: [is-edible],
-					potable: [is-potable],
-					openable: [is-openable],
-					sittable: [is-sittable],
-				})";
-				if is-takeable is true:
-					now can-take is true;
+			if item is scenery:
+				now is-takeable is false;
+			if item is portable-scenery:
+				now is-takeable is false;
+			if item is fixed in place:
+				now is-takeable is false;
+			if item is a concept:
+				now is-takeable is false;
+			if item is edible:
+				now is-edible is true;
+				now can-eat is true;
+			if item is a drink:
+				now is-potable is true;
+				now can-drink is true;
+			if item is openable:
+				now is-openable is true;
+				now can-open is true;
+			if item is an enterable supporter:
+				now is-sittable is true;
+				now can-sit is true;
+			execute JavaScript code "cns.autocomplete.addObject({
+				name: '[item]',
+				inventory: [is-inventory],
+				takeable: [is-takeable],
+				edible: [is-edible],
+				potable: [is-potable],
+				openable: [is-openable],
+				sittable: [is-sittable],
+			})";
+			if is-takeable is true:
+				now can-take is true;
+		if can-ask is true:
+			execute JavaScript code "cns.autocomplete.addVerb('ask ')";
+		if can-take is true:
+			execute JavaScript code "cns.autocomplete.addVerb('take ')";
+		if can-drop is true:
+			[if you have something, you can drop it.]
+			execute JavaScript code "cns.autocomplete.addVerb('drop ')";
+			["give" also requires a person, so...]
 			if can-ask is true:
-				execute JavaScript code "cns.autocomplete.addVerb('ask ')";
-			if can-take is true:
-				execute JavaScript code "cns.autocomplete.addVerb('take ')";
-			if can-drop is true:
-				[if you have something, you can drop it.]
-				execute JavaScript code "cns.autocomplete.addVerb('drop ')";
-				["give" also requires a person, so...]
-				if can-ask is true:
-					execute JavaScript code "cns.autocomplete.addVerb('give ')";
-			if can-eat is true:
-				execute JavaScript code "cns.autocomplete.addVerb('eat ')";
-			if can-drink is true:
-				execute JavaScript code "cns.autocomplete.addVerb('drink ')";
-			if can-open is true:
-				execute JavaScript code "cns.autocomplete.addVerb('open ')";
-			if can-sit is true:
-				execute JavaScript code "cns.autocomplete.addVerb('sit on ')";
+				execute JavaScript code "cns.autocomplete.addVerb('give ')";
+		if can-eat is true:
+			execute JavaScript code "cns.autocomplete.addVerb('eat ')";
+		if can-drink is true:
+			execute JavaScript code "cns.autocomplete.addVerb('drink ')";
+		if can-open is true:
+			execute JavaScript code "cns.autocomplete.addVerb('open ')";
+		if can-sit is true:
+			execute JavaScript code "cns.autocomplete.addVerb('sit on ')";
 
 [This is initially empty.  It is used to store concepts we know in a way that can be saved and restored.]
 Table of Known Concepts
@@ -342,42 +333,29 @@ After reading a command:
 [Add commands to invoke UI dialogs.  These commands used to be in MoonShot before we had the corresponding UI elements, so we should maybe keep them for backward compatibility.]
 Helping is an action out of world applying to nothing.  Understand "help", "verb", and "verbs" as helping.
 Carry out helping:
-	if Vorple is supported:
-		execute JavaScript code "cns.showHelp()";
-	otherwise:
-		say "Sorry, in-game help requires the web interpreter.".
+	execute JavaScript code "cns.showHelp()".
 
 Showing map is an action out of world applying to nothing.  Understand "map" as showing map.
 Carry out showing map:
-	if Vorple is supported:
-		execute JavaScript code "cns.showMap()";
-	otherwise:
-		say "Sorry, in-game maps require the web interpreter.".
+	execute JavaScript code "cns.showMap()".
 
 Showing options is an action out of world applying to nothing.  Understand "options" and "settings" as showing options.
 Carry out showing options:
-	if Vorple is supported:
-		execute JavaScript code "cns.showSettings()";
-	otherwise:
-		say "Sorry, in-game options require the web interpreter.".
+	execute JavaScript code "cns.showSettings()".
 
 
 [Add hooks for hints and highlights for interesting objects.]
 hint is a Vorple style.
 To show hint (T - text):
-	if Vorple is supported:
-		say hint style;
+	say hint style;
 	say "(Hint: [T])[line break]";
-	if Vorple is supported:
-		say end style;
+	say end style.
 
 interesting-highlight is a Vorple style.
 To say interesting:
-	if Vorple is supported:
-		say interesting-highlight style;
+	say interesting-highlight style.
 To say /interesting:
-	if Vorple is supported:
-		say end style;
+	say end style.
 
 A thing can be interesting or uninteresting.  Things are usually uninteresting.
 Before printing the name of a thing (called the thingy):
