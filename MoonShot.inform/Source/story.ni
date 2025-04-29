@@ -251,7 +251,6 @@ When day one begins:
 	say paragraph break;
 	pause;
 	now checklist-1 is on the director's desk;
-	now checklist-2 is nowhere;
 	log event "day1";
 	say "[room-heading style]NASA Headquarters, 1969[end style]";
 	say line break;
@@ -1659,6 +1658,9 @@ When day two begins:
 	now personnel file 5 is nowhere;
 	now personnel file 6 is nowhere;
 	now checklist-2 is on the director's desk;
+	now the target of feed-a1 is entry 1 of the sub-items of choose-crew;
+	now the target of feed-a2 is entry 2 of the sub-items of choose-crew;
+	now the target of feed-a3 is entry 3 of the sub-items of choose-crew;
 	now the director is not ready;
 	now the director is not visited;
 	now the director is not relaxed;
@@ -1679,13 +1681,29 @@ Carry out triggering director-yells-2:
 Glitter is a concept.  The allowed-scene of glitter is day two.
 Understand "operation glitter" as glitter.
 
+Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
+Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts".
+
 Checklist-2 is an interesting, privately-named [aliases only], critical [can't drop it] checklist.
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
 Understand "Operation Glitter checklist" as checklist-2.
 Understand "checklist" as checklist-2 when day two is happening.
+The items of checklist-2 are {get-lunch, drug-astronauts}.  [Initially, we hide the filming and reveal it later when Stanley gets sick.]
 
+
+A food-checklist-item is a kind of checklist-item.
+A food-checklist-item has a person called the target.
+Feed-donna, feed-dirk, feed-franklin, feed-stanley, feed-a1, feed-a2, feed-a3 are food-checklist-items.
+The target of feed-donna is the secretary.
+The target of feed-dirk is the director.
+The target of feed-franklin is the head of personnel.
+The target of feed-stanley is the photographer.
+[feed-a1 through feed-a3 have their targets assigned when starting day2, based on choose-crew.]
+Rule for printing the name of a food-checklist-item (called X):
+	say "[the target of X]".
+The sub-items of get-lunch are {feed-donna, feed-dirk, feed-franklin, feed-stanley, feed-a1, feed-a2, feed-a3}.
 
 
 [Keep the player from leaving without the checklist.]
@@ -1765,8 +1783,6 @@ Instead of quizzing the director about rocket-equations during day two:
 
 
 
-Get-lunch is a checklist-item.  The printed name of get-lunch is "Get lunch".
-
 Lunch is a concept.  The allowed-scene of lunch is day two.
 Lunch can be day-two-discussed.
 Instead of quizzing the director about lunch:
@@ -1777,7 +1793,6 @@ Instead of quizzing the director about lunch:
 		now lunch is day-two-discussed.
 
 
-Drug-astronauts is a checklist-item.  The printed name of drug-astronauts is "'Prepare' astronauts".
 Brain-washing is a concept.  The allowed-scene of the brain-washing is day two.
 [So much euphemism, and so many variations in phrasing.  Phrasing!]
 Understand "prepare", "preparing", "prepare astronauts", "preparing astronauts", "prepare crew", and "preparing crew" as brain-washing.
@@ -1805,9 +1820,6 @@ Instead of quizzing the director about the filming:
 	now the player has the moon landing script.
 Instead of quizzing the photographer about the filming:
 	say "'I'm not signing autographs,' he says with a sly grin.  'In fact, I'm not even here.  What we're doing today never leaves this building.'"
-
-
-The items of checklist-2 are {get-lunch, drug-astronauts}.  [Initially, we hide the filming and reveal it later when Stanley gets sick.]
 
 
 
@@ -2119,6 +2131,9 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 			say "[The recipient] takes [the snack].  [one of]'Thanks, kid!'[or]'Oh, my favorite!'[or]'That looks great!'[purely at random]";
 		now the snack is nowhere;
 		now the recipient is fed;
+		repeat with Z running through the sub-items of get-lunch:
+			if the target of Z is the recipient:
+				now Z is checked;
 		increase the fed count by 1;
 		if the fed count is 7:
 			say "That seems to be the last of the lunch deliveries![paragraph break]";
@@ -2793,7 +2808,7 @@ Test start2 with "test day2 / test waiting / ask about glitter / take checklist 
 
 Test start2alt with "test day2alt / test waiting / ask about glitter / take checklist / x checklist".
 
-Test foodonly with "e / d / e / take food / give chicken to buzz / give tuna to nowak / give tuna to tichy / give chicken to photographer / w / u / s / wake him / give blt to franklin / n / w / give blt to dirk / s / give salad to donna / x checklist".
+Test foodonly with "e / d / e / take food / give chicken to buzz / x checklist / give tuna to nowak / x checklist / give tuna to tichy / x checklist / give chicken to photographer / x checklist / w / u / s / wake him / give blt to franklin / x checklist / n / w / give blt to dirk / x checklist / s / give salad to donna / x checklist".
 Test food with "test start2 / test foodonly".
 Test foodalt with "test start2alt / test foodonly".
 Test foodaltalt with "test candy / test start2alt / test foodonly".
