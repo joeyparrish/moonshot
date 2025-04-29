@@ -18,6 +18,11 @@
 // Achievements interface, connected to Steam in desktop bundles
 
 import {
+  achievement as toastAchievement,
+  error as toastError,
+} from './toast.ts';
+
+import {
   isDesktopBundle,
 } from './util.ts';
 
@@ -52,7 +57,6 @@ interface StatMetadataMap {
 }
 
 const UNLOCKED = 'unlocked';
-const ACHIEVEMENT_NOTIFICATION_SECONDS = 20;
 const SECRET_ICON = 'achievements/secret.png';
 let achievements: AchievementMetadataMap = {};
 let stats: StatMetadataMap = {};
@@ -86,14 +90,7 @@ function showAchievement(
     }
   }
 
-  const rv = toastr.info(
-      description,
-      title,
-      {
-        timeOut: ACHIEVEMENT_NOTIFICATION_SECONDS * 1000,
-        positionClass: 'toast-top-right',
-      });
-  const toastElement = rv[0]!;
+  const toastElement = toastAchievement(title, description);
   toastElement.dataset['achievement'] = achievementName;
   toastElement.style.setProperty('--achievement-icon', `url(${icon})`);
 }
@@ -127,13 +124,8 @@ export async function initAchievements(): Promise<void> {
       const steamworks = window.require('steamworks.js');
       client = steamworks.init(STEAM_APP_ID);
     } catch (error) {
-      toastr.error(
-          'Achievements and stats are unavailable.',
-          'Failed to load Steam API!',
-          {
-            timeOut: 10 * 1000,
-            positionClass: 'toast-top-right',
-          });
+      toastError('Failed to load Steam API!',
+          'Achievements and stats are unavailable.');
       console.error('Failed to load Steam API!', error);
     }
   } else {

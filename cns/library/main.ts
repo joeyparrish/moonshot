@@ -30,6 +30,7 @@ import './music.ts';
 import './pause.ts';
 import './popups.ts';
 import './splash.ts';
+import './toast.ts';
 import './transcripts.ts';
 
 // Set up the public, global interface of the library, usable from Inform or
@@ -44,6 +45,7 @@ import * as elements from './elements.ts';
 import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
 import {pauseGame} from './pause.ts';
 import {showHelp, showMap, showSettings} from './popups.ts';
+import * as toast from './toast.ts';
 import {reportBug, saveTranscript} from './transcripts.ts';
 import {isDesktopBundle} from './util.ts';
 
@@ -64,4 +66,5 @@ window.cns = {
   showMap,
   showSettings,
   stopBackgroundMusic,
+  toast,
 };
