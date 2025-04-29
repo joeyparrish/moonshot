@@ -421,8 +421,8 @@ When CNS init begins:
 	if the file of save data exists:
 		read file of save data into memory;
 		[If successful, the next command does not happen because we load the old state.  If it fails, we fall through.]
-		say "[bracket]UNABLE TO RESTORE AUTO-SAVE FROM AN OLDER VERSION OF THE GAME[close bracket][paragraph break]";
 		delete file of save data;
+		execute JavaScript code "cns.toast.error('Auto-Restore Failed!', 'Your saved game was from an older version of the game, and could not be read.')";
 	now CNS ready is true;
 	execute JavaScript code "cns.autocomplete.initialize()";
 	follow the scene changing rules.

@@ -18,6 +18,10 @@
 // Steam Cloud Sync module.
 
 import {
+  success as toastSuccess,
+} from './toast.ts';
+
+import {
   captureHTML,
   captureText,
   restoreTranscript,
@@ -83,7 +87,7 @@ if (isDesktopBundle()) {
     // written:
     Glk.glk_put_buffer_stream = glkShim(
         Glk.glk_put_buffer_stream, onSaveGame,
-        'Failed to write save game!');
+        'Failed to write saved game!');
 
     // Shim the file reading API to get access to the name of the restored game
     // during loading, to restore the saved transcript afterward.
@@ -233,6 +237,8 @@ function onSaveGame(stream: Glk.GlkStream, array: number[]) {
 }
 
 export function postRestore(): void {
+  toastSuccess('Loaded game successfully.', 'Your progress has been restored.');
+
   // Avoid an exception when restoring a game in a browser.  This is called
   // directly by the game.
   if (!isDesktopBundle()) {
