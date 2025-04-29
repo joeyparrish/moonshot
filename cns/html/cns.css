@@ -396,9 +396,14 @@ body[data-difficulty="easy"] .interesting-highlight,
   cursor: pointer;
 }
 
+.floating-button:hover,
+.floating-button-text:hover {
+  background: turquoise;
+}
+
 .floating-button:active,
 .floating-button-text:active {
-  background: turquoise;
+  background: aqua;
 }
 
 .popup-container {
@@ -682,7 +687,7 @@ body[data-mobile="true"] #delete-button {
 #toast-container > .toast-info {
   font-size: 3vh;
 
-  background-color: dimgray;
+  background: dimgray;
   color: white;
 
   /* The base toastr uses !important, so we have to, too */
@@ -783,6 +788,6 @@ body[data-infocom="true"][data-difficulty="easy"] .interesting-highlight {
   background: #030;
 }
 body[data-infocom="true"] #toast-container > .toast-info {
-  background-color: white;
+  background: white;
   color: black;
 }
