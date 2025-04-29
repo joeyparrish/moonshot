@@ -363,14 +363,7 @@ body[data-difficulty="easy"] .interesting-highlight,
   display: none !important;
 }
 
-#menus {
-  font-size: 2vh;
-}
-
 .floating-button {
-  font-size: 1em;
-  width: 3em;
-  height: 3em;
   border-radius: 50%;
   font-weight: bold;
   padding: 0;
@@ -382,7 +375,9 @@ body[data-difficulty="easy"] .interesting-highlight,
 }
 
 .floating-button-text {
-  height: 2em;
+  margin-top: 1em;
+  padding: 0.5em;
+
   border-radius: 0.2em;
   font-weight: bold;
 }
@@ -446,14 +441,52 @@ body[data-difficulty="easy"] .interesting-highlight,
 
   /* Allow positioning elements within the popup. */
   position: relative;
+}
 
-  /* Popups gets a fixed size so the font dialog doesn't jump around. */
-  font-size: 2vh;
+
+.popup {
+  font-size: 3vh;
 }
 
 .popup * {
   font-size: inherit;
 }
+
+.popup p.title {
+  font-size: 6vh;
+}
+
+.floating-button {
+  font-size: 2vh;
+  width: 6vh;
+  height: 6vh;
+}
+
+.popup .floating-button {
+  font-size: 4vh;
+}
+
+/* For tall mobile devices, shrink the font a little relative to the height. */
+@media (orientation: portrait) {
+  .popup {
+    font-size: 2vh;
+  }
+
+  .popup p.title {
+    font-size: 4vh;
+  }
+
+  .floating-button {
+    font-size: 1.5vh;
+    width: 5vh;
+    height: 5vh;
+  }
+
+  .popup .floating-button {
+    font-size: 3vh;
+  }
+}
+
 
 .popup p,
 .popup div.p {
@@ -462,16 +495,27 @@ body[data-difficulty="easy"] .interesting-highlight,
 }
 
 .popup p.title {
-  font-size: 4vh;
   font-weight: bold;
 }
 
 /* This should stay in the corner as the popup scrolls. */
 .popup-close.floating-button {
   float: right;
-  top: 1em;
-  right: 1em;
+  /* With sticky position, this still takes up space in the layout and respects
+   * the parent's padding.  So place it at top:0, right:0. */
   position: sticky;
+  top: 0;
+  right: 0;
+}
+
+#map-card .popup-close.floating-button {
+  /* With the map, we don't want this to take up space in the layout.  So we
+   * use position:absolute, but this means we now have to set coordinates that
+   * space it away from the corner a little, as opposed to 0,0 in the defaults
+   * just above. */
+  position: absolute;
+  top: 3vh;
+  right: 3vh;
 }
 
 #help-button,
@@ -498,19 +542,6 @@ body[data-mobile="true"] #transcript-button {
 
 #transcript-button {
   top: 9em;
-}
-
-#help-card {
-  min-width: 30em;
-}
-
-#help-card p.title {
-  font-size: 6vh;
-}
-
-#help-card button.floating-button-text {
-  font-size: 3.5vh;
-  margin-top: 1em;
 }
 
 #how-do-i-play-card p, #how-do-i-play-card li {
