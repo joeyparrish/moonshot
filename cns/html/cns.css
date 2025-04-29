@@ -355,7 +355,7 @@ ul.inventory {
 /* This will be used to highlight interesting words in room descriptions in
  * easy mode. */
 body[data-difficulty="easy"] .interesting-highlight,
-#settings-card .interesting-highlight {
+#game-settings-card .interesting-highlight {
   background: paleturquoise;
 }
 
@@ -428,6 +428,7 @@ body[data-difficulty="easy"] .interesting-highlight,
   padding: 0.5em;
 
   /* Limit the size of the card. */
+  min-width: calc(min(100vw - 6em, 30em));
   max-width: calc(min(100vw - 6em, 60em));
   max-height: calc(100dvh - 6em);
   margin: 3em;
@@ -567,13 +568,14 @@ body[data-mobile="true"] #transcript-button {
   /* The map should occupy all the space available.
    * Since the map is taller than wide, only pin the height. */
   height: 100%;
+  min-width: 0;
   overflow: hidden;
 }
 #map-card img {
   height: 100%;
 }
 
-#settings-card label,
+.popup label,
 #lineinput label {
   /* Override the haven default for labels */
   background: none;
@@ -581,16 +583,16 @@ body[data-mobile="true"] #transcript-button {
 }
 
 /* NOTE: don't add div here, or else desktop-bundle-only breaks */
-#settings-card label,
-#settings-card input {
+.popup label,
+.popup input {
   display: block;
 }
 
-#settings-card div,
-#settings-card label,
-#settings-card input {
+.popup div,
+.popup label,
+.popup input {
   /* Space these apart a bit */
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .toggle {
