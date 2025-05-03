@@ -425,6 +425,7 @@ When CNS init begins:
 		execute JavaScript code "cns.toast.error('Auto-Restore Failed!', 'Your saved game was from an older version of the game, and could not be read.')";
 	now CNS ready is true;
 	execute JavaScript code "cns.autocomplete.initialize()";
+	execute JavaScript code "cns.autocomplete.resetTopics()";
 	follow the scene changing rules.
 
 

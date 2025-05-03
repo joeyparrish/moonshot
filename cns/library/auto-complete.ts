@@ -54,6 +54,7 @@ const BASIC_VERBS: string[] = [
   'restart\n',
 ];
 
+// Called on every turn
 export function resetVerbs(includeBasic: boolean = true): void {
   includeBasicVerbs = includeBasic;
   specialVerbs = [''];
@@ -63,6 +64,7 @@ export function addVerb(verb: string): void {
   specialVerbs.push(verb);
 }
 
+// Called on init and reset
 export function resetTopics(): void {
   knownTopics.clear();
   addTopic('');
@@ -77,6 +79,7 @@ export function addTopic(topic: string): void {
   }
 }
 
+// Called on every turn
 export function resetObjects(): void {
   knownObjects = [];
 }
@@ -106,6 +109,7 @@ function objectsMatching(properties: Partial<AutoCompleteObjectProperties>) {
   return matches;
 }
 
+// Called on every turn
 export function resetPeople(): void {
   knownPeople = [''];
 }
@@ -114,6 +118,7 @@ export function addPerson(person: string): void {
   knownPeople.push(person);
 }
 
+// Called on every turn
 export function resetCustomAutoComplete(): void {
   customAutoCompletes = [];
 }
