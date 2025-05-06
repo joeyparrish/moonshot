@@ -732,7 +732,7 @@ Instead of the engineer giving the blueprints to the player:
 	rule succeeds.
 
 Instead of quizzing the engineer about NASA:
-	say "[The engineer] beams, 'I am [bold type]so[roman type] proud to serve my country in the National Aeronautics and Space... um... anyway, I design rockets.  NASA rockets.  Big, blasting, noisy, hard rockets!  It's the best.'"
+	say "[The engineer] beams, 'I am [bold type]so[roman type] proud to serve my country in the National Aeronautics and Space Acronyms!  I get to design rockets.  NASA rockets.  Big, blasting, noisy, hard rockets!  It's the best.'"
 
 Instead of quizzing the engineer about rocket:
 	try quizzing the engineer about NASA.
