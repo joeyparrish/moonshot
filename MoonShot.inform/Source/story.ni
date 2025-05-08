@@ -1980,7 +1980,7 @@ Instead of quizzing Ijon Tichy about food-preferences:
 	say "He goes on at some length in a slavic-sounding language.  After realizing you haven't understood, he patiently draws a picture of a fish in the air with his finger, then raises his eyebrows meaningfully at you."
 
 Instead of quizzing Clifford McBride about food-preferences:
-	say "He give you a look filled with a calm intensity that scares you to your core.  'This is a one-way voyage.  I never cared about you, or any of your small ideas.  For 30 years...' he licks his lips, 'I've been breathing this air, eating this food... enduring these hardships... but I found my destiny.'  After a long moment of terrifying silence, he adds, 'No meat, no fish.  Nothing I couldn't take with me.'"
+	say "He gives you a look filled with a calm intensity that scares you to your core.  'This is a one-way voyage.  I never cared about you, or any of your small ideas.  For 30 years...' he licks his lips, 'I've been breathing this air, eating this food... enduring these hardships... but I found my destiny.'  After a long moment of terrifying silence, he adds, 'No meat, no fish.  Nothing I couldn't take with me.'"
 
 Instead of quizzing the photographer about food-preferences:
 	say "'Kosher, no dairy,' he says, and then immediately turns back to his cameras."
