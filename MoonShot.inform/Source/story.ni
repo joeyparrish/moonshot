@@ -465,6 +465,10 @@ Understand "checklist" as checklist-1 when day one is happening.
 
 The description of the director is "[if the director is relaxed]He gazes dreamily out the window and asks, 'Do you think Johnny Cash is his real name?'[otherwise][The noun] is a man in his 60s with a hawkish nose and an absent air, like a man who can't seem to remember why he's here.  He's holding a comically large cup of coffee in one hand and the other keeps pawing through the jumble of knick knacks on his desk, like he's lost something."
 
+The coffee-cup is unnoticed.
+After examining the director while the director is not relaxed:
+	now the coffee-cup is noticed.
+
 The director is holding a coffee-cup.  The printed name of the coffee-cup is "coffee cup".
 The description of the coffee-cup is "Where does someone even find such a gigantic cup?"
 Understand "cup", "coffee cup", "cup of coffee", "large cup", "large cup of coffee", "comically large cup", "comically large coffee cup", and "comically large cup of coffee" as the coffee-cup.
