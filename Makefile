@@ -50,7 +50,7 @@ cns-html:
 		-e 's/\[TITLE_FILENAME\]/MoonShot/g' \
 		-e 's/\[AUTHOR\]/Joey \&amp; Charity Parrish/g' \
 		-e 's/\[DEDICATION\]/Dedicated to everyone who ever looked up at the moon and thought,<br>\&ldquo;no damn way.\&rdquo;/g' \
-		-e 's/\[RELEASE\]/9.3.2/g' \
+		-e 's/\[RELEASE\]/9.3.3/g' \
 		-e 's/\[COPYRIGHT\]/\&copy; 2020-2025\nJoey \&amp; Charity Parrish/g' \
 		-e 's/\[STEAM_APP_ID\]/3622090/g' \
 		> MoonShot.materials/Release/index.html
