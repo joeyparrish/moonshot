@@ -437,6 +437,10 @@ For restoring from a saved game (this is the default restore rule):
 	repeat through the Table of Known Concepts:
 		execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
 	execute JavaScript code "cns.postRestore()";
+	if the JavaScript code returned false:
+		[In case of catastrophic failure, delete the save and restart the game.  This should not happen to users, but happened to me once during debugging.  If the save file exists (in user home directory), but the cloud sync file for Steam does not exist, we can end up here.]
+		delete file of save data;
+		execute JavaScript code "location.reload()";
 	[Desktop bundles can also restore the HTML transcript, but browsers can't.  So for a browser session, you need to give some missing context.]
 	if we are playing in a browser:
 		say "[bracket]RESTORED AUTO-SAVE FROM YOUR LAST SESSION; TYPE 'RESTART' TO START OVER[close bracket][paragraph break]";

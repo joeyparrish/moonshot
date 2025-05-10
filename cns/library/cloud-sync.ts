@@ -226,20 +226,22 @@ function onSaveGame(stream: Glk.GlkStream, array: number[]) {
   fs.writeFileSync(autoSavePath, JSON.stringify(saveData), {encoding: 'utf8'});
 }
 
-export function postRestore(): void {
+export function postRestore(): boolean {
   toastSuccess('Loaded game successfully.', 'Your progress has been restored.');
 
   // Avoid an exception when restoring a game in a browser.  This is called
   // directly by the game.
   if (!isDesktopBundle()) {
-    return;
+    return true;
   }
 
   try {
     const saveData = JSON.parse(fs.readFileSync(autoSavePath, {encoding: 'utf8'})) as SaveData;
     restoreTranscript(saveData.transcriptHTML);
     console.log('Game transcript restored.');
+    return true;
   } catch (error) {
     console.error('Failed to restore game transcript!', error);
+    return false;
   }
 }
