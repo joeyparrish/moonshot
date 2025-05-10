@@ -142,7 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Allow F10 to toggle fullscreen.
     nw.App.registerGlobalHotKey(new nw.Shortcut({
       key: "F10",
-      active: () => win.toggleFullscreen(),
+      active: () => {
+        // The nwjs-native API for fullscreen fails on macOS.
+        // Instead, use the standard web API, which works everywhere.
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          document.documentElement.requestFullscreen();
+        }
+      },
       failed: (error) => console.log(error),
     }));
   } else {
