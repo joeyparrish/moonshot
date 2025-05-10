@@ -40,6 +40,7 @@ function unpauseGame(): void {
 const UNPAUSE_KEYS: string[] = [
   'Enter',
   'Escape',
+  ' ',
 ];
 
 export function pauseGame(): void {
