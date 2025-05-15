@@ -288,3 +288,20 @@ window.addEventListener('resize', scrollToBottom);
 
 // Do main initialization after loading the DOM content.
 document.addEventListener('DOMContentLoaded', init);
+
+// Log unhandled errors.
+window.addEventListener('error', (event) => {
+  console.error('Unhandled error:', {
+    message: event.message,
+    filename: event.filename,
+    lineno: event.lineno,
+    colno: event.colno,
+  });
+});
+
+// Log unhandled Promise rejections.
+window.addEventListener('unhandledrejection', (event) => {
+  console.error('Unhandled rejection:', {
+    reason: event.reason,
+  });
+});
