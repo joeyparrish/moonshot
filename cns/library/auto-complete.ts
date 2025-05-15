@@ -214,7 +214,7 @@ export function initialize(): void {
   }
 
   if (!document.getElementById('lineinput-field')) {
-    console.log('Input not ready yet, deferring auto-complete init...');
+    // console.log('Input not ready yet, deferring auto-complete init...');
     setTimeout(initialize, 100);
     return;
   }
