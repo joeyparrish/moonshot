@@ -41,6 +41,9 @@ import {
   scrollToBottom,
 } from './util.ts';
 
+import type * as FSModule from 'fs';
+import type * as PathModule from 'path';
+
 // Defined in HTML:
 declare global {
   const desktopCredit: HTMLDivElement;
@@ -49,8 +52,11 @@ declare global {
   const output: HTMLDivElement;
 }
 
-// Global keypresses are used to stop splash screen or credits early.
-document.addEventListener('keydown', (event) => {
+let fs: typeof FSModule;
+let path: typeof PathModule;
+let logFile: number|null = null;
+
+function stopSplashOnKeyDown(event: KeyboardEvent): void {
   // Don't monkey with key presses during gameplay.
   if (document.body && document.body.dataset['mode'] == 'play') {
     return;
@@ -66,13 +72,65 @@ document.addEventListener('keydown', (event) => {
       stopCredits();
     }
   }
-}, { capture: true });
+}
 
-// Scroll to the bottom on window resize.  Also triggered by font size changes.
-window.addEventListener('resize', scrollToBottom);
+function initLogFile(): void {
+  fs = window.require('fs');
+  path = window.require('path');
 
-// Do this after loading the DOM content.
-document.addEventListener('DOMContentLoaded', () => {
+  const gameFolder = path.dirname(process.execPath);
+  const logFilePath = path.join(gameFolder, 'log.txt');
+
+  try {
+    fs.renameSync(logFilePath, logFilePath + '.previous');
+  } catch (error) {}
+
+  logFile = fs.openSync(logFilePath, 'w', 0o644);
+}
+
+  // Back up localStorage through the filesystem.
+function logToFile(level: string, args: IArguments): void {
+  if (logFile !== null) {
+    const now = new Date();
+    fs.writeSync(logFile, `[${now}][${level}]:`);
+    for (const arg of args) {
+      if (typeof arg == 'object') {
+        fs.writeSync(logFile, ` ${JSON.stringify(arg)}`);
+      } else {
+        fs.writeSync(logFile, ` ${arg}`);
+      }
+    }
+    fs.writeSync(logFile, '\n');
+  }
+}
+
+function wrapLogMethod(level: 'debug'|'log'|'info'|'warn'|'error'): void {
+  const original = console[level];
+  console[level] = function() {
+    try {
+      // @ts-ignore
+      original.apply(console, arguments);
+    } catch (error) {}
+
+    try {
+      logToFile(level, arguments);
+    } catch (error) {}
+  };
+}
+
+async function redirectLogsToFile(): Promise<void> {
+  if (isDesktopBundle()) {
+    await initLogFile();
+
+    wrapLogMethod('debug');
+    wrapLogMethod('log');
+    wrapLogMethod('info');
+    wrapLogMethod('warn');
+    wrapLogMethod('error');
+  }
+}
+
+function initVorple(): void {
   // Disable debugging features, then initialize Vorple.
   vorple.debug.off();
   vorple.init();
@@ -81,9 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // automatically.  Fix that here.
   vorple.addEventListener('expectCommand', scrollToBottom);
 
-  // Initialize the achievements interface.
-  void initAchievements();
+  vorple.addEventListener('quit', () => {
+    // Try closing the window.  This works on desktop builds, but not in
+    // browsers.
+    window.close();
 
+    // That fails in browsers, so now we add this message to the game's
+    // "window" element.
+    window0.appendChild(
+        document.createTextNode('You may now close this window.'));
+    scrollToBottom();
+  });
+}
+
+function initDebugElements(): void {
   // Show/hide elements for debugging.
   const isMobileBrowserElement =
       document.querySelector<HTMLDivElement>('#is-mobile-browser')!;
@@ -116,29 +185,54 @@ document.addEventListener('DOMContentLoaded', () => {
     isMobileBrowserElement.style.display = 'none';
     isDesktopBundleElement.style.display = 'none';
   }
+}
 
+function logBuildType(): void {
   if (isDesktopBundle()) {
     logEvent('desktop', /* userInput= */ false);
+  } else if (isMobileBrowser()) {
+    logEvent('mobile', /* userInput= */ false);
+  } else {
+    logEvent('browser', /* userInput= */ false);
+  }
+}
 
+function enableBuildSpecificElements(): void {
+  if (isDesktopBundle()) {
     // Enable desktop-bundle-specific elements.
     for (const element of
          document.querySelectorAll<HTMLElement>('.desktop-bundle-only')) {
       element.style.display = 'block';
     }
+  } else {
+    // Enable browser-specific elements.
+    for (const element of
+         document.querySelectorAll<HTMLElement>('.browser-only')) {
+      element.style.display = 'block';
+    }
+  }
 
-    const win = nw.Window.get();
+  if (isMobileBrowser()) {
+    // Flag mobile status for CSS use.
+    document.body.dataset['mobile'] = 'true';
+  }
+}
 
+function setLinkTarget(): void {
+  if (isDesktopBundle()) {
     // Open target=_blank links in the default browser.
+    const win = nw.Window.get();
     win.on('new-win-policy', function(_frame, url, policy) {
       // Do not open the window.
       policy.ignore();
       // Open it in the user's default browser.
       nw.Shell.openExternal(url);
     });
+  }
+}
 
-    // Show the window that we initially hid to avoid a white window FOUC.
-    win.show();
-
+function enableFullscreen(): void {
+  if (isDesktopBundle()) {
     // Allow F10 to toggle fullscreen.
     nw.App.registerGlobalHotKey(new nw.Shortcut({
       key: "F10",
@@ -153,34 +247,44 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       failed: (error) => console.log(error),
     }));
-  } else {
-    if (isMobileBrowser()) {
-      logEvent('mobile', /* userInput= */ false);
-    } else {
-      logEvent('browser', /* userInput= */ false);
-    }
+  }
+}
 
-    // Enable browser-specific elements.
-    for (const element of
-         document.querySelectorAll<HTMLElement>('.browser-only')) {
-      element.style.display = 'block';
+function showWindow(): void {
+  if (isDesktopBundle()) {
+    // Show the window that we initially hid to avoid a white window FOUC.
+    const win = nw.Window.get();
+    win.show();
+  }
+}
+
+async function init(): Promise<void> {
+  const inits: [() => (void|Promise<void>), string][] = [
+    [redirectLogsToFile, 'redirect logs to file'],
+    [initVorple, 'init Vorple'],
+    [initAchievements, 'init achievements'],
+    [initDebugElements, 'init debug elements'],
+    [logBuildType, 'log build type'],
+    [enableBuildSpecificElements, 'enable build-specific elements'],
+    [setLinkTarget, 'set link target'],
+    [enableFullscreen, 'enable fullscreen'],
+    [showWindow, 'show window'],
+  ];
+
+  for (const [fn, name] of inits) {
+    try {
+      await fn();
+    } catch (error) {
+      console.error(`Failed to ${name}!`, error);
     }
   }
+}
 
-  if (isMobileBrowser()) {
-    // Flag mobile status for CSS use.
-    document.body.dataset['mobile'] = 'true';
-  }
+// Global keypresses are used to stop splash screen or credits early.
+document.addEventListener('keydown', stopSplashOnKeyDown, { capture: true });
 
-  vorple.addEventListener('quit', () => {
-    // Try closing the window.  This works on desktop builds, but not in
-    // browsers.
-    window.close();
+// Scroll to the bottom on window resize.  Also triggered by font size changes.
+window.addEventListener('resize', scrollToBottom);
 
-    // That fails in browsers, so now we add this message to the game's
-    // "window" element.
-    window0.appendChild(
-        document.createTextNode('You may now close this window.'));
-    scrollToBottom();
-  });
-});
+// Do main initialization after loading the DOM content.
+document.addEventListener('DOMContentLoaded', init);
