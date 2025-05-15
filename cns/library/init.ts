@@ -258,7 +258,7 @@ function showWindow(): void {
   }
 }
 
-async function init(): Promise<void> {
+async function init(firedEarly: boolean): Promise<void> {
   const inits: [() => (void|Promise<void>), string][] = [
     [redirectLogsToFile, 'redirect logs to file'],
     [initVorple, 'init Vorple'],
@@ -278,6 +278,10 @@ async function init(): Promise<void> {
       console.error(`Failed to ${name}!`, error);
     }
   }
+
+  if (firedEarly) {
+    console.log('DOMContentLoaded fired early!');
+  }
 }
 
 // Global keypresses are used to stop splash screen or credits early.
@@ -287,7 +291,11 @@ document.addEventListener('keydown', stopSplashOnKeyDown, { capture: true });
 window.addEventListener('resize', scrollToBottom);
 
 // Do main initialization after loading the DOM content.
-document.addEventListener('DOMContentLoaded', init);
+if (document.readyState == 'complete') {
+  void init(true);
+} else {
+  document.addEventListener('DOMContentLoaded', () => void init(false));
+}
 
 // Log unhandled errors.
 window.addEventListener('error', (event) => {
