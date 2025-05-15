@@ -92,15 +92,15 @@ function initLogFile(): void {
 function logToFile(level: string, args: IArguments): void {
   if (logFile !== null) {
     const now = new Date();
-    fs.writeSync(logFile, `[${now}][${level}]:`);
+    fs.writeFileSync(logFile, `[${now}][${level}]:`);
     for (const arg of args) {
       if (typeof arg == 'object') {
-        fs.writeSync(logFile, ` ${JSON.stringify(arg)}`);
+        fs.writeFileSync(logFile, ` ${JSON.stringify(arg)}`);
       } else {
-        fs.writeSync(logFile, ` ${arg}`);
+        fs.writeFileSync(logFile, ` ${arg}`);
       }
     }
-    fs.writeSync(logFile, '\n');
+    fs.writeFileSync(logFile, '\n', { flush: true });
   }
 }
 
