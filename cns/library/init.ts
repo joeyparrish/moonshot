@@ -15,21 +15,36 @@
  * limitations under the License.
  */
 
-// Early initialization of Vorple, Quixe, nw.js, and shared event listeners.
+// Early initialization of Vorple, Quixe, Electron, and shared event listeners.
 
 import {
   initAchievements,
 } from './achievements.ts';
 
 import {
+  initAnalytics,
   logEvent,
 } from './analytics.ts'
 
 import {
+  initCloudSync,
+} from './cloud-sync.ts';
+
+import {
+  initCredits,
   stopCredits,
 } from './credits.ts';
 
 import {
+  initMusic,
+} from './music.ts';
+
+import {
+  initPopups,
+} from './popups.ts';
+
+import {
+  initSplash,
   stopSplash,
 } from './splash.ts';
 
@@ -39,6 +54,7 @@ import {
   isDesktopBundle,
   isMobileBrowser,
   scrollToBottom,
+  toggleFullscreen,
 } from './util.ts';
 
 import type * as FSModule from 'fs';
@@ -218,43 +234,14 @@ function enableBuildSpecificElements(): void {
   }
 }
 
-function setLinkTarget(): void {
-  if (isDesktopBundle()) {
-    // Open target=_blank links in the default browser.
-    const win = nw.Window.get();
-    win.on('new-win-policy', function(_frame, url, policy) {
-      // Do not open the window.
-      policy.ignore();
-      // Open it in the user's default browser.
-      nw.Shell.openExternal(url);
-    });
-  }
-}
-
 function enableFullscreen(): void {
   if (isDesktopBundle()) {
     // Allow F10 to toggle fullscreen.
-    nw.App.registerGlobalHotKey(new nw.Shortcut({
-      key: "F10",
-      active: () => {
-        // The nwjs-native API for fullscreen fails on macOS.
-        // Instead, use the standard web API, which works everywhere.
-        if (document.fullscreenElement) {
-          document.exitFullscreen();
-        } else {
-          document.documentElement.requestFullscreen();
-        }
-      },
-      failed: (error) => console.log(error),
-    }));
-  }
-}
-
-function showWindow(): void {
-  if (isDesktopBundle()) {
-    // Show the window that we initially hid to avoid a white window FOUC.
-    const win = nw.Window.get();
-    win.show();
+    document.addEventListener('keypress', (event) => {
+      if (event.key === 'F10') {
+        toggleFullscreen();
+      }
+    });
   }
 }
 
@@ -262,13 +249,17 @@ async function init(firedEarly: boolean): Promise<void> {
   const inits: [() => (void|Promise<void>), string][] = [
     [redirectLogsToFile, 'redirect logs to file'],
     [initVorple, 'init Vorple'],
-    [initAchievements, 'init achievements'],
+    [initAnalytics, 'init analytics'],
+    [initCloudSync, 'init cloud sync'],
     [initDebugElements, 'init debug elements'],
+    [initAchievements, 'init achievements'],
+    [initMusic, 'init music'],
+    [initPopups, 'init popups'],
+    [initCredits, 'init credits'],
+    [initSplash, 'init splash'],
     [logBuildType, 'log build type'],
     [enableBuildSpecificElements, 'enable build-specific elements'],
-    [setLinkTarget, 'set link target'],
     [enableFullscreen, 'enable fullscreen'],
-    [showWindow, 'show window'],
   ];
 
   for (const [fn, name] of inits) {

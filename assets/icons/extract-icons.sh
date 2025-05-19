@@ -25,7 +25,8 @@ done
 
 echo "Creating ico..."
 # Some resolutions aren't allowed in ico, so drop those.
-ico_sources=$(ls -1 MoonShot-icon-*.png | egrep -v -- '-(512|128|64)\.png')
+# Also, sort them by size going down.
+ico_sources=$(ls -1 MoonShot-icon-*.png | egrep -v -- '-(512|128|64)\.png' | sort -n -k1.14)
 magick $ico_sources MoonShot-icon.ico
 
 echo "Creating icns..."

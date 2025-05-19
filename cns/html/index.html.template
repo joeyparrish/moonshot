@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="game-style.css">
 
     <script src="cns.js"></script>
-    <script src="textarea-caret.min.js"></script>
     <script src="interpreter/vorple.min.js"></script>
     <script src="interpreter/[TITLE_FILENAME].gblorb.js"></script>
 
@@ -90,7 +89,7 @@
           <!-- Required attribution -->
           <div>Created with Inform 7<br>by Graham Nelson</div>
           <div>UI based on Vorple<br>by Juhana Leinonen</div>
-          <div class="desktop-bundle-only">Desktop app built with NW.js</div>
+          <div class="desktop-bundle-only">Desktop app built with Electron</div>
           <div class="credits-copyright">[COPYRIGHT]</div>
         </div>
       </div>
@@ -324,7 +323,7 @@
               onapply="document.body.dataset.autoComplete = event.target.checked;">
 
           <div class="desktop-bundle-only">
-            <button class="floating-button-text" onclick="nw.Window.get().toggleFullscreen()">Toggle Fullscreen</button> (also F10)
+            <button class="floating-button-text" onclick="cns.toggleFullscreen()">Toggle Fullscreen</button> (also F10)
           </div>
         </div>
       </div>
@@ -453,19 +452,21 @@
 
 <details class="desktop-bundle-only">
   <summary>
-    NW.js app framework, version 0.98.1
+    Electron app framework, version 36.2.1
   </summary>
 
   <p>
-    &copy; 2011-2019, NW.js Authors
+    &copy; Electron contributors
+    <br>
+    &copy; 2013-2020, GitHub Inc.
   </p>
 
   <p>
-    <a target="_blank" href="https://nwjs.io/">https://nwjs.io/</a>
+    <a target="_blank" href="https://www.electronjs.org/">https://www.electronjs.org/</a>
   </p>
 
   <p>
-    NW.js is licensed under <a href="https://github.com/nwjs/nw.js/blob/main/LICENSE">the MIT License</a>.
+    Electron is licensed under <a href="https://github.com/electron/electron/blob/main/LICENSE">the MIT License</a>.
   </p>
 </details>
 

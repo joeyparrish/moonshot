@@ -65,7 +65,7 @@ export function stopBackgroundMusic(): void {
   backgroundMusicLink.style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initMusic(): void {
   window.addEventListener('click', startMusic);
   window.addEventListener('keydown', startMusic);
 
@@ -77,4 +77,4 @@ document.addEventListener('DOMContentLoaded', () => {
     backgroundMusic.currentTime = backgroundMusicLoopTo;
     startMusic();
   });
-});
+}

@@ -17,7 +17,7 @@
 
 // Google Analytics module.
 
-export function logEvent(action: string, userInput: boolean = false) {
+export function logEvent(action: string, userInput: boolean = false): void {
   gtag('event', action, {
     'event_category': 'game',
     // 'event_label': ,
@@ -28,7 +28,7 @@ export function logEvent(action: string, userInput: boolean = false) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initAnalytics(): void {
   vorple.prompt.addInputFilter((_input, meta) => {
     if (meta.userAction && meta.type == "line") {
       // If it's user action and line type, the user typed something and hit
@@ -36,4 +36,4 @@ document.addEventListener('DOMContentLoaded', () => {
       logEvent('turn', /* userInput */ true);
     }
   });
-});
+}

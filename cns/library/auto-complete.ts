@@ -21,6 +21,8 @@ import {
   isMobileBrowser,
 } from './util.ts';
 
+import getCaretCoordinates from 'textarea-caret';
+
 interface AutoCompleteObjectProperties {
   name: string;
   inventory: boolean;
@@ -336,7 +338,7 @@ function showAutoComplete(options: Iterable<string>, endOfCommand: boolean, cont
   continuationAfterAutoComplete = continuation;
 
   // Where the caret is within the input field:
-  const caret = window.getCaretCoordinates(inputField, inputField.value.length);
+  const caret = getCaretCoordinates(inputField, inputField.value.length);
 
   // Special case: if the input is blank, hide the ellipsis and move over a little.
   const hasContent = /\S/.exec(inputField.value);

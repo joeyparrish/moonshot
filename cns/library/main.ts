@@ -47,7 +47,7 @@ import {pauseGame} from './pause.ts';
 import {showHelp, showMap, showSettings} from './popups.ts';
 import * as toast from './toast.ts';
 import {reportBug, saveTranscript} from './transcripts.ts';
-import {isDesktopBundle} from './util.ts';
+import {isDesktopBundle, toggleFullscreen} from './util.ts';
 
 // @ts-ignore
 window.cns = {
@@ -67,4 +67,5 @@ window.cns = {
   showSettings,
   stopBackgroundMusic,
   toast,
+  toggleFullscreen,
 };

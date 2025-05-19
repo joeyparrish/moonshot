@@ -37,7 +37,7 @@ export function stopSplash() {
   document.querySelector<HTMLInputElement>('#lineinput-field')?.focus();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initSplash(): void {
   // When the animation ends, stop the splash.
   cover.onanimationend = stopSplash;
 
@@ -46,4 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Start the splash screen.
   document.body.dataset['mode'] = 'splash';
-});
+}

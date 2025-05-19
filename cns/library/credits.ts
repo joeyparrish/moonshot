@@ -48,7 +48,7 @@ export function showCredits() {
   setTimeout(fixCreditSizing, 1000);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initCredits(): void {
   // The credits sizer needs to be updated with a calculated content size to
   // make scrolling work.
   window.addEventListener('resize', fixCreditSizing);
@@ -58,4 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // When the user clicks, stop the credits.
   credits.addEventListener('click', stopCredits);
-});
+}

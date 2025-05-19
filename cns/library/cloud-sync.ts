@@ -70,25 +70,29 @@ if (isDesktopBundle()) {
   localStorage.setItem = storageShim(localStorage.setItem, /* checkKey= */ true);
   localStorage.removeItem = storageShim(localStorage.removeItem, /* checkKey= */ true);
   localStorage.clear = storageShim(localStorage.clear, /* checkKey= */ false);
+}
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    // Vorple's FS may not be loaded yet.
-    await vorple.file.init();
+export async function initCloudSync(): Promise<void> {
+  if (!isDesktopBundle()) {
+    return;
+  }
 
-    // Pick up Steam Cloud Save files and load them into the virtual filesystem
-    // of the interpreter.
-    try {
-      await loadSavedGamesFromDisk();
-    } catch (error) {
-      console.error('Failed to load saved games from disk!', error);
-    }
+  // Vorple's FS may not be loaded yet.
+  await vorple.file.init();
 
-    // Shim Glk's file writing API to get access to saved games as they are
-    // written:
-    Glk.glk_put_buffer_stream = glkShim(
-        Glk.glk_put_buffer_stream, onSaveGame,
-        'Failed to write saved game!');
-  });
+  // Pick up Steam Cloud Save files and load them into the virtual filesystem
+  // of the interpreter.
+  try {
+    await loadSavedGamesFromDisk();
+  } catch (error) {
+    console.error('Failed to load saved games from disk!', error);
+  }
+
+  // Shim Glk's file writing API to get access to saved games as they are
+  // written:
+  Glk.glk_put_buffer_stream = glkShim(
+      Glk.glk_put_buffer_stream, onSaveGame,
+      'Failed to write saved game!');
 }
 
 function saveSettingsToDisk(): void {

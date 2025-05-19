@@ -112,7 +112,7 @@ function executeOnApply(element: HTMLElement): void {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initPopups(): void {
   if (isDesktopBundle()) {
     // Load settings from the filesystem into localStorage.
     loadSettingsFromDisk();
@@ -151,4 +151,4 @@ document.addEventListener('DOMContentLoaded', () => {
       setSetting(element, key, value);
     });
   }
-});
+}

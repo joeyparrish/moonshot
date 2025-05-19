@@ -27,8 +27,8 @@ export function scrollToBottom(): void {
 }
 
 export function isDesktopBundle(): boolean {
-  // If we're using nw.js, we're in a desktop bundle.
-  if (window.nw) {
+  // If we're using electron in a desktop bundle, "process" is exposed.
+  if (window.process) {
     return true;
   }
   return false;
@@ -78,5 +78,14 @@ export function getCPU(): 'arm64'|'x64'|'unknowncpu' {
     }
   } else {
     return 'unknowncpu';
+  }
+}
+
+export function toggleFullscreen(): void {
+  // Use the standard web API for fullscreen.
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen();
   }
 }
