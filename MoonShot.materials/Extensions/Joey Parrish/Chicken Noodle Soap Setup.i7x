@@ -449,7 +449,7 @@ For restoring from a saved game (this is the default restore rule):
 
 
 [Auto-save and auto-restore logic are based on Kerkerkruip Permadeath by Victor Gijsbers, but heavily customized for our games and for Vorple.  Vorple itself also had to be modified to add support for file deletion.]
-An external file can be save file.
+An external file can be a save file.
 The binary file of save data is called "CNSAutoSave".
 The file of save data is a save file.
 Automatic save boolean is a truth state that varies. Automatic save boolean is true.  [Used to stop messages from piling up beyond the first autosave failure.]

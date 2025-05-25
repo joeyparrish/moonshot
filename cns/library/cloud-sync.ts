@@ -181,7 +181,10 @@ async function loadSavedGamesFromDisk(): Promise<void> {
     }
     await new Promise((resolve, reject) => {
       vfs.writeFile(
-          saveData.vfsPath,
+          // NOTE: This relative path needs to be prefixed with /inform/.
+          // Vorple docs state that this is the default for relative paths, but
+          // it doesn't seem to work here.
+          '/inform/' + saveData.vfsPath,
           dataString,
           {encoding: 'binary'},
           (error: Error, result: undefined) => {
