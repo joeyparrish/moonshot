@@ -135,13 +135,6 @@
           <p>
             <button
                 class="floating-button-text popup-close popup-open"
-                onapply="cns.achievements.showAchievements();"
-                data-popup-container-id="achievements-card-container">Achievements</button>
-          </p>
-
-          <p>
-            <button
-                class="floating-button-text popup-close popup-open"
                 data-popup-container-id="transcript-card-container">Send Feedback</button>
           </p>
 
@@ -294,11 +287,8 @@
           <p>
             <button
                 class="floating-button-text popup-close popup-open"
-                data-popup-container-id="license-card-container">Open Source Licenses</button>
-          </p>
-
-          <p>
-            <button class="floating-button-text" onclick="cns.showCredits()">Credits</button>
+                onapply="cns.achievements.showAchievements();"
+                data-popup-container-id="achievements-card-container">Achievements</button>
           </p>
         </div>
       </div>
