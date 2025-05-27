@@ -352,6 +352,12 @@ ul.inventory {
   margin: 0 auto;
 }
 
+#help-card p:not(.title),
+#main-settings-card p:not(.title) {
+  /* Space apart these menu buttons */
+  margin: 2rem 1rem;
+}
+
 /* This will be used to highlight interesting words in room descriptions in
  * easy mode. */
 body[data-difficulty="easy"] .interesting-highlight,
@@ -375,11 +381,15 @@ body[data-difficulty="easy"] .interesting-highlight,
 }
 
 .floating-button-text {
-  margin-top: 1em;
   padding: 0.5em;
 
   border-radius: 0.2em;
   font-weight: bold;
+}
+
+.floating-button-text.inline {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .floating-button,
@@ -430,8 +440,8 @@ body[data-difficulty="easy"] .interesting-highlight,
   /* Limit the size of the card. */
   min-width: calc(min(100vw - 6em, 30em));
   max-width: calc(min(100vw - 6em, 60em));
-  max-height: calc(100dvh - 6em);
-  margin: 3em;
+  max-height: calc(100dvh - 4em);
+  margin: 2em 3em;
   padding: 2em;
 
   /* Scroll if needed, otherwise, no scroll bar. */
@@ -444,6 +454,9 @@ body[data-difficulty="easy"] .interesting-highlight,
   position: relative;
 }
 
+.popup hr {
+  margin: 2em 0;
+}
 
 .popup {
   font-size: 3vh;
@@ -593,6 +606,10 @@ body[data-mobile="true"] #transcript-button {
 .popup input {
   /* Space these apart a bit */
   margin: 1em 0;
+}
+
+.popup label.inline {
+  margin: 0;
 }
 
 .toggle {
