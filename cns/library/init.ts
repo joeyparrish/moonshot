@@ -104,7 +104,6 @@ function initLogFile(): void {
   logFile = fs.openSync(logFilePath, 'w', 0o644);
 }
 
-  // Back up localStorage through the filesystem.
 function logToFile(level: string, args: IArguments): void {
   if (logFile !== null) {
     const now = new Date();
@@ -134,10 +133,9 @@ function wrapLogMethod(level: 'debug'|'log'|'info'|'warn'|'error'): void {
   };
 }
 
-async function redirectLogsToFile(): Promise<void> {
+function redirectLogsToFile(): void {
   if (isDesktopBundle()) {
-    await initLogFile();
-
+    initLogFile();
     wrapLogMethod('debug');
     wrapLogMethod('log');
     wrapLogMethod('info');
