@@ -264,6 +264,15 @@ export function initialize(): void {
   inputField = document.getElementById('lineinput-field') as HTMLInputElement;
   inputField.addEventListener('input', maybeShowAutoComplete);
 
+  // Also watch for "tab" characters.  Users can't normally type these, but
+  // they get inserted when the Steam overlay is activated.  If this happens,
+  // remove the tab from the end of the field.
+  inputField.addEventListener('input', (event) => {
+    if ((event as InputEvent).data == '\t') {
+      inputField.value = inputField.value.replace(/\t*$/, '');
+    }
+  });
+
   // Once in a while (after "restart" command), we fail to show autocomplete
   // from other normal events.  Try again on input field focus.
   inputField.addEventListener('focus', maybeShowAutoComplete);
