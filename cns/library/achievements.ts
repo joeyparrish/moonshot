@@ -305,3 +305,15 @@ export function showAchievements(): void {
     achievementContainer.appendChild(div);
   }
 }
+
+export function resetAchievements(): void {
+  for (const name in achievements) {
+    const {stat} = achievements[name]!;
+    if (isUnlocked(name)) {
+      relock(name);
+    }
+    if (stat && getStat(stat) != 0) {
+      setStat(stat, 0);
+    }
+  }
+}

@@ -591,6 +591,27 @@
           <button class="popup-close floating-button" title="close">X</button>
           <p class="title">Achievements</p>
           <div id="achievement-container"></div>
+          <p>
+            <button
+                class="floating-button-text popup-close popup-open"
+                data-popup-container-id="achievements-reset-container">Reset Achievements</button>
+          </p>
+        </div>
+      </div>
+
+      <div id="achievements-reset-container" class="hidden popup-container">
+        <div id="achievements-reset" class="popup">
+          <button class="popup-close floating-button" title="close">X</button>
+          <p class="title">Are you sure you want to reset all achievements?</p>
+          <p>
+            <button
+                class="floating-button-text popup-close"
+                onapply="cns.achievements.resetAchievements()">Yes!  Wipe it out!</button>
+          </p>
+          <p>
+            <button
+                class="floating-button-text popup-close">No, I want to keep my progress.</button>
+          </p>
         </div>
       </div>
 

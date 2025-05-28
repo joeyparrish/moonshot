@@ -61,6 +61,9 @@ function showPopup(event: Event): void {
 }
 
 function hidePopup(event: Event): void {
+  const button = (event.target as HTMLElement).closest<HTMLElement>('.popup-close')!;
+  executeOnApply(button);
+
   const popupContainer = (event.target as HTMLElement).closest<HTMLElement>('.popup-container')!;
   popupContainer.classList.add('hidden');
 
