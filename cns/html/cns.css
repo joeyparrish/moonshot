@@ -41,6 +41,7 @@ body {
   /* The body is black and only occupies the screen size. */
   background: black;
   overflow: hidden;
+  height: 100vh;
   height: 100dvh;
   position: relative;
 }
@@ -58,6 +59,7 @@ a, a:visited {
   overflow-y: scroll;
   scroll-behavior: smooth;
 
+  height: 100vh;
   height: 100dvh;
 
   /* The game area fades in and out when we go to/from splash/credits. */
@@ -136,6 +138,7 @@ body[data-auto-complete="false"] #auto-complete {
 
   margin: 0;
   padding: 2vh 2vw;
+  height: 100vh;
   height: 100dvh;
   width: 100vw;
 
@@ -208,6 +211,7 @@ img.cover {
 #creditsWrapper {
   display: flex;
   animation: 90s linear 2s credits-scroll-and-fade;
+  top: 100vh;
   top: 100dvh;
   position: relative;
 
@@ -237,6 +241,7 @@ img.cover {
 
 @keyframes credits-scroll-and-fade {
   0% {
+    top: 100vh;
     top: 100dvh;
     opacity: 1;
   }
@@ -415,6 +420,7 @@ body[data-difficulty="easy"] .interesting-highlight,
   /* Position in the middle of the page, overlaying everything else. */
   position: fixed;
   width: 100vw;
+  height: 100vh;
   height: 100dvh;
   margin: 0;
   padding: 0;
@@ -440,6 +446,7 @@ body[data-difficulty="easy"] .interesting-highlight,
   /* Limit the size of the card. */
   min-width: calc(min(100vw - 6em, 30em));
   max-width: calc(min(100vw - 6em, 60em));
+  max-height: calc(100vh - 4em);
   max-height: calc(100dvh - 4em);
   margin: 2em 3em;
   padding: 2em;
@@ -614,6 +621,7 @@ body[data-mobile="true"] #transcript-button {
 
 .toggle {
   /* Hide the actual toggle, but give it space. */
+  -webkit-appearance: none;
   appearance: none;
   position: relative;
   display: inline-block;
