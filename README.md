@@ -2,8 +2,7 @@
 
 # MoonShot
 
-A work of interactive fiction created by Joey & Charity Parrish for the [GitHub
-Game Off 2020](https://itch.io/jam/game-off-2020).
+A work of interactive fiction created by Joey & Charity Parrish for the [GitHub Game Off 2020](https://itch.io/jam/game-off-2020).
 
 Created with [Inform 7](http://inform7.com/).
 
@@ -13,6 +12,11 @@ Created with [Inform 7](http://inform7.com/).
 You play as a NASA intern in the 1960s, working on the Apollo 11 project.
 
 Everything goes very well, and you have no difficulties at all.  :grin:
+
+
+## Playing on Steam
+
+https://store.steampowered.com/app/3622090/MoonShot/
 
 
 ## Playing in a browser
