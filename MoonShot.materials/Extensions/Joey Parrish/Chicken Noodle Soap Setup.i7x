@@ -492,6 +492,12 @@ Check restarting the game:
 	execute JavaScript code "cns.wipeSavedGames()";
 	follow the immediately restart the VM rule.
 
+[This is only used when the player types "quit" during a game, not at the end of a game.]
+Check quitting the game:
+	[Delete the auto-save on an explicit restart command mid-game.]
+	execute JavaScript code "console.log('Explicit game quit.')";
+	follow the immediately quit rule.
+
 
 [We take advantage of the existence of the I7 "external file" type to make declaring files easier, but we should only use saved game files with these three phrases; the built-in external file handling is not equipped to deal with them. If we didn't use the I7 type, we would need to declare the name the saved game file(s) in I6 using string arrays.]
 To read (filename - save file external file) into memory:
