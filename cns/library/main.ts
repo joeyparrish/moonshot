@@ -39,7 +39,7 @@ import './transcripts.ts';
 import * as achievements from './achievements.ts';
 import {logEvent} from './analytics.ts';
 import * as autocomplete from './auto-complete.ts';
-import {postRestore} from './cloud-sync.ts';
+import {postRestore, wipeSavedGames} from './cloud-sync.ts';
 import {showCredits} from './credits.ts';
 import * as elements from './elements.ts';
 import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
@@ -68,4 +68,5 @@ window.cns = {
   stopBackgroundMusic,
   toast,
   toggleFullscreen,
+  wipeSavedGames,
 };

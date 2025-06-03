@@ -187,7 +187,6 @@ Autocomplete update rule:
 	if the story has ended:
 		execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
 		execute JavaScript code "cns.autocomplete.addVerb('restart\n')";
-		execute JavaScript code "cns.autocomplete.addVerb('restore\n')";
 		execute JavaScript code "cns.autocomplete.addVerb('quit\n')";
 		execute JavaScript code "cns.autocomplete.addVerb('undo\n')";
 		[Do not check story rules for verbs.]
@@ -319,7 +318,7 @@ Vorple interface update rule:
 Before handling the final question:
 	follow autocomplete update rules.
 
-[This is also distinct from the above triggers.  Here we just want to put yes/no into autocomplete.]
+[This is also distinct from the above triggers.  Here we just want to put yes/no into autocomplete.  This is only used when the player types "restart" during a game, not at the end of a game.]
 Check restarting the game:
 	execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
 	execute JavaScript code "cns.autocomplete.addVerb('yes\n')";
@@ -418,15 +417,40 @@ CNS ready is a truth state that varies.  CNS ready is initially false.
 CNS init ends when CNS ready is true.
 
 When CNS init begins:
+	[Autoload saved games.]
 	if the file of save data exists:
 		read file of save data into memory;
 		[If successful, the next command does not happen because we load the old state.  If it fails, we fall through.]
-		delete file of save data;
+		execute JavaScript code "console.log('Failed to load saved game during CNS init.')";
+		execute JavaScript code "cns.wipeSavedGames()";
 		execute JavaScript code "cns.toast.error('Auto-Restore Failed!', 'Your saved game was from an older version of the game, and could not be read.')";
-	now CNS ready is true;
+	[Setup autocomplete.]
 	execute JavaScript code "cns.autocomplete.initialize()";
 	execute JavaScript code "cns.autocomplete.resetTopics()";
+	[Handling for end-game scenarios.]
+	[Remove the "RESTORE" row from the end-game options, which conflicts with autosave and which we do not support.]
+	choose a row with final response rule of immediately restore saved game rule in the Table of Final Question Options;
+	blank out the final question wording entry;
+	[Modify the action of "RESTART" from the end-game options, to hook in with our own logic to wipe the saved game.]
+	choose a row with final response rule of immediately restart the VM rule in the Table of Final Question Options;
+	now the final response rule entry is the restart on end rule;
+	[Modify the action of "QUIT" from the end-game options, to hook in with our own logic to wipe the saved game.]
+	choose a row with final response rule of immediately quit rule in the Table of Final Question Options;
+	now the final response rule entry is the quit on end rule;
+	[Now we allow the game to start.]
+	now CNS ready is true;
 	follow the scene changing rules.
+
+
+[These rules let us hook into the end game options to wipe the saved game.]
+This is the restart on end rule:
+	execute JavaScript code "console.log('Restart at end of game.')";
+	execute JavaScript code "cns.wipeSavedGames()";
+	follow the immediately restart the VM rule.
+This is the quit on end rule:
+	execute JavaScript code "console.log('Quit at end of game.')";
+	execute JavaScript code "cns.wipeSavedGames()";
+	follow the immediately quit rule.
 
 
 [To allow known topics to be saved and restored, we need to hook into the restore logic.]
@@ -436,10 +460,11 @@ For restoring from a saved game (this is the default restore rule):
 	execute JavaScript code "cns.autocomplete.resetTopics()";
 	repeat through the Table of Known Concepts:
 		execute JavaScript code "cns.autocomplete.addTopic('[Concept entry]')";
-	execute JavaScript code "cns.postRestore()";
+	execute JavaScript code "return cns.postRestore()";
 	if the JavaScript code returned false:
 		[In case of catastrophic failure, delete the save and restart the game.  This should not happen to users, but happened to me once during debugging.  If the save file exists (in user home directory), but the cloud sync file for Steam does not exist, we can end up here.]
-		delete file of save data;
+		execute JavaScript code "console.log('Post-restore returned false.')";
+		execute JavaScript code "cns.wipeSavedGames()";
 		execute JavaScript code "location.reload()";
 	[Desktop bundles can also restore the HTML transcript, but browsers can't.  So for a browser session, you need to give some missing context.]
 	if we are playing in a browser:
@@ -467,9 +492,11 @@ Check restoring the game (this is the block restore rule):
 	say "The game is saved and loaded automatically. There is no need to restore your game manually." instead.
 
 First carry out restarting the game (this is the delete save on restart rule):
-	[Delete the auto-save on an explicit restart command.]
-	delete file of save data;
+	[Delete the auto-save on an explicit restart command mid-game.]
+	execute JavaScript code "console.log('Explicit game restart.')";
+	execute JavaScript code "cns.wipeSavedGames()";
 	continue the action.
+
 
 [We take advantage of the existence of the I7 "external file" type to make declaring files easier, but we should only use saved game files with these three phrases; the built-in external file handling is not equipped to deal with them. If we didn't use the I7 type, we would need to declare the name the saved game file(s) in I6 using string arrays.]
 To read (filename - save file external file) into memory:

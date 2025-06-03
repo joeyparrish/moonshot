@@ -86,6 +86,7 @@ export async function initCloudSync(): Promise<void> {
     await loadSavedGamesFromDisk();
   } catch (error) {
     console.error('Failed to load saved games from disk!', error);
+    try { wipeSavedGames(); } catch (_) {}
   }
 
   // Shim Glk's file writing API to get access to saved games as they are
@@ -196,6 +197,37 @@ async function loadSavedGamesFromDisk(): Promise<void> {
             }
           });
     });
+  } else {
+    // If our autosave backup has been deleted from the game folder, wipe the
+    // VFS to match.
+    console.log('Autosave file not found!', autoSavePath);
+    wipeSavedGames();
+  }
+}
+
+export function wipeSavedGames(): void {
+  if (!isDesktopBundle()) {
+    return;
+  }
+
+  console.log('Wiping saved games...');
+  try {
+    if (fs.existsSync(autoSavePath)) {
+      fs.unlinkSync(autoSavePath);
+    }
+  } catch (error) {
+    console.error('Failed to unlink auto-save file from game folder.');
+  }
+
+  try {
+    const vfs = vorple.file.getFS();
+    vfs.unlink(
+        // NOTE: This relative path needs to be prefixed with /inform/.
+        // Vorple docs state that this is the default for relative paths, but
+        // it doesn't seem to work here.
+        '/inform/' + AUTO_SAVE_FILE);
+  } catch (error) {
+    console.error('Failed to unlink auto-save file from VFS.');
   }
 }
 
