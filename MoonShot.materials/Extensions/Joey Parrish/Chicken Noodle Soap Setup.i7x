@@ -318,12 +318,6 @@ Vorple interface update rule:
 Before handling the final question:
 	follow autocomplete update rules.
 
-[This is also distinct from the above triggers.  Here we just want to put yes/no into autocomplete.  This is only used when the player types "restart" during a game, not at the end of a game.]
-Check restarting the game:
-	execute JavaScript code "cns.autocomplete.resetVerbs(false)"; [Remove basic verbs.]
-	execute JavaScript code "cns.autocomplete.addVerb('yes\n')";
-	execute JavaScript code "cns.autocomplete.addVerb('no\n')".
-
 [Reset any extra verbs after each command.]
 After reading a command:
 	now extra-verbs is {}.
@@ -491,11 +485,12 @@ Check saving the game (this is the block saving rule):
 Check restoring the game (this is the block restore rule):
 	say "The game is saved and loaded automatically. There is no need to restore your game manually." instead.
 
-First carry out restarting the game (this is the delete save on restart rule):
+[This is only used when the player types "restart" during a game, not at the end of a game.]
+Check restarting the game:
 	[Delete the auto-save on an explicit restart command mid-game.]
 	execute JavaScript code "console.log('Explicit game restart.')";
 	execute JavaScript code "cns.wipeSavedGames()";
-	continue the action.
+	follow the immediately restart the VM rule.
 
 
 [We take advantage of the existence of the I7 "external file" type to make declaring files easier, but we should only use saved game files with these three phrases; the built-in external file handling is not equipped to deal with them. If we didn't use the I7 type, we would need to declare the name the saved game file(s) in I6 using string arrays.]
