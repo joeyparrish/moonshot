@@ -32,7 +32,7 @@ export function captureHTML(includeAutoComplete: boolean): string {
   if (!includeAutoComplete) {
     hideAutoComplete();
   }
-  const transcriptHTML = output.outerHTML;
+  const transcriptHTML = window0.innerHTML;
   if (!includeAutoComplete) {
     maybeShowAutoComplete();
   }
@@ -43,7 +43,7 @@ export function captureText(includeAutoComplete: boolean): string {
   if (!includeAutoComplete) {
     hideAutoComplete();
   }
-  const transcriptText = output.innerText;
+  const transcriptText = window0.innerText;
   if (!includeAutoComplete) {
     maybeShowAutoComplete();
   }
@@ -51,16 +51,7 @@ export function captureText(includeAutoComplete: boolean): string {
 }
 
 export function restoreTranscript(html: string): void {
-  output.outerHTML = html;
-
-  let lineinput = document.querySelector<HTMLElement>('#lineinput');
-  if (!lineinput) {
-    // Recreate the input form if it was destroyed.
-    lineinput = document.createElement('form');
-    lineinput.id = 'lineinput';
-    lineinput.innerHTML = '<label id="lineinput-prefix" for="lineinput-field">&gt;</label><input id="lineinput-field" name="lineinput" type="text" autocapitalize="none" autocomplete="off" class="">';
-    window0.appendChild(lineinput);
-  }
+  window0.innerHTML = html;
 }
 
 export async function saveTranscript(): Promise<void> {
