@@ -176,17 +176,21 @@ export function addBit(name: string, bit: number): void {
 }
 
 export function countBits(maskName: string, statName: string): void {
-  let value = getStat(maskName);
+  let mask = getStat(maskName);
   let bits = 0;
 
-  while (value > 0) {
-    if (value & 1) {
+  while (mask > 0) {
+    if (mask & 1) {
       bits++;
     }
-    value >>= 1;
+    mask >>= 1;
   }
 
-  setStat(statName, bits);
+  // Be careful not to show the popup unless this value changed.
+  const oldBits = getStat(statName);
+  if (bits != oldBits) {
+    setStat(statName, bits);
+  }
 }
 
 export function unlock(name: string): void {
