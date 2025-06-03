@@ -477,7 +477,7 @@ For restoring from a saved game (this is the default restore rule):
 An external file can be a save file.
 The binary file of save data is called "CNSAutoSave".
 The file of save data is a save file.
-Automatic save boolean is a truth state that varies. Automatic save boolean is true.  [Used to stop messages from piling up beyond the first autosave failure.]
+No save failures is a truth state that varies. No save failures is true.  [Used to stop messages from piling up beyond the first autosave failure.]
 
 Before reading a command (this is the automatically save after input rule):
 	[Save before each command except the first one.]
@@ -563,10 +563,10 @@ Include (-
 	gg_savestr = 0;
 	if (res == 0) rtrue;
 	.SFailed;
-	if ( (+ Automatic save boolean +) )
+	if ( (+ No save failures +) )
 	{
 		print "[Could not save the game.]^^";
-		(+ Automatic save boolean +) = 0;
+		(+ No save failures +) = 0;
 	}
 ];
 
