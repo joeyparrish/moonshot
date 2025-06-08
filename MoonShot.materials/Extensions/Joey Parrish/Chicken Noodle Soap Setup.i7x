@@ -370,9 +370,13 @@ To play music (M - background music):
 		'[url of M]',
 		[loop point of M],
 		'[author credit of M]',
-		'[link of M]')";
+		'[link of M]')".
+To pause music:
+	execute JavaScript code "cns.pauseBackgroundMusic()".
+To resume music:
+	execute JavaScript code "cns.resumeBackgroundMusic()".
 To stop music:
-	execute JavaScript code "cns.stopBackgroundMusic()";
+	execute JavaScript code "cns.stopBackgroundMusic()".
 
 
 
@@ -431,6 +435,9 @@ When CNS init begins:
 	[Modify the action of "QUIT" from the end-game options, to hook in with our own logic to wipe the saved game.]
 	choose a row with final response rule of immediately quit rule in the Table of Final Question Options;
 	now the final response rule entry is the quit on end rule;
+	[Modify the action of "UNDO" from the end-game options, to hook in with our own logic.]
+	choose a row with final response rule of immediately undo rule in the Table of Final Question Options;
+	now the final response rule entry is the undo on end rule;
 	[Now we allow the game to start.]
 	now CNS ready is true;
 	follow the scene changing rules.
@@ -446,6 +453,12 @@ This is the quit on end rule:
 	execute JavaScript code "cns.wipeSavedGames()";
 	follow the immediately quit rule.
 
+[When we get the final options "restart", "undo", etc., pause the music.  If the user hits "undo", resume the music.]
+Before handling the final question:
+	pause music.
+This is the undo on end rule:
+	resume music;
+	follow the immediately undo rule.
 
 [To allow known topics to be saved and restored, we need to hook into the restore logic.]
 Restoring from a saved game is an activity.

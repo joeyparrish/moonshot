@@ -48,6 +48,9 @@ export function setBackgroundMusic(relativeUrl: string, loopTo: number, credit: 
   stopBackgroundMusic();
 
   backgroundMusic.src = url;
+  // playbackRate might be 0 due to a previous call to pauseBackgroundMusic.
+  backgroundMusic.playbackRate = 1;
+
   backgroundMusicLoopTo = loopTo;
   backgroundMusicCredit.textContent = credit;
   backgroundMusicLink.href = link;
@@ -63,6 +66,18 @@ export function stopBackgroundMusic(): void {
 
   noMusic.style.display = 'inline';
   backgroundMusicLink.style.display = 'none';
+}
+
+export function pauseBackgroundMusic(): void {
+  // Don't use pause(), which is a state we get into also when awaiting user
+  // interaction with the page to start the music.  Use playbackRate = 0, which
+  // won't be reverted by play().  This gives us a separate override state for
+  // music without pausing or unloading content.
+  backgroundMusic.playbackRate = 0;
+}
+
+export function resumeBackgroundMusic(): void {
+  backgroundMusic.playbackRate = 1;
 }
 
 export function initMusic(): void {

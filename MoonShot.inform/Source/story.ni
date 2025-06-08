@@ -210,8 +210,6 @@ The url of day3final-music is "day3final.webm".
 The author credit of day3final-music is "by Mikhail Smusev via Pixabay".
 The link of day3final-music is "https://pixabay.com/music/suspense-horror-258261/".
 
-Before handling the final question:
-	stop music.
 When day one ends:
 	stop music;
 	unlock achievement "complete_day_1".

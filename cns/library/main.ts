@@ -42,7 +42,7 @@ import * as autocomplete from './auto-complete.ts';
 import {postRestore, wipeSavedGames} from './cloud-sync.ts';
 import {showCredits} from './credits.ts';
 import * as elements from './elements.ts';
-import {setBackgroundMusic, stopBackgroundMusic} from './music.ts';
+import {pauseBackgroundMusic, resumeBackgroundMusic, setBackgroundMusic, stopBackgroundMusic} from './music.ts';
 import {pauseGame} from './pause.ts';
 import {showHelp, showMap, showSettings} from './popups.ts';
 import * as toast from './toast.ts';
@@ -57,8 +57,10 @@ window.cns = {
   isDesktopBundle,
   logEvent,
   pauseGame,
+  pauseBackgroundMusic,
   postRestore,
   reportBug,
+  resumeBackgroundMusic,
   saveTranscript,
   setBackgroundMusic,
   showCredits,
