@@ -206,17 +206,16 @@ async function loadSavedGamesFromDisk(): Promise<void> {
 }
 
 export function wipeSavedGames(): void {
-  if (!isDesktopBundle()) {
-    return;
-  }
-
   console.log('Wiping saved games...');
-  try {
-    if (fs.existsSync(autoSavePath)) {
-      fs.unlinkSync(autoSavePath);
+
+  if (isDesktopBundle()) {
+    try {
+      if (fs.existsSync(autoSavePath)) {
+        fs.unlinkSync(autoSavePath);
+      }
+    } catch (error) {
+      console.error('Failed to unlink auto-save file from game folder.');
     }
-  } catch (error) {
-    console.error('Failed to unlink auto-save file from game folder.');
   }
 
   try {
