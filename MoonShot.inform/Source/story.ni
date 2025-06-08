@@ -139,7 +139,7 @@ Carry out waking:
 	if the noun is not asleep:
 		say "[The noun] appears to be awake already.";
 		stop the action;
-	else:
+	otherwise:
 		[Don't print anything in particular.  Add specific rules for specific people to describe the act.]
 		now the noun is not asleep.
 Extra autocomplete verbs rule:
@@ -458,6 +458,7 @@ Checklist-1 is an interesting, privately-named [aliases only], critical [can't d
 The printed name of checklist-1 is "Apollo 11 checklist".
 The description of checklist-1 is "The checklist is [if checklist-1 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-1 can be ready.  When day one begins, now checklist-1 is not ready.
+Checklist-1 can be hint-ready.  When day one begins, now checklist-1 is not hint-ready.
 Understand "Apollo 11 checklist" as checklist-1.
 Understand "checklist" as checklist-1 when day one is happening.
 
@@ -499,7 +500,7 @@ Instead of quizzing the director about Apollo:
 	say "'I'm definitely not scared of getting started.  Definitely not.  There's no reason that Apollo 11 won't be a raging success.  No reason whatsoever.'  He looks very uncertain and his hands are quivering as he speaks."
 
 Instead of quizzing the director about checklist-1:
-	say "'Oh, I'm glad you asked about that,' he says.  'This is a detailed and highly technical checklist of the things I need you to do today.  Now, I wrote this myself, so please don't hesitate to ask me if you need help with any of these things.'";
+	say "'So, about that,' he says.  'This is a detailed and highly technical checklist of the things I need you to do today.  Now, I wrote this myself, so please don't hesitate to ask me if you need help with any of these things.'";
 	now checklist-1 is ready.
 
 Instead of quizzing the director about crew:
@@ -534,9 +535,13 @@ Instead of taking checklist-1:
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
 			now the director is relaxed;
 			continue the action;
-		else:
+		otherwise if checklist-1 is not hint-ready:
 			say "'Not so fast!' says [the director].  'We need to talk first.'";
 			show hint "Try 'ask about' to talk to the director about various topics.";
+			now checklist-1 is hint-ready;
+		otherwise:
+			say "'Hang on,' says [the director], 'we at least need to discuss this checklist before you just waltz off with it.'";
+			try quizzing the director about checklist-1.
 
 After examining checklist-1:
 	make "astronauts" known;
@@ -1690,6 +1695,7 @@ Checklist-2 is an interesting, privately-named [aliases only], critical [can't d
 The printed name of checklist-2 is "Operation Glitter checklist".
 The description of checklist-2 is "The checklist is [if checklist-2 is on the director's desk]laying on the desk, [end if]scribbled out in childish print."
 Checklist-2 can be ready.  When day two begins, now checklist-2 is not ready.
+Checklist-2 can be hint-ready.  When day one begins, now checklist-2 is not hint-ready.
 Understand "Operation Glitter checklist" as checklist-2.
 Understand "checklist" as checklist-2 when day two is happening.
 The items of checklist-2 are {get-lunch, drug-astronauts}.  [Initially, we hide the filming and reveal it later when Stanley gets sick.]
@@ -1726,9 +1732,13 @@ Instead of taking checklist-2:
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
 			now the director is relaxed;
 			continue the action;
-		else:
+		otherwise if checklist-2 is not hint-ready:
 			say "'Not so fast!' says [the director].  'We need to talk first.'";
 			show hint "Try 'ask about' to talk to the director about various topics.";
+			now checklist-2 is hint-ready;
+		otherwise:
+			say "'Hang on,' says [the director], 'we at least need to discuss this checklist before you just waltz off with it.'";
+			try quizzing the director about checklist-1.
 
 After examining checklist-2:
 	make "Operation Glitter" known;
@@ -1752,7 +1762,7 @@ Instead of quizzing the director about Apollo during day two:
 	now Apollo is day-two-discussed.
 
 Instead of quizzing the director about checklist-2:
-	say "'Good, you noticed that.  Same drill as before', he says, 'just follow my highly technical [interesting]checklist[/interesting] to get this operation going.  Ask about any of it if you need help!'";
+	say "'So, same drill as before', he says, 'just follow my highly technical [interesting]checklist[/interesting] to get this operation going.  Ask about any of it if you need help!'";
 	if Apollo is not day-two-discussed:
 		try quizzing the director about Apollo;
 	now checklist-2 is ready.
