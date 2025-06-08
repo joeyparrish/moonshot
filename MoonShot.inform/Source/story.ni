@@ -158,13 +158,13 @@ The-door is everywhere.  [Every room has a door, but they are not interesting.]
 
 [Sometimes, we should consider saying we're sorry.]
 Extra autocomplete verbs rule:
-	if the player is in the waiting room and the secretary is mad:
+	if the location of the player is the waiting room and the secretary is mad:
 		add "apologize\n" to extra-verbs;
-	if the player is in the engineering department and the engineer is sad:
+	if the location of the player is the engineering department and the engineer is sad:
 		add "apologize\n" to extra-verbs;
-	if the player is in the propulsion lab and the head scientist is enraged:
+	if the location of the player is the propulsion lab and the head scientist is enraged:
 		add "apologize\n" to extra-verbs;
-	if the player is in the personnel department and the head of personnel is not asleep:
+	if the location of the player is the personnel department and the head of personnel is not asleep:
 		add "apologize\n" to extra-verbs;
 
 A meeting rule:
@@ -227,7 +227,7 @@ Vorple interface update rule:
 		otherwise:
 			play music day2-music;
 	otherwise if day three is happening:
-		if the player is in the sound stage:
+		if the location of the player is the sound stage:
 			play music day3final-music;
 		otherwise:
 			play music day3-music;
@@ -289,7 +289,7 @@ The potted houseplant is in the waiting room.  The description of the potted hou
 Understand "plant" and "pot" as the houseplant.
 The houseplant is undescribed.  [We already talked about it in the room description, so don't list it again.]
 
-Instead of dropping the houseplant while the player is in the waiting room:
+Instead of dropping the houseplant while the location of the player is the waiting room:
 	say "You carefully hang the [houseplant] from the ceiling again, eliciting strange looks from [the secretary].";
 	now the houseplant is in the waiting room;
 	now the houseplant is undescribed.  [Don't mention it again as in the room.  The room description covers it.]
@@ -312,7 +312,7 @@ Instead of taking the phone:
 	say "[The secretary] stands up quickly and snatches it back from you.  'What is the matter with you?' she yells.  It takes her a minute or so to get the [phone] plugged back in.";
 	now the secretary is mad.
 
-Instead of saying sorry while the player is in the waiting room and the secretary is mad:
+Instead of saying sorry while the location of the player is the waiting room and the secretary is mad:
 	try saying sorry to the secretary.
 Instead of saying sorry to the secretary while the secretary is mad:
 	say "She doesn't look ready to forgive you."
@@ -369,7 +369,7 @@ Carry out triggering director-yells-1:
 	activate director-yells-1 in 3 turns.
 
 Extra autocomplete verbs rule:
-	if the player is in the waiting room and the director is ready:
+	if the location of the player is the waiting room and the director is ready:
 		add "go in\n" to extra-verbs;
 
 Instead of quizzing the secretary about the director:
@@ -530,7 +530,7 @@ Instead of going from the director's office during day one:
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-1:
 	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
-	if the player is in the director's office and the player does not have checklist-1:
+	if the location of the player is the director's office and the player does not have checklist-1:
 		if checklist-1 is ready:
 			say "[The director] looks relieved and drawls, 'Oh, thank you. I wasn't sure how I was gonna get all that done!'";
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
@@ -560,7 +560,7 @@ Check reporting:
 
 
 Extra autocomplete verbs rule:
-	if a checklist held by the player is complete or the player is in the director's office:
+	if a checklist held by the player is complete or the location of the player is the director's office:
 		add "report\n" to extra-verbs;
 
 
@@ -653,7 +653,7 @@ The tears are scenery in the engineering department.
 
 
 
-Instead of saying sorry while the player is in the engineering department and the engineer is sad:
+Instead of saying sorry while the location of the player is the engineering department and the engineer is sad:
 	try saying sorry to the engineer.
 Instead of saying sorry to the engineer while the engineer is sad:
 	say "He sniffs a little, then says 'Um, yeah, okay.  Apology accepted.'";
@@ -842,7 +842,7 @@ Instead of going to anywhere (called the destination):
 		now the chalkboard is in the destination;
 	continue the action.
 
-Every turn when a random chance of 1 in 10 succeeds and the player is in the propulsion lab and get-equations is not checked:
+Every turn when a random chance of 1 in 10 succeeds and the location of the player is the propulsion lab and get-equations is not checked:
 	say "[The head scientist] grumbles under his breath and erases half of the equations on one of the [interesting]mobile, wheeled chalkboards[/interesting], then starts furiously scribbling new ones."
 
 Equations-hint is an event.
@@ -959,7 +959,7 @@ After examining the tapir:
 The real name of the tapir is "Brizzleby".
 Understand "aardvark", "aardvarks", "ardvark", "ardvarks", and "animal" as the tapir.
 
-Every turn when a random chance of 3 in 10 succeeds and the player is in the propulsion lab and the tapir is in the cage:
+Every turn when a random chance of 3 in 10 succeeds and the location of the player is the propulsion lab and the tapir is in the cage:
 	say "[one of]The [tapir-aardvark] makes a snuffling sound.[or]A long, sad groan comes from [the cage].[or]Something in here smells distinctly like a [tapir-aardvark] fart.  (You definitely know what those are like.)[purely at random]".
 
 
@@ -1130,7 +1130,7 @@ Instead of quizzing the head scientist about Apollo:
 Instead of quizzing the head scientist about anything while the head scientist is enraged:
 	say "[The noun] throws an eraser at you and screams [bold type]'GET OUT!'[roman type][line break]";
 
-Instead of saying sorry while the player is in the propulsion lab and the head scientist is enraged:
+Instead of saying sorry while the location of the player is the propulsion lab and the head scientist is enraged:
 	try saying sorry to the head scientist.
 Instead of saying sorry to the head scientist while the head scientist is enraged:
 	say "[The head scientist] stares at you angrily for the space of a breath, then rips off one shoe and chases you out of the room with it.[paragraph break]";
@@ -1221,7 +1221,7 @@ After examining the metallic filing cabinet:
 An interesting, openable, closed, unnoticed container called the drawer is part of the metallic filing cabinet.  The description of the drawer is "The drawer is labeled 'Crew Candidate Personnel Files'."
 [We don't get told automatically what is inside an open container if it's part of another thing.  Fix this for the open drawer.]
 Before listing exits:
-	if the player is in the personnel department:
+	if the location of the player is the personnel department:
 		if the drawer is open:
 			say "In the open cabinet drawer, you can see [list of things in the drawer].[paragraph break]";
 	continue the action.
@@ -1386,7 +1386,7 @@ Instead of quizzing the head of personnel about Clifford McBride:
 
 
 
-Instead of saying sorry while the player is in the personnel department and the head of personnel is not asleep:
+Instead of saying sorry while the location of the player is the personnel department and the head of personnel is not asleep:
 	try saying sorry to the head of personnel.
 Instead of saying sorry to the head of personnel while the head of personnel is not asleep:
 	say "[The head of personnel] grunts and pointedly props his feet back up on his desk.  Within a moment, he is snoring again.";
@@ -1722,7 +1722,7 @@ Instead of going from the director's office during day two:
 [Keep the player from taking the checklist until you've talked to the director first.]
 Instead of taking checklist-2:
 	[The player may be taking it out of a container in some other location, in which case this dialog makes no sense.]
-	if the player is in the director's office and the player does not have checklist-2:
+	if the location of the player is the director's office and the player does not have checklist-2:
 		if checklist-2 is ready:
 			say "[The director] looks relieved and says, 'Now, you did good work for us yesterday.  Keep it up, and Nixon might let us all see our families again.  Heh heh.'  His chuckle is not at all comforting.";
 			show hint "You can examine the [interesting]checklist[/interesting] to see the details.";
@@ -2159,11 +2159,11 @@ Check giving a food (called the snack) to someone (called the recipient) during 
 	stop the action.
 
 To start photographer illness:
-	if the player is in the sound stage:
+	if the location of the player is the sound stage:
 		say "Suddenly, [the photographer] gets dizzy and collapses!  Someone calls for help, and a team of medics rush him away on a stretcher.  After the commotion dies down, someone brings you to speak with [the director] in his office.[paragraph break]";
-	otherwise if the player is in the director's office:
+	otherwise if the location of the player is the director's office:
 		say "Suddenly, [the director]'s phone rings.  He answers, 'yes?', followed by a few grunts of what you assume are acknowledgement, then he hangs up.[paragraph break]";
-	otherwise if the player is in the waiting room:
+	otherwise if the location of the player is the waiting room:
 		say "Suddenly, [the director] opens the door to his office and says, 'You better get in here, kid.  We've got some bad news.'  You follow him in.[paragraph break]";
 	otherwise:
 		say "Suddenly, [the secretary] rushes in and says, '[The director] needs to see you right away.  Something terrible has happened!'  You follow her to the director's office.[paragraph break]";
@@ -2581,7 +2581,7 @@ Understand "start filming", "start filming moon landing", and "start filming lan
 Understand "action" as filming the moon landing.
 
 Extra autocomplete verbs rule:
-	if the player is in the sound stage and day two is happening and film-moon-landing is not checked and the photographer is in purgatory:
+	if the location of the player is the sound stage and day two is happening and film-moon-landing is not checked and the photographer is in purgatory:
 		add "film moon landing\n" to extra-verbs;
 
 Check filming the moon landing:
@@ -2863,3 +2863,6 @@ Test achieve2 with "test day2room1 / test day2room2 / test day2room3 / test day2
 Test achieve3 with "n / s / e / w / d / w / e / l / w".
 
 Test achieve with "test achieve1 / test achieve2 / test achieve3".
+
+[A bug in which sitting in a chair made the player not be "in" the room, but rather "in" the chair.  You have to check if "the location of the player" is the room.  This broke a bunch of conditions using "in" when someone was sitting.]
+Test sitting-bug with "z / z / z / z / z / n / sit on wooden armchair / take Apollo 11 checklist".
