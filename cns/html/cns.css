@@ -514,6 +514,14 @@ body[data-difficulty="easy"] .interesting-highlight,
   .popup .floating-button {
     font-size: 3vh;
   }
+
+  #toast-container > .toast-info {
+    font-size: 2vh;
+  }
+
+  #toast-container > .toast-info > .toast-message {
+    font-size: 1.5vh;
+  }
 }
 
 
@@ -737,11 +745,17 @@ body[data-mobile="true"] #delete-button {
 #toast-container {
   /* Otherwise, this overlaps the scroll bar. */
   right: 1em;
+
+  /* Otherwise, this overflows the window. */
+  max-width: calc(100% - 2em);
 }
 
-/* All toasts are opaque. */
 #toast-container > .toast {
+  /* All toasts are opaque. */
   opacity: 1;
+
+  /* Otherwise, this overflows the container. */
+  max-width: 100%;
 }
 
 /* Add a small margin between title and message. */
