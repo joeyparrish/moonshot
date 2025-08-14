@@ -126,8 +126,10 @@ export function resetCustomAutoComplete(): void {
 }
 
 export function addCustomAutoComplete(re: RegExp, arrayOfOptions: string[]): void {
+  // Remove duplicates from the array, preserving order.
+  const uniqueOptions = [...new Set(arrayOfOptions)];
   // Add the empty string to the front of the array.
-  customAutoCompletes.push([re, [''].concat(arrayOfOptions)]);
+  customAutoCompletes.push([re, [''].concat(uniqueOptions)]);
 }
 
 // Select elements have a "change" event, but this fires when using up/down
