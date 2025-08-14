@@ -46,6 +46,14 @@ body {
   position: relative;
 }
 
+
+/* This combination makes the URL bar fixed.  Otherwise, scrolling on mobile
+ * devices results in resize events every time the URL bar shows/hides, which
+ * in turn triggers our auto-scroll feature, overriding the user intent. */
+html { overflow-y: scroll; }
+body { position: fixed; width: 100%; }
+
+
 a, a:visited {
   color: inherit;
   text-decoration: underline;
