@@ -73,21 +73,24 @@ if (isDesktopBundle()) {
 }
 
 export async function initCloudSync(): Promise<void> {
-  if (!isDesktopBundle()) {
-    return;
+  if (isDesktopBundle()) {
+    // Steps for actual cloud sync on Steam.
+
+    // Vorple's FS may not be loaded yet.
+    await vorple.file.init();
+
+    // Pick up Steam Cloud Save files and load them into the virtual filesystem
+    // of the interpreter.
+    try {
+      await loadSavedGamesFromDisk();
+    } catch (error) {
+      console.error('Failed to load saved games from disk!', error);
+      try { wipeSavedGames(); } catch (_) {}
+    }
   }
 
-  // Vorple's FS may not be loaded yet.
-  await vorple.file.init();
-
-  // Pick up Steam Cloud Save files and load them into the virtual filesystem
-  // of the interpreter.
-  try {
-    await loadSavedGamesFromDisk();
-  } catch (error) {
-    console.error('Failed to load saved games from disk!', error);
-    try { wipeSavedGames(); } catch (_) {}
-  }
+  // This is used even when we're in a web browser, so we can save and restore
+  // transcripts.
 
   // Shim Glk's file writing API to get access to saved games as they are
   // written:
@@ -261,22 +264,33 @@ function onSaveGame(stream: Glk.GlkStream, array: number[]) {
     return;
   }
 
-  fs.writeFileSync(autoSavePath, JSON.stringify(saveData), {encoding: 'utf8'});
+  if (isDesktopBundle()) {
+    fs.writeFileSync(autoSavePath, JSON.stringify(saveData),
+        {encoding: 'utf8'});
+  } else {
+    localStorage.setItem(LOCAL_STORAGE_PREFIX + 'transcript', transcriptHTML);
+  }
 }
 
 export function postRestore(): boolean {
   toastSuccess('Loaded game successfully.', 'Your progress has been restored.');
 
-  // Avoid an exception when restoring a game in a browser.  This is called
-  // directly by the game.
-  if (!isDesktopBundle()) {
-    return true;
-  }
-
+  // This is called directly by the game, in both Steam and a browser.
   try {
-    const saveData = JSON.parse(fs.readFileSync(autoSavePath, {encoding: 'utf8'})) as SaveData;
-    restoreTranscript(saveData.transcriptHTML);
-    console.log('Game transcript restored.');
+    if (isDesktopBundle()) {
+      const saveData = JSON.parse(fs.readFileSync(autoSavePath,
+          {encoding: 'utf8'})) as SaveData;
+      restoreTranscript(saveData.transcriptHTML);
+      console.log('Game transcript restored.');
+    } else {
+      const transcriptHTML = localStorage.getItem(
+          LOCAL_STORAGE_PREFIX + 'transcript');
+      if (transcriptHTML) {
+        restoreTranscript(transcriptHTML);
+        console.log('Game transcript restored.');
+      }
+    }
+
     return true;
   } catch (error) {
     console.error('Failed to restore game transcript!', error);
