@@ -2492,6 +2492,12 @@ To decide if the astronauts are prepared:
 			decide no;
 	decide yes.
 
+To decide if some astronauts are drugged:
+	repeat with X running through the sub-items of choose-crew:
+		if X is tripping or X is zonked or X is good at chess or X is high:
+			decide yes;
+	decide no.
+
 
 
 
@@ -2610,6 +2616,10 @@ Check filming the moon landing:
 		stop the action;
 	otherwise if the astronauts are prepared:
 		continue the action;
+	otherwise if some astronauts are drugged:
+		say "The astronauts are not all 'prepared' yet.  You need to get them ready for filming first.";
+		show hint "Examine each one to figure out if they have the right 'preparation'.";
+		stop the action;
 	otherwise:
 		say "The astronauts are not all 'prepared' yet.  You need to get them ready for filming first.";
 		show hint "Have you been to the chemist yet?";
