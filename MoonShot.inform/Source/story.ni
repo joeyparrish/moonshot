@@ -701,13 +701,13 @@ Instead of quizzing the engineer about the engineer:
 Instead of quizzing the engineer about the blueprints:
 	say "[The noun] looks both smug and offended at once.  '[bold type]ACTUALLY[roman type], they aren't blue at all!  The cyanotype [italic type]blueprint[roman type] began to be supplanted by [italic type]diazo prints[roman type], also known as [italic type][interesting]whiteprints[/interesting][roman type].'";
 	make "whiteprints" known;
+	now the blueprints are discussed;
 	now the printed name of get-blueprints is "Get command module whiteprints".
 
 [Give this concept a location, so we can have rules about "taking" it.]
 The whiteprints is a concept in the engineering department.
 Instead of quizzing the engineer about the whiteprints:
 	say "[The noun] rolls his eyes.  'Ha!  Nobody calls them whiteprints.' His laughter quickly devolves into snorts.  Wiping his eyes, he adds, 'It's okay.  Go ahead and [interesting][italic type]take the blueprints[roman type][/interesting] if you need them so badly.'";
-	now the blueprints are discussed;
 	now the printed name of get-blueprints is "Get command module drawings formerly known as blueprints".
 
 [If the player tries "take whiteprints", it should behave the same as above, when asking about "whiteprints".]
