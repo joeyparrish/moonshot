@@ -164,7 +164,7 @@ function processSelectChange(event: Event): void {
       const fullCommand = inputField.value + select.value.trim();
       inputField.value = '';
       // Delaying the submit avoids a double-enter effect on the input field.
-      setTimeout(() => vorple.prompt.submit(fullCommand), 0);
+      setTimeout(() => vorple.prompt.submit(fullCommand), 10);
     } else {
       // Add this value to the input field only.
       inputField.value += select.value + continuationAfterAutoComplete;
